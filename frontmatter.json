@@ -54,14 +54,6 @@
       "path": "[[workspace]]/archetypes"
     },
     {
-      "title": "anatole",
-      "path": "[[workspace]]/themes/anatole"
-    },
-    {
-      "title": "archetypes",
-      "path": "[[workspace]]/themes/anatole/archetypes"
-    },
-    {
       "title": "posts",
       "path": "[[workspace]]/posts"
     }
