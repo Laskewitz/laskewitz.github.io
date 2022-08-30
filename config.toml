@@ -45,3 +45,9 @@ url = "https://linkedin.com/in/laskewitz"
 
 [mermaid]
 # enable = true
+
+[module]
+
+  [[module.imports]]
+    path = "github.com/lxndrblz/anatole"
+    disable=false
