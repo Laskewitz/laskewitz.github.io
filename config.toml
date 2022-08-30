@@ -1,0 +1,47 @@
+baseURL = 'https://laskewitz.io/'
+languageCode = 'en-us'
+title = 'Laskewitz.io'
+theme = "Anatole"
+copyright = "- {{ YEAR }}"
+
+[menu]
+
+  [[menu.main]]
+  name = "Home"
+  identifier = "home"
+  weight = 100
+  url = "/posts/"
+
+  [[menu.main]]
+  name = "About"
+  weight = 300
+  identifier = "about"
+  url = "/about/"
+
+[params]
+title = "Laskewitz.io"
+author = "Daniel Laskewitz"
+description = "Ramblings about the Microsoft Power Platform..."
+profilePicture = "images/profile.jpg"
+
+# Posts
+mainSections = ["posts"]
+readMore = true
+
+[[params.socialIcons]]
+icon = "fab fa-github"
+title = "GitHub"
+url = "https://github.com/laskewitz/"
+
+[[params.socialIcons]]
+icon = "fab fa-twitter"
+title = "Twitter"
+url = "https://twitter.com/laskewitz/"
+
+[[params.socialIcons]]
+icon = "fab fa-linkedin"
+title = "Linkedin"
+url = "https://linkedin.com/in/laskewitz"
+
+[mermaid]
+# enable = true
