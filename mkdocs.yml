@@ -1,3 +1,5 @@
 site_name: Laskewitz.io
 theme:
   name: material
+  palette:
+    primary: indigo
