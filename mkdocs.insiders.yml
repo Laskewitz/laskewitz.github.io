@@ -1,0 +1,12 @@
+INHERIT: mkdocs.yml
+plugins:
+  - blog:
+    post_date_format: long
+    post_url_format: '{date}-{slug}'
+  - rss:
+      date_from_meta:
+        as_creation: date
+nav:
+  - Home: index.md
+  - Blog:
+      - blog/index.md
