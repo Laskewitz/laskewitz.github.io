@@ -6,15 +6,9 @@ theme:
   features:
     - navigation.tabs
 plugins:
-  - meta
-  - blog:
-      blog_dir: .
-      post_date_format: long
-      post_url_format: '{date}-{slug}'
   - search
   - tags
 nav:
-  - Home:
-      - index.md
+  - Home: 'index.md'
   - Power Platform Connectors: 'connectors/index.md'
   - About: 'about.md'

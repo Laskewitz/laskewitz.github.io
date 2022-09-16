@@ -8,7 +8,7 @@ To help you with the development of custom connectors, I created a Visual Studio
 
 Just hit `ctrl+space` (on Windows) or `command+space` (on MacOS), enter `ppc`, and you will find all snippets that are available.
 
-🌎 [https://aka.ms/ppc-vscode](https://aka.ms/ppc-vscode)
+🌎 [Power Platform Connectors (VS Code Extension)](https://aka.ms/ppc-vscode)
 
 ## 🔗 Independent Publisher Connectors
 

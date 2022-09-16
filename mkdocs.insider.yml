@@ -1,0 +1,6 @@
+INHERIT: mkdocs.yml
+plugins:
+  - blog:
+      blog_dir: .
+      post_date_format: long
+      post_url_format: '{date}-{slug}'
