@@ -14,4 +14,3 @@ nav:
   - Blog: 'blog/index.md'
   - Tools:
       - Power Platform Connectors: 'connectors/index.md'
-  - About: 'about.md'
