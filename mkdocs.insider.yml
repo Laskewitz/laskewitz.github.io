@@ -3,4 +3,3 @@ plugins:
   - blog:
       post_date_format: long
       post_url_format: '{date}-{slug}'
-  - social
