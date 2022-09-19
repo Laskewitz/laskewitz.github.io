@@ -1,5 +1,13 @@
 INHERIT: mkdocs.yml
 plugins:
   - blog:
+      # Blog directory
+      blog_dir: .
+      # Date format
       post_date_format: long
-      post_url_format: '{date}-{slug}'
+      # URL format
+      post_url_date_format: YYYY/MM/dd
+      post_url_format: '{date}/{slug}'
+      # Categories
+      categories: true
+      categories_url_format: 'category/{slug}'
