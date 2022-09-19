@@ -10,5 +10,7 @@ plugins:
   - tags
 nav:
   - Home: 'index.md'
-  - Power Platform Connectors: 'connectors/index.md'
+  - Blog: 'blog/index.md'
+  - Tools:
+      - Power Platform Connectors: 'connectors/index.md'
   - About: 'about.md'
