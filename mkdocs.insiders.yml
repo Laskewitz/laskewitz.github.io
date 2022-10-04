@@ -2,8 +2,7 @@ INHERIT: mkdocs.yml
 plugins:
   - blog:
       # Blog directory
-      blog_dir: blog
-      blog_custom_dir: overrides      
+      blog_dir: blog    
       # Date format
       post_date_format: long
       # URL format
