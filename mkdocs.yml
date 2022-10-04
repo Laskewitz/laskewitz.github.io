@@ -1,4 +1,4 @@
-site_name: Laskewitz.io
+site_name: Daniel Laskewitz
 theme:
   name: material
   features:
@@ -24,6 +24,8 @@ theme:
   font:
     text: Roboto
     code: Roboto Mono
+  icon:
+    logo: material/apps
   palette:
     primary: blue
 extra:
@@ -36,10 +38,13 @@ plugins:
   - social
   - tags
 nav:
+  - Home: 'index.md'
   - Blog:
-      - 'index.md'
-      - '2022':
-          - posts/hello-world.md
+      - 'blog/index.md'
+      - 'Categories':
+          - Code First: 'blog/category/code-first.md'
+          - Power Apps: 'blog/category/power-apps.md'
+          - Power Automate: 'blog/category/power-automate.md'
+          - Tools: 'blog/category/tools.md'
   - Tools:
       - Power Platform Connectors: 'connectors/index.md'
-  - About: 'about.md'

@@ -1,13 +1,13 @@
 ---
 date: 2022-09-15
-authors:
-  - laskewitz
+authors: [laskewitz]
 description: >
   Our new blog is built with the brand new built-in blog plugin. You can build a blog alongside your documentation or standalone.
 categories:
-  - Blog
-  - Hello
-  - World
+  - code-first
+  - power-apps
+  - power-automate
+  - tools
 links:
   - Getting started with Insiders: insiders/getting-started.md#requirements
   - setup/setting-up-a-blog.md#built-in-blog-plugin
