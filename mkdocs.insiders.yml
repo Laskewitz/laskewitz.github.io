@@ -1,0 +1,8 @@
+INHERIT: mkdocs.yml
+plugins:
+  - search
+  - social
+  - tags
+  - blog:
+    blog_dir: .
+    post_excerpt_max_authors: 2
