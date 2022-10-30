@@ -10,7 +10,7 @@ hide:
 
 # New website
 
-From today on, I will write my new blogs on this new website. Hopefully you'll like what I have to say! What can you expect from me?
+From today on, I will write my new blogs on this new website. Hopefully you'll like what I have to say!
 
 <!-- more -->
 
