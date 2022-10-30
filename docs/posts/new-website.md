@@ -1,5 +1,6 @@
 ---
 date: 2022-10-30
+description: This is my new website. In this first blog, I will sum up all the details about the website and my plans with it.
 categories:
   - Announcement
 authors:
