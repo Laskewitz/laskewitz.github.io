@@ -3,6 +3,7 @@ title: Power Platform Connectors | Daniel Laskewitz
 description: On this page, you will find more info about the Power Platform Connectors VS Code extension and Independent Publisher Connectors.
 hide:
 - footer
+icon: material/connection
 ---
 
 # Power Platform Connectors

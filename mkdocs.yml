@@ -23,6 +23,10 @@ nav:
   - Power Platform Connectors: 'power-platform-connectors.md'
   - About: 'about.md'
 markdown_extensions:
+  - attr_list
+  - pymdownx.emoji:
+      emoji_index: !!python/name:materialx.emoji.twemoji
+      emoji_generator: !!python/name:materialx.emoji.to_svg
   - pymdownx.superfences
   - pymdownx.tabbed:
       alternate_style: true
@@ -43,3 +47,4 @@ plugins:
   - blog:
       blog_dir: .
       authors_file: .authors.yml
+  - social

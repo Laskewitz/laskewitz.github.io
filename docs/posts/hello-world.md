@@ -5,6 +5,8 @@ categories:
   - World
 authors:
   - laskewitz
+hide:
+  - footer
 ---
 
 # Hello world

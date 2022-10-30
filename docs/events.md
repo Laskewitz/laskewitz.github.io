@@ -4,6 +4,7 @@ description: On this page, you can find the events where Daniel Laskewitz has be
 # icon: writing_hand_tone1
 hide:
 - footer
+icon: material/calendar
 ---
 # Events
 
