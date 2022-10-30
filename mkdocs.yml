@@ -1,6 +1,5 @@
 site_name: ''
 theme:
-  logo:
   name: material
   features:
     - navigation.expand
@@ -15,11 +14,13 @@ theme:
     - toc.follow
     - toc.integrate
   palette:
-    primary: white
+    primary: black
+    accent: orange
 nav:
   - Blog:
       - 'index.md'
-  - Tools: 'tools.md'
+  - Events: 'events.md'
+  - Power Platform Connectors: 'power-platform-connectors.md'
   - About: 'about.md'
 markdown_extensions:
   - pymdownx.superfences
