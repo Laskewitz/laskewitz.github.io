@@ -1,4 +1,5 @@
 ---
+title: About
 hide:
   - footer
 icon: material/emoticon-happy
