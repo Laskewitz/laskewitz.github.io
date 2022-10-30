@@ -1,7 +1,0 @@
-INHERIT: mkdocs.yml
-plugins:
-  - blog:
-    blog_dir: .
-  - search
-  - social
-  - tags

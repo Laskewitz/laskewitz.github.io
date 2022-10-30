@@ -1,5 +1,6 @@
-site_name: Daniel Laskewitz
+site_name: ''
 theme:
+  logo:
   name: material
   custom_dir: overrides
   features:
@@ -16,7 +17,8 @@ theme:
   palette:
     primary: white
 nav:
-  - Home: 'index.md'
+  - Blog:
+      - 'index.md'
   - Tools: 'tools.md'
   - About: 'about.md'
 markdown_extensions:
@@ -34,3 +36,8 @@ extra:
       link: https://github.com/laskewitz
     - icon: fontawesome/brands/linkedin
       link: https://linkedin.com/in/laskewitz
+plugins:
+  - search
+  - meta
+  - blog:
+      blog_dir: .
