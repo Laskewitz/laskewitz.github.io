@@ -1,4 +1,5 @@
 site_name: 'Laskewitz.io'
+site_url: https://www.laskewitz.io
 theme:
   name: material
   logo: images/logo-white.png
