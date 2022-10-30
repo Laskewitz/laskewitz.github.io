@@ -12,8 +12,6 @@ hide:
 
 From today on, I will write my new blogs on this new website. Hopefully you'll like what I have to say! What can you expect from me?
 
-Read on to learn more...
-
 <!-- more -->
 
 ## What can you expect from me?
