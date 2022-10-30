@@ -1,4 +1,4 @@
-site_name: 'Daniel Laskewitz'
+site_name: 'Laskewitz.io'
 theme:
   name: material
   logo: images/logo-white.png
@@ -17,7 +17,7 @@ theme:
     - toc.integrate
   palette:
     primary: black
-    accent: orange
+    accent: deep orange
 nav:
   - Blog:
       - 'index.md'
