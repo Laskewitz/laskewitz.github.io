@@ -1,0 +1,6 @@
+.md-header__topic {
+  display: none;
+}
+.md-header__button.md-logo :-webkit-any(img, svg) {
+  height: 2rem !important;
+}

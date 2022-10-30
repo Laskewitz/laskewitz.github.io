@@ -1,6 +1,8 @@
-site_name: ''
+site_name: 'Daniel Laskewitz'
 theme:
   name: material
+  logo: images/logo-white.png
+  favicon: images/icon.png
   features:
     - navigation.expand
     - navigation.indexes
@@ -48,3 +50,5 @@ plugins:
       blog_dir: .
       authors_file: .authors.yml
   - social
+extra_css:
+  - stylesheets/extra.css
