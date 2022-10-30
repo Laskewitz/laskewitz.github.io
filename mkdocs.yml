@@ -42,3 +42,4 @@ plugins:
   - meta
   - blog:
       blog_dir: .
+      authors_file: .authors.yml
