@@ -58,7 +58,7 @@ extra:
       make my site better.
 plugins:
   - search
-  - meta
+  - material/meta
   - blog:
       blog_dir: .
       authors_file: .authors.yml
