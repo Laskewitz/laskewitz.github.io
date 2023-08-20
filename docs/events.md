@@ -15,7 +15,7 @@ icon: material/calendar
 | Event | Date | Link |
 | ----------- | ------------------------------------ | ------------------------------------ |
 | Nordic Summit | September 23rd, 2023 | :material-web: [https://nordicsummit.info/](https://nordicsummit.info/) |
-| *Secret event* | September 27th, 2023 | More info later |
+| *Secret event* | September 27th, 2023 | :x: More info later |
 | Microsoft Power Platform Conference | October 1st - 6th, 2023 | :material-web: [https://powerplatformconf.com/](https://powerplatformconf.com/) |
 | South Coast Summit | October 13th - 14th, 2023 | :material-web: [https://www.southcoastsummit.com/](https://www.southcoastsummit.com/) |
 | CollabDays Belgium | October 21st, 2023 | :material-web: [https://www.collabdays.org/2023-belgium/](https://www.collabdays.org/2023-belgium/) |
