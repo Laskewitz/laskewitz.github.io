@@ -10,7 +10,7 @@ icon: material/calendar
 
 ## 2023
 
-### Upcoming events
+### Upcoming events 📆
 
 | Event | Date | Link |
 | ----------- | ------------------------------------ | ------------------------------------ |
@@ -23,7 +23,7 @@ icon: material/calendar
 | Ignite | November 14th - 17th, 2023 | :material-web: [https://ignite.microsoft.com/](https://ignite.microsoft.com/) |
 | CollabDays Lisbon | November 25th, 2023 | :material-web: [https://www.collabdays.org/2023-lisbon/](https://www.collabdays.org/2023-lisbon/) |
 
-### Past events
+### Past events ✅
 
 | Event | Date | Link |
 | ----------- | ------------------------------------ | ------------------------------------ |
@@ -33,11 +33,10 @@ icon: material/calendar
 | European Collaboration Summit | May 22nd - 24th, 2023 | :material-web: [https://www.collabsummit.eu/](https://www.collabsummit.eu/) |
 | Automation Summit | May 20th, 2023 | :material-web: [https://automationsummit.powercommunity.com/](https://automationsummit.powercommunity.com/) |
 | Iberian Tech Summit | April 29th, 2023 | :material-web: [https://iberiantechsummit.com/en/](https://iberiantechsummit.com/en/) |
-| Iberian Tech Summit | April 29th, 2023 | :material-web: [https://iberiantechsummit.com/en/](https://iberiantechsummit.com/en/) |
 
 ## 2022
 
-### Past events
+### Past events ✅
 
 | Event | Date | Link |
 | ----------- | ------------------------------------ | ------------------------------------ |
