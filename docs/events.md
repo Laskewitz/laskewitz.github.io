@@ -20,7 +20,7 @@ icon: material/calendar
 | South Coast Summit | October 13th - 14th, 2023 | :material-web: [https://www.southcoastsummit.com/](https://www.southcoastsummit.com/) |
 | CollabDays Belgium | October 21st, 2023 | :material-web: [https://www.collabdays.org/2023-belgium/](https://www.collabdays.org/2023-belgium/) |
 | Resco.NEXT | October 24th - 25th, 2023 | :material-web: [https://resconext.com/](https://resconext.com/) |
-| Ignite | November 14th - 17th, 2023 | :material-web: [https://ignite.microsoft.com/](https://ignite.microsoft.com/) |
+| Ignite 2023 | November 14th - 17th, 2023 | :material-web: [https://ignite.microsoft.com/](https://ignite.microsoft.com/) |
 | CollabDays Lisbon | November 25th, 2023 | :material-web: [https://www.collabdays.org/2023-lisbon/](https://www.collabdays.org/2023-lisbon/) |
 
 ### Past events ✅
@@ -40,7 +40,7 @@ icon: material/calendar
 
 | Event | Date | Link |
 | ----------- | ------------------------------------ | ------------------------------------ |
-| ESPC | November 28th - December 1st | :material-web: [https://www.sharepointeurope.com/](https://www.sharepointeurope.com/) |
+| European SharePoint Conference 2022 | November 28th - December 1st | :material-web: [https://www.sharepointeurope.com/](https://www.sharepointeurope.com/) |
 | Ignite 2022 | October 14th | :material-web: [Direct link to the recording](https://ignite.microsoft.com/en-US/sessions/1d0792dd-3f20-4aa2-94d8-537d7d77d86d) |
 | Nordic Summit | September 24th | :material-web: [Nordic Summit website](https://nordicsummit.info/) |
 | CollabDays Netherlands 2022 | September 10th | :material-web: [CollabDays NL website](https://www.collabdays.org/2022-nl/) |
