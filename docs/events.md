@@ -32,10 +32,10 @@ icon: material/calendar
 | European Collaboration Summit | May 22nd - 24th, 2023 | :material-web: [https://www.collabsummit.eu/](https://www.collabsummit.eu/) |
 | Automation Summit | May 20th, 2023 | :material-web: [https://automationsummit.powercommunity.com/](https://automationsummit.powercommunity.com/) |
 | Iberian Tech Summit | April 29th, 2023 | :material-web: [https://iberiantechsummit.com/en/](https://iberiantechsummit.com/en/) |
-| European SharePoint Conference 2022 | November 28th - December 1st | :material-web: [https://www.sharepointeurope.com/](https://www.sharepointeurope.com/) |
-| Ignite 2022 | October 14th | :material-web: [Direct link to the recording](https://ignite.microsoft.com/en-US/sessions/1d0792dd-3f20-4aa2-94d8-537d7d77d86d) |
-| Nordic Summit | September 24th | :material-web: [Nordic Summit website](https://nordicsummit.info/) |
-| CollabDays Netherlands 2022 | September 10th | :material-web: [CollabDays NL website](https://www.collabdays.org/2022-nl/) |
-| Scottish Summit | June 10th | :material-web: [Scottish Summit website](https://scottishsummit.com/) |
-| Oslo Power Platform and beyond | May 21st | :material-web: [Oslo Power Platform and beyond website](https://oslo-power-platform-and-beyond.sessionize.com/) |
-| Teams Nation 2022 | March 23rd | :x: No website available |
+| European SharePoint Conference 2022 | November 28th - December 1st, 2022 | :material-web: [https://www.sharepointeurope.com/](https://www.sharepointeurope.com/) |
+| Ignite 2022 | October 14th, 2022 | :material-web: [Direct link to the recording](https://ignite.microsoft.com/en-US/sessions/1d0792dd-3f20-4aa2-94d8-537d7d77d86d) |
+| Nordic Summit | September 24th, 2022 | :material-web: [Nordic Summit website](https://nordicsummit.info/) |
+| CollabDays Netherlands 2022 | September 10th, 2022 | :material-web: [CollabDays NL website](https://www.collabdays.org/2022-nl/) |
+| Scottish Summit | June 10th, 2022 | :material-web: [Scottish Summit website](https://scottishsummit.com/) |
+| Oslo Power Platform and beyond | May 21st, 2022 | :material-web: [Oslo Power Platform and beyond website](https://oslo-power-platform-and-beyond.sessionize.com/) |
+| Teams Nation 2022 | March 23rd, 2022 | :x: No website available |
