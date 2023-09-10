@@ -1,4 +1,5 @@
-laskewitz:
-  name: Daniel Laskewitz
-  description: Developer Advocate
-  avatar: https://github.com/laskewitz.png
+authors:
+  laskewitz:
+    name: Daniel Laskewitz
+    description: Developer Advocate
+    avatar: https://github.com/laskewitz.png
