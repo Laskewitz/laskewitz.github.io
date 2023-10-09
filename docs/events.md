@@ -26,9 +26,9 @@ icon: material/calendar
 
 | Event | Date | Link |
 | ----------- | ------------------------------------ | ------------------------------------ |
-| Nordic Summit | September 23rd, 2023 | :material-web: [https://nordicsummit.info/](https://nordicsummit.info/) |
-| Microsoft Build Netherlands | September 27th, 2023 | :material-web: [https://msevents.microsoft.com/event?id=53725391](https://msevents.microsoft.com/event?id=53725391) |
 | Microsoft Power Platform Conference | October 1st - 6th, 2023 | :material-web: [https://powerplatformconf.com/](https://powerplatformconf.com/) |
+| Microsoft Build Netherlands | September 27th, 2023 | :material-web: [https://msevents.microsoft.com/event?id=53725391](https://msevents.microsoft.com/event?id=53725391) |
+| Nordic Summit | September 23rd, 2023 | :material-web: [https://nordicsummit.info/](https://nordicsummit.info/) |
 | Scottish Summit on Tour | August 5th, 2023 | :material-web: [https://www.scottishsummit.com/](https://www.scottishsummit.com/) |
 | Dynamics 365 CX Summit 2023 | June 24th, 2023 | :material-web: [https://d365cxsummit.powercommunity.com/](https://d365cxsummit.powercommunity.com/) |
 | European Power Platform Conference 2023 | June 20th - 22nd, 2023 | :material-web: [https://www.sharepointeurope.com/european-power-platform-conference/](https://www.sharepointeurope.com/european-power-platform-conference/) |
