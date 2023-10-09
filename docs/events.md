@@ -2,6 +2,8 @@
 title: Events
 description: On this page, you can find the events where Daniel Laskewitz has been and will be in the future.
 # icon: writing_hand_tone1
+authors:
+  - laskewitz
 hide:
 - footer
 icon: material/calendar
