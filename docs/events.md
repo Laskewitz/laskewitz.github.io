@@ -12,20 +12,21 @@ icon: material/calendar
 
 | Event | Date | Link |
 | ----------- | ------------------------------------ | ------------------------------------ |
-| Nordic Summit | September 23rd, 2023 | :material-web: [https://nordicsummit.info/](https://nordicsummit.info/) |
-| Microsoft Build Netherlands | September 27th, 2023 | :material-web: [https://msevents.microsoft.com/event?id=53725391](https://msevents.microsoft.com/event?id=53725391) |
-| Microsoft Power Platform Conference | October 1st - 6th, 2023 | :material-web: [https://powerplatformconf.com/](https://powerplatformconf.com/) |
 | South Coast Summit | October 13th - 14th, 2023 | :material-web: [https://www.southcoastsummit.com/](https://www.southcoastsummit.com/) |
 | CollabDays Belgium | October 21st, 2023 | :material-web: [https://www.collabdays.org/2023-belgium/](https://www.collabdays.org/2023-belgium/) |
 | Resco.NEXT | October 24th - 25th, 2023 | :material-web: [https://resconext.com/](https://resconext.com/) |
 | Ignite 2023 | November 14th - 17th, 2023 | :material-web: [https://ignite.microsoft.com/](https://ignite.microsoft.com/) |
 | CollabDays Lisbon | November 25th, 2023 | :material-web: [https://www.collabdays.org/2023-lisbon/](https://www.collabdays.org/2023-lisbon/) |
+| European SharePoint, Office 365 and Azure Conference | November 27th - 30th, 2023 | :material-web: [https://www.sharepointeurope.com/](https://www.sharepointeurope.com/) |
 | Microsoft 365 Community Day Miami | February 2nd, 2024 | :material-web: [https://m365miami.com/](https://m365miami.com/) |
 
 ## Past events ✅
 
 | Event | Date | Link |
 | ----------- | ------------------------------------ | ------------------------------------ |
+| Nordic Summit | September 23rd, 2023 | :material-web: [https://nordicsummit.info/](https://nordicsummit.info/) |
+| Microsoft Build Netherlands | September 27th, 2023 | :material-web: [https://msevents.microsoft.com/event?id=53725391](https://msevents.microsoft.com/event?id=53725391) |
+| Microsoft Power Platform Conference | October 1st - 6th, 2023 | :material-web: [https://powerplatformconf.com/](https://powerplatformconf.com/) |
 | Scottish Summit on Tour | August 5th, 2023 | :material-web: [https://www.scottishsummit.com/](https://www.scottishsummit.com/) |
 | Dynamics 365 CX Summit 2023 | June 24th, 2023 | :material-web: [https://d365cxsummit.powercommunity.com/](https://d365cxsummit.powercommunity.com/) |
 | European Power Platform Conference 2023 | June 20th - 22nd, 2023 | :material-web: [https://www.sharepointeurope.com/european-power-platform-conference/](https://www.sharepointeurope.com/european-power-platform-conference/) |
