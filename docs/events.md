@@ -24,6 +24,7 @@ icon: material/calendar
 
 | Event | Date | Link |
 | ----------- | ------------------------------------ | ------------------------------------ |
+| Ignite NL 2023 | December 19th, 2023 | :material-web: [https://pulse.microsoft.com/nl-nl/microsoft-ignite/](https://pulse.microsoft.com/nl-nl/microsoft-ignite/) |
 | CollabDays Lisbon | November 25th, 2023 | :material-web: [https://www.collabdays.org/2023-lisbon/](https://www.collabdays.org/2023-lisbon/) |
 | Ignite 2023 | November 14th - 17th, 2023 | :material-web: [https://ignite.microsoft.com/](https://ignite.microsoft.com/) |
 | Resco.NEXT | October 24th - 25th, 2023 | :material-web: [https://resconext.com/](https://resconext.com/) |
