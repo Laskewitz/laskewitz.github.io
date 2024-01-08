@@ -13,7 +13,7 @@ icon: material/calendar
 ## Upcoming events 📆
 
 | Event | Date | Location | Link |
-| ----------- | ------------------------------------ | ------------------------------------ |
+| ----------- | ------------------------------------ | ------------------------------------ | ------------------------------------ |
 | Microsoft 365 Community Day Miami | February 2nd, 2024 | Miami, USA :us: | :material-web: [https://m365miami.com/](https://m365miami.com/) |
 | European Collaboration Summit | May 14th - 16th, 2024 | Wiesbaden, Germany :de: | :material-web: [https://collabsummit.eu/](https://collabsummit.eu/) |
 | DynamicsMinds | May 26th - 29th, 2024 | Portoroz, Slovenia :si: | :material-web: [https://www.dynamicsminds.com/](https://www.dynamicsminds.com/) |
@@ -22,7 +22,7 @@ icon: material/calendar
 
 ## Past events ✅
 
-| Event | Date | Link |
+| Event | Date | Location | Link |
 | ----------- | ------------------------------------ | ------------------------------------ | ------------------------------------ |
 | Ignite NL 2023 | December 19th, 2023 | Den Haag, The Netherlands :nl: | :material-web: [https://pulse.microsoft.com/nl-nl/microsoft-ignite/](https://pulse.microsoft.com/nl-nl/microsoft-ignite/) |
 | CollabDays Lisbon | November 25th, 2023 | Lisbon, Portugal :portugal: | :material-web: [https://www.collabdays.org/2023-lisbon/](https://www.collabdays.org/2023-lisbon/) |
