@@ -19,7 +19,6 @@ icon: material/calendar
 | DynamicsMinds | May 26th - 29th, 2024 | :material-web: [https://www.dynamicsminds.com/](https://www.dynamicsminds.com/) |
 <!-- | Name | Date | :material-web: [website](website) | -->
 
-
 ## Past events ✅
 
 | Event | Date | Link |
