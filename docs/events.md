@@ -17,7 +17,7 @@ icon: material/calendar
 | Microsoft 365 Community Day Miami | February 2nd, 2024 | :us: Miami, USA | :material-web: [https://m365miami.com/](https://m365miami.com/) |
 | European Collaboration Summit | May 14th - 16th, 2024 | :de: Wiesbaden, Germany | :material-web: [https://collabsummit.eu/](https://collabsummit.eu/) |
 | DynamicsMinds | May 26th - 29th, 2024 | :si: Portoroz, Slovenia | :material-web: [https://www.dynamicsminds.com/](https://www.dynamicsminds.com/) |
-| Scottish Summit | October 17th - 19th, 2024 | :scotland: Aberdeen, Scotland | :material-web: [https://www.dynamicsminds.com/](https://www.dynamicsminds.com/) |
+| Scottish Summit | October 17th - 19th, 2024 | :scotland: Aberdeen, Scotland | :material-web: [https://www.scottishsummit.com/](https://www.scottishsummit.com/) |
 <!-- | Name | Date | :nl: | :material-web: [website](website) | -->
 
 ## Past events ✅
