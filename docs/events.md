@@ -16,15 +16,15 @@ icon: material/calendar
 | ----------- | ------------------------------------ | ------------------------------------ |
 | Microsoft 365 Community Day Miami | February 2nd, 2024 | Miami, USA :us: | :material-web: [https://m365miami.com/](https://m365miami.com/) |
 | European Collaboration Summit | May 14th - 16th, 2024 | Wiesbaden, Germany :de: | :material-web: [https://collabsummit.eu/](https://collabsummit.eu/) |
-| DynamicsMinds | May 26th - 29th, 2024 | :si: | :material-web: [https://www.dynamicsminds.com/](https://www.dynamicsminds.com/) |
-| Scottish Summit | October 17th - 19th, 2024 | :scotland: | :material-web: [https://www.dynamicsminds.com/](https://www.dynamicsminds.com/) |
+| DynamicsMinds | May 26th - 29th, 2024 | Portoroz, Slovenia :si: | :material-web: [https://www.dynamicsminds.com/](https://www.dynamicsminds.com/) |
+| Scottish Summit | October 17th - 19th, 2024 | Aberdeen, Scotland :scotland: | :material-web: [https://www.dynamicsminds.com/](https://www.dynamicsminds.com/) |
 <!-- | Name | Date | :nl: | :material-web: [website](website) | -->
 
 ## Past events ✅
 
 | Event | Date | Link |
 | ----------- | ------------------------------------ | ------------------------------------ |
-| Ignite NL 2023 | December 19th, 2023 | :material-web: [https://pulse.microsoft.com/nl-nl/microsoft-ignite/](https://pulse.microsoft.com/nl-nl/microsoft-ignite/) |
+| Ignite NL 2023 | December 19th, 2023 | Den Haag, Netherlands :nl: | :material-web: [https://pulse.microsoft.com/nl-nl/microsoft-ignite/](https://pulse.microsoft.com/nl-nl/microsoft-ignite/) |
 | CollabDays Lisbon | November 25th, 2023 | :material-web: [https://www.collabdays.org/2023-lisbon/](https://www.collabdays.org/2023-lisbon/) |
 | Ignite 2023 | November 14th - 17th, 2023 | :material-web: [https://ignite.microsoft.com/](https://ignite.microsoft.com/) |
 | Resco.NEXT | October 24th - 25th, 2023 | :material-web: [https://resconext.com/](https://resconext.com/) |
