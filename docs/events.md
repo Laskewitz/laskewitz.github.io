@@ -35,7 +35,7 @@ icon: material/calendar
 | Nordic Summit | September 23rd, 2023 | Copenhagen, Denmark :dk: | :material-web: [https://nordicsummit.info/](https://nordicsummit.info/) |
 | Scottish Summit on Tour | August 5th, 2023 | Manchester, UK :gb: | :material-web: [https://www.scottishsummit.com/](https://www.scottishsummit.com/) |
 | Dynamics 365 CX Summit 2023 | June 24th, 2023 | Brussels, Belgium :be: | :material-web: [https://d365cxsummit.powercommunity.com/](https://d365cxsummit.powercommunity.com/) |
-| European Power Platform Conference 2023 | June 20th - 22nd, 2023 | Dublin, Ireland :ireland: | :material-web: [https://www.sharepointeurope.com/european-power-platform-conference/](https://www.sharepointeurope.com/european-power-platform-conference/) |
+| European Power Platform Conference 2023 | June 20th - 22nd, 2023 | Dublin, Ireland :ie: | :material-web: [https://www.sharepointeurope.com/european-power-platform-conference/](https://www.sharepointeurope.com/european-power-platform-conference/) |
 | European Collaboration Summit | May 22nd - 24th, 2023 | Dusseldorf, Germany :de: | :material-web: [https://www.collabsummit.eu/](https://www.collabsummit.eu/) |
 | Automation Summit | May 20th, 2023 | London, UK :gb: | :material-web: [https://automationsummit.powercommunity.com/](https://automationsummit.powercommunity.com/) |
 | Iberian Tech Summit | April 29th, 2023 | Olhao, Portugal :pt: | :material-web: [https://iberiantechsummit.com/en/](https://iberiantechsummit.com/en/) |
