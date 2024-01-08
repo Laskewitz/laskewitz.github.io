@@ -12,12 +12,13 @@ icon: material/calendar
 
 ## Upcoming events 📆
 
-| Event | Date | Link |
+| Event | Date | Location | Link |
 | ----------- | ------------------------------------ | ------------------------------------ |
-| Microsoft 365 Community Day Miami | February 2nd, 2024 | :material-web: [https://m365miami.com/](https://m365miami.com/) |
-| European Collaboration Summit | May 14th - 16th, 2024 | :material-web: [https://collabsummit.eu/](https://collabsummit.eu/) |
-| DynamicsMinds | May 26th - 29th, 2024 | :material-web: [https://www.dynamicsminds.com/](https://www.dynamicsminds.com/) |
-<!-- | Name | Date | :material-web: [website](website) | -->
+| Microsoft 365 Community Day Miami | February 2nd, 2024 | Miami, USA :us: | :material-web: [https://m365miami.com/](https://m365miami.com/) |
+| European Collaboration Summit | May 14th - 16th, 2024 | Wiesbaden, Germany :de: | :material-web: [https://collabsummit.eu/](https://collabsummit.eu/) |
+| DynamicsMinds | May 26th - 29th, 2024 | :si: | :material-web: [https://www.dynamicsminds.com/](https://www.dynamicsminds.com/) |
+| Scottish Summit | October 17th - 19th, 2024 | :scotland: | :material-web: [https://www.dynamicsminds.com/](https://www.dynamicsminds.com/) |
+<!-- | Name | Date | :nl: | :material-web: [website](website) | -->
 
 ## Past events ✅
 
