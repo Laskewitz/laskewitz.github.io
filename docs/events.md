@@ -15,7 +15,7 @@ icon: material/calendar
 | Event | Date | Location | Link |
 | ----------- | ------------------------------------ | ------------------------------------ | ------------------------------------ |
 | Microsoft 365 Community Day Miami | February 2nd, 2024 | :us: Miami, USA | :material-web: [https://m365miami.com/](https://m365miami.com/) |
-| DevWorld Conference | February 29th - March 1st, 2024 | Amsterdam, The Netherlands :nl: | :material-web: [https://devworldconference.com/](https://devworldconference.com/) |
+| DevWorld Conference | February 29th - March 1st, 2024 | :nl: Amsterdam, The Netherlands | :material-web: [https://devworldconference.com/](https://devworldconference.com/) |
 | European Collaboration Summit | May 14th - 16th, 2024 | :de: Wiesbaden, Germany | :material-web: [https://collabsummit.eu/](https://collabsummit.eu/) |
 | DynamicsMinds | May 26th - 29th, 2024 | :si: Portoroz, Slovenia | :material-web: [https://www.dynamicsminds.com/](https://www.dynamicsminds.com/) |
 | Scottish Summit | October 17th - 19th, 2024 | :scotland: Aberdeen, Scotland | :material-web: [https://www.scottishsummit.com/](https://www.scottishsummit.com/) |
