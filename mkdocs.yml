@@ -21,7 +21,8 @@ theme:
     accent: deep orange
 nav:
   - Events: 'events.md'
-  - Power Platform Connectors: 'power-platform-connectors.md'
+  - Projects:
+    - Power Platform Connectors: 'power-platform-connectors.md'
 
 markdown_extensions:
   - attr_list
