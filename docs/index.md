@@ -2,7 +2,6 @@
 title: Home
 hide:
   - footer
-icon: material/emoticon-happy
 ---
 
 # Home
