@@ -20,6 +20,7 @@ theme:
     primary: black
     accent: deep orange
 nav:
+  - Home: 'index.md'
   - Events: 'events.md'
   - Projects:
     - Power Platform Connectors: 'power-platform-connectors.md'
