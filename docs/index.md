@@ -1,11 +1,11 @@
 ---
-title: About
+title: Home
 hide:
   - footer
 icon: material/emoticon-happy
 ---
 
-# About
+# Home
 
 Welcome to my little place where you can find content I have created. At the events page you can find which events I'm going to speak at and where I have had talks.
 
