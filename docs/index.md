@@ -1,5 +1,6 @@
 ---
 title: Home
+subtitle: Welcome to my website!
 hide:
   - footer
   - toc
