@@ -59,11 +59,5 @@ plugins:
   - search
   - meta
   - social
-  - rss:
-      match_path: posts/.*
-      categories:
-        - categories
-      date_from_meta:
-        as_creation: date
 extra_css:
   - stylesheets/extra.css
