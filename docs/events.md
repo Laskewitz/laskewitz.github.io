@@ -1,6 +1,7 @@
 ---
 title: Events
-description: On this page, you can find the events where Daniel Laskewitz has been and will be in the future.
+subtitle: On this page you can see upcoming and past events where I was as a speaker.
+description: On this page, you can find the events where I has been and will be in the future.
 # icon: writing_hand_tone1
 authors:
   - laskewitz
