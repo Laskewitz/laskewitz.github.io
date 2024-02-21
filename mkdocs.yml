@@ -58,9 +58,6 @@ extra:
 plugins:
   - search
   - meta
-  - blog:
-      blog_dir: .
-      authors_file: .authors.yml
   - social
   - rss:
       match_path: posts/.*
