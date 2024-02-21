@@ -14,10 +14,14 @@ icon: material/calendar
 
 | Event | Date | Location | Link |
 | ----------- | ------------------------------------ | ------------------------------------ | ------------------------------------ |
-| Microsoft 365 Community Day Miami | February 2nd, 2024 | :us: Miami, USA | :material-web: [https://m365miami.com/](https://m365miami.com/) |
+| Global Power Platform Bootcamp 2024 | February 24th, 2024 | :be: Waregem, Belgium | :material-web: [https://ppbc.poweraddicts.be/](https://ppbc.poweraddicts.be/) |
 | DevWorld Conference | February 29th - March 1st, 2024 | :nl: Amsterdam, The Netherlands | :material-web: [https://devworldconference.com/](https://devworldconference.com/) |
+| Microsoft AI Tour Paris | March 13th, 2024 | :fr: Paris, France | :material-web: [https://msevents.microsoft.com/event?id=4006187193](https://msevents.microsoft.com/event?id=4006187193) |
+| Microsoft AI Tour Berlin | March 19th, 2024 | :de: Berlin, Germany | :material-web: [https://msevents.microsoft.com/event?id=3085871691](https://msevents.microsoft.com/event?id=3085871691) |
 | European Collaboration Summit | May 14th - 16th, 2024 | :de: Wiesbaden, Germany | :material-web: [https://collabsummit.eu/](https://collabsummit.eu/) |
 | DynamicsMinds | May 26th - 29th, 2024 | :si: Portoroz, Slovenia | :material-web: [https://www.dynamicsminds.com/](https://www.dynamicsminds.com/) |
+| European Power Platform Conference 2024 | June 11th - 13th, 2024 | :be: Brussels, Belgium | :material-web: [https://www.sharepointeurope.com/european-power-platform-conference/](https://www.sharepointeurope.com/european-power-platform-conference/) |
+| Azure & AI Lowlands 2024 | June 26th, 2024 | :nl: Utrecht, The Netherlands | :material-web: [https://www.azurelowlands.com/](https://www.azurelowlands.com/) |
 | Scottish Summit | October 17th - 19th, 2024 | :scotland: Aberdeen, Scotland | :material-web: [https://www.scottishsummit.com/](https://www.scottishsummit.com/) |
 <!-- | Name | Date | :nl: | :material-web: [website](website) | -->
 
@@ -25,6 +29,7 @@ icon: material/calendar
 
 | Event | Date | Location | Link |
 | ----------- | ------------------------------------ | ------------------------------------ | ------------------------------------ |
+| Microsoft 365 Community Day Miami | February 2nd, 2024 | :us: Miami, USA | :material-web: [https://m365miami.com/](https://m365miami.com/) |
 | Ignite NL 2023 | December 19th, 2023 | :nl: Den Haag, The Netherlands | :material-web: [https://pulse.microsoft.com/nl-nl/microsoft-ignite/](https://pulse.microsoft.com/nl-nl/microsoft-ignite/) |
 | CollabDays Lisbon | November 25th, 2023 | :pt: Lisbon, Portugal | :material-web: [https://www.collabdays.org/2023-lisbon/](https://www.collabdays.org/2023-lisbon/) |
 | Ignite 2023 | November 14th - 17th, 2023 | :us: Seattle, USA | :material-web: [https://ignite.microsoft.com/](https://ignite.microsoft.com/) |
