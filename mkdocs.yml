@@ -20,11 +20,10 @@ theme:
     primary: black
     accent: deep orange
 nav:
-  - Blog:
-      - 'index.md'
+  - About: 'index.md'
   - Events: 'events.md'
   - Power Platform Connectors: 'power-platform-connectors.md'
-  - About: 'about.md'
+
 markdown_extensions:
   - attr_list
   - pymdownx.emoji:
