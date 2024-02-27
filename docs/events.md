@@ -29,7 +29,7 @@ icon: material/calendar
 
 | Event | Date | Location | Link |
 | ----------- | ------------------------------------ | ------------------------------------ | ------------------------------------ |
-| Global Power Platform Bootcamp 2024 | February 24th, 2024 | :be: Waregem, Belgium | :material-web: [https://ppbc.poweraddicts.be/](https://ppbc.poweraddicts.be/) |
+| Global Power Platform Bootcamp 2024 [(slides)](./slides/GPPB2024-Copilot-Studio.pdf) | February 24th, 2024 | :be: Waregem, Belgium | :material-web: [https://ppbc.poweraddicts.be/](https://ppbc.poweraddicts.be/) |
 | Microsoft 365 Community Day Miami | February 2nd, 2024 | :us: Miami, USA | :material-web: [https://m365miami.com/](https://m365miami.com/) |
 | Ignite NL 2023 | December 19th, 2023 | :nl: Den Haag, The Netherlands | :material-web: [https://pulse.microsoft.com/nl-nl/microsoft-ignite/](https://pulse.microsoft.com/nl-nl/microsoft-ignite/) |
 | CollabDays Lisbon | November 25th, 2023 | :pt: Lisbon, Portugal | :material-web: [https://www.collabdays.org/2023-lisbon/](https://www.collabdays.org/2023-lisbon/) |
