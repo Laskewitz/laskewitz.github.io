@@ -17,6 +17,7 @@ icon: material/calendar
 | ----------- | ------------------------------------ | ------------------------------------ | ------------------------------------ |
 | Microsoft AI Tour Paris | March 13th, 2024 | :fr: Paris, France | :material-web: [https://msevents.microsoft.com/event?id=4006187193](https://msevents.microsoft.com/event?id=4006187193) |
 | Microsoft AI Tour Berlin | March 19th, 2024 | :de: Berlin, Germany | :material-web: [https://msevents.microsoft.com/event?id=3085871691](https://msevents.microsoft.com/event?id=3085871691) |
+| Envision NL | April 25th, 2024 | :nl: | |
 | European Collaboration Summit | May 14th - 16th, 2024 | :de: Wiesbaden, Germany | :material-web: [https://collabsummit.eu/](https://collabsummit.eu/) |
 | DynamicsMinds | May 26th - 29th, 2024 | :si: Portoroz, Slovenia | :material-web: [https://www.dynamicsminds.com/](https://www.dynamicsminds.com/) |
 | European Power Platform Conference 2024 | June 11th - 13th, 2024 | :be: Brussels, Belgium | :material-web: [https://www.sharepointeurope.com/european-power-platform-conference/](https://www.sharepointeurope.com/european-power-platform-conference/) |
