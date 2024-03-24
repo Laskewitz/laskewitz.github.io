@@ -17,13 +17,13 @@ icon: material/calendar
 | ----------- | ------------------------------------ | ------------------------------------ | ------------------------------------ |
 | Envision NL | April 25th, 2024 | :nl: | |
 | European Collaboration Summit | May 14th - 16th, 2024 | :de: Wiesbaden, Germany | :material-web: [https://collabsummit.eu/](https://collabsummit.eu/) |
-<!-- | Build | May 21st - 23th, 2024 | :us: Seattle, USA | :material-web: [https://build.microsoft.com/en-US/home](https://build.microsoft.com/en-US/home) | -->
 | DynamicsMinds | May 26th - 29th, 2024 | :si: Portoroz, Slovenia | :material-web: [https://www.dynamicsminds.com/](https://www.dynamicsminds.com/) |
 | Resco Next | June 4th - 6th, 2024 | :at: Vienna, Austria | :material-web: [https://resconext.com/](https://resconext.com/) |
 | European Power Platform Conference 2024 | June 11th - 13th, 2024 | :be: Brussels, Belgium | :material-web: [https://www.sharepointeurope.com/european-power-platform-conference/](https://www.sharepointeurope.com/european-power-platform-conference/) |
 | Azure & AI Lowlands 2024 | June 26th, 2024 | :nl: Utrecht, The Netherlands | :material-web: [https://www.azurelowlands.com/](https://www.azurelowlands.com/) |
 | Scottish Summit | October 17th - 19th, 2024 | :scotland: Aberdeen, Scotland | :material-web: [https://www.scottishsummit.com/](https://www.scottishsummit.com/) |
 <!-- | Name | Date | :nl: | :material-web: [website](website) | -->
+<!-- | Build | May 21st - 23th, 2024 | :us: Seattle, USA | :material-web: [https://build.microsoft.com/en-US/home](https://build.microsoft.com/en-US/home) | -->
 
 ## Past events ✅
 
