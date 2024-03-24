@@ -15,11 +15,11 @@ icon: material/calendar
 
 | Event | Date | Location | Link |
 | ----------- | ------------------------------------ | ------------------------------------ | ------------------------------------ |
-| Microsoft AI Tour Paris | March 13th, 2024 | :fr: Paris, France | :material-web: [https://msevents.microsoft.com/event?id=4006187193](https://msevents.microsoft.com/event?id=4006187193) |
-| Microsoft AI Tour Berlin | March 19th, 2024 | :de: Berlin, Germany | :material-web: [https://msevents.microsoft.com/event?id=3085871691](https://msevents.microsoft.com/event?id=3085871691) |
 | Envision NL | April 25th, 2024 | :nl: | |
 | European Collaboration Summit | May 14th - 16th, 2024 | :de: Wiesbaden, Germany | :material-web: [https://collabsummit.eu/](https://collabsummit.eu/) |
+<!-- | Build | May 21st - 23th, 2024 | :us: Seattle, USA | :material-web: [https://build.microsoft.com/en-US/home](https://build.microsoft.com/en-US/home) | -->
 | DynamicsMinds | May 26th - 29th, 2024 | :si: Portoroz, Slovenia | :material-web: [https://www.dynamicsminds.com/](https://www.dynamicsminds.com/) |
+| Resco Next | June 4th - 6th, 2024 | :at: Vienna, Austria | :material-web: [https://resconext.com/](https://resconext.com/) |
 | European Power Platform Conference 2024 | June 11th - 13th, 2024 | :be: Brussels, Belgium | :material-web: [https://www.sharepointeurope.com/european-power-platform-conference/](https://www.sharepointeurope.com/european-power-platform-conference/) |
 | Azure & AI Lowlands 2024 | June 26th, 2024 | :nl: Utrecht, The Netherlands | :material-web: [https://www.azurelowlands.com/](https://www.azurelowlands.com/) |
 | Scottish Summit | October 17th - 19th, 2024 | :scotland: Aberdeen, Scotland | :material-web: [https://www.scottishsummit.com/](https://www.scottishsummit.com/) |
@@ -29,6 +29,8 @@ icon: material/calendar
 
 | Event | Date | Location | Link |
 | ----------- | ------------------------------------ | ------------------------------------ | ------------------------------------ |
+| Microsoft AI Tour Paris | March 13th, 2024 | :fr: Paris, France | :material-web: [https://msevents.microsoft.com/event?id=4006187193](https://msevents.microsoft.com/event?id=4006187193) |
+| Microsoft AI Tour Berlin | March 19th, 2024 | :de: Berlin, Germany | :material-web: [https://msevents.microsoft.com/event?id=3085871691](https://msevents.microsoft.com/event?id=3085871691) |
 | DevWorld Conference [(slides)](https://aka.ms/DL-DevWorld-Slides) | February 29th - March 1st, 2024 | :nl: Amsterdam, The Netherlands | :material-web: [https://devworldconference.com/](https://devworldconference.com/) |
 | Global Power Platform Bootcamp 2024 [(slides)](https://aka.ms/DL-GPPB24-Slides) | February 24th, 2024 | :be: Waregem, Belgium | :material-web: [https://ppbc.poweraddicts.be/](https://ppbc.poweraddicts.be/) |
 | Microsoft 365 Community Day Miami | February 2nd, 2024 | :us: Miami, USA | :material-web: [https://m365miami.com/](https://m365miami.com/) |
