@@ -29,8 +29,9 @@ icon: material/calendar
 
 | Event | Date | Location | Link |
 | ----------- | ------------------------------------ | ------------------------------------ | ------------------------------------ |
-| Microsoft AI Tour Paris | March 13th, 2024 | :fr: Paris, France | :material-web: [https://msevents.microsoft.com/event?id=4006187193](https://msevents.microsoft.com/event?id=4006187193) |
+| DIWUG - April 2024 [(slides)](https://aka.ms/DL-DIWUG24-Slides) | April 2nd, 2024 | :nl: Barendrecht, The Netherlands | :material-web: [https://www.meetup.com/dutch-information-workers-user-group-diwug/events/299810236/](https://www.meetup.com/dutch-information-workers-user-group-diwug/events/299810236/) |
 | Microsoft AI Tour Berlin | March 19th, 2024 | :de: Berlin, Germany | :material-web: [https://msevents.microsoft.com/event?id=3085871691](https://msevents.microsoft.com/event?id=3085871691) |
+| Microsoft AI Tour Paris | March 13th, 2024 | :fr: Paris, France | :material-web: [https://msevents.microsoft.com/event?id=4006187193](https://msevents.microsoft.com/event?id=4006187193) |
 | DevWorld Conference [(slides)](https://aka.ms/DL-DevWorld-Slides) | February 29th - March 1st, 2024 | :nl: Amsterdam, The Netherlands | :material-web: [https://devworldconference.com/](https://devworldconference.com/) |
 | Global Power Platform Bootcamp 2024 [(slides)](https://aka.ms/DL-GPPB24-Slides) | February 24th, 2024 | :be: Waregem, Belgium | :material-web: [https://ppbc.poweraddicts.be/](https://ppbc.poweraddicts.be/) |
 | Microsoft 365 Community Day Miami | February 2nd, 2024 | :us: Miami, USA | :material-web: [https://m365miami.com/](https://m365miami.com/) |
