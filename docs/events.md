@@ -15,8 +15,8 @@ icon: material/calendar
 
 | Event | Date | Location | Link |
 | ----------- | ------------------------------------ | ------------------------------------ | ------------------------------------ |
-| Envision NL | April 25th, 2024 | :nl: | |
 | European Collaboration Summit | May 14th - 16th, 2024 | :de: Wiesbaden, Germany | :material-web: [https://collabsummit.eu/](https://collabsummit.eu/) |
+| Build | May 21th - 23rd, 2024 | :us: Seattle, United Stated | :material-web: [https://build.microsoft.com/](https://build.microsoft.com/) |
 | DynamicsMinds | May 26th - 29th, 2024 | :si: Portoroz, Slovenia | :material-web: [https://www.dynamicsminds.com/](https://www.dynamicsminds.com/) |
 | Resco Next | June 4th - 6th, 2024 | :at: Vienna, Austria | :material-web: [https://resconext.com/](https://resconext.com/) |
 | European Power Platform Conference 2024 | June 11th - 13th, 2024 | :be: Brussels, Belgium | :material-web: [https://www.sharepointeurope.com/european-power-platform-conference/](https://www.sharepointeurope.com/european-power-platform-conference/) |
