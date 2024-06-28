@@ -15,7 +15,7 @@ icon: material/calendar
 
 | Event | Date | Location | Link |
 | ----------- | ------------------------------------ | ------------------------------------ | ------------------------------------ |
-| Nordic Summit | September 27th - 28th, 2024 | :norway: Oslo, Norway | :material-web: [https://www.nordicsummit.info/](https://www.nordicsummit.info/) |
+| Nordic Summit | September 27th - 28th, 2024 | :no: Oslo, Norway | :material-web: [https://www.nordicsummit.info/](https://www.nordicsummit.info/) |
 | Scottish Summit | October 17th - 19th, 2024 | :scotland: Aberdeen, Scotland | :material-web: [https://www.scottishsummit.com/](https://www.scottishsummit.com/) |
 <!-- | Name | Date | :nl: | :material-web: [website](website) | -->
 <!-- | Build | May 21st - 23th, 2024 | :us: Seattle, USA | :material-web: [https://build.microsoft.com/en-US/home](https://build.microsoft.com/en-US/home) | -->
