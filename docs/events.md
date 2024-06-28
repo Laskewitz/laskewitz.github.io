@@ -15,12 +15,7 @@ icon: material/calendar
 
 | Event | Date | Location | Link |
 | ----------- | ------------------------------------ | ------------------------------------ | ------------------------------------ |
-| European Collaboration Summit | May 14th - 16th, 2024 | :de: Wiesbaden, Germany | :material-web: [https://collabsummit.eu/](https://collabsummit.eu/) |
-| Build | May 21th - 23rd, 2024 | :us: Seattle, United Stated | :material-web: [https://build.microsoft.com/](https://build.microsoft.com/) |
-| DynamicsMinds | May 26th - 29th, 2024 | :si: Portoroz, Slovenia | :material-web: [https://www.dynamicsminds.com/](https://www.dynamicsminds.com/) |
-| Resco Next | June 4th - 6th, 2024 | :at: Vienna, Austria | :material-web: [https://resconext.com/](https://resconext.com/) |
-| European Power Platform Conference 2024 | June 11th - 13th, 2024 | :be: Brussels, Belgium | :material-web: [https://www.sharepointeurope.com/european-power-platform-conference/](https://www.sharepointeurope.com/european-power-platform-conference/) |
-| Azure & AI Lowlands 2024 | June 26th, 2024 | :nl: Utrecht, The Netherlands | :material-web: [https://www.azurelowlands.com/](https://www.azurelowlands.com/) |
+| Nordic Summit | September 27th - 28th, 2024 | :norway: Oslo, Norway | :material-web: [https://www.nordicsummit.info/](https://www.nordicsummit.info/) |
 | Scottish Summit | October 17th - 19th, 2024 | :scotland: Aberdeen, Scotland | :material-web: [https://www.scottishsummit.com/](https://www.scottishsummit.com/) |
 <!-- | Name | Date | :nl: | :material-web: [website](website) | -->
 <!-- | Build | May 21st - 23th, 2024 | :us: Seattle, USA | :material-web: [https://build.microsoft.com/en-US/home](https://build.microsoft.com/en-US/home) | -->
@@ -29,6 +24,12 @@ icon: material/calendar
 
 | Event | Date | Location | Link |
 | ----------- | ------------------------------------ | ------------------------------------ | ------------------------------------ |
+| Azure & AI Lowlands 2024 [(slides)](https://aka.ms/DL-AzureAILowlands24-Slides) | June 26th, 2024 | :nl: Utrecht, The Netherlands | :material-web: [https://www.azurelowlands.com/](https://www.azurelowlands.com/) |
+| European Power Platform Conference 2024 | June 11th - 13th, 2024 | :be: Brussels, Belgium | :material-web: [https://www.sharepointeurope.com/european-power-platform-conference/](https://www.sharepointeurope.com/european-power-platform-conference/) |
+| Resco Next | June 4th - 6th, 2024 | :at: Vienna, Austria | :material-web: [https://resconext.com/](https://resconext.com/) |
+| DynamicsMinds | May 26th - 29th, 2024 | :si: Portoroz, Slovenia | :material-web: [https://www.dynamicsminds.com/](https://www.dynamicsminds.com/) |
+| Build | May 21th - 23rd, 2024 | :us: Seattle, United Stated | :material-web: [https://build.microsoft.com/](https://build.microsoft.com/) |
+| European Collaboration Summit | May 14th - 16th, 2024 | :de: Wiesbaden, Germany | :material-web: [https://collabsummit.eu/](https://collabsummit.eu/) |
 | DIWUG - April 2024 [(slides)](https://aka.ms/DL-DIWUG24-Slides) | April 2nd, 2024 | :nl: Barendrecht, The Netherlands | :material-web: [https://www.meetup.com/dutch-information-workers-user-group-diwug/events/299810236/](https://www.meetup.com/dutch-information-workers-user-group-diwug/events/299810236/) |
 | Microsoft AI Tour Berlin | March 19th, 2024 | :de: Berlin, Germany | :material-web: [https://msevents.microsoft.com/event?id=3085871691](https://msevents.microsoft.com/event?id=3085871691) |
 | Microsoft AI Tour Paris | March 13th, 2024 | :fr: Paris, France | :material-web: [https://msevents.microsoft.com/event?id=4006187193](https://msevents.microsoft.com/event?id=4006187193) |
