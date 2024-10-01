@@ -23,7 +23,7 @@ icon: material/calendar
 | ESPC 2024 | December 2nd - 5th, 2024 | :se: Stockholm, Sweden | :material-web: [https://www.sharepointeurope.com/](https://www.sharepointeurope.com/) |
 | Cloud Technology Townhall Tallinn | January 30th - 31st, 2025 | :ee: Tallinn, Estonia | :material-web: [https://cloudtechtallinn.com/](https://cloudtechtallinn.com/) |
 | DEVWorld 2025 | February 27nd - 28th | :nl: Amsterdam, The Netherlands | :material-web: [https://devworldconference.com/](https://devworldconference.com/) |
-| European BizApps Summit | May 26th - 28th | :de: Dusseldorf, Germany | :material-web: [https://bizappssummit.eu/](https://bizappssummit.eu/) |
+| European BizApps Summit | May 26th - 28th | :de: Düsseldorf, Germany | :material-web: [https://bizappssummit.eu/](https://bizappssummit.eu/) |
 <!-- | Name | Date | :nl: | :material-web: [website](website) | -->
 
 ## Past events ✅
