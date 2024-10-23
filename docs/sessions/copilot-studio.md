@@ -3,7 +3,7 @@ title: Microsoft Copilot Studio
 description: On this page, you will find more info about the Copilot Studio sessions I've done.
 hide:
 - footer
-icon: material/smart_toy
+icon: material/robot-excited-outline
 ---
 
 # Microsoft Copilot Studio Resources
