@@ -23,6 +23,8 @@ theme:
 nav:
   - Home: 'index.md'
   - Events: 'events.md'
+  - Sessions:
+    - Microsoft Copilot Studio: 'sessions/copilot-studio.md'
   - Projects:
     - Power Platform Connectors: 'power-platform-connectors.md'
 
