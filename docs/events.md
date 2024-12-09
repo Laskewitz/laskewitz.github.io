@@ -15,12 +15,6 @@ icon: material/calendar
 
 | Event | Date | Location | Link |
 | ----------- | ------------------------------------ | ------------------------------------ | ------------------------------------ |
-| Scottish Summit | October 17th - 19th, 2024 | :scotland: Aberdeen, Scotland | :material-web: [https://www.scottishsummit.com/](https://www.scottishsummit.com/) |
-| CollabDays Belgium | October 19th, 2024 | :be: Brussels, Belgium | :material-web: [https://www.collabdays.org/2024-belgium/](https://www.collabdays.org/2024-belgium/) |
-| Microsoft AI Tour Paris | October 22nd, 2024 | :fr: Paris, France | :material-web: [https://aitour.microsoft.com/en-US/home](https://aitour.microsoft.com/en-US/home) |
-| Microsoft AI Tour Berlin | October 24th, 2024 | :de: Berlin, Germany | :material-web: [https://aitour.microsoft.com/en-US/home](https://aitour.microsoft.com/en-US/home) |
-| Microsoft Ignite | November 19th - 22nd, 2024 | :us: Chicago, United States | :material-web: [https://ignite.microsoft.com/en-US/home](https://ignite.microsoft.com/en-US/home) |
-| ESPC 2024 | December 2nd - 5th, 2024 | :se: Stockholm, Sweden | :material-web: [https://www.sharepointeurope.com/](https://www.sharepointeurope.com/) |
 | Cloud Technology Townhall Tallinn | January 30th - 31st, 2025 | :ee: Tallinn, Estonia | :material-web: [https://cloudtechtallinn.com/](https://cloudtechtallinn.com/) |
 | DEVWorld 2025 | February 27nd - 28th, 2025 | :nl: Amsterdam, The Netherlands | :material-web: [https://devworldconference.com/](https://devworldconference.com/) |
 | European BizApps Summit | May 26th - 28th, 2025 | :de: Düsseldorf, Germany | :material-web: [https://bizappssummit.eu/](https://bizappssummit.eu/) |
@@ -30,6 +24,13 @@ icon: material/calendar
 
 | Event | Date | Location | Link |
 | ----------- | ------------------------------------ | ------------------------------------ | ------------------------------------ |
+| Power Platform Community Sweden | December 3rd, 2024 | :se: Stockholm, Sweden | :material-web: [https://powerplatformsweden.se/](https://powerplatformsweden.se/) |
+| ESPC 2024 | December 2nd - 5th, 2024 | :se: Stockholm, Sweden | :material-web: [https://www.sharepointeurope.com/](https://www.sharepointeurope.com/) |
+| Microsoft Ignite | November 19th - 22nd, 2024 | :us: Chicago, United States | :material-web: [https://ignite.microsoft.com/en-US/home](https://ignite.microsoft.com/en-US/home) |
+| Microsoft AI Tour Berlin | October 24th, 2024 | :de: Berlin, Germany | :material-web: [https://aitour.microsoft.com/en-US/home](https://aitour.microsoft.com/en-US/home) |
+| Microsoft AI Tour Paris | October 22nd, 2024 | :fr: Paris, France | :material-web: [https://aitour.microsoft.com/en-US/home](https://aitour.microsoft.com/en-US/home) |
+| CollabDays Belgium | October 19th, 2024 | :be: Brussels, Belgium | :material-web: [https://www.collabdays.org/2024-belgium/](https://www.collabdays.org/2024-belgium/) |
+| Scottish Summit | October 17th - 19th, 2024 | :scotland: Aberdeen, Scotland | :material-web: [https://www.scottishsummit.com/](https://www.scottishsummit.com/) |
 | Nordic Summit [(slides)](https://aka.ms/DL-NS24-Slides)  | September 27th - 28th, 2024 | :no: Oslo, Norway | :material-web: [https://www.nordicsummit.info/](https://www.nordicsummit.info/) |
 | CollabDays Hamburg | August 31st, 2024 | :de: Hamburg, Germany | :material-web: [https://www.collabdays.org/2024-hamburg/](https://www.collabdays.org/2024-hamburg/) |
 | Azure & AI Lowlands 2024 [(slides)](https://aka.ms/DL-AzureAILowlands24-Slides) | June 26th, 2024 | :nl: Utrecht, The Netherlands | :material-web: [https://www.azurelowlands.com/](https://www.azurelowlands.com/) |
