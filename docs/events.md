@@ -26,6 +26,7 @@ icon: material/calendar
 | ----------- | ------------------------------------ | ------------------------------------ | ------------------------------------ |
 | Power Platform Community Sweden | December 3rd, 2024 | :se: Stockholm, Sweden | :material-web: [https://powerplatformsweden.se/](https://powerplatformsweden.se/) |
 | ESPC 2024 | December 2nd - 5th, 2024 | :se: Stockholm, Sweden | :material-web: [https://www.sharepointeurope.com/](https://www.sharepointeurope.com/) |
+| CollabDays Oslo | November 30th, 2024 | :no: Oslo, Norway | :material-web: [CollabDays Oslo](https://www.collabdays.org/2024-oslo/) |
 | Microsoft Ignite | November 19th - 22nd, 2024 | :us: Chicago, United States | :material-web: [https://ignite.microsoft.com/en-US/home](https://ignite.microsoft.com/en-US/home) |
 | Microsoft AI Tour Berlin | October 24th, 2024 | :de: Berlin, Germany | :material-web: [https://aitour.microsoft.com/en-US/home](https://aitour.microsoft.com/en-US/home) |
 | Microsoft AI Tour Paris | October 22nd, 2024 | :fr: Paris, France | :material-web: [https://aitour.microsoft.com/en-US/home](https://aitour.microsoft.com/en-US/home) |
