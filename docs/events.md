@@ -15,9 +15,6 @@ icon: material/calendar
 
 | Event | Date | Location | Link |
 | ----------- | ------------------------------------ | ------------------------------------ | ------------------------------------ |
-| AI Tour Johannesburg | January 23rd, 2025 | :za: Johannesburg, South Africa | :material-web: [https://aitour.microsoft.com/en-US/johannesburg](https://aitour.microsoft.com/en-US/johannesburg) |
-| Cloud Technology Townhall Tallinn | January 30th - 31st, 2025 | :ee: Tallinn, Estonia | :material-web: [https://cloudtechtallinn.com/](https://cloudtechtallinn.com/) |
-| DEVWorld 2025 | February 27nd - 28th, 2025 | :nl: Amsterdam, The Netherlands | :material-web: [https://devworldconference.com/](https://devworldconference.com/) |
 | ColorCloud | April 24th - 25th, 2025 | :de: Hamburg, Germany | :material-web: [https://colorcloud.rocks/](https://colorcloud.rocks/) |
 | European BizApps Summit | May 26th - 28th, 2025 | :de: Düsseldorf, Germany | :material-web: [https://bizappssummit.eu/](https://bizappssummit.eu/) |
 <!-- | Name | Date | :nl: | :material-web: [website](website) | -->
@@ -26,6 +23,11 @@ icon: material/calendar
 
 | Event | Date | Location | Link |
 | ----------- | ------------------------------------ | ------------------------------------ | ------------------------------------ |
+| Future Tech 2025 [(slides)](https://aka.ms/DL-FT25-Slides) | March 13th, 2025 | :nl: Utrecht, The Netherlands | :material-web: [https://futuretech.nl/](https://futuretech.nl/) |
+| AI Tour London | March 5th, 2025 | :gb: London, UK | :material-web: [https://aitour.microsoft.com/en-us/london](https://aitour.microsoft.com/en-us/london) |
+| DEVWorld 2025 | February 27nd - 28th, 2025 | :nl: Amsterdam, The Netherlands | :material-web: [https://devworldconference.com/](https://devworldconference.com/) |
+| Cloud Technology Townhall Tallinn | January 30th - 31st, 2025 | :ee: Tallinn, Estonia | :material-web: [https://cloudtechtallinn.com/](https://cloudtechtallinn.com/) |
+| AI Tour Johannesburg | January 23rd, 2025 | :za: Johannesburg, South Africa | :material-web: [https://aitour.microsoft.com/en-US/johannesburg](https://aitour.microsoft.com/en-US/johannesburg) |
 | Power Platform Community Sweden | December 3rd, 2024 | :se: Stockholm, Sweden | :material-web: [https://powerplatformsweden.se/](https://powerplatformsweden.se/) |
 | ESPC 2024 | December 2nd - 5th, 2024 | :se: Stockholm, Sweden | :material-web: [https://www.sharepointeurope.com/](https://www.sharepointeurope.com/) |
 | CollabDays Oslo | November 30th, 2024 | :no: Oslo, Norway | :material-web: [https://www.collabdays.org/2024-oslo/](https://www.collabdays.org/2024-oslo/) |
