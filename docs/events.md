@@ -15,20 +15,24 @@ icon: material/calendar
 
 | Event | Date | Location | Link |
 | ----------- | ------------------------------------ | ------------------------------------ | ------------------------------------ |
-| AI Tour Utrecht | March 20th, 2025 | :nl: Utrecht, The Netherlands | :material-web: [https://msaitour.microsoft.com/en-us/utrecht](https://msaitour.microsoft.com/en-us/utrecht) |
-| ColorCloud | April 24th - 25th, 2025 | :de: Hamburg, Germany | :material-web: [https://colorcloud.rocks/](https://colorcloud.rocks/) |
-| Resco Next | May 20th - 21st, 2025 | :es: Valencia, Spain | :material-web: [https://resconext.com/](https://resconext.com/) |
-| Power Summit 2025 - Power Platform & AI Agents | May 24th, 2025 | :gb: London, UK | :material-web: [https://powersummit.powercommunity.com/](https://powersummit.powercommunity.com/) |
-| European BizApps Summit | May 26th - 28th, 2025 | :de: Düsseldorf, Germany | :material-web: [https://bizappssummit.eu/](https://bizappssummit.eu/) |
-| European Power Platform Conference | June 16th - 19th, 2025 | :at: Vienna, Austria | :material-web: [https://www.sharepointeurope.com/european-power-platform-conference/](https://www.sharepointeurope.com/european-power-platform-conference/) |
 | CollabDays Hamburg | June 28th, 2025 | :de: Hamburg, Germany | :material-web: [https://www.collabdays.org/2025-hamburg/](https://www.collabdays.org/2025-hamburg/) |
+| Nordic Summit 2025 | September 19th - 20th, 2025 | :se: Gothenburg, Sweden | :material-web: [https://nordicsummit.info/](https://nordicsummit.info/) |
+| BASTA! 2025 | September 22nd - 26th, 2025 | :de: Mainz, Germany | :material-web: [https://basta.net/mainz/](https://basta.net/mainz/) |
 | Power Platform Community Conference 2025 | October 26th - 31st, 2025 | :us: Las Vegas, United States | :material-web: [https://powerplatformconf.com/](https://powerplatformconf.com/) |
+| AI DAY 2025 | November 4th, 2025 | :dk: Aarhus, Denmark | :material-web: [https://aiday.dk/](https://aiday.dk/) |
+| ESPC 2025 | December 1st - 4th, 2025 | :ie: Dublin, Ireland | :material-web: [https://www.sharepointeurope.com/](https://www.sharepointeurope.com/) |
 <!-- | Name | Date | :nl: | :material-web: [website](website) | -->
 
 ## Past events ✅
 
 | Event | Date | Location | Link |
 | ----------- | ------------------------------------ | ------------------------------------ | ------------------------------------ |
+| AI Tour Utrecht | March 20th, 2025 | :nl: Utrecht, The Netherlands | :material-web: [https://msaitour.microsoft.com/en-us/utrecht](https://msaitour.microsoft.com/en-us/utrecht) |
+| ColorCloud | April 24th - 25th, 2025 | :de: Hamburg, Germany | :material-web: [https://colorcloud.rocks/](https://colorcloud.rocks/) |
+| Resco Next | May 20th - 21st, 2025 | :es: Valencia, Spain | :material-web: [https://resconext.com/](https://resconext.com/) |
+| Power Summit 2025 - Power Platform & AI Agents | May 24th, 2025 | :gb: London, UK | :material-web: [https://powersummit.powercommunity.com/](https://powersummit.powercommunity.com/) |
+| European BizApps Summit | May 26th - 28th, 2025 | :de: Düsseldorf, Germany | :material-web: [https://bizappssummit.eu/](https://bizappssummit.eu/) |
+| European Power Platform Conference | June 16th - 19th, 2025 | :at: Vienna, Austria | :material-web: [https://www.sharepointeurope.com/european-power-platform-conference/](https://www.sharepointeurope.com/european-power-platform-conference/) |
 | Future Tech 2025 [(slides)](https://aka.ms/DL-FT25-Slides) | March 13th, 2025 | :nl: Utrecht, The Netherlands | :material-web: [https://futuretech.nl/](https://futuretech.nl/) |
 | AI Tour London | March 5th, 2025 | :gb: London, UK | :material-web: [https://aitour.microsoft.com/en-us/london](https://aitour.microsoft.com/en-us/london) |
 | DEVWorld 2025 | February 27nd - 28th, 2025 | :nl: Amsterdam, The Netherlands | :material-web: [https://devworldconference.com/](https://devworldconference.com/) |
