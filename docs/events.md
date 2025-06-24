@@ -27,12 +27,12 @@ icon: material/calendar
 
 | Event | Date | Location | Link |
 | ----------- | ------------------------------------ | ------------------------------------ | ------------------------------------ |
-| AI Tour Utrecht | March 20th, 2025 | :nl: Utrecht, The Netherlands | :material-web: [https://msaitour.microsoft.com/en-us/utrecht](https://msaitour.microsoft.com/en-us/utrecht) |
-| ColorCloud | April 24th - 25th, 2025 | :de: Hamburg, Germany | :material-web: [https://colorcloud.rocks/](https://colorcloud.rocks/) |
-| Resco Next | May 20th - 21st, 2025 | :es: Valencia, Spain | :material-web: [https://resconext.com/](https://resconext.com/) |
-| Power Summit 2025 - Power Platform & AI Agents | May 24th, 2025 | :gb: London, UK | :material-web: [https://powersummit.powercommunity.com/](https://powersummit.powercommunity.com/) |
-| European BizApps Summit | May 26th - 28th, 2025 | :de: Düsseldorf, Germany | :material-web: [https://bizappssummit.eu/](https://bizappssummit.eu/) |
 | European Power Platform Conference | June 16th - 19th, 2025 | :at: Vienna, Austria | :material-web: [https://www.sharepointeurope.com/european-power-platform-conference/](https://www.sharepointeurope.com/european-power-platform-conference/) |
+| European BizApps Summit | May 26th - 28th, 2025 | :de: Düsseldorf, Germany | :material-web: [https://bizappssummit.eu/](https://bizappssummit.eu/) |
+| Power Summit 2025 - Power Platform & AI Agents | May 24th, 2025 | :gb: London, UK | :material-web: [https://powersummit.powercommunity.com/](https://powersummit.powercommunity.com/) |
+| Resco Next | May 20th - 21st, 2025 | :es: Valencia, Spain | :material-web: [https://resconext.com/](https://resconext.com/) |
+| ColorCloud | April 24th - 25th, 2025 | :de: Hamburg, Germany | :material-web: [https://colorcloud.rocks/](https://colorcloud.rocks/) |
+| AI Tour Utrecht | March 20th, 2025 | :nl: Utrecht, The Netherlands | :material-web: [https://msaitour.microsoft.com/en-us/utrecht](https://msaitour.microsoft.com/en-us/utrecht) |
 | Future Tech 2025 [(slides)](https://aka.ms/DL-FT25-Slides) | March 13th, 2025 | :nl: Utrecht, The Netherlands | :material-web: [https://futuretech.nl/](https://futuretech.nl/) |
 | AI Tour London | March 5th, 2025 | :gb: London, UK | :material-web: [https://aitour.microsoft.com/en-us/london](https://aitour.microsoft.com/en-us/london) |
 | DEVWorld 2025 | February 27nd - 28th, 2025 | :nl: Amsterdam, The Netherlands | :material-web: [https://devworldconference.com/](https://devworldconference.com/) |
