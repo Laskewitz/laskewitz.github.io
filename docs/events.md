@@ -13,7 +13,7 @@ icon: material/calendar
 
 ## Upcoming events 📆
 
-| Event | Date | Location | Link |
+| Event | Date | Location | Link | Tickets |
 | ----------- | ------------------------------------ | ------------------------------------ | ------------------------------------ |
 | Nordic Summit 2025 | September 19th - 20th, 2025 | :se: Gothenburg, Sweden | :material-web: [https://nordicsummit.info/](https://nordicsummit.info/) | 🎟️ [Tickets](https://nordicsummit.info/tickets/) |
 | BASTA! 2025 | September 22nd - 26th, 2025 | :de: Mainz, Germany | :material-web: [https://basta.net/mainz/](https://basta.net/mainz/) | 🎟️ [Tickets](https://basta.net/mainz/tickets-mainz/?go=ok) |
