@@ -15,7 +15,6 @@ icon: material/calendar
 
 | Event | Date | Location | Link |
 | ----------- | ------------------------------------ | ------------------------------------ | ------------------------------------ |
-| CollabDays Hamburg | June 28th, 2025 | :de: Hamburg, Germany | :material-web: [https://www.collabdays.org/2025-hamburg/](https://www.collabdays.org/2025-hamburg/) |
 | Nordic Summit 2025 | September 19th - 20th, 2025 | :se: Gothenburg, Sweden | :material-web: [https://nordicsummit.info/](https://nordicsummit.info/) |
 | BASTA! 2025 | September 22nd - 26th, 2025 | :de: Mainz, Germany | :material-web: [https://basta.net/mainz/](https://basta.net/mainz/) |
 | Bizz Summit ES 2025 | October 3rd, 2025 | :es: Madrid, Spain | :material-web: [https://bizzsummit.es/en/](https://bizzsummit.es/en/) |
@@ -28,6 +27,7 @@ icon: material/calendar
 
 | Event | Date | Location | Link |
 | ----------- | ------------------------------------ | ------------------------------------ | ------------------------------------ |
+| CollabDays Hamburg | June 28th, 2025 | :de: Hamburg, Germany | :material-web: [https://www.collabdays.org/2025-hamburg/](https://www.collabdays.org/2025-hamburg/) |
 | European Power Platform Conference | June 16th - 19th, 2025 | :at: Vienna, Austria | :material-web: [https://www.sharepointeurope.com/european-power-platform-conference/](https://www.sharepointeurope.com/european-power-platform-conference/) |
 | European BizApps Summit | May 26th - 28th, 2025 | :de: Düsseldorf, Germany | :material-web: [https://bizappssummit.eu/](https://bizappssummit.eu/) |
 | Power Summit 2025 - Power Platform & AI Agents | May 24th, 2025 | :gb: London, UK | :material-web: [https://powersummit.powercommunity.com/](https://powersummit.powercommunity.com/) |
