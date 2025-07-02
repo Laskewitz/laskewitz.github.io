@@ -18,6 +18,7 @@ icon: material/calendar
 | CollabDays Hamburg | June 28th, 2025 | :de: Hamburg, Germany | :material-web: [https://www.collabdays.org/2025-hamburg/](https://www.collabdays.org/2025-hamburg/) |
 | Nordic Summit 2025 | September 19th - 20th, 2025 | :se: Gothenburg, Sweden | :material-web: [https://nordicsummit.info/](https://nordicsummit.info/) |
 | BASTA! 2025 | September 22nd - 26th, 2025 | :de: Mainz, Germany | :material-web: [https://basta.net/mainz/](https://basta.net/mainz/) |
+| Bizz Summit ES 2025 | October 3rd, 2025 | :es: Madrid, Spain | :material-web: [https://bizzsummit.es/en/](https://bizzsummit.es/en/) |
 | Power Platform Community Conference 2025 | October 26th - 31st, 2025 | :us: Las Vegas, United States | :material-web: [https://powerplatformconf.com/](https://powerplatformconf.com/) |
 | AI DAY 2025 | November 4th, 2025 | :dk: Aarhus, Denmark | :material-web: [https://aiday.dk/](https://aiday.dk/) |
 | ESPC 2025 | December 1st - 4th, 2025 | :ie: Dublin, Ireland | :material-web: [https://www.sharepointeurope.com/](https://www.sharepointeurope.com/) |
