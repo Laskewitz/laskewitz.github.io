@@ -15,6 +15,7 @@ icon: material/calendar
 
 | Event | Date | Location | Link | Tickets |
 | ----------- | ------------------------------------ | ------------------------------------ | ------------------------------------ | ------------------------------------ |
+| Baltic Summit 2025 | September 12th - 13th, 2025 | :pl: Gdynia, Poland | :material-web: [https://balticsummit.pl/](https://balticsummit.pl/) | 🎟️ [Tickets](https://balticsummit.pl/) |
 | Nordic Summit 2025 | September 19th - 20th, 2025 | :se: Gothenburg, Sweden | :material-web: [https://nordicsummit.info/](https://nordicsummit.info/) | 🎟️ [Tickets](https://nordicsummit.info/tickets/) |
 | BASTA! 2025 | September 22nd - 26th, 2025 | :de: Mainz, Germany | :material-web: [https://basta.net/mainz/](https://basta.net/mainz/) | 🎟️ [Tickets](https://basta.net/mainz/tickets-mainz/?go=ok) |
 | Bizz Summit ES 2025 | October 3rd - 4th, 2025 | :es: Madrid, Spain | :material-web: [https://bizzsummit.es/en/](https://bizzsummit.es/en/) | 🎟️ Tickets not available yet |
