@@ -22,7 +22,9 @@ icon: material/calendar
 | South Coast Summit 2025 | October 17th - 18th, 2025 | :gb: Farnborough, UK | :material-web: [https://powerplatformconf.com/](https://powerplatformconf.com/) | 🎟️ [Tickets](https://events.justattend.com/events/conference-hub/30432938) |
 | Power Platform Community Conference 2025 | October 26th - 31st, 2025 | :us: Las Vegas, United States | :material-web: [https://powerplatformconf.com/](https://powerplatformconf.com/) | 🎟️ [Tickets](https://powerplatformconf.com/#!/register) |
 | AI DAY 2025 | November 4th, 2025 | :dk: Aarhus, Denmark | :material-web: [https://aiday.dk/](https://aiday.dk/) | 🎟️ [Tickets](https://aiday.dk/billet/) |
+| AI Tour Frankfurt | November 6th, 2025 | :de: Frankfurt, Germany | :material-web: [https://aitour.microsoft.com/flow/microsoft/frankfurt26/landingpage/page/cityhome](https://aitour.microsoft.com/flow/microsoft/frankfurt26/landingpage/page/cityhome) |
 | ESPC 2025 | December 1st - 4th, 2025 | :ie: Dublin, Ireland | :material-web: [https://www.sharepointeurope.com/](https://www.sharepointeurope.com/) | 🎟️ [Tickets](https://www.sharepointeurope.com/pricing/) |
+| CollabDays Oslo 2025 | December 5th - December 6th, 2025 | :no: Oslo, Norway | :material-web: [https://www.collabdays.org/2025-oslo/](https://www.collabdays.org/2025-oslo/) |
 <!-- | Name | Date | :nl: | :material-web: [website](website) | 🎟️ [Tickets]() | -->
 
 ## Past events ✅
