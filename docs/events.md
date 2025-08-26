@@ -18,13 +18,13 @@ icon: material/calendar
 | Baltic Summit 2025 | September 12th - 13th, 2025 | :pl: Gdynia, Poland | :material-web: [https://balticsummit.pl/](https://balticsummit.pl/) | 🎟️ [Tickets](https://balticsummit.pl/) |
 | Nordic Summit 2025 | September 19th - 20th, 2025 | :se: Gothenburg, Sweden | :material-web: [https://nordicsummit.info/](https://nordicsummit.info/) | 🎟️ [Tickets](https://nordicsummit.info/tickets/) |
 | BASTA! 2025 | September 22nd - 26th, 2025 | :de: Mainz, Germany | :material-web: [https://basta.net/mainz/](https://basta.net/mainz/) | 🎟️ [Tickets](https://basta.net/mainz/tickets-mainz/?go=ok) |
-| Bizz Summit ES 2025 | October 3rd - 4th, 2025 | :es: Madrid, Spain | :material-web: [https://bizzsummit.es/en/](https://bizzsummit.es/en/) | 🎟️ Tickets not available yet |
+| Bizz Summit ES 2025 | October 3rd - 4th, 2025 | :es: Madrid, Spain | :material-web: [https://bizzsummit.es/en/](https://bizzsummit.es/en/) | 🎟️ [Tickets](https://bizzsummit.es/en/) |
 | South Coast Summit 2025 | October 17th - 18th, 2025 | :gb: Farnborough, UK | :material-web: [https://powerplatformconf.com/](https://powerplatformconf.com/) | 🎟️ [Tickets](https://events.justattend.com/events/conference-hub/30432938) |
 | Power Platform Community Conference 2025 | October 26th - 31st, 2025 | :us: Las Vegas, United States | :material-web: [https://powerplatformconf.com/](https://powerplatformconf.com/) | 🎟️ [Tickets](https://powerplatformconf.com/#!/register) |
 | AI DAY 2025 | November 4th, 2025 | :dk: Aarhus, Denmark | :material-web: [https://aiday.dk/](https://aiday.dk/) | 🎟️ [Tickets](https://aiday.dk/billet/) |
 | AI Tour Frankfurt | November 6th, 2025 | :de: Frankfurt, Germany | :material-web: [https://aitour.microsoft.com/flow/microsoft/frankfurt26/landingpage/page/cityhome](https://aitour.microsoft.com/flow/microsoft/frankfurt26/landingpage/page/cityhome) |
 | ESPC 2025 | December 1st - 4th, 2025 | :ie: Dublin, Ireland | :material-web: [https://www.sharepointeurope.com/](https://www.sharepointeurope.com/) | 🎟️ [Tickets](https://www.sharepointeurope.com/pricing/) |
-| CollabDays Oslo 2025 | December 5th - December 6th, 2025 | :no: Oslo, Norway | :material-web: [https://www.collabdays.org/2025-oslo/](https://www.collabdays.org/2025-oslo/) |
+| CollabDays Oslo 2025 | December 5th - December 6th, 2025 | :no: Oslo, Norway | :material-web: [https://www.collabdays.org/2025-oslo/](https://www.collabdays.org/2025-oslo/) | 🎟️ Tickets not available yet |
 <!-- | Name | Date | :nl: | :material-web: [website](website) | 🎟️ [Tickets]() | -->
 
 ## Past events ✅
