@@ -22,6 +22,7 @@ icon: material/calendar
 | Adriatics Tech Summit 2026 | March 30th - April 1st, 2026 | :ba: Sarajevo, Bosnia | :material-web: [https://adriaticstechsummit.com/](https://adriaticstechsummit.com/) | 🎟️ [Tickets](https://adriaticstechsummit.com/en/tickets) |
 | ColorCloud 2026 | April 15th - 17th, 2026 | :de: Hamburg, Germany | :material-web: [https://colorcloud.rocks/](https://colorcloud.rocks/) | 🎟️ [Tickets](https://colorcloud.rocks/tickets/) |
 | AI Tour Zurich | April 29th, 2026 | :ch: Zurich, Switzerland | :material-web: [https://aitour.microsoft.com/](https://aitour.microsoft.com/) | 🎟️ Tickets not available yet |
+| DynamicsMinds 2026 | May 25th - 27th, 2026 | :si: Portoroz, Slovenia | :material-web: [https://www.dynamicsminds.com/](https://www.dynamicsminds.com/) | 🎟️ [Tickets](https://www.dynamicsminds.com/register/#buy-tickets) |
 <!-- | Name | Date | :nl: | :material-web: [website](website) | 🎟️ [Tickets]() | -->
 
 ## Past events ✅
