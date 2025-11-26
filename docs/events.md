@@ -19,6 +19,7 @@ icon: material/calendar
 | CollabDays Oslo 2025 | December 5th - December 6th, 2025 | :no: Oslo, Norway | :material-web: [https://www.collabdays.org/2025-oslo/](https://www.collabdays.org/2025-oslo/) | 🎟️ [Tickets](https://www.collabdays.org/2025-oslo/register/) |
 | Cloud Technology Townhall Tallinn | January 29th - 30th, 2026 | :ee: Tallinn, Estonia | :material-web: [https://cloudtechtallinn.com/](https://cloudtechtallinn.com/) | 🎟️ [Tickets](https://cloudtechtallinn.com/) |
 | AI Tour London | February 24th, 2026 | :gb: London, UK | :material-web: [https://aitour.microsoft.com/](https://aitour.microsoft.com/) | 🎟️ Tickets not available yet |
+| Adriatics Tech Summit 2026 | March 30th - April 1st, 2026 | :ba: Sarajevo, Bosnia | :material-web: [https://adriaticstechsummit.com/](https://adriaticstechsummit.com/) | 🎟️ [Tickets](https://adriaticstechsummit.com/en/tickets) |
 | ColorCloud 2026 | April 15th - 17th, 2026 | :de: Hamburg, Germany | :material-web: [https://colorcloud.rocks/](https://colorcloud.rocks/) | 🎟️ [Tickets](https://colorcloud.rocks/tickets/) |
 | AI Tour Zurich | April 29th, 2026 | :ch: Zurich, Switzerland | :material-web: [https://aitour.microsoft.com/](https://aitour.microsoft.com/) | 🎟️ Tickets not available yet |
 <!-- | Name | Date | :nl: | :material-web: [website](website) | 🎟️ [Tickets]() | -->
