@@ -15,10 +15,8 @@ icon: material/calendar
 
 | Event | Date | Location | Link | Tickets |
 | ----------- | ------------------------------------ | ------------------------------------ | ------------------------------------ | ------------------------------------ |
-| ESPC 2025 | December 1st - 4th, 2025 | :ie: Dublin, Ireland | :material-web: [https://www.sharepointeurope.com/](https://www.sharepointeurope.com/) | 🎟️ [Tickets](https://www.sharepointeurope.com/pricing/) |
-| CollabDays Oslo 2025 | December 5th - December 6th, 2025 | :no: Oslo, Norway | :material-web: [https://www.collabdays.org/2025-oslo/](https://www.collabdays.org/2025-oslo/) | 🎟️ [Tickets](https://www.collabdays.org/2025-oslo/register/) |
 | Cloud Technology Townhall Tallinn | January 29th - 30th, 2026 | :ee: Tallinn, Estonia | :material-web: [https://cloudtechtallinn.com/](https://cloudtechtallinn.com/) | 🎟️ [Tickets](https://cloudtechtallinn.com/) |
-| AI Tour London | February 24th, 2026 | :gb: London, UK | :material-web: [https://aitour.microsoft.com/](https://aitour.microsoft.com/) | 🎟️ Tickets not available yet |
+| AI Tour London | February 24th, 2026 | :gb: London, UK | :material-web: [https://aitour.microsoft.com/](https://aitour.microsoft.com/) | 🎟️ [Tickets](https://aitour.microsoft.com/flow/microsoft/london262/landingpage/page/cityhome) |
 | Adriatics Tech Summit 2026 | March 30th - April 1st, 2026 | :ba: Sarajevo, Bosnia | :material-web: [https://adriaticstechsummit.com/](https://adriaticstechsummit.com/) | 🎟️ [Tickets](https://adriaticstechsummit.com/en/tickets) |
 | ColorCloud 2026 | April 15th - 17th, 2026 | :de: Hamburg, Germany | :material-web: [https://colorcloud.rocks/](https://colorcloud.rocks/) | 🎟️ [Tickets](https://colorcloud.rocks/tickets/) |
 | AI Tour Zurich | April 29th, 2026 | :ch: Zurich, Switzerland | :material-web: [https://aitour.microsoft.com/](https://aitour.microsoft.com/) | 🎟️ Tickets not available yet |
@@ -29,6 +27,8 @@ icon: material/calendar
 
 | Event | Date | Location | Link |
 | ----------- | ------------------------------------ | ------------------------------------ | ------------------------------------ |
+| CollabDays Oslo 2025 | December 5th - December 6th, 2025 | :no: Oslo, Norway | :material-web: [https://www.collabdays.org/2025-oslo/](https://www.collabdays.org/2025-oslo/) | 🎟️ [Tickets](https://www.collabdays.org/2025-oslo/register/) |
+| ESPC 2025 | December 1st - 4th, 2025 | :ie: Dublin, Ireland | :material-web: [https://www.sharepointeurope.com/](https://www.sharepointeurope.com/) | 🎟️ [Tickets](https://www.sharepointeurope.com/pricing/) |
 | Microsoft Ignite | November 17th - 21nd, 2025 | :us: San Francisco, United States | :material-web: [https://ignite.microsoft.com/en-US/home](https://ignite.microsoft.com/en-US/home) |
 | AI Tour Frankfurt | November 6th, 2025 | :de: Frankfurt, Germany | :material-web: [https://aka.ms/ai-tour/frankfurt-25](https://aka.ms/ai-tour/frankfurt-25) | 🎟️ [Tickets](https://aka.ms/ai-tour/frankfurt-25) |
 | AI DAY 2025 | November 4th, 2025 | :dk: Aarhus, Denmark | :material-web: [https://aiday.dk/](https://aiday.dk/) | 🎟️ [Tickets](https://aiday.dk/billet/) |
