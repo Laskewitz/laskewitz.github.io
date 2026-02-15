@@ -16,7 +16,7 @@ icon: material/calendar
 | Event | Date | Location | Link | Tickets |
 | ----------- | ------------------------------------ | ------------------------------------ | ------------------------------------ | ------------------------------------ |
 | AI Tour London | February 24th, 2026 | :gb: London, UK | :material-web: [https://aitour.microsoft.com/](https://aitour.microsoft.com/) | 🎟️ [Tickets](https://aitour.microsoft.com/flow/microsoft/london262/landingpage/page/cityhome) |
-| MVP Summit | March 24th - 26th, 2026 | :us: Seattle, United States | :material-web: [https://summit.microsoft.com/en-us/](https://summit.microsoft.com/en-us/) | ❌ No tickets available |
+| MVP Summit | March 24th - 26th, 2026 | :us: Redmond, United States | :material-web: [https://summit.microsoft.com/en-us/](https://summit.microsoft.com/en-us/) | ❌ No tickets available |
 | Adriatics Tech Summit 2026 | March 30th - April 1st, 2026 | :ba: Sarajevo, Bosnia | :material-web: [https://adriaticstechsummit.com/](https://adriaticstechsummit.com/) | 🎟️ [Tickets](https://adriaticstechsummit.com/en/tickets) |
 | ColorCloud 2026 | April 15th - 17th, 2026 | :de: Hamburg, Germany | :material-web: [https://colorcloud.rocks/](https://colorcloud.rocks/) | 🎟️ [Tickets](https://colorcloud.rocks/tickets/) |
 | Microsoft 365 Conference 2026 | April 21st - 23rd, 2026 | :us: Orlando, United States | :material-web: [https://m365conf.com/](https://m365conf.com/) | 🎟️ [Tickets](https://m365conf.com/#!/register) |
