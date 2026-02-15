@@ -18,8 +18,10 @@ icon: material/calendar
 | AI Tour London | February 24th, 2026 | :gb: London, UK | :material-web: [https://aitour.microsoft.com/](https://aitour.microsoft.com/) | 🎟️ [Tickets](https://aitour.microsoft.com/flow/microsoft/london262/landingpage/page/cityhome) |
 | Adriatics Tech Summit 2026 | March 30th - April 1st, 2026 | :ba: Sarajevo, Bosnia | :material-web: [https://adriaticstechsummit.com/](https://adriaticstechsummit.com/) | 🎟️ [Tickets](https://adriaticstechsummit.com/en/tickets) |
 | ColorCloud 2026 | April 15th - 17th, 2026 | :de: Hamburg, Germany | :material-web: [https://colorcloud.rocks/](https://colorcloud.rocks/) | 🎟️ [Tickets](https://colorcloud.rocks/tickets/) |
+| Microsoft 365 Conference 2026 | April 21st - 23rd, 2026 | :us: Orlando, United States | :material-web: [https://m365conf.com/](https://m365conf.com/) | 🎟️ [Tickets](https://m365conf.com/#!/register) |
 | AI Tour Zurich | April 29th, 2026 | :ch: Zurich, Switzerland | :material-web: [https://aitour.microsoft.com/](https://aitour.microsoft.com/) | 🎟️ Tickets not available yet |
 | DynamicsMinds 2026 | May 25th - 27th, 2026 | :si: Portoroz, Slovenia | :material-web: [https://www.dynamicsminds.com/](https://www.dynamicsminds.com/) | 🎟️ [Tickets](https://www.dynamicsminds.com/register/#buy-tickets) |
+| European Power Platform Conference 2026 | June 29th - July 2nd, 2026 | :dk: Copenhagen, Denmark | :material-web: [https://www.sharepointeurope.com/european-power-platform-conference/](https://www.sharepointeurope.com/european-power-platform-conference/) | 🎟️ [Tickets](https://www.sharepointeurope.com/european-power-platform-conference-pricing/) |
 <!-- | Name | Date | :nl: | :material-web: [website](website) | 🎟️ [Tickets]() | -->
 
 ## Past events ✅
