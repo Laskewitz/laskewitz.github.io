@@ -23,7 +23,9 @@ icon: material/calendar
 
 | Event | Date | Location | Link |
 | ----------- | ------------------------------------ | ------------------------------------ | ------------------------------------ |
+| CollabDays Netherlands 2026 | June 13th, 2026 | :nl: Vianen, The Netherlands | :material-web: [https://www.collabdays.org/2026-nl/](https://www.collabdays.org/2026-nl/) |
 | DynamicsMinds 2026 | May 25th - 27th, 2026 | :si: Portoroz, Slovenia | :material-web: [https://www.dynamicsminds.com/](https://www.dynamicsminds.com/) |
+| Directions Asia 2026 | May 13th - 15th, 2026 | :vn: Ho Chi Minh City, Vietnam | :material-web: [https://www.directionsforpartners.com/asia2026](https://www.directionsforpartners.com/asia2026) |
 | European BizApps Summit | May 5th - 7th, 2026 | :de: Cologne, Germany | :material-web: [https://bizappssummit.eu/](https://bizappssummit.eu/) |
 | AI Tour Zurich | April 29th, 2026 | :ch: Zurich, Switzerland | :material-web: [https://aitour.microsoft.com/](https://aitour.microsoft.com/) |
 | Microsoft 365 Conference 2026 | April 21st - 23rd, 2026 | :us: Orlando, United States | :material-web: [https://m365conf.com/](https://m365conf.com/) |
