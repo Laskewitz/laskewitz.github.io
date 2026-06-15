@@ -25,6 +25,7 @@ nav:
   - Events: 'events.md'
   - Sessions:
     - Microsoft Copilot Studio: 'sessions/copilot-studio.md'
+    - Copilot Cowork: 'sessions/cowork.md'
   - Projects:
     - Power Platform Connectors: 'power-platform-connectors.md'
     - Cowork Plugins: 'cowork-plugins.md'
