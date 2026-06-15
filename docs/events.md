@@ -15,23 +15,31 @@ icon: material/calendar
 
 | Event | Date | Location | Link | Tickets |
 | ----------- | ------------------------------------ | ------------------------------------ | ------------------------------------ | ------------------------------------ |
-| AI Tour Paris | March 11th, 2026 | :fr: Paris, France | :material-web: [https://aitour.microsoft.com/](https://aitour.microsoft.com/) | 🎟️ [Tickets](https://aitour.microsoft.com/flow/microsoft/paris26/landingpage/page/cityhome) |
-| MVP Summit | March 24th - 26th, 2026 | :us: Redmond, United States | :material-web: [https://summit.microsoft.com/en-us/](https://summit.microsoft.com/en-us/) | ❌ No tickets available |
-| Adriatics Tech Summit 2026 | March 30th - April 1st, 2026 | :ba: Sarajevo, Bosnia | :material-web: [https://adriaticstechsummit.com/](https://adriaticstechsummit.com/) | 🎟️ [Tickets](https://adriaticstechsummit.com/en/tickets) |
-| AI Tour Utrecht | April 8th, 2026 | :nl: Utrecht, The Netherlands | :material-web: [https://aitour.microsoft.com/](https://aitour.microsoft.com/) | 🎟️ [Tickets](https://aitour.microsoft.com/flow/microsoft/utrecht26/landingpage/page/cityhome) |
-| ColorCloud 2026 | April 15th - 17th, 2026 | :de: Hamburg, Germany | :material-web: [https://colorcloud.rocks/](https://colorcloud.rocks/) | 🎟️ [Tickets](https://colorcloud.rocks/tickets/) |
-| Microsoft 365 Conference 2026 | April 21st - 23rd, 2026 | :us: Orlando, United States | :material-web: [https://m365conf.com/](https://m365conf.com/) | 🎟️ [Tickets](https://m365conf.com/#!/register) |
-| AI Tour Zurich | April 29th, 2026 | :ch: Zurich, Switzerland | :material-web: [https://aitour.microsoft.com/](https://aitour.microsoft.com/) | 🎟️ Tickets not available yet |
-| European BizApps Summit | May 5th - 7th, 2026 | :de: Cologne, Germany | :material-web: [https://bizappssummit.eu/](https://bizappssummit.eu/) | 🎟️ [Tickets](https://bizappssummit.eu/en/tickets) |
-| DynamicsMinds 2026 | May 25th - 27th, 2026 | :si: Portoroz, Slovenia | :material-web: [https://www.dynamicsminds.com/](https://www.dynamicsminds.com/) | 🎟️ [Tickets](https://www.dynamicsminds.com/register/#buy-tickets) |
+| AgentCon Utrecht | June 25th, 2026 | :nl: Driebergen-Rijsenburg, The Netherlands | :material-web: [https://agentcon.city/utrecht](https://agentcon.city/utrecht) | 🎟️ Tickets not available yet |
 | European Power Platform Conference 2026 | June 29th - July 2nd, 2026 | :dk: Copenhagen, Denmark | :material-web: [https://www.sharepointeurope.com/european-power-platform-conference/](https://www.sharepointeurope.com/european-power-platform-conference/) | 🎟️ [Tickets](https://www.sharepointeurope.com/european-power-platform-conference-pricing/) |
+| Shift+Enter Summit 2026 | September 4th, 2026 | :hu: Budapest, Hungary | :material-web: [https://shiftenter.io/](https://shiftenter.io/) | 🎟️ Tickets not available yet |
+| HELish Summit 2026 | September 17th, 2026 | :fi: Helsinki, Finland | :material-web: [https://helishsummit.fi](https://helishsummit.fi) | 🎟️ Tickets not available yet |
+| Nordic Summit 2026 | September 21st - 22nd, 2026 | :dk: Billund, Denmark | :material-web: [https://nordicsummit.info/](https://nordicsummit.info/) | 🎟️ Tickets not available yet |
 | Scottish Summit | October 2nd - 3rd, 2026 | :scotland: Edinburgh, Scotland | :material-web: [https://scottishsummit.com/](https://scottishsummit.com/) | 🎟️ Tickets not available yet |
+| Power Platform Community Conference 2026 | October 25th - 30th, 2026 | :us: Las Vegas, United States | :material-web: [https://powerplatformconf.com/](https://powerplatformconf.com/) | 🎟️ Tickets not available yet |
+| ESPC26 | November 30th - December 3rd, 2026 | :nl: Amsterdam, The Netherlands | :material-web: [https://www.sharepointeurope.com/](https://www.sharepointeurope.com/) | 🎟️ Tickets not available yet |
 <!-- | Name | Date | :nl: | :material-web: [website](website) | 🎟️ [Tickets]() | -->
 
 ## Past events ✅
 
 | Event | Date | Location | Link |
 | ----------- | ------------------------------------ | ------------------------------------ | ------------------------------------ |
+| CollabDays Netherlands 2026 | June 13th, 2026 | :nl: Vianen, The Netherlands | :material-web: [https://www.collabdays.org/2026-nl/](https://www.collabdays.org/2026-nl/) |
+| DynamicsMinds 2026 | May 25th - 27th, 2026 | :si: Portoroz, Slovenia | :material-web: [https://www.dynamicsminds.com/](https://www.dynamicsminds.com/) |
+| Directions Asia 2026 | May 13th - 15th, 2026 | :vn: Ho Chi Minh City, Vietnam | :material-web: [https://www.directionsforpartners.com/asia2026](https://www.directionsforpartners.com/asia2026) |
+| European BizApps Summit | May 5th - 7th, 2026 | :de: Cologne, Germany | :material-web: [https://bizappssummit.eu/](https://bizappssummit.eu/) |
+| AI Tour Zurich | April 29th, 2026 | :ch: Zurich, Switzerland | :material-web: [https://aitour.microsoft.com/](https://aitour.microsoft.com/) |
+| Microsoft 365 Conference 2026 | April 21st - 23rd, 2026 | :us: Orlando, United States | :material-web: [https://m365conf.com/](https://m365conf.com/) |
+| ColorCloud 2026 | April 15th - 17th, 2026 | :de: Hamburg, Germany | :material-web: [https://colorcloud.rocks/](https://colorcloud.rocks/) |
+| AI Tour Utrecht | April 8th, 2026 | :nl: Utrecht, The Netherlands | :material-web: [https://aitour.microsoft.com/](https://aitour.microsoft.com/) |
+| Adriatics Tech Summit 2026 | March 30th - April 1st, 2026 | :ba: Sarajevo, Bosnia | :material-web: [https://adriaticstechsummit.com/](https://adriaticstechsummit.com/) |
+| MVP Summit | March 24th - 26th, 2026 | :us: Redmond, United States | :material-web: [https://summit.microsoft.com/en-us/](https://summit.microsoft.com/en-us/) |
+| AI Tour Paris | March 11th, 2026 | :fr: Paris, France | :material-web: [https://aitour.microsoft.com/](https://aitour.microsoft.com/) |
 | AI Tour London | February 24th, 2026 | :gb: London, UK | :material-web: [https://aitour.microsoft.com/](https://aitour.microsoft.com/) |
 | Cloud Technology Townhall Tallinn | January 29th - 30th, 2026 | :ee: Tallinn, Estonia | :material-web: [https://cloudtechtallinn.com/](https://cloudtechtallinn.com/) |
 | CollabDays Oslo 2025 | December 5th - December 6th, 2025 | :no: Oslo, Norway | :material-web: [https://www.collabdays.org/2025-oslo/](https://www.collabdays.org/2025-oslo/) | 🎟️ [Tickets](https://www.collabdays.org/2025-oslo/register/) |
