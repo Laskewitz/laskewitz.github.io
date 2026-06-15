@@ -26,9 +26,7 @@ nav:
   - Sessions:
     - Microsoft Copilot Studio: 'sessions/copilot-studio.md'
     - Copilot Cowork: 'sessions/cowork.md'
-  - Projects:
-    - Power Platform Connectors: 'power-platform-connectors.md'
-    - Cowork Plugins: 'cowork-plugins.md'
+  - Projects: 'projects.md'
 
 markdown_extensions:
   - attr_list

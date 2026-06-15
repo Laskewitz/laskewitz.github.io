@@ -20,7 +20,7 @@ Power Apps. Power Automate. Microsoft 365. Azure. Daniel works with a lot of dif
 
 :material-presentation: **[Sessions](sessions/copilot-studio.md)** — Resources and links for my conference sessions, including Copilot Studio and Copilot Cowork.
 
-:material-puzzle: **[Projects](power-platform-connectors.md)** — Open-source projects I'm working on, like Power Platform Connectors and Cowork Plugins.
+:material-puzzle: **[Projects](projects.md)** — Open-source projects I'm working on, like Power Platform Connectors and Cowork Plugins.
 
 ## Links
 
