@@ -10,6 +10,23 @@ icon: material/rocket-launch
 
 Here you'll find the projects I'm working on. From Power Platform connectors to Copilot Cowork plugins — I love building tools that help others be more productive.
 
+## Cowork Plugins
+
+[Copilot Cowork](https://learn.microsoft.com/en-us/microsoft-365/copilot/cowork/cowork-manage-plugins) is a collaborative AI experience in Microsoft 365 that lets you work together with Copilot to get things done. Plugins extend what Cowork can do by connecting it to external services through MCP servers and adding custom skills.
+
+I enjoy building plugins for Cowork, so below you'll find the ones I've created. Feel free to use them or use them as inspiration to build your own!
+
+### 📚 Learn for Copilot Cowork
+
+A Cowork plugin that connects to the [Microsoft Learn MCP Server](https://learn.microsoft.com/en-us/training/support/mcp) and includes research skills for deep-diving into Microsoft documentation.
+
+**Included skills:**
+
+- 📊 **Learn Deck** — Creates a PowerPoint presentation on a Microsoft technology topic by researching Learn documentation
+- 📝 **Learn One-Pager** — Creates a concise Word one-pager on a Microsoft technology topic
+
+🌎 [Learn for Copilot Cowork (GitHub)](https://github.com/Laskewitz/learn-for-cowork)
+
 ## Power Platform Connectors
 
 I love building Power Platform connectors. That's why this section is on my website. Below, I will add content for building Power Platform connectors. This will help you to build custom connectors and - when you're ready - publish them as an Independent Publisher Connector.
@@ -29,20 +46,3 @@ Before the Independent Publisher Connector program, the only way to certify and 
 Nowadays, everyone can build a connector for any service around the world. The Independent Publisher Connector program is available since 2021 and it has been growing popularity ever since.
 
 🌎 [Power Platform Connectors GitHub Repository](https://aka.ms/ipconnectors)
-
-## Cowork Plugins
-
-[Copilot Cowork](https://learn.microsoft.com/en-us/microsoft-365/copilot/cowork/cowork-manage-plugins) is a collaborative AI experience in Microsoft 365 that lets you work together with Copilot to get things done. Plugins extend what Cowork can do by connecting it to external services through MCP servers and adding custom skills.
-
-I enjoy building plugins for Cowork, so below you'll find the ones I've created. Feel free to use them or use them as inspiration to build your own!
-
-### 📚 Learn for Copilot Cowork
-
-A Cowork plugin that connects to the [Microsoft Learn MCP Server](https://learn.microsoft.com/en-us/training/support/mcp) and includes research skills for deep-diving into Microsoft documentation.
-
-**Included skills:**
-
-- 📊 **Learn Deck** — Creates a PowerPoint presentation on a Microsoft technology topic by researching Learn documentation
-- 📝 **Learn One-Pager** — Creates a concise Word one-pager on a Microsoft technology topic
-
-🌎 [Learn for Copilot Cowork (GitHub)](https://github.com/Laskewitz/learn-for-cowork)
