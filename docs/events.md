@@ -17,7 +17,7 @@ icon: material/calendar
 | ----------- | ------------------------------------ | ------------------------------------ | ------------------------------------ | ------------------------------------ |
 | AgentCon Utrecht | June 25th, 2026 | :nl: Driebergen-Rijsenburg, The Netherlands | :material-web: [https://agentcon.city/utrecht](https://agentcon.city/utrecht) | 🎟️ Registration closed |
 | European Power Platform Conference 2026 | June 29th - July 2nd, 2026 | :dk: Copenhagen, Denmark | :material-web: [https://www.sharepointeurope.com/european-power-platform-conference/](https://www.sharepointeurope.com/european-power-platform-conference/) | 🎟️ [Tickets](https://www.sharepointeurope.com/european-power-platform-conference-pricing/) |
-| Shift+Enter Summit 2026 | September 4th, 2026 | :hu: Budapest, Hungary | :material-web: [https://shiftenter.io/](https://shiftenter.io/) | 🎟️ Tickets not available yet |
+| Shift+Enter Summit 2026 | September 4th, 2026 | :hu: Budapest, Hungary | :material-web: [https://shiftenter.io/](https://shiftenter.io/) | 🎟️ [Tickets](https://www.shiftenter.io/tickets) |
 | HELish Summit 2026 | September 17th, 2026 | :fi: Helsinki, Finland | :material-web: [https://helishsummit.fi](https://helishsummit.fi) | 🎟️ [Free registration](https://www.lyyti.fi/reg/HELish_Summit_2026) |
 | Nordic Summit 2026 | September 21st - 22nd, 2026 | :dk: Billund, Denmark | :material-web: [https://nordicsummit.info/](https://nordicsummit.info/) | 🎟️ [Tickets](https://nordicsummit.info/) |
 | Scottish Summit | October 2nd - 3rd, 2026 | :scotland: Edinburgh, Scotland | :material-web: [https://scottishsummit.com/](https://scottishsummit.com/) | 🎟️ [Tickets](https://fienta.com/scottish-summit-2026) |
