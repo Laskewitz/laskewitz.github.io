@@ -15,8 +15,14 @@ icon: material/calendar
 
 | Event | Date | Location | Link | Tickets |
 | ----------- | ------------------------------------ | ------------------------------------ | ------------------------------------ | ------------------------------------ |
+| AgentCon Utrecht | June 25th, 2026 | :nl: Driebergen-Rijsenburg, The Netherlands | :material-web: [https://agentcon.city/utrecht](https://agentcon.city/utrecht) | 🎟️ Tickets not available yet |
 | European Power Platform Conference 2026 | June 29th - July 2nd, 2026 | :dk: Copenhagen, Denmark | :material-web: [https://www.sharepointeurope.com/european-power-platform-conference/](https://www.sharepointeurope.com/european-power-platform-conference/) | 🎟️ [Tickets](https://www.sharepointeurope.com/european-power-platform-conference-pricing/) |
+| Shift+Enter Summit 2026 | September 4th, 2026 | :hu: Budapest, Hungary | :material-web: [https://shiftenter.io/](https://shiftenter.io/) | 🎟️ Tickets not available yet |
+| HELish Summit 2026 | September 17th, 2026 | :fi: Helsinki, Finland | :material-web: [https://helishsummit.fi](https://helishsummit.fi) | 🎟️ Tickets not available yet |
+| Nordic Summit 2026 | September 21st - 22nd, 2026 | :dk: Billund, Denmark | :material-web: [https://nordicsummit.info/](https://nordicsummit.info/) | 🎟️ Tickets not available yet |
 | Scottish Summit | October 2nd - 3rd, 2026 | :scotland: Edinburgh, Scotland | :material-web: [https://scottishsummit.com/](https://scottishsummit.com/) | 🎟️ Tickets not available yet |
+| Power Platform Community Conference 2026 | October 25th - 30th, 2026 | :us: Las Vegas, United States | :material-web: [https://powerplatformconf.com/](https://powerplatformconf.com/) | 🎟️ Tickets not available yet |
+| ESPC26 | November 30th - December 3rd, 2026 | :nl: Amsterdam, The Netherlands | :material-web: [https://www.sharepointeurope.com/](https://www.sharepointeurope.com/) | 🎟️ Tickets not available yet |
 <!-- | Name | Date | :nl: | :material-web: [website](website) | 🎟️ [Tickets]() | -->
 
 ## Past events ✅
