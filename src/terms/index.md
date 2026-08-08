@@ -1,8 +1,6 @@
 ---
 title: Terms of use
-hide:
-- footer
-- toc
+description: Terms of use for laskewitz.io.
 ---
 
 # Terms of use

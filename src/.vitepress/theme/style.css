@@ -1,0 +1,366 @@
+/* ==========================================================================
+   WAYFINDING — the token layer
+
+   THESIS      The site is the venue and every page is a sign.
+   OWN-WORLD   Matte vinyl colour fields, optic-white cut lettering, oversized
+               directional arrows, hall-letter tiles.
+   RULE        Hall colours are FIELD colours carrying white or black text.
+               Never small hall-coloured text on the dark substrate — #1F4BFF
+               on #0A0A0A is ~3.4:1 and fails. White on #1F4BFF is 5.99:1.
+               Every hall/on-hall pair is measured, not eyeballed:
+               a 5.99 · b 7.34 · c 5.09 · d 15.83. The red is #D6203A rather
+               than a brighter #FF3D57 because that one only reached 3.47:1.
+               Text on a hall field is never faded with opacity — a faded
+               label re-fails the check. Signage separates by scale, not by
+               dimming.
+   ========================================================================== */
+
+@font-face {
+  font-family: 'Archivo';
+  font-style: normal;
+  font-weight: 100 900;
+  font-stretch: 62% 125%;
+  font-display: swap;
+  src: url('/fonts/archivo-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
+    U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193,
+    U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: 'Archivo';
+  font-style: normal;
+  font-weight: 100 900;
+  font-stretch: 62% 125%;
+  font-display: swap;
+  src: url('/fonts/archivo-latin-ext.woff2') format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF,
+    U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020,
+    U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+:root {
+  /* ── Substrate ────────────────────────────────────────────────────────── */
+  --wf-ink: #0a0a0a;
+  --wf-ink-raised: #141414;
+  --wf-ink-rule: #2a2a2a;
+  --wf-optic: #ffffff;
+  --wf-optic-dim: #a3a3a3;
+
+  /* ── Halls: the four semantic colour roles ────────────────────────────── */
+  --wf-hall-a: #1f4bff;
+  --wf-hall-b: #00c2a8;
+  --wf-hall-c: #d6203a;
+  --wf-hall-d: #c8ff00;
+
+  /* Text that sits ON each hall field. Contrast-checked, not eyeballed. */
+  --wf-on-hall-a: #ffffff;
+  --wf-on-hall-b: #04231f;
+  --wf-on-hall-c: #ffffff;
+  --wf-on-hall-d: #101400;
+
+  /* ── Type ─────────────────────────────────────────────────────────────── */
+  --wf-font: 'Archivo', ui-sans-serif, system-ui, -apple-system, 'Segoe UI',
+    sans-serif;
+
+  /* Signage stretches; reading does not. */
+  --wf-width-sign: 118;
+  --wf-width-read: 100;
+
+  --wf-step--1: clamp(0.78rem, 0.76rem + 0.1vw, 0.84rem);
+  --wf-step-0: clamp(0.95rem, 0.92rem + 0.15vw, 1.05rem);
+  --wf-step-1: clamp(1.15rem, 1.05rem + 0.5vw, 1.4rem);
+  --wf-step-2: clamp(1.5rem, 1.25rem + 1.2vw, 2.1rem);
+  --wf-step-3: clamp(2rem, 1.4rem + 3vw, 3.4rem);
+  --wf-step-4: clamp(2.6rem, 1.2rem + 6.5vw, 6rem);
+  --wf-step-venue: clamp(3.2rem, 0.5rem + 12vw, 11rem);
+
+  /* ── Rhythm ───────────────────────────────────────────────────────────── */
+  --wf-gap-hair: 0.25rem;
+  --wf-gap-xs: 0.5rem;
+  --wf-gap-s: 0.875rem;
+  --wf-gap-m: 1.5rem;
+  --wf-gap-l: 2.5rem;
+  --wf-gap-xl: 4rem;
+  --wf-gap-xxl: 6.5rem;
+
+  --wf-gutter: clamp(1.25rem, 4vw, 4rem);
+  --wf-measure: 68ch;
+
+  /* Minimum tap target. A sign row is never smaller than a thumb. */
+  --wf-tap: 56px;
+
+  --wf-motion: 120ms;
+  --wf-ease: cubic-bezier(0.2, 0, 0, 1);
+}
+
+/* ── Hall assignment ─────────────────────────────────────────────────────── */
+[data-hall='a'] {
+  --hall: var(--wf-hall-a);
+  --on-hall: var(--wf-on-hall-a);
+}
+[data-hall='b'] {
+  --hall: var(--wf-hall-b);
+  --on-hall: var(--wf-on-hall-b);
+}
+[data-hall='c'] {
+  --hall: var(--wf-hall-c);
+  --on-hall: var(--wf-on-hall-c);
+}
+[data-hall='d'] {
+  --hall: var(--wf-hall-d);
+  --on-hall: var(--wf-on-hall-d);
+}
+
+/* ==========================================================================
+   VitePress default-theme variables, rewritten in the world's terms.
+   Dark is the default: the room is half-lit and the phone is the light source.
+   ========================================================================== */
+
+:root {
+  --vp-c-bg: var(--wf-ink);
+  --vp-c-bg-alt: var(--wf-ink-raised);
+  --vp-c-bg-soft: var(--wf-ink-raised);
+  --vp-c-bg-elv: var(--wf-ink-raised);
+  --vp-c-divider: var(--wf-ink-rule);
+  --vp-c-border: var(--wf-ink-rule);
+  --vp-c-gutter: var(--wf-ink-rule);
+
+  --vp-c-text-1: var(--wf-optic);
+  --vp-c-text-2: #b8b8b8;
+  --vp-c-text-3: #7a7a7a;
+
+  --vp-c-brand-1: #6d8dff;
+  --vp-c-brand-2: #8ba4ff;
+  --vp-c-brand-3: var(--wf-hall-a);
+  --vp-c-brand-soft: rgba(31, 75, 255, 0.18);
+
+  --vp-font-family-base: var(--wf-font);
+  --vp-font-family-mono: ui-monospace, 'SF Mono', SFMono-Regular, Menlo,
+    monospace;
+
+  --vp-nav-height: 68px;
+  --vp-layout-max-width: 100%;
+  --vp-content-container-max-width: 100%;
+}
+
+/* Light mode is the inverted vinyl: white substrate, black cut lettering,
+   identical halls. It is a real mode, not a tinted afterthought. */
+html:not(.dark) {
+  --wf-ink: #f7f7f5;
+  --wf-ink-raised: #ffffff;
+  --wf-ink-rule: #d8d8d4;
+  --wf-optic: #0a0a0a;
+  --wf-optic-dim: #5c5c5c;
+
+  --vp-c-text-1: #0a0a0a;
+  --vp-c-text-2: #3d3d3d;
+  --vp-c-text-3: #6b6b6b;
+  --vp-c-brand-1: #1230b8;
+  --vp-c-brand-2: #1a3ee0;
+  --vp-c-brand-soft: rgba(31, 75, 255, 0.12);
+}
+
+/* ==========================================================================
+   Base
+   ========================================================================== */
+
+html {
+  background: var(--wf-ink);
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--wf-font);
+  font-variation-settings: 'wdth' var(--wf-width-read);
+  font-feature-settings: 'tnum' 1, 'ss01' 1;
+  background: var(--wf-ink);
+  color: var(--wf-optic);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+::selection {
+  background: var(--wf-hall-d);
+  color: var(--wf-on-hall-d);
+}
+
+/* Signage does not have a soft focus ring. It has a cut edge. */
+:where(a, button, [tabindex]):focus-visible {
+  outline: 3px solid var(--wf-hall-d);
+  outline-offset: 2px;
+  border-radius: 0;
+}
+
+/* ── Signage register ─────────────────────────────────────────────────────
+   Wide, cut, tracked tight. Governs wayfinding only — never prose. */
+.wf-sign {
+  font-variation-settings: 'wdth' var(--wf-width-sign);
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: -0.01em;
+  line-height: 0.92;
+}
+
+.wf-label {
+  font-variation-settings: 'wdth' 112;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-size: var(--wf-step--1);
+  color: var(--wf-optic-dim);
+}
+
+/* ── Reading register ─────────────────────────────────────────────────────
+   The named mitigation for this world's honest risk: caps-at-venue-scale
+   governs wayfinding, prose drops into a real measure and keeps the substrate. */
+.wf-read {
+  font-variation-settings: 'wdth' var(--wf-width-read);
+  max-width: var(--wf-measure);
+  font-size: var(--wf-step-0);
+  line-height: 1.65;
+  text-transform: none;
+  letter-spacing: 0;
+}
+
+.wf-gutter {
+  padding-inline: var(--wf-gutter);
+}
+
+/* ==========================================================================
+   Motion — signage does not bounce.
+   ========================================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ==========================================================================
+   Default-theme suppression.
+   A stock component inside a committed surface is a lapse.
+   ========================================================================== */
+
+.VPNav {
+  border-bottom: 1px solid var(--wf-ink-rule);
+  background: var(--wf-ink);
+}
+
+.VPNavBar,
+.VPNavBar.has-sidebar .content-body,
+.VPNavBar:not(.has-sidebar):not(.top) .content-body {
+  background: transparent !important;
+}
+
+.VPNavBar .divider {
+  display: none;
+}
+
+.VPNavBarTitle .logo {
+  height: 26px;
+  max-height: 26px;
+}
+
+.VPNavBarMenuLink,
+.VPNavScreenMenuLink {
+  font-variation-settings: 'wdth' 112;
+  font-weight: 700 !important;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: var(--wf-step--1) !important;
+}
+
+/* Full-bleed content. Below 960px the navbar sits in normal flow and already
+   occupies its space; above it the navbar is fixed, so the content must be
+   pushed clear of it or the signage gets cropped by the chrome. */
+.VPContent {
+  padding: 0 !important;
+}
+
+@media (min-width: 960px) {
+  .VPContent {
+    padding-top: var(--vp-nav-height) !important;
+  }
+}
+
+.VPDoc {
+  padding: 0 !important;
+}
+
+.VPDoc .container,
+.VPDoc .content,
+.VPDoc .content-container {
+  max-width: 100% !important;
+  margin: 0 !important;
+}
+
+/* Signage pages (layout: page) own their full width; prose does not. */
+.VPPage .vp-doc > div {
+  max-width: 100%;
+}
+
+.VPFooter {
+  background: var(--wf-ink) !important;
+  border-top: 1px solid var(--wf-ink-rule);
+  padding: var(--wf-gap-l) var(--wf-gutter) !important;
+}
+
+.VPFooter .message,
+.VPFooter .copyright {
+  font-size: var(--wf-step--1);
+  color: var(--wf-optic-dim);
+}
+
+/* The reading exception, enforced.
+   The default theme's container is opened to full width so signage surfaces can
+   run edge to edge, which would otherwise drag body copy across the whole
+   venue. Markdown prose is put back on a real measure here — the blog post and
+   the secondary pages are read, not scanned. */
+.VPDoc .vp-doc > div {
+  max-width: var(--wf-measure);
+  margin-inline: auto;
+  padding-inline: var(--wf-gutter);
+  padding-block: var(--wf-gap-xl);
+}
+
+.VPDoc .vp-doc > div > :first-child {
+  margin-top: 0;
+}
+
+/* 4. No off-world ornament inside a committed surface: markdown lists get the
+   venue's own arrow rather than a default disc or a stray emoji. */
+.VPDoc .vp-doc > div ul {
+  list-style: none;
+  padding-left: 1.6em;
+}
+
+.VPDoc .vp-doc > div ul > li {
+  position: relative;
+}
+
+.VPDoc .vp-doc > div ul > li::before {
+  content: '→';
+  position: absolute;
+  left: -1.6em;
+  color: var(--wf-optic-dim);
+}
+
+/* Prose inside markdown pages keeps the reading measure. */
+.vp-doc h1,
+.vp-doc h2,
+.vp-doc h3 {
+  font-variation-settings: 'wdth' 112;
+  letter-spacing: -0.015em;
+}
+
+.vp-doc a {
+  color: var(--vp-c-brand-1);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
