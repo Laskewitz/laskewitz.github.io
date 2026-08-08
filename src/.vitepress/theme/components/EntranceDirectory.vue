@@ -67,10 +67,11 @@ const directory = [
     <!-- BANNER: a real room leads, and the name is cut across it. -->
     <BannerImage
       v-else-if="variant === 'banner'"
-      src="stage-paris"
-      alt="Daniel Laskewitz on stage at Microsoft AI Tour Paris, speaking to a full auditorium."
+      src="stage-devworld"
+      alt="Daniel Laskewitz speaking on stage at DevWorld 2024."
       hall="a"
       height="half"
+      focus="62% 34%"
       priority
     >
       <p class="banner-name wf-sign">Daniel Laskewitz</p>

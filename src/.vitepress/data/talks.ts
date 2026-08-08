@@ -185,7 +185,7 @@ export const talks: Talk[] = [
         ]
       }
     ],
-    deliveries: [{ eventSlug: 'ai-agents-hack-2025' }]
+    deliveries: [{ eventSlug: 'ai-agents-hack-2025', coSpeakers: ['garrytrinder'] }]
   },
   {
     slug: 'mcp',

@@ -82,6 +82,17 @@ export const speakers: Record<string, Speaker> = {
       { label: 'Website', href: 'https://linked365.blog' },
       { label: 'GitHub', href: 'https://github.com/LinkeD365' }
     ]
+  },
+  garrytrinder: {
+    slug: 'garrytrinder',
+    name: 'Garry Trinder',
+    role: 'Senior Cloud Advocate',
+    company: 'Microsoft',
+    links: [
+      { label: 'Website', href: 'https://garrytrinder.github.io' },
+      { label: 'LinkedIn', href: 'https://www.linkedin.com/in/gtrinder' },
+      { label: 'GitHub', href: 'https://github.com/garrytrinder' }
+    ]
   }
 }
 

@@ -52,6 +52,7 @@ export default defineConfig({
     siteTitle: false,
 
     nav: [
+      { text: 'Home', link: '/' },
       { text: 'Events', link: '/events/' },
       { text: 'Talks', link: '/talks/' },
       { text: 'Blogs', link: '/blog/' }
