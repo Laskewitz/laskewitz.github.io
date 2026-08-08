@@ -2,10 +2,9 @@
 title: A Microsoft Learn plugin for Copilot Cowork
 description: I needed a Cowork demo for CollabDays Netherlands that produced something real, so I built a plugin around the Microsoft Learn MCP server.
 date: 2026-06-15
-tags: [Copilot Cowork, MCP, Microsoft Learn]
+categories: [Copilot Cowork, Plugins, MCP]
+pageClass: wf-post
 ---
-
-# A Microsoft Learn plugin for Copilot Cowork
 
 I gave [Copilot Cowork: Work Together with AI, Get Things Done](/talks/cowork/) at
 [CollabDays Netherlands](/events/) on Saturday. Cowork isn't something you can

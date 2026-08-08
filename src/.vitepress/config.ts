@@ -37,7 +37,7 @@ export default defineConfig({
       {
         rel: 'alternate',
         type: 'application/rss+xml',
-        title: 'Daniel Laskewitz — Writing',
+        title: 'Daniel Laskewitz — Blog',
         href: 'https://laskewitz.io/feed.rss'
       }
     ],
@@ -54,7 +54,7 @@ export default defineConfig({
     nav: [
       { text: 'Events', link: '/events/' },
       { text: 'Talks', link: '/talks/' },
-      { text: 'Writing', link: '/blog/' }
+      { text: 'Blog', link: '/blog/' }
     ],
 
     sidebar: false,

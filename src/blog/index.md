@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Writing
+title: Blog
 description: Notes on Power Platform, Copilot Studio and building agents.
 ---
 

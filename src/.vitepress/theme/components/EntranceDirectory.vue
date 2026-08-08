@@ -46,7 +46,7 @@ const directory = computed(() => [
   },
   {
     href: '/blog/',
-    label: 'Writing',
+    label: 'Blog',
     meta: 'Notes and posts',
     hall: 'c' as const
   }

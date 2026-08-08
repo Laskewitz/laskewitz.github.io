@@ -15,7 +15,7 @@ export async function buildFeedXml(): Promise<string> {
   const feed = new Feed({
     id: HOSTNAME,
     link: HOSTNAME,
-    title: 'Daniel Laskewitz — Writing',
+    title: 'Daniel Laskewitz — Blog',
     description:
       'Notes on Power Platform, Copilot Studio and building agents, from Daniel Laskewitz.',
     language: 'en-GB',
@@ -42,6 +42,7 @@ export async function buildFeedXml(): Promise<string> {
       link: `${HOSTNAME}${url}`,
       description: frontmatter.description ?? excerpt,
       content: html,
+      category: (frontmatter.categories ?? []).map((name: string) => ({ name })),
       author: [
         {
           name: 'Daniel Laskewitz',

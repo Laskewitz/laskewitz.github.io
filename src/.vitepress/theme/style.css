@@ -352,6 +352,55 @@ body {
   margin-top: 0;
 }
 
+/* ── Blog posts ───────────────────────────────────────────────────────────
+   A post is the one read surface with furniture around it, so it gets its own
+   frame instead of the default centred column. Below 82rem it's a single column:
+   masthead, meta, prose, sign-off. At 82rem the frame becomes a two-column grid
+   and the meta moves into a rail beside the prose, so a wide screen gets an
+   editorial spread rather than a narrow column stranded in the middle of the
+   field. `pageClass: wf-post` in a post's frontmatter opts it in. */
+.wf-post .VPDoc .content-container {
+  max-width: 72rem !important;
+  margin-inline: auto !important;
+  padding-inline: var(--wf-gutter);
+}
+
+.wf-post .VPDoc .vp-doc > div {
+  max-width: 72ch;
+  margin-inline: 0;
+  padding-inline: 0;
+  padding-block: var(--wf-gap-l) 0;
+}
+
+/* The masthead already prints the title and date, so the prose opens straight
+   into body copy. Its first paragraph carries the lead-in weight instead. */
+.wf-post .VPDoc .vp-doc > div > p:first-child {
+  font-size: var(--wf-step-1);
+  line-height: 1.55;
+  color: var(--wf-optic);
+}
+
+@media (min-width: 82rem) {
+  .wf-post .VPDoc .content-container {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 17rem;
+    column-gap: var(--wf-gap-xl);
+    align-items: start;
+  }
+
+  .wf-post .VPDoc .content-container > main,
+  .wf-post .VPDoc .content-container > .signoff {
+    grid-column: 1;
+  }
+
+  /* Inside the grid the column sets the measure, so the prose fills its cell
+     instead of stopping short and leaving a hole before the rail. */
+  .wf-post .VPDoc .vp-doc > div {
+    max-width: none;
+    padding-block: var(--wf-gap-xl) 0;
+  }
+}
+
 /* 4. No off-world ornament inside a committed surface: markdown lists get the
    venue's own arrow rather than a default disc or a stray emoji. */
 .VPDoc .vp-doc > div ul {
