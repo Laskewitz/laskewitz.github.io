@@ -86,7 +86,7 @@ function toggleYear(year: string) {
 
     <section class="board wf-gutter" aria-labelledby="past-heading">
       <h2 id="past-heading" class="board-heading wf-sign">
-        Been there
+        Past
         <span class="count">{{ past.length }}</span>
       </h2>
 
