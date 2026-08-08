@@ -523,15 +523,6 @@ export const talks: Talk[] = [
             href: 'https://www.powerplatformtoolbox.com/tools/94612c66-2d1d-4384-b519-9501ab67f603'
           }
         ]
-      },
-      {
-        title: 'From the session',
-        links: [
-          {
-            label: 'All session resources',
-            href: 'https://github.com/LinkeD365/admin-essentials'
-          }
-        ]
       }
     ],
     deliveries: [

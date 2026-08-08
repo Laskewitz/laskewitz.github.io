@@ -56,6 +56,8 @@ export const speakers: Record<string, Speaker> = {
   agniusbartninkas: {
     slug: 'agniusbartninkas',
     name: 'Agnius Bartninkas',
+    role: 'CEO',
+    company: 'Herexis',
     links: [
       { label: 'LinkedIn', href: 'https://www.linkedin.com/in/agnius-bartninkas/' },
       { label: 'GitHub', href: 'https://github.com/AgniusBartninkas' }
@@ -74,6 +76,8 @@ export const speakers: Record<string, Speaker> = {
   carlcookson: {
     slug: 'carlcookson',
     name: 'Carl Cookson',
+    role: 'Consultant / Owner',
+    company: 'LinkeD365 Consulting',
     links: [
       { label: 'Website', href: 'https://linked365.blog' },
       { label: 'GitHub', href: 'https://github.com/LinkeD365' }
