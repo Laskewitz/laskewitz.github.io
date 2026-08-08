@@ -34,7 +34,7 @@ const years = computed(() => `${firstYear()}—${new Date().getFullYear()}`)
 const directory = [
   { href: '/events', label: 'Events', hall: 'a' as const },
   { href: '/talks/', label: 'Talks', hall: 'b' as const },
-  { href: '/blog/', label: 'Blog', hall: 'c' as const }
+  { href: '/blog/', label: 'Blogs', hall: 'c' as const }
 ]
 </script>
 
@@ -108,19 +108,10 @@ const directory = [
       </dl>
     </header>
 
-    <nav class="directory wf-gutter" aria-label="Main directory">
-      <SignRow
-        v-for="item in directory"
-        :key="item.href"
-        :href="item.href"
-        :label="item.label"
-        :hall="item.hall"
-        :size="variant === 'directory' ? 'door' : 'default'"
-      />
-    </nav>
-
-    <!-- The illuminated strip along the bottom edge. Not repeated when the
-         same event is already leading the page as the board. -->
+    <!-- The illuminated strip sits between the banner and the directory: it
+         breaks the page where the photograph ends and the signage begins, and
+         puts the one time-sensitive thing above the halls. Not repeated when
+         the same event is already leading the page as the board. -->
     <a
       v-if="next && variant !== 'board'"
       class="next"
@@ -138,6 +129,19 @@ const directory = [
       </span>
       <span class="next-arrow" aria-hidden="true">→</span>
     </a>
+
+    <nav class="directory wf-gutter" aria-label="Main directory">
+      <SignRow
+        v-for="item in directory"
+        :key="item.href"
+        :href="item.href"
+        :label="item.label"
+        :hall="item.hall"
+        :size="variant === 'directory' ? 'door' : 'default'"
+      />
+    </nav>
+
+
   </div>
 </template>
 

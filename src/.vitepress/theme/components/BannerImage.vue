@@ -20,10 +20,16 @@ withDefaults(
     hall?: Hall
     /** How tall the banner stands. */
     height?: 'strip' | 'half' | 'full'
+    /**
+     * Where the crop is anchored, as a CSS object-position. Every photograph
+     * puts the face somewhere different, and a strip crops away most of the
+     * frame — so the subject is named per image rather than assumed.
+     */
+    focus?: string
     /** Banners above the fold load eagerly; everything else waits. */
     priority?: boolean
   }>(),
-  { height: 'half', priority: false }
+  { height: 'half', priority: false, focus: 'center 26%' }
 )
 </script>
 
@@ -34,6 +40,7 @@ withDefaults(
       :src="`/images/stage/${src}-1600.jpg`"
       :srcset="`/images/stage/${src}-960.jpg 960w, /images/stage/${src}-1600.jpg 1600w, /images/stage/${src}-2400.jpg 2400w`"
       sizes="100vw"
+      :style="{ objectPosition: focus }"
       :alt="alt"
       :loading="priority ? 'eager' : 'lazy'"
       :fetchpriority="priority ? 'high' : undefined"
@@ -58,7 +65,9 @@ withDefaults(
 }
 
 .is-strip {
-  min-height: 34vh;
+  /* A band, not a hall: enough to carry a face and the page's name, and no
+     more. Capped in rem so a tall desktop doesn't turn it into a hero. */
+  min-height: clamp(13rem, 30vh, 19rem);
 }
 
 .is-half {
@@ -83,9 +92,6 @@ withDefaults(
 
 .banner-img {
   object-fit: cover;
-  /* The subject's head sits ~30% down the frame. Anchoring the crop near the
-     top keeps the face in shot at every viewport; anchoring low cropped it. */
-  object-position: center 26%;
   z-index: 0;
 }
 
@@ -132,6 +138,35 @@ withDefaults(
   .banner-body {
     padding-top: var(--wf-gap-m);
     padding-bottom: var(--wf-gap-m);
+  }
+}
+
+/* A strip is too short for a bottom-up scrim: darkening enough to carry the
+   lettering would darken the whole photograph with it. So the strip's scrim
+   runs across instead — heavy under the words on the left, clearing to the
+   right where the subject is, which is what lets the face stay lit. */
+@media (min-width: 48rem) {
+  .is-strip .banner-scrim {
+    background: linear-gradient(
+      to right,
+      rgba(10, 10, 10, 0.94) 0%,
+      rgba(10, 10, 10, 0.86) 28%,
+      rgba(10, 10, 10, 0.5) 62%,
+      rgba(10, 10, 10, 0.26) 100%
+    );
+  }
+}
+
+/* Narrow enough that the lettering spans the full width, so the horizontal
+   clearing would strand the end of a line over bare photograph. */
+@media (max-width: 47.999rem) {
+  .is-strip .banner-scrim {
+    background: linear-gradient(
+      to top,
+      rgba(10, 10, 10, 0.94) 0%,
+      rgba(10, 10, 10, 0.86) 45%,
+      rgba(10, 10, 10, 0.6) 100%
+    );
   }
 }
 

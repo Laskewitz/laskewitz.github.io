@@ -5,6 +5,7 @@ import { talks, tagsOfKind } from '../../data/talks'
 import { getEvent, isUpcoming } from '../../data/events'
 import { eventYear } from '../../data/format'
 import FilterBar from './FilterBar.vue'
+import PageBanner from './PageBanner.vue'
 
 function deliveryDates(slug: string): string[] {
   const talk = talks.find((t) => t.slug === slug)
@@ -79,17 +80,19 @@ const shown = computed(() => {
 
 <template>
   <div class="placards">
-    <header class="head wf-gutter">
-      <h1 class="title wf-sign">Talks</h1>
-      <p class="standfirst">
-        These aren't one-offs. Each of these gets given again, at different
-        events, sometimes with someone else on stage next to me. If you're
-        organising something and one of these fits, get in touch.
-      </p>
-    </header>
+    <PageBanner
+      title="Talks"
+      src="stage-ecs-2024"
+      alt="Daniel Laskewitz presenting alongside a co-speaker at the European Collaboration Summit 2024."
+      hall="b"
+      focus="58% 24%"
+    >
+      These aren't one-offs. Each of these gets given again, at different
+      events, sometimes with someone else on stage next to me.
+    </PageBanner>
 
     <FilterBar
-      class="wf-gutter"
+      class="wf-gutter bar"
       v-model:picked="picked"
       v-model:query="query"
       :facets="facets"
@@ -134,6 +137,10 @@ const shown = computed(() => {
 </template>
 
 <style scoped>
+.bar {
+  padding-top: var(--wf-gap-l);
+}
+
 /* The empty state's own reset link. The bar's Clear lives in FilterBar. */
 .clear {
   padding: 0;
@@ -153,28 +160,6 @@ const shown = computed(() => {
   padding: var(--wf-gap-xl) 0;
   color: var(--wf-optic-dim);
   font-size: var(--wf-step-0);
-}
-
-.head {
-  padding-top: var(--wf-gap-xl);
-  padding-bottom: var(--wf-gap-m);
-}
-
-.title {
-  margin: var(--wf-gap-xs) 0 0;
-  font-size: var(--wf-step-4);
-  font-weight: 900;
-  letter-spacing: -0.03em;
-  margin-left: -0.035em;
-}
-
-.standfirst {
-  max-width: 54ch;
-  margin: var(--wf-gap-s) 0 0;
-  font-variation-settings: 'wdth' 100;
-  font-size: var(--wf-step-0);
-  line-height: 1.6;
-  color: var(--vp-c-text-2);
 }
 
 .grid {

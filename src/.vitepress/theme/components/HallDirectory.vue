@@ -8,9 +8,20 @@ import { pastEvents, upcomingEvents } from '../../data/events'
 import { talksAtEvent } from '../../data/talks'
 import { eventPlace, eventYear, flag, formatEventDate } from '../../data/format'
 import HallTile from './HallTile.vue'
+import PageBanner from './PageBanner.vue'
 
 const past = computed(() => pastEvents())
-const upcoming = computed(() => upcomingEvents())
+
+/**
+ * The very next date gets its own spotlight, so the rest of the upcoming list
+ * stays a list. It's lifted out rather than repeated: seeing the same event
+ * twice in a row would read as a mistake.
+ */
+const next = computed(() => upcomingEvents()[0])
+const upcoming = computed(() => upcomingEvents().slice(1))
+
+/** What I'm actually giving there — the reason the date is worth spotlighting. */
+const nextTalks = computed(() => (next.value ? talksAtEvent(next.value.slug) : []))
 
 const pastByYear = computed(() => {
   const groups = new Map<string, typeof past.value>()
@@ -33,13 +44,39 @@ function toggleYear(year: string) {
 
 <template>
   <div class="halls">
-    <header class="head wf-gutter">
-      <h1 class="title wf-sign">Events</h1>
-      <p class="standfirst">
-        Every conference, user group and community day I've spoken at, and the
-        ones still ahead.
+    <PageBanner
+      title="Events"
+      src="stage-ecs-2023"
+      alt="Daniel Laskewitz speaking from the main stage at the European Collaboration Summit 2023."
+      hall="a"
+      focus="49% 30%"
+    >
+      Every conference, user group and community day I've spoken at, and the
+      ones still ahead.
+    </PageBanner>
+
+    <section v-if="next" class="spotlight wf-gutter" aria-labelledby="next-heading" data-hall="a">
+      <p id="next-heading" class="spot-label wf-label">Next up</p>
+
+      <h2 class="spot-name wf-sign">{{ next.name }}</h2>
+
+      <p class="spot-meta">
+        {{ formatEventDate(next) }}
+        <span v-if="flag(next.country)" aria-hidden="true">{{ flag(next.country) }}</span>
+        {{ eventPlace(next) }}
       </p>
-    </header>
+
+      <ul v-if="nextTalks.length" class="spot-talks">
+        <li v-for="talk in nextTalks" :key="talk.slug">
+          <a :href="`/talks/${talk.slug}`">{{ talk.title }}</a>
+        </li>
+      </ul>
+
+      <p class="spot-links">
+        <a v-if="next.website" :href="next.website" target="_blank" rel="noreferrer">Site ↗</a>
+        <a v-if="next.tickets" :href="next.tickets" target="_blank" rel="noreferrer">Tickets ↗</a>
+      </p>
+    </section>
 
     <section class="board wf-gutter" aria-labelledby="upcoming-heading">
       <h2 id="upcoming-heading" class="board-heading wf-sign">
@@ -48,7 +85,7 @@ function toggleYear(year: string) {
       </h2>
 
       <p v-if="!upcoming.length" class="empty">
-        Nothing on the board right now. New dates land here as they're confirmed.
+        Nothing else on the board yet. New dates land here as they're confirmed.
       </p>
 
       <ol v-else class="lines">
@@ -143,26 +180,72 @@ function toggleYear(year: string) {
 </template>
 
 <style scoped>
-.head {
-  padding-top: var(--wf-gap-xl);
-  padding-bottom: var(--wf-gap-m);
+.spotlight {
+  padding-top: var(--wf-gap-l);
+  padding-bottom: var(--wf-gap-l);
+  background: var(--hall);
+  color: var(--on-hall);
 }
 
-.title {
+/* Everything printed on the hall field inherits the paired colour. Weight,
+   not opacity, is what separates the label from the name here. */
+.spot-label,
+.spot-name,
+.spot-meta,
+.spot-talks a,
+.spot-links a {
+  color: inherit;
+}
+
+.spot-name {
   margin: var(--wf-gap-xs) 0 0;
-  font-size: var(--wf-step-4);
-  font-weight: 900;
-  letter-spacing: -0.03em;
-  margin-left: -0.035em;
+  font-size: var(--wf-step-3);
+  line-height: 1.05;
+  overflow-wrap: anywhere;
 }
 
-.standfirst {
-  max-width: 52ch;
+.spot-meta {
+  margin: var(--wf-gap-xs) 0 0;
+  font-variation-settings: 'wdth' 105;
+  font-weight: 600;
+  font-size: var(--wf-step-0);
+}
+
+.spot-talks {
   margin: var(--wf-gap-s) 0 0;
+  padding: 0;
+  list-style: none;
   font-variation-settings: 'wdth' 100;
   font-size: var(--wf-step-0);
-  line-height: 1.6;
-  color: var(--vp-c-text-2);
+}
+
+.spot-talks li + li {
+  margin-top: 2px;
+}
+
+.spot-talks a {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.spot-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--wf-gap-m);
+  margin: var(--wf-gap-xs) 0 0;
+}
+
+.spot-links a {
+  min-height: var(--wf-tap);
+  display: inline-flex;
+  align-items: center;
+  font-variation-settings: 'wdth' 110;
+  font-weight: 700;
+  font-size: var(--wf-step--1);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  text-decoration: underline;
+  text-underline-offset: 4px;
 }
 
 .board {

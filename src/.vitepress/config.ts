@@ -54,7 +54,7 @@ export default defineConfig({
     nav: [
       { text: 'Events', link: '/events/' },
       { text: 'Talks', link: '/talks/' },
-      { text: 'Blog', link: '/blog/' }
+      { text: 'Blogs', link: '/blog/' }
     ],
 
     sidebar: false,

@@ -8,6 +8,7 @@ import { computed, onMounted, ref } from 'vue'
 import { data as posts } from '../posts.data'
 import { sortCategories } from '../../data/posts'
 import FilterBar from './FilterBar.vue'
+import PageBanner from './PageBanner.vue'
 import HallTile from './HallTile.vue'
 import NoticeNote from './NoticeNote.vue'
 
@@ -86,13 +87,17 @@ function toggleYear(year: string) {
 
 <template>
   <div class="board">
-    <header class="head wf-gutter">
-      <h1 class="title wf-sign">Blog</h1>
-    </header>
+    <PageBanner
+      title="Blogs"
+      src="stage-devworld"
+      alt="Daniel Laskewitz mid-sentence on stage at DevWorld 2024."
+      hall="c"
+      focus="51% 22%"
+    />
 
     <FilterBar
       v-if="categories.length"
-      class="wf-gutter"
+      class="wf-gutter bar"
       v-model:picked="picked"
       v-model:query="query"
       :facets="facets"
@@ -151,17 +156,8 @@ function toggleYear(year: string) {
 </template>
 
 <style scoped>
-.head {
-  padding-top: var(--wf-gap-xl);
-  padding-bottom: var(--wf-gap-m);
-}
-
-.title {
-  margin: var(--wf-gap-xs) 0 0;
-  font-size: var(--wf-step-4);
-  font-weight: 900;
-  letter-spacing: -0.03em;
-  margin-left: -0.035em;
+.bar {
+  padding-top: var(--wf-gap-l);
 }
 
 .clear {
