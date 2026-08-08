@@ -67,7 +67,7 @@ withDefaults(
 .is-strip {
   /* A band, not a hall: enough to carry a face and the page's name, and no
      more. Capped in rem so a tall desktop doesn't turn it into a hero. */
-  min-height: clamp(13rem, 30vh, 19rem);
+  min-height: clamp(15rem, 34vh, 23rem);
 }
 
 .is-half {

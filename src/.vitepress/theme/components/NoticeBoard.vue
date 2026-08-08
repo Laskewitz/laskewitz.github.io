@@ -89,10 +89,10 @@ function toggleYear(year: string) {
   <div class="board">
     <PageBanner
       title="Blogs"
-      src="stage-devworld"
-      alt="Daniel Laskewitz mid-sentence on stage at DevWorld 2024."
+      src="stage-dynamicsminds"
+      alt="Daniel Laskewitz presenting beside a projected slide at DynamicsMinds 2024."
       hall="c"
-      focus="51% 22%"
+      focus="62% 34%"
     />
 
     <FilterBar
