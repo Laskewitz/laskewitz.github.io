@@ -154,13 +154,18 @@ function toggleYear(year: string) {
                 {{ eventPlace(event) }}
               </span>
               <span v-if="talksAtEvent(event.slug).length" class="gave">
-                Sessions:
-                <a
-                  v-for="talk in talksAtEvent(event.slug)"
-                  :key="talk.slug"
-                  :href="`/talks/${talk.slug}`"
-                  >{{ talk.title }}</a
-                >
+                <span class="gave-label wf-label">
+                  {{ talksAtEvent(event.slug).length === 1 ? 'Session' : 'Sessions' }}
+                </span>
+                <ul class="gave-list">
+                  <li
+                    v-for="talk in talksAtEvent(event.slug)"
+                    :key="talk.slug"
+                    :data-hall="talk.hall"
+                  >
+                    <a :href="`/talks/${talk.slug}`">{{ talk.title }}</a>
+                  </li>
+                </ul>
               </span>
             </span>
 
@@ -331,22 +336,48 @@ function toggleYear(year: string) {
   margin-right: 0.35em;
 }
 
+/* Four sessions run as one comma-separated sentence read as a wall of text at
+   a glance. Stacked, each on its own line behind its hall colour, the row
+   answers "what did he do here" without being read word by word. */
 .gave {
+  display: block;
+  margin-top: var(--wf-gap-xs);
   font-variation-settings: 'wdth' 100;
   font-size: var(--wf-step--1);
   color: var(--wf-optic-dim);
 }
 
-.gave a {
-  color: var(--vp-c-brand-1);
-  text-decoration: none;
-  border-bottom: 1px solid currentColor;
+.gave-label {
+  display: block;
 }
 
-.gave a + a::before {
-  content: ', ';
-  color: var(--wf-optic-dim);
-  border: 0;
+.gave-list {
+  margin: 0.35rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.gave-list li {
+  padding-left: var(--wf-gap-s);
+  border-left: 3px solid var(--hall, var(--wf-optic-dim));
+  /* A title that wraps on a phone should still read as one item, so the two
+     lines sit closer to each other than to the next session. */
+  line-height: 1.35;
+}
+
+.gave-list li + li {
+  margin-top: 0.45rem;
+}
+
+.gave-list a {
+  color: var(--wf-optic);
+  text-decoration: none;
+}
+
+.gave-list a:hover,
+.gave-list a:focus-visible {
+  text-decoration: underline;
+  text-underline-offset: 3px;
 }
 
 .links {
