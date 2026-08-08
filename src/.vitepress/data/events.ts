@@ -20,6 +20,16 @@ export const events: EventRecord[] = [
     tickets: 'https://espc.tech/conference/espc-2026/tickets/'
   },
   {
+    slug: 'ignite-2026',
+    name: 'Microsoft Ignite',
+    start: '2026-11-17',
+    end: '2026-11-20',
+    city: 'San Francisco',
+    country: 'US',
+    countryName: 'United States',
+    website: 'https://ignite.microsoft.com/en-US/home'
+  },
+  {
     slug: 'ppcc-2026',
     name: 'Power Platform Community Conference',
     start: '2026-10-27',
