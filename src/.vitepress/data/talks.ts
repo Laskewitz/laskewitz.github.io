@@ -1,4 +1,4 @@
-import type { Talk } from './types'
+import type { ResourceGroup, Talk } from './types'
 
 /**
  * The talks.
@@ -318,6 +318,9 @@ export const talks: Talk[] = [
       'and IT leaders looking to modernise how they build integrations.',
     hall: 'a',
     tags: ['MCP', 'Custom Connectors', 'Power Platform'],
+    resourceSlug: 'mcp-vs-connectors',
+    /* Same ground as "MCP or not to MCP", so it hands out the same links. */
+    resourcesFrom: 'mcp',
     defaultCoSpeakers: ['mnecker'],
     deliveries: [
       { eventSlug: 'espc-2026', coSpeakers: ['mnecker'] },
@@ -692,9 +695,18 @@ export function tagsOfKind(kind: TagKind): string[] {
   return [...counts.entries()]
     .sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]))
     .map(([tag]) => tag)
-}const talkByResource = new Map(
+}
+
+const talkByResource = new Map(
   talks.filter((t) => t.resourceSlug).map((t) => [t.resourceSlug!, t])
 )
+
+/** The groups a talk hands out, following `resourcesFrom` when it is set. */
+export function talkResources(talk: Talk): ResourceGroup[] {
+  if (talk.resources?.length) return talk.resources
+  const source = talk.resourcesFrom ? talkBySlug.get(talk.resourcesFrom) : undefined
+  return source?.resources ?? []
+}
 
 export function getTalk(slug: string): Talk | undefined {
   return talkBySlug.get(slug)

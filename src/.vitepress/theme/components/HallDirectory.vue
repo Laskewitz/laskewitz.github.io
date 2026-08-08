@@ -154,7 +154,7 @@ function toggleYear(year: string) {
                 {{ eventPlace(event) }}
               </span>
               <span v-if="talksAtEvent(event.slug).length" class="gave">
-                Gave:
+                Sessions:
                 <a
                   v-for="talk in talksAtEvent(event.slug)"
                   :key="talk.slug"

@@ -226,7 +226,6 @@ function resourceHref(delivery: { coSpeakers?: readonly string[] }) {
 .stages {
   padding-top: var(--wf-gap-xl);
   padding-bottom: var(--wf-gap-xl);
-  border-top: 1px solid var(--wf-ink-rule);
 }
 
 .section-heading {
@@ -376,7 +375,6 @@ function resourceHref(delivery: { coSpeakers?: readonly string[] }) {
 
 .doors {
   padding-bottom: var(--wf-gap-xl);
-  border-top: 1px solid var(--wf-ink-rule);
 }
 
 @media (max-width: 820px) {

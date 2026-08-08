@@ -75,5 +75,12 @@ export interface Talk {
   /** Co-speakers billed when no ?with= parameter is supplied. */
   defaultCoSpeakers?: string[]
   resources?: ResourceGroup[]
+  /**
+   * Slug of another talk whose resource groups this talk hands out. Two talks
+   * that cover the same ground point an audience at the same links, and the
+   * links belong in one place so a correction lands on both doors at once.
+   * The referring talk keeps its own door, title and co-speaker billing.
+   */
+  resourcesFrom?: string
   deliveries: Delivery[]
 }

@@ -12,13 +12,14 @@
  * delivery of the talk without an edit.
  */
 import { computed, onMounted, ref } from 'vue'
-import { getTalkByResource } from '../../data/talks'
+import { getTalkByResource, talkResources } from '../../data/talks'
 import { billing } from '../../data/speakers'
 import SpeakerPlate from './SpeakerPlate.vue'
 
 const props = defineProps<{ slug: string }>()
 
 const talk = computed(() => getTalkByResource(props.slug))
+const groups = computed(() => (talk.value ? talkResources(talk.value) : []))
 
 /** Starts as the talk's default billing; ?with= overrides it after mount. */
 const coSpeakerSlugs = ref<string[]>(talk.value?.defaultCoSpeakers ?? [])
@@ -42,7 +43,7 @@ const speakers = computed(() => billing(coSpeakerSlugs.value))
     <div class="sheet">
       <div class="groups">
         <section
-          v-for="group in talk.resources"
+          v-for="group in groups"
           :key="group.title"
           class="group"
           :aria-label="group.title"
