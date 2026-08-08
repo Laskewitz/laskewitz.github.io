@@ -61,11 +61,15 @@ export const speakers: Record<string, Speaker> = {
       { label: 'GitHub', href: 'https://github.com/AgniusBartninkas' }
     ]
   },
-  /* No public links recorded yet — the plate renders name-only until they are. */
   cathrinebruvold: {
     slug: 'cathrinebruvold',
     name: 'Cathrine Bruvold',
-    links: []
+    role: 'Head of Power Platform',
+    company: 'Point Taken',
+    links: [
+      { label: 'Website', href: 'https://cathrinebruvold.com' },
+      { label: 'GitHub', href: 'https://github.com/cathrinebruvold' }
+    ]
   }
 }
 

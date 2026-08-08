@@ -87,7 +87,7 @@ export const events: EventRecord[] = [
     slug: 'agentcon-utrecht-2026',
     name: 'AgentCon Utrecht',
     start: '2026-06-25',
-    city: 'Driebergen-Rijsenburg',
+    city: 'Driebergen',
     country: 'NL',
     countryName: 'The Netherlands',
     website: 'https://agentcon.city/utrecht',
