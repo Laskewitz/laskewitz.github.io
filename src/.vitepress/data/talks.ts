@@ -365,7 +365,93 @@ export const talks: Talk[] = [
       'build for scalability and avoid the common pitfalls and long loading times.',
     hall: 'c',
     tags: ['Power Apps', 'Canvas Apps', 'Performance'],
+    resourceSlug: 'canvas-apps-optimization',
     defaultCoSpeakers: ['cathrinebruvold'],
+    resources: [
+      {
+        title: 'The book',
+        links: [
+          {
+            label: 'Building Maintainable Software (SIG)',
+            href: 'https://www.softwareimprovementgroup.com/wp-content/uploads/Building_Maintainable_Software_SIG_Java.compressed.pdf'
+          }
+        ]
+      },
+      {
+        title: 'Power CAT Tools',
+        links: [
+          { label: 'Power CAT Tools', href: 'https://aka.ms/powercattools' },
+          {
+            label: 'Code Review rules',
+            href: 'https://github.com/Laskewitz/Canvas-App-Optimization/blob/main/rules/README.md',
+            note: 'What the Code Review tool checks'
+          }
+        ]
+      },
+      {
+        title: 'Reduce the amount of code',
+        links: [
+          {
+            label: 'Named Formulas',
+            href: 'https://www.microsoft.com/power-platform/blog/power-apps/power-fx-introducing-named-formulas'
+          },
+          {
+            label: 'Simplify formulas with With',
+            href: 'https://www.microsoft.com/power-platform/blog/power-apps/simplify-formulas-with-the-with-function/'
+          },
+          {
+            label: 'User defined functions and types',
+            href: 'https://www.microsoft.com/en-us/power-platform/blog/power-apps/user-defined-functions-user-defined-types-and-enhanced-component-properties-move-forward/'
+          }
+        ]
+      },
+      {
+        title: 'Components',
+        links: [
+          {
+            label: 'Canvas components',
+            href: 'https://learn.microsoft.com/power-apps/maker/canvas-apps/create-component'
+          },
+          {
+            label: 'Code components',
+            href: 'https://learn.microsoft.com/power-apps/developer/component-framework/overview'
+          },
+          {
+            label: 'Creator Kit',
+            href: 'https://learn.microsoft.com/power-platform/guidance/creator-kit/overview'
+          },
+          { label: 'PCF Gallery', href: 'https://pcf.gallery/' },
+          { label: 'Resco Power Components', href: 'https://www.resco.net/power-components/' }
+        ]
+      },
+      {
+        title: 'Custom connectors',
+        links: [
+          {
+            label: 'Custom connectors docs',
+            href: 'https://learn.microsoft.com/connectors/custom-connectors/'
+          },
+          {
+            label: 'Open-source connectors',
+            href: 'https://github.com/microsoft/powerplatformconnectors'
+          }
+        ]
+      },
+      {
+        title: 'Building for scale',
+        links: [
+          {
+            label: 'Canvas YAML code view',
+            href: 'https://learn.microsoft.com/power-apps/maker/canvas-apps/code-view'
+          },
+          {
+            label: 'Responsive layout',
+            href: 'https://learn.microsoft.com/power-apps/maker/canvas-apps/create-responsive-layout'
+          },
+          { label: 'Test Engine', href: 'https://microsoft.github.io/PowerApps-TestEngine/' }
+        ]
+      }
+    ],
     deliveries: [
       { eventSlug: 'nordic-summit-2025', coSpeakers: ['cathrinebruvold'] },
       { eventSlug: 'power-summit-2025', coSpeakers: ['cathrinebruvold'] },
@@ -407,6 +493,36 @@ export const talks: Talk[] = [
       'up shipping a custom, certified, or independent publisher connector.',
     hall: 'e',
     tags: ['Custom Connectors', 'Power Platform', 'APIs'],
+    resourceSlug: 'custom-connectors',
+    resources: [
+      {
+        title: 'Build a connector',
+        links: [
+          { label: 'Create a connector from the UI', href: 'https://aka.ms/cc/create-from-ui' },
+          { label: 'Connectors GitHub repo', href: 'https://aka.ms/pp/connectors' },
+          { label: 'Power Platform CLI', href: 'https://aka.ms/pac' }
+        ]
+      },
+      {
+        title: 'Go further',
+        links: [
+          { label: 'Policy templates', href: 'https://aka.ms/cc/policy-templates' },
+          { label: 'x-ms extensions', href: 'https://aka.ms/cc/extend-openAPI' },
+          { label: 'Connector AI plugins', href: 'https://aka.ms/cc/create-ai-plugin' }
+        ]
+      },
+      {
+        title: 'Service principal',
+        links: [
+          { label: 'Service principal support', href: 'https://aka.ms/cc/service-principal' },
+          { label: 'Service principal lab', href: 'https://aka.ms/cc/spn-lab' }
+        ]
+      },
+      {
+        title: 'MCP',
+        links: [{ label: 'MCP samples', href: 'https://aka.ms/mcsmcp/samples' }]
+      }
+    ],
     deliveries: [
       { eventSlug: 'scottish-summit-tour-2023' },
       { eventSlug: 'collabdays-nl-2022' },
