@@ -13,12 +13,6 @@ defineProps<{ post: Post }>()
     <span class="note-body">
       <time class="date" :datetime="post.date">{{ formatPostDate(post.date) }}</time>
       <span class="note-title wf-sign">{{ post.title }}</span>
-      <span v-if="post.description" class="note-desc">{{ post.description }}</span>
-      <span v-if="post.categories.length" class="cats">
-        <span v-for="category in post.categories" :key="category" class="cat">{{
-          category
-        }}</span>
-      </span>
     </span>
 
     <span class="arrow" aria-hidden="true">→</span>
@@ -68,30 +62,6 @@ defineProps<{ post: Post }>()
 .note-title {
   font-size: var(--wf-step-2);
   overflow-wrap: anywhere;
-}
-
-.note-desc {
-  max-width: 60ch;
-  font-variation-settings: 'wdth' 100;
-  font-size: var(--wf-step-0);
-  line-height: 1.55;
-  color: var(--vp-c-text-2);
-}
-
-.cats {
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--wf-gap-xs);
-  margin-top: var(--wf-gap-hair);
-}
-
-.cat {
-  font-variation-settings: 'wdth' 105;
-  font-weight: 600;
-  font-size: var(--wf-step--1);
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  color: var(--wf-optic-dim);
 }
 
 .arrow {

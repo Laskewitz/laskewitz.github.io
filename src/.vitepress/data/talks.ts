@@ -133,8 +133,7 @@ export const talks: Talk[] = [
           {
             label: 'Copilot Cowork deck',
             href: 'https://github.com/Laskewitz/cowork/blob/main/assets/Copilot%20Cowork.pptx'
-          },
-          { label: 'All session resources', href: 'https://github.com/Laskewitz/cowork' }
+          }
         ]
       }
     ],

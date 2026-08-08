@@ -2,7 +2,7 @@
 /**
  * SignRow — the atom of this world.
  *
- * A full-width directional sign: hall-colour tab, cut label, optional meta,
+ * A full-width directional sign: hall-colour tab, cut label, optional note,
  * terminal arrow. Never shorter than a thumb. Every navigable thing on this
  * site is one of these, which is what makes the QR path fast.
  */
@@ -12,7 +12,6 @@ withDefaults(
   defineProps<{
     href: string
     label: string
-    meta?: string
     note?: string
     hall?: Hall
     /** External links get a diagonal arrow, internal ones a straight arrow. */
@@ -40,8 +39,6 @@ withDefaults(
       <span v-if="note" class="note">{{ note }}</span>
     </span>
 
-    <span v-if="meta" class="meta">{{ meta }}</span>
-
     <span class="arrow" aria-hidden="true">{{ external ? '↗' : '→' }}</span>
   </a>
 </template>
@@ -51,7 +48,7 @@ withDefaults(
   --row-hall: var(--hall, var(--wf-optic));
 
   display: grid;
-  grid-template-columns: 6px 1fr auto auto;
+  grid-template-columns: 6px 1fr auto;
   align-items: center;
   gap: 0 var(--wf-gap-s);
   min-height: var(--wf-tap);
@@ -107,17 +104,6 @@ withDefaults(
   line-height: 1.4;
 }
 
-.meta {
-  font-variation-settings: 'wdth' 105;
-  font-weight: 600;
-  font-size: var(--wf-step--1);
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  color: var(--wf-optic-dim);
-  white-space: nowrap;
-  padding-right: var(--wf-gap-xs);
-}
-
 .arrow {
   font-size: var(--wf-step-2);
   line-height: 1;
@@ -129,24 +115,5 @@ withDefaults(
 .sign-row:hover .arrow,
 .sign-row:focus-visible .arrow {
   transform: translateX(4px);
-}
-
-@media (max-width: 640px) {
-  .sign-row {
-    grid-template-columns: 6px 1fr auto;
-  }
-
-  .meta {
-    grid-column: 2;
-    grid-row: 2;
-    padding-left: var(--wf-gap-s);
-    padding-right: 0;
-    white-space: normal;
-  }
-
-  .arrow {
-    grid-column: 3;
-    grid-row: 1 / span 2;
-  }
 }
 </style>

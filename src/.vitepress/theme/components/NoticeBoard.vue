@@ -7,6 +7,7 @@
 import { computed, onMounted, ref } from 'vue'
 import { data as posts } from '../posts.data'
 import { sortCategories } from '../../data/posts'
+import FilterBar from './FilterBar.vue'
 import HallTile from './HallTile.vue'
 import NoticeNote from './NoticeNote.vue'
 
@@ -15,6 +16,9 @@ const categories = computed(() =>
 )
 
 const picked = ref<string[]>([])
+const query = ref('')
+
+const facets = computed(() => [{ name: 'Category', options: categories.value }])
 
 /**
  * A post's category chips link here with `?category=…`, so arriving from a post
@@ -28,22 +32,30 @@ onMounted(() => {
   if (known.length) picked.value = known
 })
 
-function toggle(category: string) {
-  picked.value = picked.value.includes(category)
-    ? picked.value.filter((c) => c !== category)
-    : [...picked.value, category]
-}
-
 function clear() {
   picked.value = []
+  query.value = ''
 }
 
-/** Categories are OR'd: picking two widens the board rather than emptying it. */
-const shown = computed(() =>
-  picked.value.length
-    ? posts.filter((p) => p.categories.some((c) => picked.value.includes(c)))
-    : posts
-)
+/**
+ * Categories are OR'd: picking two widens the board rather than emptying it.
+ * Search still covers the description even though the board no longer prints
+ * it, because it's the sentence a visitor is most likely to half-remember.
+ */
+const shown = computed(() => {
+  const q = query.value.trim().toLowerCase()
+
+  return posts.filter((post) => {
+    if (picked.value.length && !post.categories.some((c) => picked.value.includes(c))) {
+      return false
+    }
+    if (!q) return true
+    return [post.title, post.description, ...post.categories]
+      .join(' ')
+      .toLowerCase()
+      .includes(q)
+  })
+})
 
 /**
  * "Current" is this year, resolved when the page renders — no editing needed in
@@ -78,24 +90,17 @@ function toggleYear(year: string) {
       <h1 class="title wf-sign">Blog</h1>
     </header>
 
-    <div v-if="categories.length" class="filters wf-gutter">
-      <button
-        v-for="category in categories"
-        :key="category"
-        type="button"
-        class="chip"
-        :aria-pressed="picked.includes(category)"
-        @click="toggle(category)"
-      >
-        {{ category }}
-      </button>
-
-      <button v-if="picked.length" type="button" class="clear" @click="clear">Clear</button>
-
-      <p v-if="picked.length" class="tally" role="status" aria-live="polite">
-        {{ shown.length }} of {{ posts.length }}
-      </p>
-    </div>
+    <FilterBar
+      v-if="categories.length"
+      class="wf-gutter"
+      v-model:picked="picked"
+      v-model:query="query"
+      :facets="facets"
+      :shown="shown.length"
+      :total="posts.length"
+      search-label="Search posts"
+      search-placeholder="Search posts…"
+    />
 
     <div class="wf-gutter">
       <p v-if="!posts.length" class="empty">
@@ -104,7 +109,7 @@ function toggleYear(year: string) {
 
       <p v-else-if="!shown.length" class="empty">
         Nothing filed under that yet.
-        <button type="button" class="clear is-inline" @click="clear">Show everything</button>
+        <button type="button" class="clear" @click="clear">Show everything</button>
       </p>
 
       <template v-else>
@@ -159,45 +164,9 @@ function toggleYear(year: string) {
   margin-left: -0.035em;
 }
 
-.filters {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: var(--wf-gap-xs);
-  padding-bottom: var(--wf-gap-m);
-}
-
-.chip {
-  min-height: var(--wf-tap);
-  padding: 0 var(--wf-gap-s);
-  background: none;
-  border: 1px solid var(--wf-ink-rule);
-  color: var(--wf-optic);
-  font-variation-settings: 'wdth' 110;
-  font-weight: 700;
-  font-size: var(--wf-step--1);
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  cursor: pointer;
-  transition: background var(--wf-motion) var(--wf-ease),
-    color var(--wf-motion) var(--wf-ease),
-    border-color var(--wf-motion) var(--wf-ease);
-}
-
-.chip:hover,
-.chip:focus-visible {
-  border-color: var(--wf-optic);
-}
-
-.chip[aria-pressed='true'] {
-  background: var(--wf-hall-d);
-  border-color: var(--wf-hall-d);
-  color: var(--wf-on-hall-d);
-}
-
 .clear {
-  min-height: var(--wf-tap);
-  padding: 0 var(--wf-gap-xs);
+  min-height: 0;
+  padding: 0;
   background: none;
   border: 0;
   color: var(--wf-optic-dim);
@@ -214,19 +183,6 @@ function toggleYear(year: string) {
 .clear:hover,
 .clear:focus-visible {
   color: var(--wf-optic);
-}
-
-.clear.is-inline {
-  min-height: 0;
-}
-
-.tally {
-  margin: 0 0 0 auto;
-  font-variation-settings: 'wdth' 105;
-  font-weight: 600;
-  font-size: var(--wf-step--1);
-  letter-spacing: 0.06em;
-  color: var(--wf-optic-dim);
 }
 
 .empty {

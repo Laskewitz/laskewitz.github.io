@@ -31,26 +31,11 @@ withDefaults(
 const next = computed(() => upcomingEvents()[0])
 const years = computed(() => `${firstYear()}—${new Date().getFullYear()}`)
 
-const directory = computed(() => [
-  {
-    href: '/events',
-    label: 'Events',
-    meta: `${eventCount()} since ${firstYear()}`,
-    hall: 'a' as const
-  },
-  {
-    href: '/talks/',
-    label: 'Talks',
-    meta: `${talks.length} in rotation`,
-    hall: 'b' as const
-  },
-  {
-    href: '/blog/',
-    label: 'Blog',
-    meta: 'Notes and posts',
-    hall: 'c' as const
-  }
-])
+const directory = [
+  { href: '/events', label: 'Events', hall: 'a' as const },
+  { href: '/talks/', label: 'Talks', hall: 'b' as const },
+  { href: '/blog/', label: 'Blog', hall: 'c' as const }
+]
 </script>
 
 <template>
@@ -129,7 +114,6 @@ const directory = computed(() => [
         :key="item.href"
         :href="item.href"
         :label="item.label"
-        :meta="item.meta"
         :hall="item.hall"
         :size="variant === 'directory' ? 'door' : 'default'"
       />

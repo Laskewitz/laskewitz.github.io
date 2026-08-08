@@ -1,9 +1,10 @@
 <script setup lang="ts">
 /** The placard index — one plate per talk in rotation. */
-import { computed, onMounted, onUnmounted, ref } from 'vue'
+import { computed, ref } from 'vue'
 import { talks, tagsOfKind } from '../../data/talks'
 import { getEvent, isUpcoming } from '../../data/events'
 import { eventYear } from '../../data/format'
+import FilterBar from './FilterBar.vue'
 
 function deliveryDates(slug: string): string[] {
   const talk = talks.find((t) => t.slug === slug)
@@ -42,47 +43,15 @@ const topics = tagsOfKind('topic')
 const query = ref('')
 const picked = ref<string[]>([])
 
-function toggle(tag: string) {
-  picked.value = picked.value.includes(tag)
-    ? picked.value.filter((t) => t !== tag)
-    : [...picked.value, tag]
-}
+const facets = [
+  { name: 'Product', options: products },
+  { name: 'Topic', options: topics }
+]
 
 function clear() {
   query.value = ''
   picked.value = []
 }
-
-const active = computed(() => query.value.trim() !== '' || picked.value.length > 0)
-
-/** Which facet menu is open, if any. Only one at a time, like a real menu bar. */
-const openFacet = ref<string | null>(null)
-
-function facetCount(tags: string[]) {
-  return picked.value.filter((t) => tags.includes(t)).length
-}
-
-const bar = ref<HTMLElement | null>(null)
-
-function onDocument(e: Event) {
-  if (openFacet.value && bar.value && !bar.value.contains(e.target as Node)) {
-    openFacet.value = null
-  }
-}
-
-function onEscape(e: KeyboardEvent) {
-  if (e.key === 'Escape') openFacet.value = null
-}
-
-onMounted(() => {
-  document.addEventListener('click', onDocument)
-  document.addEventListener('keydown', onEscape)
-})
-
-onUnmounted(() => {
-  document.removeEventListener('click', onDocument)
-  document.removeEventListener('keydown', onEscape)
-})
 
 /**
  * Tags are OR'd within a facet and AND'd across them, so picking two products
@@ -119,53 +88,16 @@ const shown = computed(() => {
       </p>
     </header>
 
-    <div ref="bar" class="filters wf-gutter">
-      <input
-        v-model="query"
-        type="search"
-        class="search-input"
-        aria-label="Search talks"
-        placeholder="Search talks…"
-      />
-
-      <div
-        v-for="facet in [
-          { name: 'Product', tags: products },
-          { name: 'Topic', tags: topics }
-        ]"
-        :key="facet.name"
-        class="menu"
-      >
-        <button
-          type="button"
-          class="menu-button"
-          :aria-expanded="openFacet === facet.name"
-          :data-on="facetCount(facet.tags) > 0"
-          @click="openFacet = openFacet === facet.name ? null : facet.name"
-        >
-          {{ facet.name }}
-          <span v-if="facetCount(facet.tags)" class="badge">{{ facetCount(facet.tags) }}</span>
-          <span class="caret" aria-hidden="true">▾</span>
-        </button>
-
-        <div v-show="openFacet === facet.name" class="menu-panel">
-          <button
-            v-for="tag in facet.tags"
-            :key="tag"
-            type="button"
-            class="chip"
-            :aria-pressed="picked.includes(tag)"
-            @click="toggle(tag)"
-          >
-            {{ tag }}
-          </button>
-        </div>
-      </div>
-
-      <p class="tally" role="status" aria-live="polite">{{ shown.length }}/{{ ordered.length }}</p>
-
-      <button v-if="active" type="button" class="clear" @click="clear">Clear</button>
-    </div>
+    <FilterBar
+      class="wf-gutter"
+      v-model:picked="picked"
+      v-model:query="query"
+      :facets="facets"
+      :shown="shown.length"
+      :total="ordered.length"
+      search-label="Search talks"
+      search-placeholder="Search talks…"
+    />
 
     <div class="grid wf-gutter">
       <a
@@ -202,138 +134,7 @@ const shown = computed(() => {
 </template>
 
 <style scoped>
-/* One control strip, not a wall of chips: the facets open as overlay menus so
-   the filters cost a single row of height and the talks stay above the fold. */
-.filters {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: var(--wf-gap-xs);
-  padding-bottom: var(--wf-gap-m);
-  border-bottom: 1px solid var(--wf-ink-rule);
-}
-
-.search-input {
-  flex: 1 1 14rem;
-  min-width: 0;
-  max-width: 24rem;
-  height: 42px;
-  padding: 0 var(--wf-gap-s);
-  border: 1px solid var(--wf-ink-rule);
-  border-radius: 0;
-  background: transparent;
-  color: var(--wf-optic);
-  font: inherit;
-  font-size: var(--wf-step-0);
-}
-
-.search-input::placeholder {
-  color: var(--wf-optic-dim);
-}
-
-.search-input:focus-visible {
-  outline: 2px solid var(--wf-optic);
-  outline-offset: 2px;
-}
-
-.menu {
-  position: relative;
-}
-
-.menu-button {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5em;
-  height: 42px;
-  padding: 0 var(--wf-gap-s);
-  border: 1px solid var(--wf-ink-rule);
-  background: transparent;
-  color: var(--wf-optic-dim);
-  font-variation-settings: 'wdth' 110;
-  font-weight: 700;
-  font-size: var(--wf-step--1);
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
-  cursor: pointer;
-}
-
-.menu-button:hover,
-.menu-button[aria-expanded='true'],
-.menu-button[data-on='true'] {
-  color: var(--wf-optic);
-  border-color: var(--wf-optic);
-}
-
-.menu-button:focus-visible,
-.chip:focus-visible,
-.clear:focus-visible {
-  outline: 2px solid var(--wf-optic);
-  outline-offset: 2px;
-}
-
-.badge {
-  display: inline-grid;
-  place-items: center;
-  min-width: 1.5em;
-  height: 1.5em;
-  padding: 0 0.35em;
-  background: var(--wf-optic);
-  color: var(--wf-ink);
-}
-
-.caret {
-  font-size: 0.7em;
-}
-
-.menu-panel {
-  position: absolute;
-  z-index: 20;
-  top: calc(100% + 4px);
-  left: 0;
-  display: flex;
-  flex-direction: column;
-  align-items: stretch;
-  width: max-content;
-  max-width: min(22rem, calc(100vw - 2 * var(--wf-gutter)));
-  max-height: 60vh;
-  overflow-y: auto;
-  padding: var(--wf-gap-xs);
-  border: 1px solid var(--wf-optic);
-  background: var(--wf-ink);
-  gap: 2px;
-}
-
-.chip {
-  padding: 0.6em var(--wf-gap-s);
-  border: 0;
-  background: transparent;
-  color: var(--wf-optic-dim);
-  font-variation-settings: 'wdth' 110;
-  font-weight: 700;
-  font-size: var(--wf-step--1);
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
-  text-align: left;
-  cursor: pointer;
-}
-
-.chip:hover {
-  color: var(--wf-optic);
-}
-
-.chip[aria-pressed='true'] {
-  background: var(--wf-optic);
-  color: var(--wf-ink);
-}
-
-.tally {
-  margin: 0 0 0 auto;
-  color: var(--wf-optic-dim);
-  font-size: var(--wf-step--1);
-  letter-spacing: 0.05em;
-  font-variant-numeric: tabular-nums;
-}
-
+/* The empty state's own reset link. The bar's Clear lives in FilterBar. */
 .clear {
   padding: 0;
   border: 0;
