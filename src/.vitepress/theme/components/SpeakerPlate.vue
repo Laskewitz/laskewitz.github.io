@@ -11,6 +11,18 @@
  * changes per delivery, without the page being edited.
  */
 import type { Hall, Speaker } from '../../data/types'
+import SocialGlyph from './SocialGlyph.vue'
+
+/** Initials stand in when a speaker has no portrait, so the rail never gaps. */
+function monogram(name: string): string {
+  return name
+    .split(/[\s-]+/)
+    .filter(Boolean)
+    .slice(0, 2)
+    .map((part) => part[0])
+    .join('')
+    .toUpperCase()
+}
 
 withDefaults(
   defineProps<{
@@ -30,15 +42,41 @@ withDefaults(
 
     <div class="rail" :class="{ 'is-shared': speakers.length > 1 }">
       <article v-for="speaker in speakers" :key="speaker.slug" class="plate">
-        <h3 class="name wf-sign">{{ speaker.name }}</h3>
+        <div class="head">
+          <img
+            v-if="speaker.photo"
+            class="portrait"
+            :src="speaker.photo"
+            :alt="speaker.name"
+            width="256"
+            height="256"
+            loading="lazy"
+            decoding="async"
+          />
+          <span v-else class="portrait is-monogram" aria-hidden="true">
+            {{ monogram(speaker.name) }}
+          </span>
 
-        <p v-if="speaker.role" class="role">
-          {{ speaker.role }}<span v-if="speaker.company"> · {{ speaker.company }}</span>
-        </p>
+          <div class="billing">
+            <h3 class="name wf-sign">{{ speaker.name }}</h3>
+
+            <p v-if="speaker.role" class="role">
+              {{ speaker.role }}<span v-if="speaker.company"> · {{ speaker.company }}</span>
+            </p>
+          </div>
+        </div>
 
         <ul v-if="withLinks && speaker.links.length" class="links">
           <li v-for="link in speaker.links" :key="link.href">
-            <a :href="link.href" target="_blank" rel="noreferrer">{{ link.label }}</a>
+            <a
+              :href="link.href"
+              target="_blank"
+              rel="noreferrer"
+              :aria-label="`${speaker.name} on ${link.label}`"
+              :title="link.label"
+            >
+              <SocialGlyph :label="link.label" />
+            </a>
           </li>
         </ul>
       </article>
@@ -82,27 +120,51 @@ withDefaults(
    its contact buttons up and the pair stops reading as one billing. Subgrid
    puts name, role and links on shared rows, so the buttons land on one line
    whatever each plate happens to carry. */
-.rail.is-shared {
-  grid-template-rows: auto auto auto;
+@media (min-width: 700px) {
+  .rail.is-shared {
+    grid-template-rows: auto auto;
+  }
+
+  .rail.is-shared .plate {
+    display: grid;
+    grid-row: span 2;
+    grid-template-rows: subgrid;
+  }
+
+  .rail.is-shared .head {
+    grid-row: 1;
+  }
+
+  .rail.is-shared .links {
+    grid-row: 2;
+    align-content: start;
+  }
 }
 
-.rail.is-shared .plate {
+/* The portrait, the name and the pictograms. */
+.head {
   display: grid;
-  grid-row: span 3;
-  grid-template-rows: subgrid;
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: center;
+  gap: var(--wf-gap-s);
 }
 
-.rail.is-shared .name {
-  grid-row: 1;
+.portrait {
+  width: 64px;
+  height: 64px;
+  object-fit: cover;
+  border: 1px solid var(--wf-ink-rule);
+  background: var(--hall, var(--wf-ink-rule));
 }
 
-.rail.is-shared .role {
-  grid-row: 2;
-}
-
-.rail.is-shared .links {
-  grid-row: 3;
-  align-content: start;
+.portrait.is-monogram {
+  display: grid;
+  place-items: center;
+  font-variation-settings: 'wdth' 110;
+  font-weight: 800;
+  font-size: var(--wf-step-1);
+  letter-spacing: 0.02em;
+  color: var(--wf-ink);
 }
 
 .name {
@@ -128,19 +190,16 @@ withDefaults(
 }
 
 .links a {
-  display: inline-flex;
-  align-items: center;
-  min-height: 44px;
-  padding: 0 var(--wf-gap-s);
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
   border: 1px solid var(--wf-ink-rule);
   color: var(--wf-optic);
-  font-variation-settings: 'wdth' 110;
-  font-weight: 700;
-  font-size: var(--wf-step--1);
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
   text-decoration: none;
-  transition: background var(--wf-motion) var(--wf-ease);
+  transition:
+    background var(--wf-motion) var(--wf-ease),
+    color var(--wf-motion) var(--wf-ease);
 }
 
 .links a:hover,

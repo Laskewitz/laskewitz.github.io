@@ -13,6 +13,7 @@ export const speakers: Record<string, Speaker> = {
     name: 'Daniel Laskewitz',
     role: 'Principal Cloud Advocate',
     company: 'Microsoft',
+    photo: '/images/speakers/laskewitz-256.jpg',
     links: [
       { label: 'Website', href: 'https://laskewitz.io' },
       { label: 'LinkedIn', href: 'https://www.linkedin.com/in/laskewitz' },
@@ -26,6 +27,7 @@ export const speakers: Record<string, Speaker> = {
     name: 'Albert-Jan Schot',
     role: 'CTO',
     company: 'Blis Digital',
+    photo: '/images/speakers/appieschot-256.jpg',
     links: [
       { label: 'LinkedIn', href: 'https://www.linkedin.com/in/albertjanschot/' },
       { label: 'GitHub', href: 'https://github.com/appieschot' }
@@ -36,6 +38,7 @@ export const speakers: Record<string, Speaker> = {
     name: 'Mats Necker',
     role: 'CEO',
     company: 'Dhino',
+    photo: '/images/speakers/mnecker-256.jpg',
     links: [
       { label: 'Website', href: 'https://dhino.io/' },
       { label: 'LinkedIn', href: 'https://www.linkedin.com/in/matsnecker/' },
@@ -47,6 +50,7 @@ export const speakers: Record<string, Speaker> = {
     name: 'April Dunnam',
     role: 'Principal Cloud Advocate',
     company: 'Microsoft',
+    photo: '/images/speakers/aprildunnam-256.jpg',
     links: [
       { label: 'LinkedIn', href: 'https://linkedin.com/in/aprildunnam' },
       { label: 'GitHub', href: 'https://github.com/aprildunnam' },
@@ -58,6 +62,7 @@ export const speakers: Record<string, Speaker> = {
     name: 'Agnius Bartninkas',
     role: 'CEO',
     company: 'Herexis',
+    photo: '/images/speakers/agniusbartninkas-256.jpg',
     links: [
       { label: 'LinkedIn', href: 'https://www.linkedin.com/in/agnius-bartninkas/' },
       { label: 'GitHub', href: 'https://github.com/AgniusBartninkas' }
@@ -68,6 +73,7 @@ export const speakers: Record<string, Speaker> = {
     name: 'Cathrine Bruvold',
     role: 'Head of Power Platform',
     company: 'Point Taken',
+    photo: '/images/speakers/cathrinebruvold-256.jpg',
     links: [
       { label: 'Website', href: 'https://cathrinebruvold.com' },
       { label: 'GitHub', href: 'https://github.com/cathrinebruvold' }
@@ -78,6 +84,7 @@ export const speakers: Record<string, Speaker> = {
     name: 'Carl Cookson',
     role: 'Consultant / Owner',
     company: 'LinkeD365 Consulting',
+    photo: '/images/speakers/carlcookson-256.jpg',
     links: [
       { label: 'Website', href: 'https://linked365.blog' },
       { label: 'GitHub', href: 'https://github.com/LinkeD365' }
