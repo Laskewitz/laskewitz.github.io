@@ -22,7 +22,7 @@ export async function buildFeedXml(): Promise<string> {
     image: `${HOSTNAME}/images/logo-white.png`,
     favicon: `${HOSTNAME}/images/icon.png`,
     copyright: `© ${new Date().getFullYear()} Daniel Laskewitz`,
-    feedLinks: { rss: `${HOSTNAME}/feed.rss` }
+    feedLinks: { rss: `${HOSTNAME}/feed.xml` }
   })
 
   const posts = await createContentLoader('blog/posts/*.md', {
@@ -56,13 +56,22 @@ export async function buildFeedXml(): Promise<string> {
   return feed.rss2()
 }
 
-/** Writes /feed.rss into the build output. */
+/** Writes the feed into the build output.
+ *
+ * Two files, one document. GitHub Pages picks the Content-Type from the file
+ * extension, and `.rss` maps to `application/rss+xml`, which browsers download
+ * instead of render. `/feed.xml` is served as `application/xml`, so the link a
+ * reader clicks actually shows something. `/feed.rss` stays for anyone already
+ * subscribed to it.
+ */
 export async function generateFeed(config: SiteConfig): Promise<void> {
-  writeFileSync(path.join(config.outDir, 'feed.rss'), await buildFeedXml())
+  const xml = await buildFeedXml()
+  writeFileSync(path.join(config.outDir, 'feed.xml'), xml)
+  writeFileSync(path.join(config.outDir, 'feed.rss'), xml)
 }
 
 /**
- * Serves /feed.rss from the dev server.
+ * Serves the feed from the dev server.
  *
  * Without this the dev server answers the feed URL with the SPA HTML shell, so
  * the one link a reader is meant to subscribe to looks broken in development.
@@ -73,10 +82,16 @@ export function rssDevPlugin() {
     apply: 'serve' as const,
     configureServer(server: { middlewares: { use: Function } }) {
       server.middlewares.use(async (req: any, res: any, next: any) => {
-        if (!req.url || req.url.split('?')[0] !== '/feed.rss') return next()
+        const pathname = req.url?.split('?')[0]
+        if (pathname !== '/feed.rss' && pathname !== '/feed.xml') return next()
         try {
           const xml = await buildFeedXml()
-          res.setHeader('Content-Type', 'application/rss+xml; charset=utf-8')
+          res.setHeader(
+            'Content-Type',
+            pathname === '/feed.xml'
+              ? 'application/xml; charset=utf-8'
+              : 'application/rss+xml; charset=utf-8'
+          )
           res.end(xml)
         } catch (err) {
           next(err)

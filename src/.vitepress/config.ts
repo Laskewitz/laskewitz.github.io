@@ -16,7 +16,7 @@ export default defineConfig({
   sitemap: { hostname: 'https://laskewitz.io' },
 
   /** The feed is written in buildEnd, so the link checker can't see it yet. */
-  ignoreDeadLinks: [/^\/feed\.rss$/],
+  ignoreDeadLinks: [/^\/feed\.(rss|xml)$/],
 
   /** ...and the dev server serves it from memory, so the link works there too. */
   vite: { plugins: [rssDevPlugin()] },
@@ -39,7 +39,7 @@ export default defineConfig({
         rel: 'alternate',
         type: 'application/rss+xml',
         title: 'Daniel Laskewitz — Blog',
-        href: 'https://laskewitz.io/feed.rss'
+        href: 'https://laskewitz.io/feed.xml'
       }
     ],
     ['meta', { name: 'theme-color', content: '#0a0a0a' }],
@@ -72,7 +72,7 @@ export default defineConfig({
 
     footer: {
       message:
-        'Personal site. Opinions are mine. <a href="/privacy/">Privacy</a> · <a href="/terms/">Terms</a> · <a href="/feed.rss">RSS</a>',
+        'Personal site. Opinions are mine. <a href="/privacy/">Privacy</a> · <a href="/terms/">Terms</a> · <a href="/feed.xml">RSS</a>',
       copyright: `© ${new Date().getFullYear()} Daniel Laskewitz`
     }
   },
