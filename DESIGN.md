@@ -11,10 +11,12 @@ colors:
   wf-hall-b: "#00c2a8"
   wf-hall-c: "#d6203a"
   wf-hall-d: "#c8ff00"
+  wf-hall-e: "#ff6b00"
   wf-on-hall-a: "#ffffff"
   wf-on-hall-b: "#04231f"
   wf-on-hall-c: "#ffffff"
   wf-on-hall-d: "#101400"
+  wf-on-hall-e: "#1a0a00"
 typography:
   sign:
     fontFamily: "Archivo, ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif"
@@ -87,14 +89,14 @@ The site rejects the usual developer-advocate layout of portrait, bio line, feat
 
 **Key Characteristics:**
 - Full-bleed near-black substrate with optic lettering: `--wf-ink`, `--wf-optic`, `--wf-ink-rule`.
-- Hall colours are fields, not accent text: `--wf-hall-a` through `--wf-hall-d` carry `--wf-on-hall-*` ink.
+- Hall colours are fields, not accent text: `--wf-hall-a` through `--wf-hall-e` carry `--wf-on-hall-*` ink.
 - Every navigable thing tries to become a sign row with a terminal arrow.
 - Reading content gets an explicit exception: prose keeps the venue but leaves the signage register.
 - Motion is cut, hard and directional; signage does not bounce.
 
 ## Colors
 
-The palette is a dark venue substrate plus four semantic hall fields. Dark is the home mode (`appearance: 'dark'`); light mode is an inverted vinyl substrate, not a separate identity.
+The palette is a dark venue substrate plus five semantic hall fields. Dark is the home mode (`appearance: 'dark'`); light mode is an inverted vinyl substrate, not a separate identity.
 
 ### Primary
 - **Venue Ink** (`--wf-ink`): the default room, page background and VitePress background (`--vp-c-bg`). Dark value is `#0a0a0a`; light mode inverts it to `#f7f7f5`.
@@ -105,6 +107,7 @@ The palette is a dark venue substrate plus four semantic hall fields. Dark is th
 - **Hall B Mint** (`--wf-hall-b`): `#00c2a8`, with `--wf-on-hall-b: #04231f`. Used for Copilot Cowork.
 - **Hall C Red** (`--wf-hall-c`): `#d6203a`, with `--wf-on-hall-c: #ffffff`. Used for Declarative Agents.
 - **Hall D Lime** (`--wf-hall-d`): `#c8ff00`, with `--wf-on-hall-d: #101400`. Used for selection, focus, tickets and high-signal strips.
+- **Hall E Orange** (`--wf-hall-e`): `#ff6b00`, with `--wf-on-hall-e: #1a0a00`. Added when the programme outgrew four rooms.
 
 ### Neutral
 - **Raised Ink** (`--wf-ink-raised`): hover and raised dark surfaces (`#141414`; light mode `#ffffff`).
@@ -113,7 +116,7 @@ The palette is a dark venue substrate plus four semantic hall fields. Dark is th
 - **VitePress bridge colors:** `--vp-c-text-1` maps to `--wf-optic`, `--vp-c-brand-3` maps to `--wf-hall-a`, and `--vp-c-brand-soft` is `rgba(31, 75, 255, 0.18)` in dark mode and `rgba(31, 75, 255, 0.12)` in light mode.
 
 ### Named Rules
-**The Contrast Law Rule.** Hall colours are field colours carrying white or black text; never set small hall-coloured text on the substrate. The measured shipping pairs are Hall A `#1F4BFF` on white at 5.99:1, Hall B `#00C2A8` with `#04231F` at 7.34:1, Hall C `#D6203A` on white at 5.09:1, and Hall D `#C8FF00` with `#101400` at 15.83:1.
+**The Contrast Law Rule.** Hall colours are field colours carrying white or black text; never set small hall-coloured text on the substrate. The measured shipping pairs are Hall A `#1F4BFF` on white at 5.99:1, Hall B `#00C2A8` with `#04231F` at 7.34:1, Hall C `#D6203A` on white at 5.09:1, Hall D `#C8FF00` with `#101400` at 15.83:1, and Hall E `#FF6B00` with `#1A0A00` at 6.76:1.
 
 **The Red Correction Rule.** The original red `#FF3D57` measured only 3.47:1 and was darkened to `#D6203A`. Do not restore the brighter red.
 

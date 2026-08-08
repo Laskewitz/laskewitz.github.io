@@ -138,7 +138,8 @@ function lastGiven(slug: string): string | null {
 
 .talk-title {
   font-size: var(--wf-step-2);
-  overflow-wrap: anywhere;
+  overflow-wrap: break-word;
+  hyphens: auto;
 }
 
 .summary {

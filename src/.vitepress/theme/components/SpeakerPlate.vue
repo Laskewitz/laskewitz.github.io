@@ -36,7 +36,7 @@ withDefaults(
           {{ speaker.role }}<span v-if="speaker.company"> · {{ speaker.company }}</span>
         </p>
 
-        <ul v-if="withLinks" class="links">
+        <ul v-if="withLinks && speaker.links.length" class="links">
           <li v-for="link in speaker.links" :key="link.href">
             <a :href="link.href" target="_blank" rel="noreferrer">{{ link.label }}</a>
           </li>

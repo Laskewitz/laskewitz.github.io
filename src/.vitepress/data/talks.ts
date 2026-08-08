@@ -14,17 +14,17 @@ import type { Talk } from './types'
 export const talks: Talk[] = [
   {
     slug: 'copilot-studio',
-    title: 'Microsoft Copilot Studio',
+    title: 'A developers introduction to Copilot Studio',
     summary: 'Building agents in Copilot Studio, from first topic to production.',
     abstract:
-      'Copilot Studio lets you build agents without starting from an empty code file, ' +
-      'but the gap between a demo agent and one you would actually put in front of ' +
-      'colleagues is where the real work sits. This session walks through building an ' +
-      'agent end to end — topics, knowledge, actions and the prompts that hold it all ' +
-      'together — and covers what tends to break once real people start using it.',
+      'Building Agents should be easy! And it can be if you are using Copilot ' +
+      'Studio. In this demo rich session Daniel and Albert-Jan will show you how ' +
+      'you can build agents, orchestrate their behaviour, introduce knowledge and ' +
+      'apply custom reasoning models and add actions.',
     hall: 'a',
     tags: ['Copilot Studio', 'Agents', 'Power Platform'],
     resourceSlug: 'copilot-studio',
+    defaultCoSpeakers: ['appieschot'],
     resources: [
       {
         title: 'Product',
@@ -52,43 +52,99 @@ export const talks: Talk[] = [
   },
   {
     slug: 'cowork',
-    title: 'Copilot Cowork',
+    title: 'Copilot Cowork: Work Together with AI, Get Things Done',
     summary: 'Extending Copilot Cowork with plugins that do long, multi-step work.',
     abstract:
-      'Copilot Cowork is built for the tasks that take more than one prompt — the ' +
-      'multi-step, multi-hour jobs that normally get abandoned halfway. This session ' +
-      'looks at what Cowork does out of the box and how far you can push it with ' +
-      'plugins that connect to MCP servers and add skills of your own.',
+      'Copilot has been promising to change how you work. Cowork is where it ' +
+      'starts to deliver on that. The idea: you describe what needs to happen, and ' +
+      'Copilot Cowork builds a plan and executes it across your Microsoft 365 apps. ' +
+      'Calendar cleanup, meeting packets, company research — not one prompt, but the ' +
+      'full chain of steps, running while you do something else. Twenty-five to ' +
+      'thirty minutes is enough to see how Work IQ gives Copilot the context to act ' +
+      'on your behalf, what plugins and skills look like in practice, and whether ' +
+      'this is real or still mostly polished demos. Bring your skepticism. It is a ' +
+      'fair starting point.',
     hall: 'b',
     tags: ['Copilot Cowork', 'Microsoft 365', 'MCP'],
     resourceSlug: 'cowork',
     resources: [
       {
-        title: 'Cowork',
+        title: 'Get started',
         links: [
-          { label: 'Copilot Cowork resources', href: 'https://aka.ms/cowork-resources' },
           {
-            label: 'Manage Cowork plugins',
-            href: 'https://learn.microsoft.com/en-us/microsoft-365/copilot/cowork/cowork-manage-plugins'
+            label: 'Copilot Cowork overview',
+            href: 'https://learn.microsoft.com/microsoft-365/copilot/cowork/'
+          },
+          {
+            label: 'Get started with Copilot Cowork',
+            href: 'https://learn.microsoft.com/microsoft-365/copilot/cowork/get-started'
+          },
+          {
+            label: 'Use Copilot Cowork',
+            href: 'https://learn.microsoft.com/microsoft-365/copilot/cowork/use-cowork'
+          },
+          {
+            label: 'Common questions',
+            href: 'https://learn.microsoft.com/microsoft-365/copilot/cowork/cowork-faq'
           }
         ]
       },
       {
-        title: 'Build your own',
+        title: 'Hands-on labs',
+        links: [
+          { label: 'Copilot Cowork Collective', href: 'https://aka.ms/cowork-collective' }
+        ]
+      },
+      {
+        title: 'Skills',
         links: [
           {
-            label: 'Learn for Copilot Cowork',
-            href: 'https://github.com/Laskewitz/learn-for-cowork',
-            note: 'My plugin — steal the structure'
+            label: 'Cowork skills reference',
+            href: 'https://learn.microsoft.com/microsoft-365/copilot/cowork/use-cowork#cowork-skills'
           },
           {
-            label: 'Microsoft Learn MCP Server',
-            href: 'https://learn.microsoft.com/en-us/training/support/mcp'
+            label: 'Skills.sh — open agent skills ecosystem',
+            href: 'https://skills.sh'
           }
+        ]
+      },
+      {
+        title: 'Plugins',
+        links: [
+          {
+            label: 'Copilot Cowork plugins',
+            href: 'https://learn.microsoft.com/microsoft-365/copilot/cowork/cowork-plugins'
+          },
+          {
+            label: 'Available plugins',
+            href: 'https://learn.microsoft.com/microsoft-365/copilot/cowork/cowork-available-plugins'
+          },
+          {
+            label: 'Build plugins for Cowork',
+            href: 'https://learn.microsoft.com/microsoft-365/copilot/cowork/cowork-plugin-development'
+          },
+          {
+            label: 'Microsoft Learn for Cowork plugin',
+            href: 'https://github.com/Laskewitz/learn-for-cowork',
+            note: 'My plugin — steal the structure'
+          }
+        ]
+      },
+      {
+        title: 'From the session',
+        links: [
+          {
+            label: 'Copilot Cowork deck',
+            href: 'https://github.com/Laskewitz/cowork/blob/main/assets/Copilot%20Cowork.pptx'
+          },
+          { label: 'All session resources', href: 'https://github.com/Laskewitz/cowork' }
         ]
       }
     ],
-    deliveries: []
+    deliveries: [
+      { eventSlug: 'agentcon-utrecht-2026', coSpeakers: ['appieschot'] },
+      { eventSlug: 'collabdays-nl-2026' }
+    ]
   },
   {
     slug: 'declarative-agents',
@@ -131,6 +187,199 @@ export const talks: Talk[] = [
       }
     ],
     deliveries: [{ eventSlug: 'ai-agents-hack-2025' }]
+  },
+  {
+    slug: 'mcp',
+    title: 'MCP or not to MCP — that is THE question',
+    summary:
+      'Connecting Copilot Studio agents to real systems with the Model Context Protocol.',
+    abstract:
+      'So, the Model Context Protocol (MCP) is everywhere these days, and now that ' +
+      'Copilot Studio jumped on board in March 2025, everyone is wondering: what is ' +
+      'the big deal? And more importantly, what happens to all those connectors we ' +
+      'have been using? We will break it all down for you in this session. We will ' +
+      'dive into what MCP servers actually are, how you can start using them in ' +
+      'Copilot Studio, and why you might want to try them out in other AI tools too. ' +
+      'Fair warning: this is going to be demo-heavy, so get ready to see MCP in ' +
+      'action across a bunch of different scenarios — including both Microsoft’s own ' +
+      'MCP servers, like the Dataverse MCP server, and third-party ones.',
+    hall: 'd',
+    tags: ['MCP', 'Copilot Studio', 'Agents'],
+    resourceSlug: 'mcp',
+    /* Usually given with Mats; ?with=aprildunnam re-bills it without an edit. */
+    defaultCoSpeakers: ['mnecker'],
+    resources: [
+      {
+        title: 'Documentation',
+        links: [
+          { label: 'Copilot Studio MCP announcement', href: 'https://aka.ms/mcsmcp' },
+          { label: 'Copilot Studio MCP documentation', href: 'https://aka.ms/mcsmcpdocs' },
+          {
+            label: 'Dataverse MCP agent instructions',
+            href: 'https://learn.microsoft.com/power-apps/maker/data-platform/data-platform-mcp-disable#sample-agent-instructions'
+          },
+          {
+            label: 'Work IQ in Copilot Studio',
+            href: 'https://learn.microsoft.com/microsoft-copilot-studio/use-work-iq'
+          }
+        ]
+      },
+      {
+        title: 'Labs',
+        links: [
+          { label: 'Copilot Studio ❤️ MCP lab', href: 'https://aka.ms/mcsmcplab' },
+          { label: 'Dataverse MCP lab', href: 'https://aka.ms/dataverse/mcp/lab' }
+        ]
+      },
+      {
+        title: 'Samples and tools',
+        links: [
+          { label: 'Copilot Studio MCP samples', href: 'https://aka.ms/copilot-studio-mcp' },
+          { label: 'Power Platform CLI MCP preview', href: 'https://aka.ms/pac/mcp' }
+        ]
+      },
+      {
+        title: 'Community',
+        links: [
+          { label: 'Copilot Studio MCP community', href: 'https://aka.ms/mcsmcpcommunity' }
+        ]
+      }
+    ],
+    deliveries: [
+      { eventSlug: 'm365-conference-2026', coSpeakers: ['aprildunnam'] }
+    ]
+  },
+  {
+    slug: 'maintainable-flows',
+    title: 'Building Maintainable Power Automate Flows: From Chaos to Clarity',
+    summary:
+      'Guidelines for building Power Automate flows that are a breeze to maintain.',
+    abstract:
+      'Power Automate enables anyone to automate processes. However, “anyone” often ' +
+      'means flows that grow fast… and become unmanageable even faster. In this ' +
+      'session, we will explore how to design and build Power Automate flows that ' +
+      'are performant, reusable, and easy to maintain by applying proven software ' +
+      'engineering principles to the low-code platform. While Power Automate is ' +
+      'marketed as a low-code tool for citizen developers, many flows end up being ' +
+      'built without scalability or maintainability in mind, leading to fragile ' +
+      'automations, duplicated logic, and performance bottlenecks. Designed with the ' +
+      'right mindset, it becomes an enterprise-grade automation platform. We walk ' +
+      'through real-world examples showing how to refactor what you already have.',
+    hall: 'e',
+    tags: ['Power Automate', 'Power Platform', 'Maintainability'],
+    resourceSlug: 'maintainable-flows',
+    defaultCoSpeakers: ['agniusbartninkas'],
+    resources: [
+      {
+        title: 'The book',
+        links: [
+          {
+            label: 'Building Maintainable Software (SIG)',
+            href: 'https://www.softwareimprovementgroup.com/wp-content/uploads/Building_Maintainable_Software_SIG_Java.compressed.pdf'
+          }
+        ]
+      },
+      {
+        title: 'Tools and frameworks',
+        links: [
+          {
+            label: 'Power Platform Control Hub',
+            href: 'https://github.com/Laskewitz/Power-Platform-Control-Hub/'
+          },
+          {
+            label: 'PADFramework',
+            href: 'https://github.com/AgniusBartninkas/power-automate-desktop-framework'
+          }
+        ]
+      }
+    ],
+    deliveries: [
+      { eventSlug: 'eppc-2026', coSpeakers: ['agniusbartninkas'] }
+    ]
+  },
+  {
+    slug: 'mcp-vs-connectors',
+    title:
+      'Model Context Protocol vs. Connectors: Rethinking Integration in the Power Platform',
+    summary: 'Where MCP fits, where connectors still win, and how they work together.',
+    abstract:
+      'Model Context Protocol (MCP) quickly became the thing everybody doing AI ' +
+      'talks about, and its adoption rate across different tech providers is rapid. ' +
+      'Microsoft has embraced it as well and is combining it with an old friend of ' +
+      'ours: (custom) connectors. In this session we break down the differences ' +
+      'between MCP and traditional connectors in the Power Platform. Attendees learn ' +
+      'how each works, where they fit best, and how they compare, with practical ' +
+      'demos showing how to get started with MCP and how it can work alongside ' +
+      'connectors — not replace them. It is aimed at solution architects, developers ' +
+      'and IT leaders looking to modernise how they build integrations.',
+    hall: 'a',
+    tags: ['MCP', 'Custom Connectors', 'Power Platform'],
+    deliveries: []
+  },
+  {
+    slug: 'power-platform-cli',
+    title: 'Power Platform CLI Exposed',
+    summary: 'Managing and automating the Power Platform from the command line.',
+    abstract:
+      'The Power Platform Command Line Interface is an essential tool for developers ' +
+      'and IT professionals who work with the Power Platform. This session ' +
+      'demonstrates how to use the CLI to manage and automate common tasks such as ' +
+      'creating and deploying solutions, managing environments, and managing users ' +
+      'and permissions. It covers the basics of installing and setting up the CLI, ' +
+      'walks through the different command groups that are out there, and discusses ' +
+      'best practices for using the CLI in your organisation — both from an inner ' +
+      'loop and an outer loop perspective.',
+    hall: 'b',
+    tags: ['Power Platform CLI', 'ALM', 'Power Platform'],
+    deliveries: []
+  },
+  {
+    slug: 'canvas-apps-optimization',
+    title: 'Optimizing Canvas Apps for maintainability, reusability, and performance',
+    summary: 'Development standards for Canvas Apps that scale and stay fast.',
+    abstract:
+      'A session on enhancing your Canvas Apps by focusing on best-practice ' +
+      'development for better performance, ensuring maintainability and promoting ' +
+      'reusability. Learn how to use effective techniques and tools such as YAML, ' +
+      'canvas and code components, HTML and custom connectors for building and ' +
+      'designing well-performing applications. Cathrine and Daniel showcase examples ' +
+      'from their own experience and the principles behind them, so you gain a ' +
+      'greater understanding of development standards in Power Apps that let you ' +
+      'build for scalability and avoid the common pitfalls and long loading times.',
+    hall: 'c',
+    tags: ['Power Apps', 'Canvas Apps', 'Performance'],
+    defaultCoSpeakers: ['cathrinebruvold'],
+    deliveries: []
+  },
+  {
+    slug: 'build-your-own-copilot',
+    title: 'Build your own copilot with Copilot Studio',
+    summary: 'Getting started fast, from extending Microsoft 365 Copilot to building your own.',
+    abstract:
+      'Copilot Studio is a low-code way to extend existing copilots like Microsoft ' +
+      '365 Copilot, or to build your own from scratch. This session shows how to get ' +
+      'started quickly by building one: what Copilot Studio is and how you can use ' +
+      'it, which generative AI features are there to quickly add knowledge, how to ' +
+      'connect your copilot to external systems, and where low code genuinely helps ' +
+      'you develop faster.',
+    hall: 'd',
+    tags: ['Copilot Studio', 'Low Code', 'Microsoft 365'],
+    deliveries: []
+  },
+  {
+    slug: 'custom-connectors',
+    title: 'Extend the Power Platform with Custom Connectors',
+    summary: 'Building, designing and publishing your own connectors.',
+    abstract:
+      'Custom connectors extend the capabilities of the Power Platform with your own ' +
+      'APIs. This session provides an overview of what custom connectors are, how ' +
+      'they work, and the benefits of using them in your apps and workflows. It ' +
+      'walks through the step-by-step process of building custom connectors and ' +
+      'discusses best practices for designing and publishing them — whether you end ' +
+      'up shipping a custom, certified, or independent publisher connector.',
+    hall: 'e',
+    tags: ['Custom Connectors', 'Power Platform', 'APIs'],
+    deliveries: []
   }
 ]
 

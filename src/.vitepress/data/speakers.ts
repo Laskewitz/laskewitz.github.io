@@ -20,6 +20,52 @@ export const speakers: Record<string, Speaker> = {
       { label: 'X', href: 'https://x.com/laskewitz' },
       { label: 'YouTube', href: 'https://youtube.com/daniellaskewitz' }
     ]
+  },
+  appieschot: {
+    slug: 'appieschot',
+    name: 'Albert-Jan Schot',
+    role: 'CTO',
+    company: 'Blis Digital',
+    links: [
+      { label: 'LinkedIn', href: 'https://www.linkedin.com/in/albertjanschot/' },
+      { label: 'GitHub', href: 'https://github.com/appieschot' }
+    ]
+  },
+  mnecker: {
+    slug: 'mnecker',
+    name: 'Mats Necker',
+    role: 'CEO',
+    company: 'Dhino',
+    links: [
+      { label: 'Website', href: 'https://dhino.io/' },
+      { label: 'LinkedIn', href: 'https://www.linkedin.com/in/matsnecker/' },
+      { label: 'GitHub', href: 'https://github.com/mnecker' }
+    ]
+  },
+  aprildunnam: {
+    slug: 'aprildunnam',
+    name: 'April Dunnam',
+    role: 'Principal Cloud Advocate',
+    company: 'Microsoft',
+    links: [
+      { label: 'LinkedIn', href: 'https://linkedin.com/in/aprildunnam' },
+      { label: 'GitHub', href: 'https://github.com/aprildunnam' },
+      { label: 'YouTube', href: 'https://youtube.com/@aprildunnam' }
+    ]
+  },
+  agniusbartninkas: {
+    slug: 'agniusbartninkas',
+    name: 'Agnius Bartninkas',
+    links: [
+      { label: 'LinkedIn', href: 'https://www.linkedin.com/in/agnius-bartninkas/' },
+      { label: 'GitHub', href: 'https://github.com/AgniusBartninkas' }
+    ]
+  },
+  /* No public links recorded yet — the plate renders name-only until they are. */
+  cathrinebruvold: {
+    slug: 'cathrinebruvold',
+    name: 'Cathrine Bruvold',
+    links: []
   }
 }
 

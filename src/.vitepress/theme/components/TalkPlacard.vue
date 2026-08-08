@@ -43,7 +43,7 @@ const deliveries = computed(() =>
     <section class="stages wf-gutter">
       <h2 class="section-heading wf-sign">
         Where I've given it
-        <span class="count">{{ deliveries.length }}</span>
+        <span v-if="deliveries.length" class="count">{{ deliveries.length }}</span>
       </h2>
 
       <p v-if="!deliveries.length" class="empty">
@@ -174,6 +174,17 @@ const deliveries = computed(() =>
   font-weight: 900;
   letter-spacing: -0.028em;
   margin-left: -0.03em;
+  /* Long single words (MAINTAINABILITY,) must hyphenate, never snap mid-word. */
+  overflow-wrap: break-word;
+  hyphens: auto;
+}
+
+/* At phone width the display step is wider than the longest word in the
+   programme. Step down so signage still reads as one cut line. */
+@media (max-width: 480px) {
+  .title {
+    font-size: clamp(1.7rem, 1.05rem + 3.4vw, 2.1rem);
+  }
 }
 
 .summary {

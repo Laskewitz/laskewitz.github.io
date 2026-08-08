@@ -4,8 +4,12 @@
  * Halls are the semantic colour roles of the world. A talk is assigned a hall
  * and keeps it everywhere it appears: placard, delivery line, and the full-bleed
  * door of its resource page.
+ *
+ * A hall is a room, not a talk. There are five, and once the programme grows
+ * past five sessions rooms are reused — exactly as a real venue reuses them.
+ * Every hall colour is contrast-checked against its on-hall ink in style.css.
  */
-export type Hall = 'a' | 'b' | 'c' | 'd'
+export type Hall = 'a' | 'b' | 'c' | 'd' | 'e'
 
 export interface SpeakerLink {
   label: string

@@ -8,7 +8,7 @@
                Never small hall-coloured text on the dark substrate — #1F4BFF
                on #0A0A0A is ~3.4:1 and fails. White on #1F4BFF is 5.99:1.
                Every hall/on-hall pair is measured, not eyeballed:
-               a 5.99 · b 7.34 · c 5.09 · d 15.83. The red is #D6203A rather
+               a 5.99 · b 7.34 · c 5.09 · d 15.83 · e 6.76. The red is #D6203A rather
                than a brighter #FF3D57 because that one only reached 3.47:1.
                Text on a hall field is never faded with opacity — a faded
                label re-fails the check. Signage separates by scale, not by
@@ -47,17 +47,19 @@
   --wf-optic: #ffffff;
   --wf-optic-dim: #a3a3a3;
 
-  /* ── Halls: the four semantic colour roles ────────────────────────────── */
+  /* ── Halls: the five semantic colour roles ────────────────────────────── */
   --wf-hall-a: #1f4bff;
   --wf-hall-b: #00c2a8;
   --wf-hall-c: #d6203a;
   --wf-hall-d: #c8ff00;
+  --wf-hall-e: #ff6b00;
 
   /* Text that sits ON each hall field. Contrast-checked, not eyeballed. */
   --wf-on-hall-a: #ffffff;
   --wf-on-hall-b: #04231f;
   --wf-on-hall-c: #ffffff;
   --wf-on-hall-d: #101400;
+  --wf-on-hall-e: #1a0a00;
 
   /* ── Type ─────────────────────────────────────────────────────────────── */
   --wf-font: 'Archivo', ui-sans-serif, system-ui, -apple-system, 'Segoe UI',
@@ -110,6 +112,10 @@
 [data-hall='d'] {
   --hall: var(--wf-hall-d);
   --on-hall: var(--wf-on-hall-d);
+}
+[data-hall='e'] {
+  --hall: var(--wf-hall-e);
+  --on-hall: var(--wf-on-hall-e);
 }
 
 /* ==========================================================================
