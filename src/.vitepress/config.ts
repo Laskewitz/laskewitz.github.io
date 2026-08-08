@@ -1,5 +1,6 @@
 import { defineConfig } from 'vitepress'
 import { DIRECTION_CONTRACT } from './contract'
+import { renderOgCards, transformPageData } from './og'
 import { generateFeed, rssDevPlugin } from './rss'
 
 export default defineConfig({
@@ -42,9 +43,8 @@ export default defineConfig({
       }
     ],
     ['meta', { name: 'theme-color', content: '#0a0a0a' }],
-    ['meta', { property: 'og:type', content: 'website' }],
     ['meta', { property: 'og:site_name', content: 'Daniel Laskewitz' }],
-    ['meta', { property: 'og:image', content: 'https://laskewitz.io/images/logo-white.png' }]
+    ['meta', { name: 'twitter:site', content: '@laskewitz' }]
   ],
 
   themeConfig: {
@@ -81,5 +81,10 @@ export default defineConfig({
     return code.replace('<head>', `<head>\n${DIRECTION_CONTRACT}`)
   },
 
-  buildEnd: generateFeed
+  transformPageData,
+
+  async buildEnd(siteConfig) {
+    await generateFeed(siteConfig)
+    await renderOgCards(siteConfig)
+  }
 })

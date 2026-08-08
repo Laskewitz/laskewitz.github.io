@@ -302,6 +302,148 @@ export const talks: Talk[] = [
     ]
   },
   {
+    slug: 'beyond-shipping',
+    title: 'Beyond Shipping: How to Keep Your Low-Code Solutions Healthy',
+    summary:
+      'What "maintainable code" means once the code is a canvas app and a handful of flows.',
+    abstract:
+      'We love how fast low-code lets us build, but what happens after launch? As ' +
+      'solutions grow, so does complexity. Modules expand, connectors multiply, ' +
+      'and before you know it, small changes start to feel risky.\n\n' +
+      'In this session, we will look at what "maintainable code" really means in a ' +
+      'Power Platform world. Inspired by timeless software engineering principles, ' +
+      'we will translate them into practical habits for low-code: short, modular ' +
+      'apps, simple logic, reusable components, clear interfaces, and the right ' +
+      'amount of automation.\n\n' +
+      'Through quick demos, you will see how to design solutions that stay flexible ' +
+      'and fun to improve. Because maintainability is not just for code anymore.',
+    hall: 'c',
+    tags: ['Power Platform', 'Maintainability', 'Solution Architecture'],
+    resourceSlug: 'beyond-shipping',
+    defaultCoSpeakers: ['appieschot'],
+    resources: [
+      {
+        title: 'Tools from the session',
+        links: [
+          { label: 'Copilot Studio Kit', href: 'https://aka.ms/copilotstudiokit' },
+          { label: 'Inventory Report', href: 'https://aka.ms/inventory-report' }
+        ]
+      }
+    ],
+    deliveries: [
+      { eventSlug: 'european-bizapps-summit-2026', coSpeakers: ['appieschot'] }
+    ]
+  },
+  {
+    slug: 'prompt-builder-playbook',
+    title: 'Prompt Builder Playbook',
+    summary:
+      'Design, test and operationalise prompts that behave the same in apps, flows and agents.',
+    abstract:
+      'With Prompt Builder in AI Builder, you can design, test, and operationalize ' +
+      'prompts that work consistently across apps, flows, and agents. This session ' +
+      'shares real-world lessons on how to take advantage of Prompt Builder ' +
+      'features like output formatting (text, JSON, Word), grounding knowledge, ' +
+      'code interpreter, multi-modal inputs, and even Copilot-assisted authoring. ' +
+      'We will also explore how to bring your own model through Azure AI Foundry, ' +
+      'giving you flexibility and control over how your prompts execute. You will ' +
+      'leave with patterns you can put to work immediately.',
+    hall: 'e',
+    tags: ['AI Builder', 'Prompts', 'Azure AI Foundry'],
+    resourceSlug: 'prompt-builder-playbook',
+    defaultCoSpeakers: ['aprildunnam'],
+    resources: [
+      {
+        title: 'Writing the prompt',
+        links: [
+          { label: 'Copilot Studio prompt guide', href: 'https://aka.ms/promptguide' },
+          { label: 'AI prompts FAQ', href: 'https://aka.ms/prompt-builder-faq' }
+        ]
+      },
+      {
+        title: 'Try it yourself',
+        links: [
+          { label: 'Try out prompts', href: 'https://aka.ms/tryprompts' },
+          {
+            label: 'Power Platform prompt library',
+            href: 'https://aka.ms/power-prompts'
+          }
+        ]
+      },
+      {
+        title: 'Going further',
+        links: [
+          { label: 'AI Builder learning path', href: 'https://aka.ms/learn/ai-builder' },
+          {
+            label: 'Licensing and credits',
+            href: 'https://aka.ms/ai-builder-cost'
+          }
+        ]
+      }
+    ],
+    deliveries: [
+      { eventSlug: 'directions-asia-2026' },
+      { eventSlug: 'm365-conference-2026', coSpeakers: ['aprildunnam'] }
+    ]
+  },
+  {
+    slug: 'reusable-prompts',
+    title: 'The art of building reusable prompts with AI Builder',
+    summary:
+      'Write the prompt once as a function, then let everyone else just fill in the inputs.',
+    abstract:
+      'In this session, Miguel and Daniel will show you how you can use the AI ' +
+      'Builder Prompt Builder to infuse your low code solutions with AI. Nobody ' +
+      'really wants to write long prompts themselves, so why annoy people with ' +
+      'that? The Prompt Builder enables you to write prompt functions, so that end ' +
+      'users only have to fill in the inputs and not the whole prompt. And the good ' +
+      'thing about it is that they are reusable, so you only have to write it ' +
+      'once.\n\n' +
+      'You will learn how to prompt well and how to make prompts reusable, what the ' +
+      'Prompt Builder does for you, and how to use prompts across Power Apps, Power ' +
+      'Automate and Copilot Studio.',
+    hall: 'd',
+    tags: ['AI Builder', 'Prompts', 'Power Platform'],
+    resourceSlug: 'reusable-prompts',
+    /* Same ground as the Prompt Builder Playbook, so it hands out the same links. */
+    resourcesFrom: 'prompt-builder-playbook',
+    defaultCoSpeakers: ['miguelverweij'],
+    deliveries: [
+      { eventSlug: 'european-bizapps-summit-2026', coSpeakers: ['miguelverweij'] }
+    ]
+  },
+  {
+    slug: 'omg-mcp-wtf',
+    title: 'OMG MCP WTF: Three Ways MCP Servers Can Change Your Life',
+    summary:
+      'Three practical, day-to-day scenarios where an MCP server beats the process it replaces.',
+    abstract:
+      'The adoption of the Model Context Protocol (MCP) standard by Microsoft ' +
+      'heralds an important moment in the generative AI journey, as work is done ' +
+      'to better facilitate agent to agent communication, and unlock the full ' +
+      'capabilities of solutions such as Microsoft Dataverse, Dynamics 365 ' +
+      'Customer Service, and more. With access to just a single (or indeed ' +
+      'multiple) MCP server, complex, multi-turn actions can be accomplished in a ' +
+      'pinch. But are the promises as real and as easy to work with as claimed? ' +
+      'How can a functional user start to integrate these experiences into their ' +
+      'day to day workflows?\n\n' +
+      'In this session, join Joe and Daniel, as they demystify the buzz around MCP ' +
+      'servers, and present 3 practical, day-to-day scenarios where using MCP ' +
+      'servers obliterates any previous process, in terms of speed and efficiency. ' +
+      'You will gain a thorough understanding of how to get going with MCP ' +
+      'servers, and walk away with insights and inspiration on how to use them ' +
+      'yourself. This session is perfect for the MCP curious, who may not be ' +
+      'strong as a developer, but is keen to see how MCP servers can be used in an ' +
+      'easy way.',
+    hall: 'c',
+    tags: ['MCP', 'Copilot', 'Agents'],
+    resourceSlug: 'omg-mcp-wtf',
+    /* Same ground as "MCP or not to MCP", so it hands out the same links. */
+    resourcesFrom: 'mcp',
+    defaultCoSpeakers: ['joegriffin'],
+    deliveries: [{ eventSlug: 'dynamicsminds-2026', coSpeakers: ['joegriffin'] }]
+  },
+  {
     slug: 'mcp-vs-connectors',
     title:
       'Model Context Protocol vs. Connectors: Rethinking Integration in the Power Platform',
@@ -327,6 +469,8 @@ export const talks: Talk[] = [
       { eventSlug: 'ppcc-2026', coSpeakers: ['mnecker'] },
       { eventSlug: 'scottish-summit-2026', coSpeakers: ['mnecker'] },
       { eventSlug: 'eppc-2026', coSpeakers: ['mnecker'] },
+      { eventSlug: 'dynamicsminds-2026', coSpeakers: ['mnecker'] },
+      { eventSlug: 'european-bizapps-summit-2026', coSpeakers: ['mnecker'] },
       { eventSlug: 'cttt-2026', coSpeakers: ['mnecker'] },
       { eventSlug: 'nordic-summit-2025', coSpeakers: ['mnecker'] }
     ]
@@ -644,6 +788,7 @@ export const talks: Talk[] = [
       }
     ],
     deliveries: [
+      { eventSlug: 'european-bizapps-summit-2026', coSpeakers: ['carlcookson'] },
       { eventSlug: 'eppc-2025', coSpeakers: ['carlcookson'] },
       { eventSlug: 'cttt-2025', coSpeakers: ['carlcookson'] }
     ]

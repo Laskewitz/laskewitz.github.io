@@ -22,6 +22,27 @@ export const speakers: Record<string, Speaker> = {
       { label: 'YouTube', href: 'https://youtube.com/daniellaskewitz' }
     ]
   },
+  miguelverweij: {
+    slug: 'miguelverweij',
+    name: 'Miguel Verweij',
+    role: 'Founder',
+    company: 'Powerbouwer',
+    photo: '/images/speakers/miguelverweij-256.jpg',
+    links: [
+      { label: 'Website', href: 'https://www.powerbouwer.com' },
+      { label: 'LinkedIn', href: 'https://www.linkedin.com/in/miguel-verweij/' },
+      { label: 'GitHub', href: 'https://github.com/miguelverweij' },
+      { label: 'X', href: 'https://x.com/MiguelVerweij' }
+    ]
+  },
+  joegriffin: {
+    slug: 'joegriffin',
+    name: 'Joe Griffin',
+    role: 'CEO',
+    company: 'proMX UK',
+    photo: '/images/speakers/joegriffin-256.jpg',
+    links: [{ label: 'Website', href: 'https://crmchap.co.uk' }]
+  },
   appieschot: {
     slug: 'appieschot',
     name: 'Albert-Jan Schot',
