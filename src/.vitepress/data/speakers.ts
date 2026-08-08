@@ -70,6 +70,11 @@ export const speakers: Record<string, Speaker> = {
       { label: 'Website', href: 'https://cathrinebruvold.com' },
       { label: 'GitHub', href: 'https://github.com/cathrinebruvold' }
     ]
+  },
+  carlcookson: {
+    slug: 'carlcookson',
+    name: 'Carl Cookson',
+    links: []
   }
 }
 

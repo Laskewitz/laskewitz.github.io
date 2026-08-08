@@ -9,7 +9,6 @@ import { formatPostDate } from '../../data/format'
 <template>
   <div class="board">
     <header class="head wf-gutter">
-      <p class="wf-label">Notice board</p>
       <h1 class="title wf-sign">Writing</h1>
       <p class="standfirst">
         Notes on the things I build and talk about. No newsletter, no signup —

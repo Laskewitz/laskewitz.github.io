@@ -299,6 +299,14 @@ export const events: EventRecord[] = [
     website: 'https://basta.net/mainz/'
   },
   {
+    slug: 'd365pp-manchester-2025',
+    name: 'Dynamics 365 & Power Platform User Group Manchester',
+    start: '2025-09-10',
+    city: 'Manchester',
+    country: 'GB-ENG',
+    countryName: 'United Kingdom'
+  },
+  {
     slug: 'nordic-summit-2025',
     name: 'Nordic Summit 2025',
     start: '2025-09-19',
@@ -426,6 +434,15 @@ export const events: EventRecord[] = [
     website: 'https://devworldconference.com/'
   },
   {
+    slug: 'gppb-be-2025',
+    name: 'Global Power Platform Bootcamp 2025 — Belgium Edition',
+    start: '2025-02-22',
+    city: 'Edegem',
+    country: 'BE',
+    countryName: 'Belgium',
+    website: 'https://bootcamp.poweraddicts.be/'
+  },
+  {
     slug: 'cttt-2025',
     name: 'Cloud Technology Townhall Tallinn',
     start: '2025-01-30',
@@ -484,6 +501,17 @@ export const events: EventRecord[] = [
     country: 'US',
     countryName: 'United States',
     website: 'https://ignite.microsoft.com/en-US/home'
+  },
+  {
+    slug: 'lcnc-ppc-2024',
+    name: 'Low Code/No Code Power Platform Conference',
+    start: '2024-11-09',
+    online: true,
+    city: 'Online',
+    country: 'ZZ',
+    countryName: 'Online',
+    website:
+      'https://www.communitydays.org/event/2024-11-09/low-code-no-code-microsoft-power-platform-conference-2024'
   },
   {
     slug: 'ai-tour-berlin-2024-10',
@@ -872,6 +900,18 @@ export const events: EventRecord[] = [
     city: 'Online',
     country: 'ZZ',
     countryName: 'Online'
+  },
+
+  // ── 2021 ────────────────────────────────────────────────────────────────────
+  {
+    slug: 'collabdays-benl-2021',
+    name: 'CollabDays Belgium & Netherlands 2021',
+    start: '2021-10-23',
+    online: true,
+    city: 'Online',
+    country: 'ZZ',
+    countryName: 'Online',
+    website: 'https://www.collabdays.org/2021-benl'
   }
 ]
 

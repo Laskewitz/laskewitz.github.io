@@ -35,7 +35,7 @@ const speakers = computed(() => billing(coSpeakerSlugs.value))
 <template>
   <main v-if="talk" class="door" :data-hall="talk.hall">
     <header class="masthead">
-      <p class="kicker wf-label">Session resources</p>
+      <p class="kicker wf-label">Resources</p>
       <h1 class="title wf-sign">{{ talk.title }}</h1>
     </header>
 

@@ -1,26 +1,24 @@
 <script setup lang="ts">
 /** The placard index — one plate per talk in rotation. */
 import { talks } from '../../data/talks'
-import { getEvent } from '../../data/events'
+import { getEvent, isUpcoming } from '../../data/events'
 import { eventYear } from '../../data/format'
-import HallTile from './HallTile.vue'
 
-function lastGiven(slug: string): string | null {
+/** Past outings read "Last given"; a talk only booked ahead reads "Next up". */
+function stageNote(slug: string): string | null {
   const talk = talks.find((t) => t.slug === slug)
   if (!talk?.deliveries.length) return null
-  const years = talk.deliveries
-    .map((d) => getEvent(d.eventSlug))
-    .filter(Boolean)
-    .map((e) => eventYear(e!))
-    .sort()
-  return years.at(-1) ?? null
+  const events = talk.deliveries.map((d) => getEvent(d.eventSlug)).filter(Boolean)
+  const past = events.filter((e) => !isUpcoming(e!)).map((e) => eventYear(e!)).sort()
+  if (past.length) return `Last given ${past.at(-1)}`
+  const ahead = events.map((e) => eventYear(e!)).sort()
+  return ahead.length ? `Next up ${ahead[0]}` : null
 }
 </script>
 
 <template>
   <div class="placards">
     <header class="head wf-gutter">
-      <p class="wf-label">Room placards</p>
       <h1 class="title wf-sign">Talks</h1>
       <p class="standfirst">
         These aren't one-offs. Each of these gets given again, at different
@@ -41,9 +39,8 @@ function lastGiven(slug: string): string | null {
 
         <span class="placard-body">
           <span class="tiles">
-            <HallTile :hall="talk.hall" :text="`Hall ${talk.hall}`" />
-            <span v-if="lastGiven(talk.slug)" class="last">
-              Last given {{ lastGiven(talk.slug) }}
+            <span v-if="stageNote(talk.slug)" class="last">
+              {{ stageNote(talk.slug) }}
             </span>
           </span>
 

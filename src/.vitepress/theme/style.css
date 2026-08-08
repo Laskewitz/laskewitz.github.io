@@ -61,6 +61,12 @@
   --wf-on-hall-d: #101400;
   --wf-on-hall-e: #1a0a00;
 
+  /* A photograph carries its own lighting and does not invert with the theme.
+     A banner is a dark room in both modes, so its scrim and its ink are fixed
+     here and deliberately absent from the light-mode block below. */
+  --wf-photo-ink: #0a0a0a;
+  --wf-photo-optic: #ffffff;
+
   /* ── Type ─────────────────────────────────────────────────────────────── */
   --wf-font: 'Archivo', ui-sans-serif, system-ui, -apple-system, 'Segoe UI',
     sans-serif;

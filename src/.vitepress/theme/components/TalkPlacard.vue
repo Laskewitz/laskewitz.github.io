@@ -2,12 +2,10 @@
 /** A single talk: the placard, the abstract, and every stage it's been on. */
 import { computed } from 'vue'
 import { getTalk } from '../../data/talks'
-import { getEvent } from '../../data/events'
+import { getEvent, isUpcoming } from '../../data/events'
 import { billing } from '../../data/speakers'
 import { eventPlace, flag, formatEventDate } from '../../data/format'
-import HallTile from './HallTile.vue'
 import SignRow from './SignRow.vue'
-import SpeakerPlate from './SpeakerPlate.vue'
 
 const props = defineProps<{ slug: string }>()
 
@@ -19,6 +17,20 @@ const deliveries = computed(() =>
     .filter((d) => d.event)
     .sort((a, b) => b.event!.start.localeCompare(a.event!.start))
 )
+
+/* An accepted outing that hasn't happened yet is booked, not given, so the two
+   get their own boards rather than one list that quietly mixes tenses. */
+const booked = computed(() =>
+  deliveries.value.filter((d) => isUpcoming(d.event!)).reverse()
+)
+const given = computed(() => deliveries.value.filter((d) => !isUpcoming(d.event!)))
+
+const stageSections = computed(() =>
+  [
+    { key: 'booked', heading: 'Coming up', items: booked.value },
+    { key: 'given', heading: 'Past', items: given.value }
+  ].filter((s) => s.items.length)
+)
 </script>
 
 <template>
@@ -27,7 +39,6 @@ const deliveries = computed(() =>
       <a class="back" href="/talks/">← All talks</a>
 
       <div class="tiles">
-        <HallTile :hall="talk.hall" :text="`Hall ${talk.hall}`" />
         <span v-for="tag in talk.tags" :key="tag" class="tag">{{ tag }}</span>
       </div>
 
@@ -41,36 +52,41 @@ const deliveries = computed(() =>
     </section>
 
     <section class="stages wf-gutter">
-      <h2 class="section-heading wf-sign">
-        Where I've given it
-        <span v-if="deliveries.length" class="count">{{ deliveries.length }}</span>
-      </h2>
-
+      <p v-if="!deliveries.length" class="section-heading wf-sign">Past</p>
       <p v-if="!deliveries.length" class="empty">
         Not on a stage yet — or the record hasn't caught up. Ask me about it.
       </p>
 
-      <ol v-else class="lines">
-        <li v-for="{ delivery, event } in deliveries" :key="event!.slug" class="line">
+      <template v-for="section in stageSections" :key="section.key">
+        <h2 class="section-heading wf-sign">
+          {{ section.heading }}
+          <span class="count">{{ section.items.length }}</span>
+        </h2>
+
+        <ol class="lines">
+          <li v-for="{ delivery, event } in section.items" :key="event!.slug" class="line">
           <span class="date">{{ formatEventDate(event!) }}</span>
 
           <span class="stage-body">
-            <span class="event-name wf-sign">{{ event!.name }}</span>
+            <span class="name-row">
+              <span class="event-name wf-sign">{{ event!.name }}</span>
+
+              <span v-if="delivery.coSpeakers?.length" class="with wf-sign">
+                <span class="with-word">With</span>
+                <span class="with-name">{{
+                  billing(delivery.coSpeakers)
+                    .filter((s) => s.slug !== 'laskewitz')
+                    .map((s) => s.name)
+                    .join(' and ')
+                }}</span>
+              </span>
+            </span>
+
             <span class="place">
               <span v-if="flag(event!.country)" aria-hidden="true">{{
                 flag(event!.country)
               }}</span>
               {{ eventPlace(event!) }}
-            </span>
-
-            <span v-if="delivery.coSpeakers?.length" class="with">
-              With
-              {{
-                billing(delivery.coSpeakers)
-                  .filter((s) => s.slug !== 'laskewitz')
-                  .map((s) => s.name)
-                  .join(' and ')
-              }}
             </span>
           </span>
 
@@ -83,23 +99,15 @@ const deliveries = computed(() =>
             >Site ↗</a
           >
         </li>
-      </ol>
-    </section>
-
-    <section class="onstage wf-gutter">
-      <SpeakerPlate
-        heading="On stage"
-        :hall="talk.hall"
-        :speakers="billing(talk.defaultCoSpeakers)"
-      />
+        </ol>
+      </template>
     </section>
 
     <nav v-if="talk.resourceSlug || talk.slides" class="doors wf-gutter">
       <SignRow
         v-if="talk.resourceSlug"
         :href="`/r/${talk.resourceSlug}`"
-        label="Session resources"
-        note="The page I put on the last slide"
+        label="Resources"
         :hall="talk.hall"
         size="door"
       />
@@ -122,7 +130,6 @@ const deliveries = computed(() =>
 .head > *,
 .abstract > *,
 .stages > *,
-.onstage > *,
 .doors > * {
   max-width: 68rem;
 }
@@ -207,8 +214,8 @@ const deliveries = computed(() =>
 }
 
 .stages {
-  padding-top: var(--wf-gap-l);
-  padding-bottom: var(--wf-gap-l);
+  padding-top: var(--wf-gap-xl);
+  padding-bottom: var(--wf-gap-xl);
   border-top: 1px solid var(--wf-ink-rule);
 }
 
@@ -218,6 +225,11 @@ const deliveries = computed(() =>
   gap: var(--wf-gap-s);
   margin: 0 0 var(--wf-gap-m);
   font-size: var(--wf-step-2);
+}
+
+/* A second board under the first needs room to read as its own board. */
+.lines + .section-heading {
+  margin-top: var(--wf-gap-xl);
 }
 
 .count {
@@ -265,20 +277,58 @@ const deliveries = computed(() =>
   min-width: 0;
 }
 
+.name-row {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 0.35em 1.4em;
+  min-width: 0;
+}
+
 .event-name {
   font-size: var(--wf-step-1);
   overflow-wrap: anywhere;
 }
 
-.place,
-.with {
+.place {
+  align-self: flex-start;
   font-variation-settings: 'wdth' 100;
   font-size: var(--wf-step--1);
-  color: var(--vp-c-text-2);
+  line-height: 1.3;
+  color: var(--wf-optic-dim);
 }
 
+/* Shared billing reads as a late-addition sticker slapped onto the placard —
+   small, hall-coloured, and applied a degree or two off true. Ink stays the
+   measured on-hall pair; opacity would break the contrast law. */
 .with {
-  color: var(--wf-optic-dim);
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.42em;
+  padding: 0.18em 0.5em;
+  background: var(--hall);
+  color: var(--on-hall);
+  font-size: 0.68rem;
+  line-height: 1.25;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  transform: rotate(-1.8deg);
+  transform-origin: 0 50%;
+  box-shadow: 1px 2px 0 rgb(0 0 0 / 0.28);
+}
+
+/* Alternate the lean so a run of stickers doesn't look machine-placed. */
+.line:nth-child(even) .with {
+  transform: rotate(1.3deg);
+}
+
+.with-word {
+  font-weight: 400;
+  font-variation-settings: 'wdth' 100;
+}
+
+.with-name {
+  font-weight: 700;
 }
 
 .stage-link {
@@ -301,12 +351,6 @@ const deliveries = computed(() =>
 .stage-link:focus-visible {
   background: var(--wf-optic);
   color: var(--wf-ink);
-}
-
-.onstage {
-  padding-top: var(--wf-gap-l);
-  padding-bottom: var(--wf-gap-l);
-  border-top: 1px solid var(--wf-ink-rule);
 }
 
 .doors {

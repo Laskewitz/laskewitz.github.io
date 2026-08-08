@@ -6,12 +6,12 @@ import { createContentLoader, type SiteConfig } from 'vitepress'
 const HOSTNAME = 'https://laskewitz.io'
 
 /**
- * Writes /feed.rss at build time.
+ * Builds the RSS XML.
  *
  * The notice board has a paper edge: anyone can subscribe without an account,
  * an app, or a newsletter signup.
  */
-export async function generateFeed(config: SiteConfig): Promise<void> {
+export async function buildFeedXml(): Promise<string> {
   const feed = new Feed({
     id: HOSTNAME,
     link: HOSTNAME,
@@ -52,5 +52,35 @@ export async function generateFeed(config: SiteConfig): Promise<void> {
     })
   }
 
-  writeFileSync(path.join(config.outDir, 'feed.rss'), feed.rss2())
+  return feed.rss2()
+}
+
+/** Writes /feed.rss into the build output. */
+export async function generateFeed(config: SiteConfig): Promise<void> {
+  writeFileSync(path.join(config.outDir, 'feed.rss'), await buildFeedXml())
+}
+
+/**
+ * Serves /feed.rss from the dev server.
+ *
+ * Without this the dev server answers the feed URL with the SPA HTML shell, so
+ * the one link a reader is meant to subscribe to looks broken in development.
+ */
+export function rssDevPlugin() {
+  return {
+    name: 'wayfinding-rss-dev',
+    apply: 'serve' as const,
+    configureServer(server: { middlewares: { use: Function } }) {
+      server.middlewares.use(async (req: any, res: any, next: any) => {
+        if (!req.url || req.url.split('?')[0] !== '/feed.rss') return next()
+        try {
+          const xml = await buildFeedXml()
+          res.setHeader('Content-Type', 'application/rss+xml; charset=utf-8')
+          res.end(xml)
+        } catch (err) {
+          next(err)
+        }
+      })
+    }
+  }
 }

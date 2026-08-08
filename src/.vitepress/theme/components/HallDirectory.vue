@@ -34,7 +34,6 @@ function toggleYear(year: string) {
 <template>
   <div class="halls">
     <header class="head wf-gutter">
-      <p class="wf-label">Hall directory</p>
       <h1 class="title wf-sign">Events</h1>
       <p class="standfirst">
         Every conference, user group and community day I've spoken at, and the

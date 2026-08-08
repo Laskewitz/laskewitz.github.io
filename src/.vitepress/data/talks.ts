@@ -46,8 +46,8 @@ export const talks: Talk[] = [
       }
     ],
     deliveries: [
-      { eventSlug: 'nordic-summit-2024' },
-      { eventSlug: 'azure-ai-lowlands-2024' }
+      // AgentCon Utrecht 2025 is the accepted outing for this one. It is not in
+      // events.ts yet because no published date could be verified.
     ]
   },
   {
@@ -142,8 +142,10 @@ export const talks: Talk[] = [
       }
     ],
     deliveries: [
+      { eventSlug: 'shift-enter-summit-2026' },
       { eventSlug: 'agentcon-utrecht-2026', coSpeakers: ['appieschot'] },
-      { eventSlug: 'collabdays-nl-2026' }
+      { eventSlug: 'collabdays-nl-2026' },
+      { eventSlug: 'colorcloud-2026' }
     ]
   },
   {
@@ -246,7 +248,11 @@ export const talks: Talk[] = [
       }
     ],
     deliveries: [
-      { eventSlug: 'm365-conference-2026', coSpeakers: ['aprildunnam'] }
+      { eventSlug: 'directions-asia-2026' },
+      { eventSlug: 'colorcloud-2026' },
+      { eventSlug: 'm365-conference-2026', coSpeakers: ['aprildunnam'] },
+      { eventSlug: 'd365pp-manchester-2025' },
+      { eventSlug: 'bizz-summit-es-2025' }
     ]
   },
   {
@@ -314,7 +320,15 @@ export const talks: Talk[] = [
       'and IT leaders looking to modernise how they build integrations.',
     hall: 'a',
     tags: ['MCP', 'Custom Connectors', 'Power Platform'],
-    deliveries: []
+    defaultCoSpeakers: ['mnecker'],
+    deliveries: [
+      { eventSlug: 'espc-2026', coSpeakers: ['mnecker'] },
+      { eventSlug: 'ppcc-2026', coSpeakers: ['mnecker'] },
+      { eventSlug: 'scottish-summit-2026', coSpeakers: ['mnecker'] },
+      { eventSlug: 'eppc-2026', coSpeakers: ['mnecker'] },
+      { eventSlug: 'cttt-2026', coSpeakers: ['mnecker'] },
+      { eventSlug: 'nordic-summit-2025', coSpeakers: ['mnecker'] }
+    ]
   },
   {
     slug: 'power-platform-cli',
@@ -331,7 +345,10 @@ export const talks: Talk[] = [
       'loop and an outer loop perspective.',
     hall: 'b',
     tags: ['Power Platform CLI', 'ALM', 'Power Platform'],
-    deliveries: []
+    deliveries: [
+      { eventSlug: 'nordic-summit-2023' },
+      { eventSlug: 'scottish-summit-tour-2023' }
+    ]
   },
   {
     slug: 'canvas-apps-optimization',
@@ -349,7 +366,11 @@ export const talks: Talk[] = [
     hall: 'c',
     tags: ['Power Apps', 'Canvas Apps', 'Performance'],
     defaultCoSpeakers: ['cathrinebruvold'],
-    deliveries: []
+    deliveries: [
+      { eventSlug: 'nordic-summit-2025', coSpeakers: ['cathrinebruvold'] },
+      { eventSlug: 'power-summit-2025', coSpeakers: ['cathrinebruvold'] },
+      { eventSlug: 'eppc-2025', coSpeakers: ['cathrinebruvold'] }
+    ]
   },
   {
     slug: 'build-your-own-copilot',
@@ -364,7 +385,13 @@ export const talks: Talk[] = [
       'you develop faster.',
     hall: 'd',
     tags: ['Copilot Studio', 'Low Code', 'Microsoft 365'],
-    deliveries: []
+    deliveries: [
+      { eventSlug: 'future-tech-2025' },
+      { eventSlug: 'gppb-be-2025' },
+      { eventSlug: 'lcnc-ppc-2024' },
+      { eventSlug: 'azure-ai-lowlands-2024' },
+      { eventSlug: 'gppb-2024' }
+    ]
   },
   {
     slug: 'custom-connectors',
@@ -379,7 +406,52 @@ export const talks: Talk[] = [
       'up shipping a custom, certified, or independent publisher connector.',
     hall: 'e',
     tags: ['Custom Connectors', 'Power Platform', 'APIs'],
-    deliveries: []
+    deliveries: [
+      { eventSlug: 'scottish-summit-tour-2023' },
+      { eventSlug: 'collabdays-nl-2022' },
+      { eventSlug: 'nordic-summit-2022' },
+      { eventSlug: 'scottish-summit-2022' },
+      { eventSlug: 'oslo-power-platform-2022' },
+      { eventSlug: 'teams-nation-2022' },
+      { eventSlug: 'collabdays-benl-2021' }
+    ]
+  },
+  {
+    slug: 'build-your-custom-agent',
+    title: 'Build your custom agent with Microsoft Copilot Studio',
+    summary: 'Taking an agent from idea to something people actually use.',
+    abstract:
+      'Copilot Studio lets you build your own agent without writing much code at ' +
+      'all. This session walks through building a custom agent end to end: giving it ' +
+      'the knowledge it needs, wiring it up to the systems your organisation already ' +
+      'runs on, adding actions so it can do real work rather than only answer ' +
+      'questions, and then getting it in front of the people who will use it. Expect ' +
+      'demos rather than slides.',
+    hall: 'a',
+    tags: ['Copilot Studio', 'Agents', 'Low Code'],
+    deliveries: [
+      { eventSlug: 'devworld-2025' },
+      { eventSlug: 'nordic-summit-2024' }
+    ]
+  },
+  {
+    slug: 'admin-essentials',
+    title: 'Power Platform Admin Essentials: CLI, Tools & Tips',
+    summary: 'Running the Power Platform properly, with the tooling that makes it possible.',
+    abstract:
+      'Administering the Power Platform is a lot more than clicking through the ' +
+      'admin centre. This session covers the essentials: the Power Platform CLI, the ' +
+      'admin connectors, the Centre of Excellence toolkit, and the tips that make ' +
+      'day-to-day environment, DLP and capacity management manageable rather than ' +
+      'painful. Aimed at admins and makers who have inherited a tenant and want to ' +
+      'get it under control.',
+    hall: 'b',
+    tags: ['Power Platform CLI', 'Administration', 'Governance'],
+    defaultCoSpeakers: ['carlcookson'],
+    deliveries: [
+      { eventSlug: 'eppc-2025', coSpeakers: ['carlcookson'] },
+      { eventSlug: 'cttt-2025', coSpeakers: ['carlcookson'] }
+    ]
   }
 ]
 

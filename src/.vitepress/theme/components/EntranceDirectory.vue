@@ -269,7 +269,8 @@ const directory = computed(() => [
   font-variation-settings: 'wdth' 100;
   font-size: var(--wf-step-1);
   line-height: 1.45;
-  color: var(--wf-optic);
+  /* Printed on the photograph, so it does not follow the theme. */
+  color: var(--wf-photo-optic);
 }
 
 /* ── Identity block ────────────────────────────────────────────────────── */

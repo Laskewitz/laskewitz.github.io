@@ -1,6 +1,6 @@
 import { defineConfig } from 'vitepress'
 import { DIRECTION_CONTRACT } from './contract'
-import { generateFeed } from './rss'
+import { generateFeed, rssDevPlugin } from './rss'
 
 export default defineConfig({
   title: 'Daniel Laskewitz',
@@ -16,6 +16,9 @@ export default defineConfig({
 
   /** The feed is written in buildEnd, so the link checker can't see it yet. */
   ignoreDeadLinks: [/^\/feed\.rss$/],
+
+  /** ...and the dev server serves it from memory, so the link works there too. */
+  vite: { plugins: [rssDevPlugin()] },
 
   head: [
     ['link', { rel: 'icon', href: '/images/icon.png' }],

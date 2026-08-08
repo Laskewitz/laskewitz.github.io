@@ -53,7 +53,7 @@ withDefaults(
   position: relative;
   display: grid;
   isolation: isolate;
-  background: var(--wf-ink);
+  background: var(--wf-photo-ink);
   overflow: hidden;
 }
 
@@ -83,7 +83,9 @@ withDefaults(
 
 .banner-img {
   object-fit: cover;
-  object-position: center 80%;
+  /* The subject's head sits ~30% down the frame. Anchoring the crop near the
+     top keeps the face in shot at every viewport; anchoring low cropped it. */
+  object-position: center 26%;
   z-index: 0;
 }
 
@@ -96,12 +98,14 @@ withDefaults(
   opacity: 0.55;
 }
 
-/* Guarantees the contrast floor for anything printed on the banner. */
+/* Guarantees the contrast floor for anything printed on the banner. The stops
+   are fixed, not themed: in light mode a themed stop faded the photograph to
+   white while the rest of the gradient stayed dark. */
 .banner-scrim {
   z-index: 2;
   background: linear-gradient(
     to top,
-    var(--wf-ink) 0%,
+    var(--wf-photo-ink) 0%,
     rgba(10, 10, 10, 0.94) 30%,
     rgba(10, 10, 10, 0.72) 62%,
     rgba(10, 10, 10, 0.5) 100%
@@ -115,7 +119,7 @@ withDefaults(
   align-self: end;
   padding-top: var(--wf-gap-xl);
   padding-bottom: var(--wf-gap-l);
-  color: var(--wf-optic);
+  color: var(--wf-photo-optic);
 }
 
 .banner-body:empty {
