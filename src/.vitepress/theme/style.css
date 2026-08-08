@@ -93,6 +93,10 @@
   --wf-gap-xxl: 6.5rem;
 
   --wf-gutter: clamp(1.25rem, 4vw, 4rem);
+
+  /* 2 × --wf-gap-m padding + 48px of signed-off content + the 1px rule. The
+     entrance subtracts this so the homepage lands on exactly one screen. */
+  --wf-footer-h: 97px;
   --wf-measure: 68ch;
 
   /* Minimum tap target. A sign row is never smaller than a thumb. */
@@ -317,10 +321,13 @@ body {
   max-width: 100%;
 }
 
+/* The strip signed off below every page. Its height is a token because the
+   entrance subtracts it to fill exactly one screen — change the padding here
+   and the arithmetic below must follow: 2 × padding + 48px content + 1px rule. */
 .VPFooter {
   background: var(--wf-ink) !important;
   border-top: 1px solid var(--wf-ink-rule);
-  padding: var(--wf-gap-l) var(--wf-gutter) !important;
+  padding: var(--wf-gap-m) var(--wf-gutter) !important;
 }
 
 .VPFooter .message,

@@ -126,6 +126,15 @@ withDefaults(
   display: none;
 }
 
+/* On a short screen the headroom above the name is the first thing to give —
+   the photograph keeps its presence, the page keeps its footing. */
+@media (max-height: 880px) {
+  .banner-body {
+    padding-top: var(--wf-gap-m);
+    padding-bottom: var(--wf-gap-m);
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .banner-img {
     transition: none;

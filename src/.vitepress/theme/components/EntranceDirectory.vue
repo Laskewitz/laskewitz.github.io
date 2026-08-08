@@ -158,11 +158,13 @@ const directory = computed(() => [
 </template>
 
 <style scoped>
+/* One screen, footer included: the entrance is the whole arrival, so it claims
+   the viewport minus the nav above it and the signed-off strip below. */
 .entrance {
   display: flex;
   flex-direction: column;
-  min-height: calc(100vh - var(--vp-nav-height));
-  min-height: calc(100dvh - var(--vp-nav-height));
+  min-height: calc(100vh - var(--vp-nav-height) - var(--wf-footer-h));
+  min-height: calc(100dvh - var(--vp-nav-height) - var(--wf-footer-h));
 }
 
 /* ── BOARD ─────────────────────────────────────────────────────────────── */
@@ -246,8 +248,13 @@ const directory = computed(() => [
 
 /* Nothing stands between the banner and the directory, so the photograph
    takes all the room down to the first sign. */
+/* On a tall screen the photograph takes the slack; on a short or laptop screen
+   it yields, so the three signs and the next date stay above the fold instead
+   of the arrival pushing itself off its own screen. */
 .is-banner :deep(.banner) {
   flex: 1 1 auto;
+  min-height: min(52vh, 17rem);
+  min-height: min(52dvh, 17rem);
 }
 
 .banner-name {

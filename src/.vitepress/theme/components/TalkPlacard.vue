@@ -262,13 +262,14 @@ function resourceHref(delivery: { coSpeakers?: readonly string[] }) {
   list-style: none;
 }
 
+/* Matches the events directory: no hairline per row, the date column and the
+   space do the separating. */
 .line {
   display: grid;
   grid-template-columns: 13rem 1fr auto;
   align-items: baseline;
   gap: var(--wf-gap-xs) var(--wf-gap-m);
-  padding: var(--wf-gap-s) 0;
-  border-bottom: 1px solid var(--wf-ink-rule);
+  padding: calc(var(--wf-gap-s) * 0.9) 0;
 }
 
 .date {

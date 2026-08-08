@@ -98,7 +98,7 @@ function toggleYear(year: string) {
           @click="toggleYear(year)"
         >
           <HallTile :text="year" variant="outline" />
-          <span class="year-count">{{ list.length }} events</span>
+          <span class="year-count">{{ list.length }} {{ list.length === 1 ? 'event' : 'events' }}</span>
           <span class="year-toggle" aria-hidden="true">
             {{ openYears.has(year) ? '−' : '+' }}
           </span>
@@ -171,7 +171,7 @@ function toggleYear(year: string) {
 }
 
 .board + .board {
-  border-top: 1px solid var(--wf-ink-rule);
+  padding-top: var(--wf-gap-xl);
 }
 
 .board-heading {
@@ -202,13 +202,15 @@ function toggleYear(year: string) {
   list-style: none;
 }
 
+/* No rules between rows: the date column already starts every line, so a
+   hairline per row just adds noise to a list this long. Separation is carried
+   by the space instead. */
 .line {
   display: grid;
   grid-template-columns: 13rem 1fr auto;
   align-items: baseline;
   gap: var(--wf-gap-s) var(--wf-gap-m);
-  padding: var(--wf-gap-s) 0;
-  border-bottom: 1px solid var(--wf-ink-rule);
+  padding: calc(var(--wf-gap-s) * 0.9) 0;
 }
 
 .date {
@@ -320,7 +322,6 @@ function toggleYear(year: string) {
   padding: 0;
   background: none;
   border: 0;
-  border-top: 1px solid var(--wf-ink-rule);
   color: var(--wf-optic);
   cursor: pointer;
   text-align: left;
