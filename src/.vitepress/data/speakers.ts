@@ -25,6 +25,9 @@ export const speakers: Record<string, Speaker> = {
   miguelverweij: {
     slug: 'miguelverweij',
     name: 'Miguel Verweij',
+    role: 'Founder',
+    company: 'Powerbouwer',
+    photo: '/images/speakers/miguelverweij-256.jpg',
     links: []
   },
   joegriffin: {
