@@ -95,6 +95,7 @@ export const speakers: Record<string, Speaker> = {
     name: 'Garry Trinder',
     role: 'Senior Cloud Advocate',
     company: 'Microsoft',
+    photo: '/images/speakers/garrytrinder-256.jpg',
     links: [
       { label: 'Website', href: 'https://garrytrinder.github.io' },
       { label: 'LinkedIn', href: 'https://www.linkedin.com/in/gtrinder' },

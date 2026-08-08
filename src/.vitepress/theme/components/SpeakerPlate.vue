@@ -42,29 +42,25 @@ withDefaults(
 
     <div class="rail" :class="{ 'is-shared': speakers.length > 1 }">
       <article v-for="speaker in speakers" :key="speaker.slug" class="plate">
-        <div class="head">
-          <img
-            v-if="speaker.photo"
-            class="portrait"
-            :src="speaker.photo"
-            :alt="speaker.name"
-            width="256"
-            height="256"
-            loading="lazy"
-            decoding="async"
-          />
-          <span v-else class="portrait is-monogram" aria-hidden="true">
-            {{ monogram(speaker.name) }}
-          </span>
+        <img
+          v-if="speaker.photo"
+          class="portrait"
+          :src="speaker.photo"
+          :alt="speaker.name"
+          width="256"
+          height="256"
+          loading="lazy"
+          decoding="async"
+        />
+        <span v-else class="portrait is-monogram" aria-hidden="true">
+          {{ monogram(speaker.name) }}
+        </span>
 
-          <div class="billing">
-            <h3 class="name wf-sign">{{ speaker.name }}</h3>
+        <h3 class="name wf-sign">{{ speaker.name }}</h3>
 
-            <p v-if="speaker.role" class="role">
-              {{ speaker.role }}<span v-if="speaker.company"> · {{ speaker.company }}</span>
-            </p>
-          </div>
-        </div>
+        <p v-if="speaker.role" class="role">
+          {{ speaker.role }}<span v-if="speaker.company"> · {{ speaker.company }}</span>
+        </p>
 
         <ul v-if="withLinks && speaker.links.length" class="links">
           <li v-for="link in speaker.links" :key="link.href">
@@ -108,53 +104,66 @@ withDefaults(
 @media (min-width: 700px) {
   .rail.is-shared {
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: var(--wf-gap-m);
-  }
-}
-
-.plate {
-  min-width: 0;
-}
-
-/* Not every speaker has a role line, so left to itself the second plate pulls
-   its contact buttons up and the pair stops reading as one billing. Subgrid
-   puts name, role and links on shared rows, so the buttons land on one line
-   whatever each plate happens to carry. */
-@media (min-width: 700px) {
-  .rail.is-shared {
-    grid-template-rows: auto auto;
+    grid-template-rows: auto auto auto;
+    column-gap: var(--wf-gap-m);
+    row-gap: 0;
   }
 
+  /* Not every speaker carries a role line. Left alone the shorter plate pulls
+     its pictograms up and the pair stops reading as one billing, so the two
+     plates share rows. */
   .rail.is-shared .plate {
-    display: grid;
-    grid-row: span 2;
+    grid-row: span 3;
     grid-template-rows: subgrid;
   }
 
-  .rail.is-shared .head {
+  .rail.is-shared .name {
     grid-row: 1;
   }
 
-  .rail.is-shared .links {
+  .rail.is-shared .role {
     grid-row: 2;
+  }
+
+  .rail.is-shared .links {
+    grid-row: 3;
     align-content: start;
   }
 }
 
-/* The portrait, the name and the pictograms. */
-.head {
+
+/* The portrait carries the block height and the name, role and pictograms
+   stack beside it, so a billing is one band rather than three stacked rows.
+   A resource page is read on a phone at a conference, where every row the
+   audience has to scroll past is a row they might not reach. */
+.plate {
+  /* Square, and tall enough to run the full height of the name, the role and
+     the pictogram row beside it. A portrait shorter than its own text reads as
+     a thumbnail that was dropped in rather than part of the billing. */
+  --portrait: 112px;
+  min-height: var(--portrait);
   display: grid;
   grid-template-columns: auto minmax(0, 1fr);
-  align-items: center;
-  gap: var(--wf-gap-s);
+  grid-template-rows: auto auto auto;
+  align-content: start;
+  column-gap: var(--wf-gap-s);
 }
 
 .portrait {
-  width: 64px;
-  height: 64px;
+  grid-column: 1;
+  grid-row: 1 / -1;
+  align-self: start;
+  width: var(--portrait);
+  height: var(--portrait);
   object-fit: cover;
   border: 1px solid var(--wf-ink-rule);
   background: var(--hall, var(--wf-ink-rule));
+}
+
+.name,
+.role,
+.links {
+  grid-column: 2;
 }
 
 .portrait.is-monogram {
@@ -183,8 +192,8 @@ withDefaults(
 .links {
   display: flex;
   flex-wrap: wrap;
-  gap: var(--wf-gap-xs);
-  margin: var(--wf-gap-s) 0 0;
+  gap: 0.3rem;
+  margin: 0.55rem 0 0;
   padding: 0;
   list-style: none;
 }
@@ -192,8 +201,8 @@ withDefaults(
 .links a {
   display: grid;
   place-items: center;
-  width: 44px;
-  height: 44px;
+  width: 38px;
+  height: 38px;
   border: 1px solid var(--wf-ink-rule);
   color: var(--wf-optic);
   text-decoration: none;
