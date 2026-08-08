@@ -40,26 +40,28 @@ const speakers = computed(() => billing(coSpeakerSlugs.value))
     </header>
 
     <div class="sheet">
-      <section
-        v-for="group in talk.resources"
-        :key="group.title"
-        class="group"
-        :aria-label="group.title"
-      >
-        <p class="group-title wf-label">{{ group.title }}</p>
+      <div class="groups">
+        <section
+          v-for="group in talk.resources"
+          :key="group.title"
+          class="group"
+          :aria-label="group.title"
+        >
+          <p class="group-title wf-label">{{ group.title }}</p>
 
-        <ul class="links">
-          <li v-for="link in group.links" :key="link.href">
-            <a :href="link.href" target="_blank" rel="noreferrer">
-              <span class="link-body">
-                <span class="link-label wf-sign">{{ link.label }}</span>
-                <span v-if="link.note" class="link-note">{{ link.note }}</span>
-              </span>
-              <span class="link-arrow" aria-hidden="true">↗</span>
-            </a>
-          </li>
-        </ul>
-      </section>
+          <ul class="links">
+            <li v-for="link in group.links" :key="link.href">
+              <a :href="link.href" target="_blank" rel="noreferrer">
+                <span class="link-body">
+                  <span class="link-label wf-sign">{{ link.label }}</span>
+                  <span v-if="link.note" class="link-note">{{ link.note }}</span>
+                </span>
+                <span class="link-arrow" aria-hidden="true">↗</span>
+              </a>
+            </li>
+          </ul>
+        </section>
+      </div>
 
       <section class="contact" aria-label="Contact">
         <SpeakerPlate
@@ -71,7 +73,7 @@ const speakers = computed(() => billing(coSpeakerSlugs.value))
       </section>
 
       <p class="home">
-        <a href="/">laskewitz.io</a>
+        <a href="/"><span class="home-arrow" aria-hidden="true">←</span> Back to website</a>
       </p>
     </div>
   </main>
@@ -109,6 +111,42 @@ const speakers = computed(() => billing(coSpeakerSlugs.value))
 
 .sheet {
   max-width: 44rem;
+}
+
+/* The phone is the design case, but on a laptop a single 44rem column strands
+   two-thirds of a saturated field. Above the fold-out width the door becomes a
+   poster: the groups flow into balanced columns — packed vertically so a short
+   group doesn't punch a hole in the sheet, and never split down the middle —
+   with the speaker plate and the way out spanning the full width beneath. */
+@media (min-width: 60rem) {
+  .door {
+    padding-inline: max(var(--wf-gutter), 4vw);
+  }
+
+  .sheet,
+  .masthead {
+    max-width: 76rem;
+  }
+
+  .groups {
+    columns: 2;
+    column-gap: var(--wf-gap-xl);
+  }
+
+  .group {
+    break-inside: avoid;
+  }
+}
+
+@media (min-width: 100rem) {
+  .sheet,
+  .masthead {
+    max-width: 108rem;
+  }
+
+  .groups {
+    columns: 3;
+  }
 }
 
 .group {
@@ -199,6 +237,8 @@ const speakers = computed(() => billing(coSpeakerSlugs.value))
   color: var(--hall);
 }
 
+/* The visitor arrived here by scanning a code, so the way out has to name its
+   destination. A bare domain read as a signature rather than something to tap. */
 .home {
   margin: var(--wf-gap-xl) 0 0;
   font-variation-settings: 'wdth' 110;
@@ -209,9 +249,25 @@ const speakers = computed(() => billing(coSpeakerSlugs.value))
 }
 
 .home a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6em;
+  min-height: 44px;
+  padding: 0 var(--wf-gap-s);
+  border: 2px solid currentColor;
   color: inherit;
   text-decoration: none;
-  border-bottom: 1px solid currentColor;
+}
+
+.home a:hover,
+.home a:focus-visible {
+  background: var(--on-hall);
+  color: var(--hall);
+}
+
+.home-arrow {
+  font-size: 1.1em;
+  line-height: 1;
 }
 
 :where(.door) a:focus-visible {

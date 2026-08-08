@@ -45,10 +45,7 @@ export const talks: Talk[] = [
         ]
       }
     ],
-    deliveries: [
-      // AgentCon Utrecht 2025 is the accepted outing for this one. It is not in
-      // events.ts yet because no published date could be verified.
-    ]
+    deliveries: [{ eventSlug: 'agentcon-utrecht-2025', coSpeakers: ['appieschot'] }]
   },
   {
     slug: 'cowork',
@@ -143,6 +140,7 @@ export const talks: Talk[] = [
     ],
     deliveries: [
       { eventSlug: 'shift-enter-summit-2026' },
+      { eventSlug: 'poweraddicts-nl-2026-05' },
       { eventSlug: 'agentcon-utrecht-2026', coSpeakers: ['appieschot'] },
       { eventSlug: 'collabdays-nl-2026' },
       { eventSlug: 'colorcloud-2026' }
@@ -251,6 +249,7 @@ export const talks: Talk[] = [
       { eventSlug: 'directions-asia-2026' },
       { eventSlug: 'colorcloud-2026' },
       { eventSlug: 'm365-conference-2026', coSpeakers: ['aprildunnam'] },
+      { eventSlug: 'dotnetfriday-2026' },
       { eventSlug: 'd365pp-manchester-2025' },
       { eventSlug: 'bizz-summit-es-2025' }
     ]
@@ -346,6 +345,7 @@ export const talks: Talk[] = [
     hall: 'b',
     tags: ['Power Platform CLI', 'ALM', 'Power Platform'],
     deliveries: [
+      { eventSlug: 'festive-tech-calendar-2023' },
       { eventSlug: 'nordic-summit-2023' },
       { eventSlug: 'scottish-summit-tour-2023' }
     ]
@@ -389,6 +389,7 @@ export const talks: Talk[] = [
       { eventSlug: 'future-tech-2025' },
       { eventSlug: 'gppb-be-2025' },
       { eventSlug: 'lcnc-ppc-2024' },
+      { eventSlug: 'ai-community-day-berlin-2024' },
       { eventSlug: 'azure-ai-lowlands-2024' },
       { eventSlug: 'gppb-2024' }
     ]
@@ -456,7 +457,51 @@ export const talks: Talk[] = [
 ]
 
 const talkBySlug = new Map(talks.map((t) => [t.slug, t]))
-const talkByResource = new Map(
+
+/**
+ * Tags carry two different jobs: naming the thing being demoed, and naming the
+ * subject being discussed. The index filters on those separately, so the split
+ * lives here rather than being guessed from the tag string at render time. A
+ * tag absent from this map simply never appears as a filter.
+ */
+export type TagKind = 'product' | 'topic'
+
+export const tagKinds: Record<string, TagKind> = {
+  'Copilot Cowork': 'product',
+  'Copilot Studio': 'product',
+  'Microsoft 365': 'product',
+  'Microsoft 365 Copilot': 'product',
+  'Power Apps': 'product',
+  'Canvas Apps': 'product',
+  'Power Automate': 'product',
+  'Power Platform': 'product',
+  'Power Platform CLI': 'product',
+  Agents: 'topic',
+  'Declarative Agents': 'topic',
+  MCP: 'topic',
+  'Custom Connectors': 'topic',
+  APIs: 'topic',
+  'Low Code': 'topic',
+  ALM: 'topic',
+  Administration: 'topic',
+  Governance: 'topic',
+  Maintainability: 'topic',
+  Performance: 'topic'
+}
+
+/** Every tag of one kind that is actually in use, in talk-count order. */
+export function tagsOfKind(kind: TagKind): string[] {
+  const counts = new Map<string, number>()
+  for (const talk of talks) {
+    for (const tag of talk.tags) {
+      if (tagKinds[tag] !== kind) continue
+      counts.set(tag, (counts.get(tag) ?? 0) + 1)
+    }
+  }
+  return [...counts.entries()]
+    .sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]))
+    .map(([tag]) => tag)
+}const talkByResource = new Map(
   talks.filter((t) => t.resourceSlug).map((t) => [t.resourceSlug!, t])
 )
 

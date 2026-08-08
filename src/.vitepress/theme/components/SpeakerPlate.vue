@@ -78,6 +78,33 @@ withDefaults(
   min-width: 0;
 }
 
+/* Not every speaker has a role line, so left to itself the second plate pulls
+   its contact buttons up and the pair stops reading as one billing. Subgrid
+   puts name, role and links on shared rows, so the buttons land on one line
+   whatever each plate happens to carry. */
+.rail.is-shared {
+  grid-template-rows: auto auto auto;
+}
+
+.rail.is-shared .plate {
+  display: grid;
+  grid-row: span 3;
+  grid-template-rows: subgrid;
+}
+
+.rail.is-shared .name {
+  grid-row: 1;
+}
+
+.rail.is-shared .role {
+  grid-row: 2;
+}
+
+.rail.is-shared .links {
+  grid-row: 3;
+  align-content: start;
+}
+
 .name {
   margin: 0;
   font-size: var(--wf-step-1);

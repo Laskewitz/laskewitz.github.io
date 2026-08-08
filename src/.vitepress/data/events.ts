@@ -10,7 +10,7 @@ export const events: EventRecord[] = [
   // ── 2026 ────────────────────────────────────────────────────────────────────
   {
     slug: 'espc-2026',
-    name: 'ESPC26',
+    name: 'ESPC',
     start: '2026-11-30',
     end: '2026-12-03',
     city: 'Amsterdam',
@@ -21,7 +21,7 @@ export const events: EventRecord[] = [
   },
   {
     slug: 'ppcc-2026',
-    name: 'Power Platform Community Conference 2026',
+    name: 'Power Platform Community Conference',
     start: '2026-10-27',
     end: '2026-10-29',
     city: 'Las Vegas',
@@ -43,7 +43,7 @@ export const events: EventRecord[] = [
   },
   {
     slug: 'nordic-summit-2026',
-    name: 'Nordic Summit 2026',
+    name: 'Nordic Summit',
     start: '2026-09-21',
     end: '2026-09-22',
     city: 'Billund',
@@ -54,7 +54,7 @@ export const events: EventRecord[] = [
   },
   {
     slug: 'helish-summit-2026',
-    name: 'HELish Summit 2026',
+    name: 'HELish Summit',
     start: '2026-09-17',
     city: 'Helsinki',
     country: 'FI',
@@ -64,7 +64,7 @@ export const events: EventRecord[] = [
   },
   {
     slug: 'shift-enter-summit-2026',
-    name: 'Shift+Enter Summit 2026',
+    name: 'Shift+Enter Summit',
     start: '2026-09-04',
     city: 'Budapest',
     country: 'HU',
@@ -74,7 +74,7 @@ export const events: EventRecord[] = [
   },
   {
     slug: 'eppc-2026',
-    name: 'European Power Platform Conference 2026',
+    name: 'European Power Platform Conference',
     start: '2026-06-29',
     end: '2026-07-02',
     city: 'Copenhagen',
@@ -95,7 +95,7 @@ export const events: EventRecord[] = [
   },
   {
     slug: 'collabdays-nl-2026',
-    name: 'CollabDays Netherlands 2026',
+    name: 'CollabDays Netherlands',
     start: '2026-06-13',
     city: 'Vianen',
     country: 'NL',
@@ -104,7 +104,7 @@ export const events: EventRecord[] = [
   },
   {
     slug: 'dynamicsminds-2026',
-    name: 'DynamicsMinds 2026',
+    name: 'DynamicsMinds',
     start: '2026-05-25',
     end: '2026-05-27',
     city: 'Portorož',
@@ -113,8 +113,17 @@ export const events: EventRecord[] = [
     website: 'https://www.dynamicsminds.com/'
   },
   {
+    slug: 'poweraddicts-nl-2026-05',
+    name: 'PowerAddictsNL',
+    start: '2026-05-21',
+    city: 'Utrecht',
+    country: 'NL',
+    countryName: 'The Netherlands',
+    website: 'https://www.poweraddicts.nl'
+  },
+  {
     slug: 'directions-asia-2026',
-    name: 'Directions Asia 2026',
+    name: 'Directions Asia',
     start: '2026-05-13',
     end: '2026-05-15',
     city: 'Ho Chi Minh City',
@@ -143,7 +152,7 @@ export const events: EventRecord[] = [
   },
   {
     slug: 'm365-conference-2026',
-    name: 'Microsoft 365 Conference 2026',
+    name: 'Microsoft 365 Conference',
     start: '2026-04-21',
     end: '2026-04-23',
     city: 'Orlando',
@@ -153,13 +162,22 @@ export const events: EventRecord[] = [
   },
   {
     slug: 'colorcloud-2026',
-    name: 'ColorCloud 2026',
+    name: 'ColorCloud',
     start: '2026-04-15',
     end: '2026-04-17',
     city: 'Hamburg',
     country: 'DE',
     countryName: 'Germany',
     website: 'https://colorcloud.rocks/'
+  },
+  {
+    slug: 'dotnetfriday-2026',
+    name: 'DotnetFriday',
+    start: '2026-04-10',
+    city: 'Nieuwegein',
+    country: 'NL',
+    countryName: 'The Netherlands',
+    website: 'https://dotnetfriday.nl/'
   },
   {
     slug: 'ai-tour-utrecht-2026',
@@ -172,7 +190,7 @@ export const events: EventRecord[] = [
   },
   {
     slug: 'adriatics-tech-summit-2026',
-    name: 'Adriatics Tech Summit 2026',
+    name: 'Adriatics Tech Summit',
     start: '2026-03-30',
     end: '2026-04-01',
     city: 'Sarajevo',
@@ -222,7 +240,7 @@ export const events: EventRecord[] = [
   // ── 2025 ────────────────────────────────────────────────────────────────────
   {
     slug: 'collabdays-oslo-2025',
-    name: 'CollabDays Oslo 2025',
+    name: 'CollabDays Oslo',
     start: '2025-12-05',
     end: '2025-12-06',
     city: 'Oslo',
@@ -232,7 +250,7 @@ export const events: EventRecord[] = [
   },
   {
     slug: 'espc-2025',
-    name: 'ESPC 2025',
+    name: 'ESPC',
     start: '2025-12-01',
     end: '2025-12-04',
     city: 'Dublin',
@@ -261,7 +279,7 @@ export const events: EventRecord[] = [
   },
   {
     slug: 'ai-day-2025',
-    name: 'AI DAY 2025',
+    name: 'AI DAY',
     start: '2025-11-04',
     city: 'Aarhus',
     country: 'DK',
@@ -270,7 +288,7 @@ export const events: EventRecord[] = [
   },
   {
     slug: 'south-coast-summit-2025',
-    name: 'South Coast Summit 2025',
+    name: 'South Coast Summit',
     start: '2025-10-17',
     end: '2025-10-18',
     city: 'Farnborough',
@@ -280,7 +298,7 @@ export const events: EventRecord[] = [
   },
   {
     slug: 'bizz-summit-es-2025',
-    name: 'Bizz Summit ES 2025',
+    name: 'Bizz Summit ES',
     start: '2025-10-03',
     end: '2025-10-04',
     city: 'Madrid',
@@ -290,7 +308,7 @@ export const events: EventRecord[] = [
   },
   {
     slug: 'basta-2025',
-    name: 'BASTA! 2025',
+    name: 'BASTA!',
     start: '2025-09-22',
     end: '2025-09-26',
     city: 'Mainz',
@@ -304,11 +322,12 @@ export const events: EventRecord[] = [
     start: '2025-09-10',
     city: 'Manchester',
     country: 'GB-ENG',
-    countryName: 'United Kingdom'
+    countryName: 'United Kingdom',
+    website: 'https://www.d365ppug.com/manchester/'
   },
   {
     slug: 'nordic-summit-2025',
-    name: 'Nordic Summit 2025',
+    name: 'Nordic Summit',
     start: '2025-09-19',
     end: '2025-09-20',
     city: 'Gothenburg',
@@ -318,7 +337,7 @@ export const events: EventRecord[] = [
   },
   {
     slug: 'baltic-summit-2025',
-    name: 'Baltic Summit 2025',
+    name: 'Baltic Summit',
     start: '2025-09-12',
     end: '2025-09-13',
     city: 'Gdynia',
@@ -357,7 +376,7 @@ export const events: EventRecord[] = [
   },
   {
     slug: 'power-summit-2025',
-    name: 'Power Summit 2025 — Power Platform & AI Agents',
+    name: 'Power Summit — Power Platform & AI Agents',
     start: '2025-05-24',
     city: 'London',
     country: 'GB',
@@ -373,6 +392,15 @@ export const events: EventRecord[] = [
     country: 'ES',
     countryName: 'Spain',
     website: 'https://resconext.com/'
+  },
+  {
+    slug: 'agentcon-utrecht-2025',
+    name: 'AgentCon Utrecht',
+    start: '2025-04-22',
+    city: 'Utrecht',
+    country: 'NL',
+    countryName: 'The Netherlands',
+    website: 'https://agentcon.city/utrecht'
   },
   {
     slug: 'colorcloud-2025',
@@ -406,7 +434,7 @@ export const events: EventRecord[] = [
   },
   {
     slug: 'future-tech-2025',
-    name: 'Future Tech 2025',
+    name: 'Future Tech',
     start: '2025-03-13',
     city: 'Utrecht',
     country: 'NL',
@@ -425,7 +453,7 @@ export const events: EventRecord[] = [
   },
   {
     slug: 'devworld-2025',
-    name: 'DEVWorld 2025',
+    name: 'DEVWorld',
     start: '2025-02-27',
     end: '2025-02-28',
     city: 'Amsterdam',
@@ -435,7 +463,7 @@ export const events: EventRecord[] = [
   },
   {
     slug: 'gppb-be-2025',
-    name: 'Global Power Platform Bootcamp 2025 — Belgium Edition',
+    name: 'Global Power Platform Bootcamp — Belgium Edition',
     start: '2025-02-22',
     city: 'Edegem',
     country: 'BE',
@@ -474,7 +502,7 @@ export const events: EventRecord[] = [
   },
   {
     slug: 'espc-2024',
-    name: 'ESPC 2024',
+    name: 'ESPC',
     start: '2024-12-02',
     end: '2024-12-05',
     city: 'Stockholm',
@@ -521,6 +549,14 @@ export const events: EventRecord[] = [
     country: 'DE',
     countryName: 'Germany',
     website: 'https://aitour.microsoft.com/en-US/home'
+  },
+  {
+    slug: 'ai-community-day-berlin-2024',
+    name: 'AI Community Day Berlin',
+    start: '2024-10-23',
+    city: 'Berlin',
+    country: 'DE',
+    countryName: 'Germany'
   },
   {
     slug: 'ai-tour-paris-2024-10',
@@ -573,7 +609,7 @@ export const events: EventRecord[] = [
   },
   {
     slug: 'azure-ai-lowlands-2024',
-    name: 'Azure & AI Lowlands 2024',
+    name: 'Azure & AI Lowlands',
     start: '2024-06-26',
     city: 'Utrecht',
     country: 'NL',
@@ -583,7 +619,7 @@ export const events: EventRecord[] = [
   },
   {
     slug: 'eppc-2024',
-    name: 'European Power Platform Conference 2024',
+    name: 'European Power Platform Conference',
     start: '2024-06-11',
     end: '2024-06-13',
     city: 'Brussels',
@@ -633,7 +669,7 @@ export const events: EventRecord[] = [
   },
   {
     slug: 'diwug-2024',
-    name: 'DIWUG — April 2024',
+    name: 'DIWUG',
     start: '2024-04-02',
     city: 'Barendrecht',
     country: 'NL',
@@ -673,7 +709,7 @@ export const events: EventRecord[] = [
   },
   {
     slug: 'gppb-2024',
-    name: 'Global Power Platform Bootcamp 2024',
+    name: 'Global Power Platform Bootcamp',
     start: '2024-02-24',
     city: 'Waregem',
     country: 'BE',
@@ -693,8 +729,18 @@ export const events: EventRecord[] = [
 
   // ── 2023 ────────────────────────────────────────────────────────────────────
   {
+    slug: 'festive-tech-calendar-2023',
+    name: 'Festive Tech Calendar',
+    start: '2023-12-31',
+    online: true,
+    city: 'Online',
+    country: 'ZZ',
+    countryName: 'Online',
+    website: 'https://festivetechcalendar.com/'
+  },
+  {
     slug: 'ignite-nl-2023',
-    name: 'Ignite NL 2023',
+    name: 'Ignite NL',
     start: '2023-12-19',
     city: 'Den Haag',
     country: 'NL',
@@ -712,7 +758,7 @@ export const events: EventRecord[] = [
   },
   {
     slug: 'ignite-2023',
-    name: 'Microsoft Ignite 2023',
+    name: 'Microsoft Ignite',
     start: '2023-11-14',
     end: '2023-11-17',
     city: 'Seattle',
@@ -788,7 +834,7 @@ export const events: EventRecord[] = [
   },
   {
     slug: 'd365-cx-summit-2023',
-    name: 'Dynamics 365 CX Summit 2023',
+    name: 'Dynamics 365 CX Summit',
     start: '2023-06-24',
     city: 'Brussels',
     country: 'BE',
@@ -797,7 +843,7 @@ export const events: EventRecord[] = [
   },
   {
     slug: 'eppc-2023',
-    name: 'European Power Platform Conference 2023',
+    name: 'European Power Platform Conference',
     start: '2023-06-20',
     end: '2023-06-22',
     city: 'Dublin',
@@ -837,7 +883,7 @@ export const events: EventRecord[] = [
   // ── 2022 ────────────────────────────────────────────────────────────────────
   {
     slug: 'espc-2022',
-    name: 'European SharePoint Conference 2022',
+    name: 'European SharePoint Conference',
     start: '2022-11-28',
     end: '2022-12-01',
     city: 'Copenhagen',
@@ -847,7 +893,7 @@ export const events: EventRecord[] = [
   },
   {
     slug: 'ignite-2022',
-    name: 'Microsoft Ignite 2022',
+    name: 'Microsoft Ignite',
     start: '2022-10-14',
     online: true,
     city: 'Online',
@@ -867,7 +913,7 @@ export const events: EventRecord[] = [
   },
   {
     slug: 'collabdays-nl-2022',
-    name: 'CollabDays Netherlands 2022',
+    name: 'CollabDays Netherlands',
     start: '2022-09-10',
     city: 'Vianen',
     country: 'NL',
@@ -894,7 +940,7 @@ export const events: EventRecord[] = [
   },
   {
     slug: 'teams-nation-2022',
-    name: 'Teams Nation 2022',
+    name: 'Teams Nation',
     start: '2022-03-23',
     online: true,
     city: 'Online',
@@ -905,7 +951,7 @@ export const events: EventRecord[] = [
   // ── 2021 ────────────────────────────────────────────────────────────────────
   {
     slug: 'collabdays-benl-2021',
-    name: 'CollabDays Belgium & Netherlands 2021',
+    name: 'CollabDays Belgium & Netherlands',
     start: '2021-10-23',
     online: true,
     city: 'Online',

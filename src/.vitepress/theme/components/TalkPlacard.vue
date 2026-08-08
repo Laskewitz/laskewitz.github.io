@@ -31,6 +31,17 @@ const stageSections = computed(() =>
     { key: 'given', heading: 'Past', items: given.value }
   ].filter((s) => s.items.length)
 )
+
+/**
+ * The resource door for one specific outing, billed with the people who were
+ * actually on stage for it. `?with=` is always written — including empty for a
+ * solo delivery — because omitting it would let the talk's default billing
+ * stand and credit a co-speaker who wasn't there.
+ */
+function resourceHref(delivery: { coSpeakers?: readonly string[] }) {
+  const others = (delivery.coSpeakers ?? []).filter((s) => s !== 'laskewitz')
+  return `/r/${talk.value!.resourceSlug}/?with=${others.join(',')}`
+}
 </script>
 
 <template>
@@ -68,18 +79,16 @@ const stageSections = computed(() =>
           <span class="date">{{ formatEventDate(event!) }}</span>
 
           <span class="stage-body">
-            <span class="name-row">
-              <span class="event-name wf-sign">{{ event!.name }}</span>
+            <span class="event-name wf-sign">{{ event!.name }}</span>
 
-              <span v-if="delivery.coSpeakers?.length" class="with wf-sign">
-                <span class="with-word">With</span>
-                <span class="with-name">{{
-                  billing(delivery.coSpeakers)
-                    .filter((s) => s.slug !== 'laskewitz')
-                    .map((s) => s.name)
-                    .join(' and ')
-                }}</span>
-              </span>
+            <span v-if="delivery.coSpeakers?.length" class="with wf-sign">
+              <span class="with-word">With</span>
+              <span class="with-name">{{
+                billing(delivery.coSpeakers)
+                  .filter((s) => s.slug !== 'laskewitz')
+                  .map((s) => s.name)
+                  .join(' and ')
+              }}</span>
             </span>
 
             <span class="place">
@@ -90,29 +99,30 @@ const stageSections = computed(() =>
             </span>
           </span>
 
-          <a
-            v-if="event!.website"
-            class="stage-link"
-            :href="event!.website"
-            target="_blank"
-            rel="noreferrer"
-            >Site ↗</a
-          >
+          <span class="stage-links">
+            <a
+              v-if="talk.resourceSlug"
+              class="stage-link is-resources"
+              :href="resourceHref(delivery)"
+              >Resources</a
+            >
+
+            <a
+              v-if="event!.website"
+              class="stage-link"
+              :href="event!.website"
+              target="_blank"
+              rel="noreferrer"
+              >Site ↗</a
+            >
+          </span>
         </li>
         </ol>
       </template>
     </section>
 
-    <nav v-if="talk.resourceSlug || talk.slides" class="doors wf-gutter">
+    <nav v-if="talk.slides" class="doors wf-gutter">
       <SignRow
-        v-if="talk.resourceSlug"
-        :href="`/r/${talk.resourceSlug}`"
-        label="Resources"
-        :hall="talk.hall"
-        size="door"
-      />
-      <SignRow
-        v-if="talk.slides"
         :href="talk.slides"
         label="Slides"
         :hall="talk.hall"
@@ -277,14 +287,6 @@ const stageSections = computed(() =>
   min-width: 0;
 }
 
-.name-row {
-  display: flex;
-  align-items: baseline;
-  flex-wrap: wrap;
-  gap: 0.35em 1.4em;
-  min-width: 0;
-}
-
 .event-name {
   font-size: var(--wf-step-1);
   overflow-wrap: anywhere;
@@ -299,12 +301,16 @@ const stageSections = computed(() =>
 }
 
 /* Shared billing reads as a late-addition sticker slapped onto the placard —
-   small, hall-coloured, and applied a degree or two off true. Ink stays the
-   measured on-hall pair; opacity would break the contrast law. */
+   small, hall-coloured, and applied a degree or two off true. It always sits on
+   its own line between the event and the city so it lands in the same place on
+   every row; hanging it beside the title made it jump around as names wrapped.
+   Ink stays the measured on-hall pair; opacity would break the contrast law. */
 .with {
   display: inline-flex;
+  align-self: flex-start;
   align-items: baseline;
   gap: 0.42em;
+  margin: 0.3em 0 0.15em;
   padding: 0.18em 0.5em;
   background: var(--hall);
   color: var(--on-hall);
@@ -317,11 +323,6 @@ const stageSections = computed(() =>
   box-shadow: 1px 2px 0 rgb(0 0 0 / 0.28);
 }
 
-/* Alternate the lean so a run of stickers doesn't look machine-placed. */
-.line:nth-child(even) .with {
-  transform: rotate(1.3deg);
-}
-
 .with-word {
   font-weight: 400;
   font-variation-settings: 'wdth' 100;
@@ -331,13 +332,20 @@ const stageSections = computed(() =>
   font-weight: 700;
 }
 
+.stage-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--wf-gap-xs);
+  justify-content: flex-start;
+}
+
 .stage-link {
   display: inline-flex;
   align-items: center;
   min-height: 44px;
   padding: 0 var(--wf-gap-s);
   border: 1px solid var(--wf-ink-rule);
-  color: var(--wf-optic);
+  color: var(--wf-optic-dim);
   font-variation-settings: 'wdth' 110;
   font-weight: 700;
   font-size: var(--wf-step--1);
@@ -347,10 +355,22 @@ const stageSections = computed(() =>
   white-space: nowrap;
 }
 
+/* The handout is what an attendee came back for, so it outranks the venue link. */
+.stage-link.is-resources {
+  border-color: var(--hall);
+  color: var(--wf-optic);
+}
+
 .stage-link:hover,
 .stage-link:focus-visible {
   background: var(--wf-optic);
   color: var(--wf-ink);
+}
+
+.stage-link.is-resources:hover,
+.stage-link.is-resources:focus-visible {
+  background: var(--hall);
+  color: var(--on-hall);
 }
 
 .doors {
