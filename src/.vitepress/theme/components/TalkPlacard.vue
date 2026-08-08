@@ -11,6 +11,11 @@ const props = defineProps<{ slug: string }>()
 
 const talk = computed(() => getTalk(props.slug))
 
+/* Longer abstracts carry real paragraph breaks; keep them as paragraphs. */
+const abstractParas = computed(() =>
+  (talk.value?.abstract ?? '').split('\n\n').filter(Boolean)
+)
+
 const deliveries = computed(() =>
   (talk.value?.deliveries ?? [])
     .map((d) => ({ delivery: d, event: getEvent(d.eventSlug) }))
@@ -59,7 +64,7 @@ function resourceHref(delivery: { coSpeakers?: readonly string[] }) {
 
     <section class="abstract wf-gutter">
       <p class="wf-label">Abstract</p>
-      <p class="wf-read prose">{{ talk.abstract }}</p>
+      <p v-for="(para, i) in abstractParas" :key="i" class="wf-read prose">{{ para }}</p>
     </section>
 
     <section class="stages wf-gutter">
