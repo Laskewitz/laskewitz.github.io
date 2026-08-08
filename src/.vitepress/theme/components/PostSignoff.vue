@@ -11,7 +11,7 @@
       <span aria-hidden="true">←</span>
       All posts
     </a>
-    <a class="button" href="/feed.rss">RSS ↗</a>
+    <a class="button" href="/feed.xml">RSS ↗</a>
   </footer>
 </template>
 
