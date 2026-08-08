@@ -330,7 +330,6 @@ const directory = [
 .directory {
   margin-top: auto;
   padding-bottom: var(--wf-gap-l);
-  border-top: 1px solid var(--wf-ink-rule);
 }
 
 /* In the directory variant the signage IS the page — the rows take the space

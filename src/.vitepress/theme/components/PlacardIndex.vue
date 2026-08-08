@@ -2,8 +2,7 @@
 /** The placard index — one plate per talk in rotation. */
 import { computed, ref } from 'vue'
 import { talks, tagsOfKind } from '../../data/talks'
-import { getEvent, isUpcoming } from '../../data/events'
-import { eventYear } from '../../data/format'
+import { getEvent } from '../../data/events'
 import FilterBar from './FilterBar.vue'
 import PageBanner from './PageBanner.vue'
 
@@ -14,17 +13,6 @@ function deliveryDates(slug: string): string[] {
     .filter(Boolean)
     .map((e) => e!.start)
     .sort()
-}
-
-/** Past outings read "Last given"; a talk only booked ahead reads "Next up". */
-function stageNote(slug: string): string | null {
-  const talk = talks.find((t) => t.slug === slug)
-  if (!talk?.deliveries.length) return null
-  const events = talk.deliveries.map((d) => getEvent(d.eventSlug)).filter(Boolean)
-  const past = events.filter((e) => !isUpcoming(e!)).map((e) => eventYear(e!)).sort()
-  if (past.length) return `Last given ${past.at(-1)}`
-  const ahead = events.map((e) => eventYear(e!)).sort()
-  return ahead.length ? `Next up ${ahead[0]}` : null
 }
 
 /**
@@ -88,7 +76,9 @@ const shown = computed(() => {
       focus="58% 24%"
     >
       These aren't one-offs. Each of these gets given again, at different
-      events, sometimes with someone else on stage next to me.
+      events, sometimes with someone else on stage next to me. They get
+      rewritten between events too, so what you get is the current version
+      rather than the one from two years ago.
     </PageBanner>
 
     <FilterBar
@@ -112,19 +102,7 @@ const shown = computed(() => {
       >
         <span class="band" aria-hidden="true" />
 
-        <span class="placard-body">
-          <span class="tiles">
-            <span v-if="stageNote(talk.slug)" class="last">
-              {{ stageNote(talk.slug) }}
-            </span>
-          </span>
-
-          <span class="talk-title wf-sign">{{ talk.title }}</span>
-
-          <span class="tags">
-            <span v-for="tag in talk.tags" :key="tag" class="tag">{{ tag }}</span>
-          </span>
-        </span>
+        <span class="talk-title wf-sign">{{ talk.title }}</span>
 
         <span class="arrow" aria-hidden="true">→</span>
       </a>
@@ -164,9 +142,8 @@ const shown = computed(() => {
 
 .grid {
   display: grid;
-  gap: 1px;
+  gap: 0;
   padding-bottom: var(--wf-gap-xl);
-  border-top: 1px solid var(--wf-ink-rule);
 }
 
 .placard {
@@ -175,7 +152,6 @@ const shown = computed(() => {
   align-items: start;
   gap: var(--wf-gap-m);
   padding: var(--wf-gap-m) 0;
-  border-bottom: 1px solid var(--wf-ink-rule);
   color: var(--wf-optic);
   text-decoration: none;
   transition: background var(--wf-motion) var(--wf-ease);
@@ -191,54 +167,11 @@ const shown = computed(() => {
   background: var(--hall);
 }
 
-.placard-body {
-  display: flex;
-  flex-direction: column;
-  gap: var(--wf-gap-xs);
-  min-width: 0;
-}
-
-.tiles {
-  display: flex;
-  align-items: center;
-  gap: var(--wf-gap-xs);
-  flex-wrap: wrap;
-}
-
-.last {
-  font-variation-settings: 'wdth' 105;
-  font-weight: 600;
-  font-size: var(--wf-step--1);
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  color: var(--wf-optic-dim);
-}
-
 .talk-title {
+  min-width: 0;
   font-size: var(--wf-step-2);
   overflow-wrap: break-word;
   hyphens: auto;
-}
-
-.tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--wf-gap-xs);
-  margin-top: var(--wf-gap-hair);
-}
-
-.tag {
-  font-variation-settings: 'wdth' 105;
-  font-weight: 600;
-  font-size: var(--wf-step--1);
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  color: var(--wf-optic-dim);
-}
-
-.tag + .tag::before {
-  content: '·';
-  margin-right: var(--wf-gap-xs);
 }
 
 .arrow {

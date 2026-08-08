@@ -108,7 +108,9 @@ onUnmounted(() => {
       </div>
     </div>
 
-    <p class="tally" role="status" aria-live="polite">{{ shown }}/{{ total }}</p>
+    <!-- The count is announced when filtering, but printing it gave the bar a
+         second, competing number in the corner. -->
+    <p class="tally" role="status" aria-live="polite">{{ shown }} of {{ total }} shown</p>
 
     <button
       v-if="picked.length || query.trim()"
@@ -128,7 +130,6 @@ onUnmounted(() => {
   align-items: center;
   gap: var(--wf-gap-xs);
   padding-bottom: var(--wf-gap-m);
-  border-bottom: 1px solid var(--wf-ink-rule);
 }
 
 .search-input {
@@ -245,14 +246,18 @@ onUnmounted(() => {
 }
 
 .tally {
-  margin: 0 0 0 auto;
-  color: var(--wf-optic-dim);
-  font-size: var(--wf-step--1);
-  letter-spacing: 0.05em;
-  font-variant-numeric: tabular-nums;
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
 }
 
 .clear {
+  margin-left: auto;
   padding: 0;
   border: 0;
   background: none;

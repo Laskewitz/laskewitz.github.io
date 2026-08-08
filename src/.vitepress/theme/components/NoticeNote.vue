@@ -27,7 +27,6 @@ defineProps<{ post: Post }>()
   gap: var(--wf-gap-s);
   min-height: var(--wf-tap);
   padding: var(--wf-gap-m) 0;
-  border-bottom: 1px solid var(--wf-ink-rule);
   color: var(--wf-optic);
   text-decoration: none;
   transition: background var(--wf-motion) var(--wf-ease);

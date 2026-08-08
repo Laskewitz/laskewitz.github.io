@@ -191,7 +191,6 @@ function toggleYear(year: string) {
   margin: 0;
   padding: 0 0 var(--wf-gap-l);
   list-style: none;
-  border-top: 1px solid var(--wf-ink-rule);
 }
 
 .archive {
