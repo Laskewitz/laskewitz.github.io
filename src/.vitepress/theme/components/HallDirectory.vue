@@ -73,7 +73,7 @@ function toggleYear(year: string) {
       </ul>
 
       <p class="spot-links">
-        <a v-if="next.website" :href="next.website" target="_blank" rel="noreferrer">Site ↗</a>
+        <a v-if="next.website" :href="next.website" target="_blank" rel="noreferrer">Website ↗</a>
         <a v-if="next.tickets" :href="next.tickets" target="_blank" rel="noreferrer">Tickets ↗</a>
       </p>
     </section>
@@ -104,7 +104,7 @@ function toggleYear(year: string) {
 
           <span class="links">
             <a v-if="event.website" :href="event.website" target="_blank" rel="noreferrer">
-              Site ↗
+              Website ↗
             </a>
             <a
               v-if="event.tickets"
@@ -174,7 +174,7 @@ function toggleYear(year: string) {
                 Slides ↗
               </a>
               <a v-if="event.website" :href="event.website" target="_blank" rel="noreferrer">
-                Site ↗
+                Website ↗
               </a>
             </span>
           </li>

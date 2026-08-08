@@ -118,7 +118,7 @@ function resourceHref(delivery: { coSpeakers?: readonly string[] }) {
               :href="event!.website"
               target="_blank"
               rel="noreferrer"
-              >Site ↗</a
+              >Website ↗</a
             >
           </span>
         </li>
