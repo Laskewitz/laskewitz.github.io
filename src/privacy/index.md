@@ -29,7 +29,7 @@ device.
 
 ## Search
 
-Site search runs entirely in your browser against an index downloaded with the
+Website search runs entirely in your browser against an index downloaded with the
 page. Your search terms are never sent anywhere.
 
 ## Third-party services
