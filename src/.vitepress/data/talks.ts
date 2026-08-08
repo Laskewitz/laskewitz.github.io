@@ -302,6 +302,39 @@ export const talks: Talk[] = [
     ]
   },
   {
+    slug: 'beyond-shipping',
+    title: 'Beyond Shipping: How to Keep Your Low-Code Solutions Healthy',
+    summary:
+      'What "maintainable code" means once the code is a canvas app and a handful of flows.',
+    abstract:
+      'We love how fast low-code lets us build, but what happens after launch? As ' +
+      'solutions grow, so does complexity. Modules expand, connectors multiply, ' +
+      'and before you know it, small changes start to feel risky.\n\n' +
+      'In this session, we will look at what "maintainable code" really means in a ' +
+      'Power Platform world. Inspired by timeless software engineering principles, ' +
+      'we will translate them into practical habits for low-code: short, modular ' +
+      'apps, simple logic, reusable components, clear interfaces, and the right ' +
+      'amount of automation.\n\n' +
+      'Through quick demos, you will see how to design solutions that stay flexible ' +
+      'and fun to improve. Because maintainability is not just for code anymore.',
+    hall: 'c',
+    tags: ['Power Platform', 'Maintainability', 'Solution Architecture'],
+    resourceSlug: 'beyond-shipping',
+    defaultCoSpeakers: ['appieschot'],
+    resources: [
+      {
+        title: 'Tools from the session',
+        links: [
+          { label: 'Copilot Studio Kit', href: 'https://aka.ms/copilotstudiokit' },
+          { label: 'Inventory Report', href: 'https://aka.ms/inventory-report' }
+        ]
+      }
+    ],
+    deliveries: [
+      { eventSlug: 'european-bizapps-summit-2026', coSpeakers: ['appieschot'] }
+    ]
+  },
+  {
     slug: 'prompt-builder-playbook',
     title: 'Prompt Builder Playbook',
     summary:
@@ -317,8 +350,41 @@ export const talks: Talk[] = [
       'leave with patterns you can put to work immediately.',
     hall: 'e',
     tags: ['AI Builder', 'Prompts', 'Azure AI Foundry'],
+    resourceSlug: 'prompt-builder-playbook',
     defaultCoSpeakers: ['aprildunnam'],
-    deliveries: [{ eventSlug: 'm365-conference-2026', coSpeakers: ['aprildunnam'] }]
+    resources: [
+      {
+        title: 'Writing the prompt',
+        links: [
+          { label: 'Copilot Studio prompt guide', href: 'https://aka.ms/promptguide' },
+          { label: 'AI prompts FAQ', href: 'https://aka.ms/prompt-builder-faq' }
+        ]
+      },
+      {
+        title: 'Try it yourself',
+        links: [
+          { label: 'Try out prompts', href: 'https://aka.ms/tryprompts' },
+          {
+            label: 'Power Platform prompt library',
+            href: 'https://aka.ms/power-prompts'
+          }
+        ]
+      },
+      {
+        title: 'Going further',
+        links: [
+          { label: 'AI Builder learning path', href: 'https://aka.ms/learn/ai-builder' },
+          {
+            label: 'Licensing and credits',
+            href: 'https://aka.ms/ai-builder-cost'
+          }
+        ]
+      }
+    ],
+    deliveries: [
+      { eventSlug: 'directions-asia-2026' },
+      { eventSlug: 'm365-conference-2026', coSpeakers: ['aprildunnam'] }
+    ]
   },
   {
     slug: 'reusable-prompts',
@@ -338,6 +404,9 @@ export const talks: Talk[] = [
       'Automate and Copilot Studio.',
     hall: 'd',
     tags: ['AI Builder', 'Prompts', 'Power Platform'],
+    resourceSlug: 'reusable-prompts',
+    /* Same ground as the Prompt Builder Playbook, so it hands out the same links. */
+    resourcesFrom: 'prompt-builder-playbook',
     defaultCoSpeakers: ['miguelverweij'],
     deliveries: [
       { eventSlug: 'european-bizapps-summit-2026', coSpeakers: ['miguelverweij'] }
