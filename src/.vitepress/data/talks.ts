@@ -448,7 +448,92 @@ export const talks: Talk[] = [
       'get it under control.',
     hall: 'b',
     tags: ['Power Platform CLI', 'Administration', 'Governance'],
+    resourceSlug: 'admin-essentials',
     defaultCoSpeakers: ['carlcookson'],
+    resources: [
+      {
+        title: 'Power Platform CLI',
+        links: [{ label: 'Power Platform CLI docs', href: 'https://aka.ms/pac' }]
+      },
+      {
+        title: 'Power Platform Admin Center',
+        links: [
+          {
+            label: 'Managed Environments overview',
+            href: 'https://learn.microsoft.com/en-us/power-platform/admin/managed-environment-overview'
+          }
+        ]
+      },
+      {
+        title: 'XrmToolBox',
+        links: [
+          { label: 'XrmToolBox', href: 'https://www.xrmtoolbox.com' },
+          {
+            label: 'Linn Zaw Win Power Platform tools',
+            href: 'https://linnzawwin.blogspot.com/p/tools.html'
+          }
+        ]
+      },
+      {
+        title: 'XrmToolBox plugins',
+        links: [
+          {
+            label: 'Org Settings Updater',
+            href: 'https://linked365.blog/2020/06/18/d365-org-db-settings-xrmtoolbox-addon/'
+          },
+          {
+            label: 'Personal User Views Migration',
+            href: 'https://github.com/carfup/XTBPlugins.PersonalViewsMigration'
+          },
+          { label: 'Clone User', href: 'https://github.com/donschia/XrmToolBox.CloneUserSetup' },
+          {
+            label: 'Flow & Process Definition Searcher',
+            href: 'https://www.linkedin.com/pulse/searching-power-automate-flows-metadata-field-table-porter-p4pwe'
+          },
+          { label: 'Flow Administrator', href: 'https://linked365.blog/2023/12/18/flow-administrator/' }
+        ]
+      },
+      {
+        title: 'Power Platform ToolBox',
+        links: [
+          { label: 'Power Platform ToolBox', href: 'https://www.powerplatformtoolbox.com' }
+        ]
+      },
+      {
+        title: 'Power Platform ToolBox tools',
+        links: [
+          {
+            label: 'Environment Manager',
+            href: 'https://www.powerplatformtoolbox.com/tools/de178113-27a1-4acb-b8f4-6b62ef0021e0'
+          },
+          {
+            label: 'Environment Variable Manager',
+            href: 'https://www.powerplatformtoolbox.com/tools/7c1bc888-11c0-4a12-a561-75cb2f1f617b'
+          },
+          {
+            label: 'Plugin Registration',
+            href: 'https://www.powerplatformtoolbox.com/tools/0db0368c-e0dd-4575-bdf0-7495a43ef660'
+          },
+          {
+            label: 'Flow Finder',
+            href: 'https://www.powerplatformtoolbox.com/tools/4064fa95-067c-4017-adae-bc8c9fcd4c8f'
+          },
+          {
+            label: 'Auditing Manager',
+            href: 'https://www.powerplatformtoolbox.com/tools/94612c66-2d1d-4384-b519-9501ab67f603'
+          }
+        ]
+      },
+      {
+        title: 'From the session',
+        links: [
+          {
+            label: 'All session resources',
+            href: 'https://github.com/LinkeD365/admin-essentials'
+          }
+        ]
+      }
+    ],
     deliveries: [
       { eventSlug: 'eppc-2025', coSpeakers: ['carlcookson'] },
       { eventSlug: 'cttt-2025', coSpeakers: ['carlcookson'] }

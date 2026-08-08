@@ -74,7 +74,10 @@ export const speakers: Record<string, Speaker> = {
   carlcookson: {
     slug: 'carlcookson',
     name: 'Carl Cookson',
-    links: []
+    links: [
+      { label: 'Website', href: 'https://linked365.blog' },
+      { label: 'GitHub', href: 'https://github.com/LinkeD365' }
+    ]
   }
 }
 
