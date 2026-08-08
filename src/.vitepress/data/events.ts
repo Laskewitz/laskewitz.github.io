@@ -27,7 +27,9 @@ export const events: EventRecord[] = [
     city: 'San Francisco',
     country: 'US',
     countryName: 'United States',
-    website: 'https://ignite.microsoft.com/en-US/home'
+    website: 'https://ignite.microsoft.com/en-US/home',
+    tickets:
+      'https://register.ignite.microsoft.com/flow/microsoft/ignite27/welcome/page/welcome'
   },
   {
     slug: 'ppcc-2026',
