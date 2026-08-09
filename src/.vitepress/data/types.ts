@@ -68,6 +68,12 @@ export interface Talk {
   summary: string
   abstract: string
   hall: Hall
+  /**
+   * How the room is run. Every talk carries its format so the plate says what
+   * you are walking into; a workshop is hours and hands-on rather than a
+   * breakout, so it is marked more strongly than a session.
+   */
+  format?: 'session' | 'workshop'
   tags: string[]
   slides?: string
   /** Present when the talk has a QR-code resource door at /r/<slug>. */

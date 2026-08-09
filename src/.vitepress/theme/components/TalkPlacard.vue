@@ -1,7 +1,7 @@
 <script setup lang="ts">
 /** A single talk: the placard, the abstract, and every stage it's been on. */
 import { computed } from 'vue'
-import { getTalk } from '../../data/talks'
+import { getTalk, formatLabel } from '../../data/talks'
 import { getEvent, isUpcoming } from '../../data/events'
 import { billing } from '../../data/speakers'
 import { eventPlace, flag, formatEventDate } from '../../data/format'
@@ -55,6 +55,9 @@ function resourceHref(delivery: { coSpeakers?: readonly string[] }) {
       <a class="back" href="/talks/">← All talks</a>
 
       <div class="tiles">
+        <span class="format" :data-format="talk.format ?? 'session'">{{
+          formatLabel(talk)
+        }}</span>
         <span v-for="tag in talk.tags" :key="tag" class="tag">{{ tag }}</span>
       </div>
 
@@ -188,6 +191,24 @@ function resourceHref(delivery: { coSpeakers?: readonly string[] }) {
   letter-spacing: 0.06em;
   text-transform: uppercase;
   color: var(--wf-optic-dim);
+}
+
+/* A session is the norm and stays quiet; a workshop is hours and hands-on, so
+   it carries the brighter ink. */
+.format {
+  padding: 2px 8px;
+  border: 1px solid var(--wf-ink-rule);
+  font-variation-settings: 'wdth' 112;
+  font-weight: 700;
+  font-size: var(--wf-step--1);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--wf-optic-dim);
+}
+
+.format[data-format='workshop'] {
+  border-color: var(--wf-optic);
+  color: var(--wf-optic);
 }
 
 .title {

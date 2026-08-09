@@ -122,6 +122,36 @@ export const speakers: Record<string, Speaker> = {
       { label: 'LinkedIn', href: 'https://www.linkedin.com/in/gtrinder' },
       { label: 'GitHub', href: 'https://github.com/garrytrinder' }
     ]
+  },
+  melissahale: {
+    slug: 'melissahale',
+    name: 'Melissa Hale',
+    role: 'Power Platform Consultant',
+    company: 'Kerv',
+    links: [
+      { label: 'LinkedIn', href: 'https://www.linkedin.com/in/melissa-stephanie-hale/' }
+    ]
+  },
+  nathanhelgren: {
+    slug: 'nathanhelgren',
+    name: 'Nathan Helgren',
+    role: 'Principal Program Manager',
+    company: 'Microsoft',
+    links: []
+  },
+  kentweare: {
+    slug: 'kentweare',
+    name: 'Kent Weare',
+    role: 'Principal Product Manager',
+    company: 'Microsoft',
+    links: []
+  },
+  rohithchetla: {
+    slug: 'rohithchetla',
+    name: 'Rohith Chetla',
+    role: 'Product Manager II',
+    company: 'Microsoft',
+    links: []
   }
 }
 
