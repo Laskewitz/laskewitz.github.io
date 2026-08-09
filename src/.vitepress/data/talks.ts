@@ -557,19 +557,6 @@ export const talks: Talk[] = [
     resourceSlug: 'agentic-solutions-copilot-studio',
     resources: [
       {
-        title: 'Workshop',
-        links: [
-          {
-            label: 'Workshop repository',
-            href: 'https://github.com/microsoft/aitour26-WRK532-building-agentic-solutions-with-copilot-studio'
-          },
-          {
-            label: 'Session recording',
-            href: 'https://youtu.be/emavMkhFPew'
-          }
-        ]
-      },
-      {
         title: 'Product',
         links: [
           { label: 'Sign up for a trial', href: 'https://aka.ms/trycopilotstudio' },
