@@ -67,7 +67,7 @@ withDefaults(
             <a
               :href="link.href"
               target="_blank"
-              rel="noreferrer"
+              rel="noopener noreferrer"
               :aria-label="`${speaker.name} on ${link.label}`"
               :title="link.label"
             >

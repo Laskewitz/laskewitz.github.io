@@ -30,7 +30,7 @@ withDefaults(
     :data-hall="hall"
     :href="href"
     :target="external ? '_blank' : undefined"
-    :rel="external ? 'noreferrer' : undefined"
+    :rel="external ? 'noopener noreferrer' : undefined"
   >
     <span class="tab" aria-hidden="true" />
 
