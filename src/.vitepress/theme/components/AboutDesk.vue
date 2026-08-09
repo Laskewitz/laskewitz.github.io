@@ -16,6 +16,7 @@ import { bios, headshots } from '../../data/bio'
 import { countryCount, eventCount, firstYear } from '../../data/events'
 import { speakers } from '../../data/speakers'
 import { talks } from '../../data/talks'
+import PageBanner from './PageBanner.vue'
 import SignRow from './SignRow.vue'
 
 const host = speakers.laskewitz
@@ -72,18 +73,22 @@ async function copy(label: string, text: string) {
 
 <template>
   <div class="desk">
-    <!-- The page is a colour field, not a photograph: the four stage banners
-         each already name a hall, and this is the one surface where the visitor
-         came to transact rather than to look. -->
-    <header class="masthead wf-gutter" data-hall="e">
-      <h1 class="title wf-sign">About</h1>
-      <p class="standfirst">
-        Principal Cloud Advocate at Microsoft. I work on Copilot Studio,
-        Copilot Cowork, Scout, GitHub Copilot and Microsoft 365 Copilot. If you
-        run an event or a user group, or you have one of my submissions in front
-        of you, everything you would normally email me for is on this page.
-      </p>
-    </header>
+    <!-- The desk leads with a room, like every other hall does — a strip, not a
+         hero, so the first thing an organiser came for stays near the top.
+         Hall E tints it, so the photograph belongs to this page rather than to
+         the home page it is shared with. -->
+    <PageBanner
+      title="About"
+      src="stage-devworld"
+      alt="Daniel Laskewitz speaking on stage at DevWorld 2024."
+      hall="e"
+      focus="62% 30%"
+    >
+      Principal Cloud Advocate at Microsoft. I work on Copilot Studio,
+      Copilot Cowork, Scout, GitHub Copilot and Microsoft 365 Copilot. If you
+      run an event or a user group, or you have one of my submissions in front
+      of you, everything you would normally email me for is on this page.
+    </PageBanner>
 
     <section class="block wf-gutter" aria-labelledby="reach-heading">
       <h2 id="reach-heading" class="block-heading wf-sign">Reach me</h2>
@@ -191,34 +196,6 @@ async function copy(label: string, text: string) {
 
 <style scoped>
 /* ── The page itself ───────────────────────────────────────────────────── */
-
-.masthead {
-  padding-top: var(--wf-gap-xl);
-  padding-bottom: var(--wf-gap-l);
-  background: var(--hall);
-  color: var(--on-hall);
-}
-
-/* Everything printed on the field inherits the contrast-checked pair. Weight
-   and scale separate the lines here, never opacity. */
-.title {
-  margin: 0;
-  font-size: var(--wf-step-4);
-  font-weight: 900;
-  letter-spacing: -0.03em;
-  /* Optical alignment: the letter meets the gutter, not its box. */
-  margin-left: -0.035em;
-  line-height: 0.95;
-}
-
-.standfirst {
-  max-width: 46ch;
-  margin: var(--wf-gap-s) 0 0;
-  font-variation-settings: 'wdth' 100;
-  font-size: var(--wf-step-1);
-  line-height: 1.45;
-  color: inherit;
-}
 
 /* ── Blocks ────────────────────────────────────────────────────────────── */
 
@@ -356,10 +333,6 @@ async function copy(label: string, text: string) {
 }
 
 @media (max-width: 640px) {
-  .masthead {
-    padding-top: var(--wf-gap-l);
-  }
-
   .record {
     gap: var(--wf-gap-m);
   }
