@@ -441,7 +441,10 @@ export const talks: Talk[] = [
     /* Same ground as "MCP or not to MCP", so it hands out the same links. */
     resourcesFrom: 'mcp',
     defaultCoSpeakers: ['joegriffin'],
-    deliveries: [{ eventSlug: 'dynamicsminds-2026', coSpeakers: ['joegriffin'] }]
+    deliveries: [
+      { eventSlug: 'helish-summit-2026', coSpeakers: ['joegriffin'] },
+      { eventSlug: 'dynamicsminds-2026', coSpeakers: ['joegriffin'] }
+    ]
   },
   {
     slug: 'mcp-vs-connectors',
@@ -473,6 +476,134 @@ export const talks: Talk[] = [
       { eventSlug: 'european-bizapps-summit-2026', coSpeakers: ['mnecker'] },
       { eventSlug: 'cttt-2026', coSpeakers: ['mnecker'] },
       { eventSlug: 'nordic-summit-2025', coSpeakers: ['mnecker'] }
+    ]
+  },
+  {
+    slug: 'mcp-one-year-later',
+    title:
+      'MCP in Power Platform: One Year Later — Building Custom MCP Servers with Low Code',
+    summary:
+      'What changed in a year of MCP, and how to build your own server with low code.',
+    abstract:
+      'A year ago, we introduced Model Context Protocol (MCP) and how it compares ' +
+      'to connectors in the Power Platform. A lot has changed since then. MCP has ' +
+      'matured from a buzzword into a real building block for agent integrations, ' +
+      'and Microsoft has shipped significant updates to how MCP and connectors work ' +
+      'together and how you can create your own.\n\n' +
+      "In this updated session, Mats and Daniel will show you what's new in 2026: " +
+      'deeper platform support for MCP, the evolving relationship between MCP ' +
+      'servers and custom connectors, and the big one — how to build your own ' +
+      'custom MCP server using low code directly in the Power Platform. No SDKs, no ' +
+      'deployment pipelines, just low-code tooling that makes MCP accessible to ' +
+      'makers and pro devs alike. We will also cover the governance aspects of it ' +
+      'and how Agent 365 fits in the whole story and why you should know about Work ' +
+      'IQ.\n\n' +
+      "Whether you caught last year's session or are starting fresh, you'll walk " +
+      'away with practical demos, honest takes on where MCP fits (and where ' +
+      'connectors still win), and a clear picture of how these two integration ' +
+      'patterns are converging to power the next generation of AI agents. After ' +
+      'this session you will be up to speed where we are with MCP servers and have ' +
+      'the guidance and tools to get started.',
+    hall: 'd',
+    tags: ['MCP', 'Custom Connectors', 'Power Platform', 'Low Code', 'Governance'],
+    defaultCoSpeakers: ['mnecker'],
+    deliveries: [
+      { eventSlug: 'espc-2026', coSpeakers: ['mnecker'] },
+      { eventSlug: 'nordic-summit-2026', coSpeakers: ['mnecker'] }
+    ]
+  },
+  {
+    slug: 'agent-academy-live',
+    title: 'Agent Academy Live! Workshop',
+    summary:
+      'A hands-on day building agents in Copilot Studio, from first topic to production.',
+    abstract:
+      'In this workshop, you will learn how to build successful agents using ' +
+      'Microsoft Copilot Studio. Loosely based on the Microsoft Agent Academy ' +
+      'content, we will guide you through the fundamentals of agent development and ' +
+      'progress to advanced techniques including multi-agent orchestration, content ' +
+      'moderation, and enterprise integrations.\n\n' +
+      "Whether you're new to AI agents or looking to enhance your skills, this " +
+      'hands-on workshop will equip you with practical knowledge to design, build, ' +
+      'and deploy intelligent agents that solve real-world business challenges. ' +
+      'Through a combination of guided instruction, live demonstrations, and ' +
+      'hands-on labs, you\'ll experience the full agent development lifecycle, from ' +
+      'your first conversation to production-ready solutions.',
+    hall: 'b',
+    format: 'workshop',
+    tags: ['Copilot Studio', 'Agents'],
+    deliveries: [{ eventSlug: 'scottish-summit-2026' }]
+  },
+  {
+    slug: 'cowork-in-action',
+    title:
+      'Copilot Cowork in Action: What It Is, How to Get It & What You Can Do With It',
+    summary:
+      'Getting access to Cowork, and the everyday scenarios worth trying first.',
+    abstract:
+      'A lot of people have heard of Cowork, but there is still a gap between ' +
+      'hearing about it and actually knowing how to use it. How do you get access? ' +
+      'What does it look like in practice? And what can it realistically help you ' +
+      'with day to day?\n\n' +
+      'This session is here to close that gap. Join us for a practical, ' +
+      'demo-driven showcase where we walk through Cowork from the ground up. You ' +
+      'will see it in action across real scenarios: managing your inbox, staying on ' +
+      'top of meetings, collaborating with your team, and getting things done ' +
+      'faster inside Microsoft 365. We will not just tell you what is possible, we ' +
+      'will show you the reality.\n\n' +
+      'What makes this session a little different is that you will hear from both ' +
+      'the Microsoft side and the partner side. That means you get a balanced view: ' +
+      'the vision and direction behind Cowork, alongside real-world experience of ' +
+      'adopting and using it in practice. Two perspectives, one session.\n\n' +
+      'By the end, you will know exactly how to get access, what to expect when you ' +
+      'first open it, and which use cases are worth exploring straight away. We ' +
+      'will highlight the features that make the biggest difference in everyday ' +
+      'work, demonstrate what those look like live, and give you a clear starting ' +
+      'point to take back with you.\n\n' +
+      'This session is for anyone who works in Microsoft 365 regularly, whether you ' +
+      'are in IT, a power user, or just someone looking to get more out of the ' +
+      'tools you already have. No deep technical background required. If you are ' +
+      'curious about Cowork and want to leave with something concrete, this is the ' +
+      'session for you.',
+    hall: 'e',
+    tags: ['Copilot Cowork', 'Microsoft 365'],
+    /* Same ground as the other Cowork talk, so it hands out the same links. */
+    resourceSlug: 'cowork-in-action',
+    resourcesFrom: 'cowork',
+    defaultCoSpeakers: ['melissahale'],
+    deliveries: [
+      { eventSlug: 'espc-2026', coSpeakers: ['melissahale'] },
+      { eventSlug: 'scottish-summit-2026', coSpeakers: ['melissahale'] }
+    ]
+  },
+  {
+    slug: 'coding-agents-work-iq',
+    title:
+      'Coding Agents Meet Work IQ: Grounding Copilot in Your Dataverse Business Data',
+    summary:
+      'A full day putting coding agents to work across admin, pro dev, analytics and agents.',
+    abstract:
+      'Together, Dataverse and Work IQ give your AI agents a deep understanding of ' +
+      'how your business operates, grounding Copilot in the real data, processes, ' +
+      'and workflows that live in Dataverse. In this hands-on lab, you will put ' +
+      'coding agents to work across four jobs. For administration, you will ' +
+      'provision environments, security roles, and your Dataverse data model. For ' +
+      'pro development, you will build Dataverse codeful plug-ins and use developer ' +
+      'tooling to extend business logic and manage solution assets. For analytics, ' +
+      'you will query and analyze your business data. And you will build agents in ' +
+      'Copilot Studio that take advantage of Work IQ across your business ' +
+      'applications. Finally, you will see how tuning search, semantic models, and ' +
+      'business skills gives end users better results in M365 Copilot, Copilot ' +
+      'Cowork, or the custom agents they build.',
+    hall: 'c',
+    format: 'workshop',
+    tags: ['Dataverse', 'Copilot Studio', 'Agents', 'Power Platform'],
+    defaultCoSpeakers: ['nathanhelgren', 'kentweare', 'rohithchetla'],
+    deliveries: [
+      {
+        eventSlug: 'ppcc-2026',
+        coSpeakers: ['nathanhelgren', 'kentweare', 'rohithchetla']
+      }
     ]
   },
   {
@@ -815,6 +946,7 @@ export const tagKinds: Record<string, TagKind> = {
   'Power Automate': 'product',
   'Power Platform': 'product',
   'Power Platform CLI': 'product',
+  Dataverse: 'product',
   Agents: 'topic',
   'Declarative Agents': 'topic',
   MCP: 'topic',

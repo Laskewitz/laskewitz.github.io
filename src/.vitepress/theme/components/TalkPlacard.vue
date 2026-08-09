@@ -55,6 +55,7 @@ function resourceHref(delivery: { coSpeakers?: readonly string[] }) {
       <a class="back" href="/talks/">← All talks</a>
 
       <div class="tiles">
+        <span v-if="talk.format === 'workshop'" class="format">Workshop</span>
         <span v-for="tag in talk.tags" :key="tag" class="tag">{{ tag }}</span>
       </div>
 
@@ -186,6 +187,19 @@ function resourceHref(delivery: { coSpeakers?: readonly string[] }) {
   font-weight: 600;
   font-size: var(--wf-step--1);
   letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--wf-optic-dim);
+}
+
+/* A workshop is hours and hands-on rather than a breakout, which the abstract
+   shouldn't be the first place to say so. */
+.format {
+  padding: 2px 8px;
+  border: 1px solid var(--wf-ink-rule);
+  font-variation-settings: 'wdth' 112;
+  font-weight: 700;
+  font-size: var(--wf-step--1);
+  letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--wf-optic-dim);
 }

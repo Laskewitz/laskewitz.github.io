@@ -102,7 +102,10 @@ const shown = computed(() => {
       >
         <span class="band" aria-hidden="true" />
 
-        <span class="talk-title wf-sign">{{ talk.title }}</span>
+        <span class="title-cell">
+          <span class="talk-title wf-sign">{{ talk.title }}</span>
+          <span v-if="talk.format === 'workshop'" class="format">Workshop</span>
+        </span>
 
         <span class="arrow" aria-hidden="true">→</span>
       </a>
@@ -167,11 +170,32 @@ const shown = computed(() => {
   background: var(--hall);
 }
 
+.title-cell {
+  display: grid;
+  gap: var(--wf-gap-xs);
+  justify-items: start;
+  min-width: 0;
+}
+
 .talk-title {
   min-width: 0;
   font-size: var(--wf-step-2);
   overflow-wrap: break-word;
   hyphens: auto;
+}
+
+/* A workshop runs for hours and is hands-on, so it gets a marker the eye can
+   catch while scanning. A breakout is the norm and stays unmarked rather than
+   every plate carrying a badge that says nothing. */
+.format {
+  padding: 2px 8px;
+  border: 1px solid var(--wf-ink-rule);
+  font-variation-settings: 'wdth' 112;
+  font-weight: 700;
+  font-size: var(--wf-step--1);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--wf-optic-dim);
 }
 
 .arrow {
