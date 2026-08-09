@@ -42,7 +42,11 @@ export const speakers: Record<string, Speaker> = {
     role: 'CEO',
     company: 'proMX UK',
     photo: '/images/speakers/joegriffin-256.jpg',
-    links: [{ label: 'Website', href: 'https://crmchap.co.uk' }]
+    links: [
+      { label: 'Website', href: 'https://crmchap.co.uk' },
+      { label: 'LinkedIn', href: 'https://www.linkedin.com/in/joejgriffin/' },
+      { label: 'X', href: 'https://x.com/joejgriffin' }
+    ]
   },
   appieschot: {
     slug: 'appieschot',
