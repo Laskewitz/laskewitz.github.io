@@ -2,7 +2,7 @@
 /** A single talk: the placard, the abstract, and every stage it's been on. */
 import { computed } from 'vue'
 import { getTalk, formatLabel } from '../../data/talks'
-import { getEvent, isUpcoming } from '../../data/events'
+import { getEvent, isUpcoming, hasStarted } from '../../data/events'
 import { billing } from '../../data/speakers'
 import { eventPlace, flag, formatEventDate } from '../../data/format'
 import SignRow from './SignRow.vue'
@@ -109,7 +109,7 @@ function resourceHref(delivery: { coSpeakers?: readonly string[] }) {
 
           <span class="stage-links">
             <a
-              v-if="talk.resourceSlug"
+              v-if="talk.resourceSlug && hasStarted(event!)"
               class="stage-link is-resources"
               :href="resourceHref(delivery)"
               >Resources</a
@@ -122,6 +122,15 @@ function resourceHref(delivery: { coSpeakers?: readonly string[] }) {
               target="_blank"
               rel="noopener noreferrer"
               >Website ↗</a
+            >
+
+            <a
+              v-if="event!.tickets && isUpcoming(event!)"
+              class="stage-link is-tickets"
+              :href="event!.tickets"
+              target="_blank"
+              rel="noopener noreferrer"
+              >Tickets ↗</a
             >
           </span>
         </li>
@@ -385,6 +394,13 @@ function resourceHref(delivery: { coSpeakers?: readonly string[] }) {
 .stage-link.is-resources {
   border-color: var(--hall);
   color: var(--wf-optic);
+}
+
+/* A seat you can still buy is the only action left on an upcoming outing. */
+.stage-link.is-tickets {
+  border-color: var(--hall);
+  background: var(--hall);
+  color: var(--on-hall);
 }
 
 .stage-link:hover,
