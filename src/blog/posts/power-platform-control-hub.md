@@ -1,5 +1,5 @@
 ---
-title: Your CoE dashboard is probably lying to you
+title: The CoE dashboard, without the sync flows
 description: The Starter Kit dashboard is only as fresh as the last sync flow that didn't fail. So I rebuilt it as a Power Apps Code App that reads the tenant live.
 date: 2026-05-30
 categories: [Power Platform, Governance, Code Apps]
