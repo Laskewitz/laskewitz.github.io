@@ -523,7 +523,9 @@ export const talks: Talk[] = [
     hall: 'b',
     format: 'workshop',
     tags: ['Copilot Studio', 'Agents'],
-    deliveries: [{ eventSlug: 'scottish-summit-2026' }]
+    deliveries: [
+      { eventSlug: 'scottish-summit-2026', coSpeakers: ['aprildunnam', 'mnecker'] }
+    ]
   },
   {
     slug: 'agentic-solutions-copilot-studio',
