@@ -11,15 +11,32 @@ const WIDTH = 1200
 const HEIGHT = 630
 
 /**
- * The hall palette, copied from style.css because a PNG cannot read a custom
- * property. These two lists are checked against each other by the build.
+ * The card is a dark room, so the substrate is fixed and the hall no longer
+ * floods the frame. Sharing surfaces crop, tint and sit these images next to
+ * each other; a black field keeps the set looking like one wall of signs
+ * rather than five competing colour swatches.
  */
-const HALLS: Record<Hall, { field: string; ink: string }> = {
-  a: { field: '#1f4bff', ink: '#ffffff' },
-  b: { field: '#00c2a8', ink: '#04231f' },
-  c: { field: '#d6203a', ink: '#ffffff' },
-  d: { field: '#c8ff00', ink: '#101400' },
-  e: { field: '#ff6b00', ink: '#1a0a00' }
+const SUBSTRATE = '#0a0a0a'
+const OPTIC = '#ffffff'
+
+/**
+ * The hall palette, copied from style.css because a PNG cannot read a custom
+ * property.
+ *
+ * `rule` is the field colour at full strength, used only for the solid band
+ * above the wordmark — a bar is not text and carries no contrast floor.
+ * `accent` is the same hall lifted until it clears the substrate, because
+ * style.css bans small hall-coloured text on #0A0A0A and it means it: the blue
+ * lands at 3.31:1 and the red at 3.89:1 against black. Lifting a and c is what
+ * lets the kicker carry hall colour at all. Measured on #0A0A0A:
+ * a 7.82 · b 8.75 · c 7.22 · d 16.74 · e 6.93.
+ */
+const HALLS: Record<Hall, { rule: string; accent: string }> = {
+  a: { rule: '#1f4bff', accent: '#7aa0ff' },
+  b: { rule: '#00c2a8', accent: '#00c2a8' },
+  c: { rule: '#d6203a', accent: '#ff6b7f' },
+  d: { rule: '#c8ff00', accent: '#c8ff00' },
+  e: { rule: '#ff6b00', accent: '#ff6b00' }
 }
 
 interface Card {
@@ -27,6 +44,8 @@ interface Card {
   kicker: string
   title: string
   hall: Hall
+  /** The session's leading emoji, drawn as a mark above the title. */
+  emoji?: string
 }
 
 const cards = new Map<string, Card>()
@@ -34,15 +53,13 @@ const cards = new Map<string, Card>()
 /**
  * The wordmark, inlined so the renderer never reaches for the network.
  *
- * Two variants exist because the mark carries type: white lettering vanishes
- * on the lime and teal halls, dark lettering vanishes on the blue and red
- * ones. The hall's own ink colour already encodes which way round it goes.
+ * Only the white lettering is needed now. The card used to flood the frame
+ * with the hall colour, so the mark had to flip to dark type on lime and teal;
+ * on a fixed black substrate there is nothing to flip against.
  */
-const logos = (() => {
+const logo = (() => {
   const dir = path.join(import.meta.dirname ?? __dirname, '..', 'public', 'images')
-  const read = (file: string) =>
-    `data:image/png;base64,${readFileSync(path.join(dir, file)).toString('base64')}`
-  return { light: read('logo-white.png'), dark: read('logo-dark.png') }
+  return `data:image/png;base64,${readFileSync(path.join(dir, 'logo-white.png')).toString('base64')}`
 })()
 
 const fonts = (() => {
@@ -52,6 +69,66 @@ const fonts = (() => {
     { name: 'Archivo', data: readFileSync(path.join(dir, 'archivo-800.ttf')), weight: 800 as const, style: 'normal' as const }
   ]
 })()
+
+/**
+ * Emoji artwork comes from Twemoji (© Twitter, Inc and other contributors,
+ * CC-BY 4.0) via the `@twemoji/svg` package, read off disk at build time so
+ * the renderer still never reaches for the network.
+ *
+ * Archivo has no emoji glyphs and satori will not synthesise them, so an
+ * emoji left in a text run renders as nothing at all. Each one is resolved to
+ * an SVG and drawn as an image instead.
+ */
+const emojiDir = path.join(
+  import.meta.dirname ?? __dirname,
+  '..',
+  '..',
+  'node_modules',
+  '@twemoji',
+  'svg'
+)
+
+/**
+ * Twemoji names a file after the emoji's code points, and drops the U+FE0F
+ * variation selector that only tells a text renderer to draw in colour. The
+ * full sequence is tried first so multi-code-point emoji still resolve.
+ */
+function emojiDataUri(emoji: string): string | undefined {
+  const points = [...emoji].map((c) => c.codePointAt(0)!.toString(16))
+  const candidates = [
+    points.join('-'),
+    points.filter((p) => p !== 'fe0f').join('-')
+  ]
+  for (const name of candidates) {
+    try {
+      const svg = readFileSync(path.join(emojiDir, `${name}.svg`)).toString('base64')
+      return `data:image/svg+xml;base64,${svg}`
+    } catch {
+      /* Try the next spelling before giving up on the glyph. */
+    }
+  }
+  return undefined
+}
+
+/** The leading emoji of a session title, when it opens with one. */
+function leadingEmoji(title: string): string | undefined {
+  const match = /^(\p{Extended_Pictographic}\uFE0F?)/u.exec(title)
+  return match?.[1]
+}
+
+/**
+ * The emoji belongs to the session, not to the page title.
+ *
+ * Page titles stay plain because they are also the browser tab and the
+ * `og:title` text, so the mark is looked up from the talk record instead and
+ * both the placard and its resource door inherit it.
+ */
+function emojiFor(relativePath: string): string | undefined {
+  const match = /^(?:talks|r)\/([^/]+)\/index\.md$/.exec(relativePath)
+  if (!match) return undefined
+  const talk = talks.find((t) => t.slug === match[1] || t.resourceSlug === match[1])
+  return talk ? leadingEmoji(talk.title) : undefined
+}
 
 /** `r/mcp/index.md` → `r-mcp`, which is also the card's file name. */
 function cardId(relativePath: string): string {
@@ -73,7 +150,7 @@ function pageUrl(relativePath: string): string {
  * floating on a coloured rectangle.
  */
 function kickerFor(relativePath: string): string {
-  if (relativePath.startsWith('r/')) return 'Session resources'
+  if (relativePath.startsWith('r/')) return 'Resources'
   if (relativePath.startsWith('talks/')) return relativePath === 'talks/index.md' ? 'Talks' : 'Talk'
   if (relativePath.startsWith('events/')) return 'Speaking record'
   if (relativePath.startsWith('blog/')) return 'Blog'
@@ -94,7 +171,7 @@ function hallFor(relativePath: string): Hall {
 }
 
 /**
- * The resource door already says "session resources" in its kicker, and the
+ * The resource door already says "resources" in its kicker, and the
  * events page already says it is the speaking record. Repeating that in the
  * title wastes the largest type on the card.
  */
@@ -112,8 +189,69 @@ function titleSize(title: string): number {
   return 56
 }
 
+/**
+ * A title is usually one text run, and stays one so that satori wraps it on
+ * word boundaries exactly as before. Only a title carrying an emoji is cut
+ * into runs, because each emoji has to become an image to render at all —
+ * `Copilot Studio ❤️ MCP` otherwise sets two tofu boxes in 72px type.
+ */
+function titleChildren(title: string, size: number): unknown {
+  if (!/\p{Extended_Pictographic}/u.test(title)) return title
+
+  const parts = title.split(/(\p{Extended_Pictographic}\uFE0F?)/u).filter(Boolean)
+  return parts.map((part) => {
+    const isEmoji = /^\p{Extended_Pictographic}/u.test(part)
+    const uri = isEmoji ? emojiDataUri(part) : undefined
+    if (!uri) {
+      /* Archivo will set this as tofu, which is worth saying out loud rather
+         than shipping a card with two empty boxes in the largest type. */
+      if (isEmoji) console.warn(`[og] no Twemoji artwork for ${part}, card will show tofu`)
+      return {
+        type: 'span',
+        props: { style: { display: 'flex' }, children: part }
+      }
+    }
+    return {
+      type: 'img',
+      props: {
+        src: uri,
+        width: Math.round(size * 0.78),
+        height: Math.round(size * 0.78),
+        /* Flex drops the spaces either side of the run, so the gap the title
+           was written with has to be put back by hand. */
+        style: { margin: '0 0.12em' }
+      }
+    }
+  })
+}
+
 async function renderCard(card: Card): Promise<Buffer> {
-  const { field, ink } = HALLS[card.hall]
+  const { rule, accent } = HALLS[card.hall]
+  const mark = card.emoji ? emojiDataUri(card.emoji) : undefined
+
+  /* The mark is a sign, not punctuation, so it sits on its own line above the
+     title rather than inline where a wrapped title would drag it off centre. */
+  const titleBlock = [
+    ...(mark
+      ? [{ type: 'img', props: { src: mark, width: 72, height: 72, style: { marginBottom: 22 } } }]
+      : []),
+    {
+      type: 'div',
+      props: {
+        style: {
+          display: 'flex',
+          flexWrap: 'wrap',
+          alignItems: 'center',
+          fontSize: titleSize(card.title),
+          fontWeight: 800,
+          lineHeight: 1.02,
+          letterSpacing: '-0.01em',
+          textTransform: 'uppercase'
+        },
+        children: titleChildren(card.title, titleSize(card.title))
+      }
+    }
+  ]
 
   const svg = await satori(
     {
@@ -125,8 +263,8 @@ async function renderCard(card: Card): Promise<Buffer> {
           display: 'flex',
           flexDirection: 'column',
           justifyContent: 'space-between',
-          background: field,
-          color: ink,
+          background: SUBSTRATE,
+          color: OPTIC,
           padding: '64px 72px',
           fontFamily: 'Archivo'
         },
@@ -139,7 +277,7 @@ async function renderCard(card: Card): Promise<Buffer> {
                 fontWeight: 800,
                 letterSpacing: '0.16em',
                 textTransform: 'uppercase',
-                opacity: 0.85
+                color: accent
               },
               children: card.kicker
             }
@@ -147,15 +285,8 @@ async function renderCard(card: Card): Promise<Buffer> {
           {
             type: 'div',
             props: {
-              style: {
-                display: 'flex',
-                fontSize: titleSize(card.title),
-                fontWeight: 800,
-                lineHeight: 1.02,
-                letterSpacing: '-0.01em',
-                textTransform: 'uppercase'
-              },
-              children: card.title
+              style: { display: 'flex', flexDirection: 'column' },
+              children: titleBlock
             }
           },
           {
@@ -165,12 +296,12 @@ async function renderCard(card: Card): Promise<Buffer> {
               children: [
                 {
                   type: 'div',
-                  props: { style: { display: 'flex', height: 8, background: ink }, children: '' }
+                  props: { style: { display: 'flex', height: 8, background: rule }, children: '' }
                 },
                 {
                   type: 'img',
                   props: {
-                    src: ink === '#ffffff' ? logos.light : logos.dark,
+                    src: logo,
                     width: 191,
                     height: 56,
                     style: { marginTop: 26 }
@@ -211,7 +342,8 @@ export function transformPageData(pageData: PageData) {
     file: `${id}.png`,
     kicker: same(kicker, title) ? 'Daniel Laskewitz' : kicker,
     title,
-    hall: hallFor(relativePath)
+    hall: hallFor(relativePath),
+    emoji: emojiFor(relativePath)
   })
 
   frontmatter.head ??= []
