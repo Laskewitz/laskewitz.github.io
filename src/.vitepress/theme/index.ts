@@ -11,6 +11,7 @@ import NoticeBoard from './components/NoticeBoard.vue'
 import NoticeNote from './components/NoticeNote.vue'
 import PlacardIndex from './components/PlacardIndex.vue'
 import PostMasthead from './components/PostMasthead.vue'
+import PostFigure from './components/PostFigure.vue'
 import PostSignoff from './components/PostSignoff.vue'
 import RedirectNotice from './components/RedirectNotice.vue'
 import ResourceDoor from './components/ResourceDoor.vue'
@@ -31,6 +32,7 @@ export default {
     app.component('NoticeNote', NoticeNote)
     app.component('PlacardIndex', PlacardIndex)
     app.component('PostMasthead', PostMasthead)
+    app.component('PostFigure', PostFigure)
     app.component('PostSignoff', PostSignoff)
     app.component('RedirectNotice', RedirectNotice)
     app.component('ResourceDoor', ResourceDoor)

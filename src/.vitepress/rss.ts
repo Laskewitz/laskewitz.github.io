@@ -6,6 +6,38 @@ import { createContentLoader, type SiteConfig } from 'vitepress'
 const HOSTNAME = 'https://laskewitz.io'
 
 /**
+ * Rewrites in-post Vue components into plain HTML for the feed.
+ *
+ * `createContentLoader`'s `render` gives us the markdown output, so a component
+ * a post uses is still an unrendered custom element by the time it reaches the
+ * feed. A reader can't run Vue, so `<PostFigure … />` would land in someone's
+ * inbox as literal markup. Figures are the only component that appears inside
+ * post prose; anything else added later needs a case here too.
+ */
+function componentsToHtml(html: string): string {
+  return html.replace(
+    /<PostFigure\b([\s\S]*?)\/>/g,
+    (_match, attrs: string) => {
+      const attr = (name: string) =>
+        attrs.match(new RegExp(`${name}="([^"]*)"`))?.[1] ?? ''
+
+      const src = attr('src')
+      if (!src) return ''
+
+      const url = src.startsWith('/') ? `${HOSTNAME}${src}` : src
+      const alt = attr('alt')
+      const caption = attr('caption')
+
+      return (
+        `<figure><img src="${url}" alt="${alt}" />` +
+        (caption ? `<figcaption>${caption}</figcaption>` : '') +
+        `</figure>`
+      )
+    }
+  )
+}
+
+/**
  * Builds the RSS XML.
  *
  * The notice board has a paper edge: anyone can subscribe without an account,
@@ -41,7 +73,7 @@ export async function buildFeedXml(): Promise<string> {
       id: `${HOSTNAME}${url}`,
       link: `${HOSTNAME}${url}`,
       description: frontmatter.description ?? excerpt,
-      content: html,
+      content: componentsToHtml(html ?? ''),
       category: (frontmatter.categories ?? []).map((name: string) => ({ name })),
       author: [
         {

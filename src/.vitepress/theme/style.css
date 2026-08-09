@@ -369,10 +369,22 @@ body {
 }
 
 .wf-post .VPDoc .vp-doc > div {
-  max-width: 72ch;
+  max-width: none;
   margin-inline: 0;
   padding-inline: 0;
   padding-block: var(--wf-gap-l) 0;
+}
+
+/* The measure belongs to the reading, not to the column. Holding it on the
+   prose blocks instead of their wrapper lets a screenshot use the whole column
+   while the sentences stay at the measure. It is set in rem, not ch, so a
+   heading at a larger step still stops on the same right edge as body copy. */
+.wf-post .VPDoc .vp-doc > div > * {
+  max-width: 41.25rem;
+}
+
+.wf-post .VPDoc .vp-doc > div > .post-figure.is-wide {
+  max-width: none;
 }
 
 /* The masthead already prints the title and date, so the prose opens straight
@@ -399,7 +411,6 @@ body {
   /* Inside the grid the column sets the measure, so the prose fills its cell
      instead of stopping short and leaving a hole before the rail. */
   .wf-post .VPDoc .vp-doc > div {
-    max-width: none;
     padding-block: var(--wf-gap-xl) 0;
   }
 }

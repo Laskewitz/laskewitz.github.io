@@ -1,6 +1,6 @@
 ---
-title: A CoE dashboard without the CoE Starter Kit
-description: I rebuilt the Center of Excellence dashboard as a Power Apps Code App on top of the Inventory API, so there's no solution to install and nothing to sync.
+title: Your CoE dashboard is probably lying to you
+description: The Starter Kit dashboard is only as fresh as the last sync flow that didn't fail. So I rebuilt it as a Power Apps Code App that reads the tenant live.
 date: 2026-05-30
 categories: [Power Platform, Governance, Code Apps]
 pageClass: wf-post
@@ -24,10 +24,26 @@ you open the page. There is no solution to import, no Dataverse tables to popula
 no nightly sync to babysit. Authentication comes from the Power Apps host, so there's no
 app registration and no MSAL configuration either.
 
+<PostFigure
+  src="/images/posts/power-platform-control-hub/01-overview.png"
+  alt="The Control Hub overview tab, with a metric card per resource type above a table of recently created resources."
+  caption="One card per resource type, and whatever showed up in the tenant most recently."
+  hall="a"
+  wide
+/>
+
 ## Inventory is the boring half
 
-Listing resources is the part everyone expects, and it's not the interesting part. What
-I actually wanted was to click a resource and be told something useful about it.
+Listing resources is the part everyone expects. I wanted the part after that: click a
+resource and get told something useful about it.
+
+<PostFigure
+  src="/images/posts/power-platform-control-hub/02-resources.png"
+  alt="The Resources tab showing a sortable, filterable table of every resource across all environments."
+  caption="Every resource in the tenant in one sortable table. Every row opens a detail panel."
+  hall="b"
+  wide
+/>
 
 So every canvas app, flow and agent has a detail panel with a Best Practice Analysis
 section. Flows get 26 checks: no error handling, HTTP actions without a timeout, nested
@@ -42,21 +58,45 @@ analysis tells you what to do on Monday.
 
 The flow panel also renders the full trigger and action tree, with conditions showing
 their True and False branches side by side and loops and scopes as collapsible
-containers. It turns out that once you can read a flow's shape without opening it in the
-designer, reviewing someone else's flow gets a lot less painful.
+containers. Once you can read a flow's shape without opening the designer, reviewing
+someone else's flow stops being a chore.
+
+<PostFigure
+  src="/images/posts/power-platform-control-hub/03-environments.png"
+  alt="The Environments tab, a grid of environment cards showing type badge, managed indicator, region and resource count."
+  caption="Type, region, managed state and resource count, before you click into anything."
+  hall="c"
+  wide
+/>
 
 ## Governance you can edit, not just read
 
 The other thing the Starter Kit dashboard never did for me was let me change anything.
 Control Hub does DLP policies end to end: list them, create them through a two-stage
-flow, open a detail page per policy. There's an **Apply Best Practices** action that
+flow, open a detail page per policy. There's an Apply Best Practices action that
 checks a policy against a set of advisory rules, HTTP to Blocked, SharePoint to
 Confidential, and shows you what it proposes before anything is saved.
+
+<PostFigure
+  src="/images/posts/power-platform-control-hub/04-tenant-policies.png"
+  alt="The Tenant Policies tab listing DLP policies, billing policies and cross-tenant connection reports."
+  caption="DLP policies, billing policies and cross-tenant connection reports, in one tab."
+  hall="d"
+  wide
+/>
 
 Environment groups, rule-based policies and rule sets are full CRUD. Environments can be
 enabled, disabled, made managed, backed up, and moved in and out of groups from the
 Actions menu. Quarantining an app, disabling a flow or adding yourself as an owner all
 happen in place.
+
+<PostFigure
+  src="/images/posts/power-platform-control-hub/07-recommendations.png"
+  alt="The Recommendations tab showing advisor recommendations returned by the admin API."
+  caption="What the admin API already thinks you should go and fix."
+  hall="e"
+  wide
+/>
 
 ## Why a Code App
 
@@ -69,9 +109,17 @@ It also means the whole thing is a repository you can read, fork and change. If 
 organisation's idea of a best practice differs from mine, the checks are a TypeScript
 file, not a rule buried in a solution.
 
-Light and dark mode, responsive layout, keyboard navigation and toast notifications for
-every write action are in there too, because a governance tool people avoid opening is a
-governance tool that doesn't work.
+Because everything it does goes through a connector, it plays by the tenant's own rules.
+It's subject to your
+[DLP policies](https://learn.microsoft.com/en-us/power-platform/admin/wp-data-loss-prevention)
+and your
+[Advanced Connector Policies](https://learn.microsoft.com/en-us/power-platform/admin/advanced-connector-policies)
+exactly like any other app. Block a connector it needs in the environment you put it in
+and it stops working. That's the right outcome, not a bug. A tool for governing the
+tenant shouldn't get to sit outside the tenant's governance.
+
+Dark mode, keyboard navigation and a responsive layout are in there too. Not decoration.
+People don't open admin tools they dread opening.
 
 The repo is at
 [Laskewitz/Power-Platform-Control-Hub](https://github.com/Laskewitz/Power-Platform-Control-Hub).
