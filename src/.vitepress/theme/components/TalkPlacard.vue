@@ -116,6 +116,15 @@ function resourceHref(delivery: { coSpeakers?: readonly string[] }) {
             >
 
             <a
+              v-if="event!.slides && hasStarted(event!)"
+              class="stage-link"
+              :href="event!.slides"
+              target="_blank"
+              rel="noopener noreferrer"
+              >Slides ↗</a
+            >
+
+            <a
               v-if="event!.website"
               class="stage-link"
               :href="event!.website"
