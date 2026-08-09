@@ -180,7 +180,7 @@ export const talks: Talk[] = [
   },
   {
     slug: 'mcp',
-    title: 'MCP or not to MCP — that is THE question',
+    title: '🧠 MCP or not to MCP — that is THE question',
     summary:
       'Connecting Copilot Studio agents to real systems with the Model Context Protocol.',
     abstract:
@@ -405,7 +405,7 @@ export const talks: Talk[] = [
   },
   {
     slug: 'omg-mcp-wtf',
-    title: 'OMG MCP WTF: Three Ways MCP Servers Can Change Your Life',
+    title: '🤯 OMG MCP WTF: Three Ways MCP Servers Can Change Your Life',
     summary:
       'Three practical, day-to-day scenarios where an MCP server beats the process it replaces.',
     abstract:
@@ -440,7 +440,7 @@ export const talks: Talk[] = [
   {
     slug: 'mcp-vs-connectors',
     title:
-      'Model Context Protocol vs. Connectors: Rethinking Integration in the Power Platform',
+      '🧠 Model Context Protocol vs. Connectors: Rethinking Integration in the Power Platform 💡',
     summary: 'Where MCP fits, where connectors still win, and how they work together.',
     abstract:
       'Model Context Protocol (MCP) quickly became the thing everybody doing AI ' +
@@ -472,7 +472,7 @@ export const talks: Talk[] = [
   {
     slug: 'mcp-one-year-later',
     title:
-      'MCP in Power Platform: One Year Later — Building Custom MCP Servers with Low Code',
+      '🧠 MCP in Power Platform: One Year Later — Building Custom MCP Servers with Low Code',
     summary:
       'What changed in a year of MCP, and how to build your own server with low code.',
     abstract:
@@ -596,7 +596,7 @@ export const talks: Talk[] = [
   {
     slug: 'cowork-in-action',
     title:
-      'Copilot Cowork in Action: What It Is, How to Get It & What You Can Do With It',
+      '🚀 Copilot Cowork in Action: What It Is, How to Get It & What You Can Do With It',
     summary:
       'Getting access to Cowork, and the everyday scenarios worth trying first.',
     abstract:
@@ -818,7 +818,7 @@ export const talks: Talk[] = [
   },
   {
     slug: 'apis-in-the-hands-of-millions',
-    title: 'Put your APIs in the hands of millions of developers',
+    title: '🚀 Put your APIs in the hands of millions of developers',
     summary: 'Reaching every low-code maker by shipping your API as a connector.',
     abstract:
       'The Power Platform already ships with more than 1200 connectors, and every ' +
