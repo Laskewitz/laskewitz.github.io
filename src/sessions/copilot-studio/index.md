@@ -1,6 +1,6 @@
 ---
 layout: false
-title: Moved — Microsoft Copilot Studio resources
+title: "Moved: Microsoft Copilot Studio resources"
 description: These session resources now live at /r/copilot-studio.
 head:
   - - meta

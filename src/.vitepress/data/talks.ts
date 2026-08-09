@@ -17,10 +17,11 @@ export const talks: Talk[] = [
     title: 'A developers introduction to Copilot Studio',
     summary: 'Building agents in Copilot Studio, from first topic to production.',
     abstract:
-      'Building Agents should be easy! And it can be if you are using Copilot ' +
-      'Studio. In this demo rich session Daniel and Albert-Jan will show you how ' +
-      'you can build agents, orchestrate their behaviour, introduce knowledge and ' +
-      'apply custom reasoning models and add actions.',
+      'Copilot Studio makes building an agent about as hard as it should be, ' +
+      'which is to say not very. Daniel and Albert-Jan build one on stage: ' +
+      'topics first, then the orchestration that decides what happens when, the ' +
+      'knowledge it answers from, custom reasoning models, and actions so it can ' +
+      'do something rather than only talk. Mostly demos.',
     hall: 'a',
     tags: ['Copilot Studio', 'Agents', 'Power Platform'],
     resourceSlug: 'copilot-studio',
@@ -53,10 +54,10 @@ export const talks: Talk[] = [
     summary: 'Extending Copilot Cowork with plugins that do long, multi-step work.',
     abstract:
       'Copilot has been promising to change how you work. Cowork is where it ' +
-      'starts to deliver on that. The idea: you describe what needs to happen, and ' +
+      'starts to deliver on that. You describe what needs to happen, and ' +
       'Copilot Cowork builds a plan and executes it across your Microsoft 365 apps. ' +
-      'Calendar cleanup, meeting packets, company research — not one prompt, but the ' +
-      'full chain of steps, running while you do something else. Twenty-five to ' +
+      'Calendar cleanup, meeting packets, company research: whole chains of steps, ' +
+      'running while you do something else. Twenty-five to ' +
       'thirty minutes is enough to see how Work IQ gives Copilot the context to act ' +
       'on your behalf, what plugins and skills look like in practice, and whether ' +
       'this is real or still mostly polished demos. Bring your skepticism. It is a ' +
@@ -100,7 +101,7 @@ export const talks: Talk[] = [
             href: 'https://learn.microsoft.com/microsoft-365/copilot/cowork/use-cowork#cowork-skills'
           },
           {
-            label: 'Skills.sh — open agent skills ecosystem',
+            label: 'Skills.sh, the open agent skills ecosystem',
             href: 'https://skills.sh'
           }
         ]
@@ -123,7 +124,7 @@ export const talks: Talk[] = [
           {
             label: 'Microsoft Learn for Cowork plugin',
             href: 'https://github.com/Laskewitz/learn-for-cowork',
-            note: 'My plugin — steal the structure'
+            note: 'My plugin, steal the structure'
           }
         ]
       }
@@ -141,11 +142,12 @@ export const talks: Talk[] = [
     title: 'Building Declarative Agents',
     summary: 'Declarative agents for Microsoft 365 Copilot, built and shipped.',
     abstract:
-      'A declarative agent is the shortest path from an idea to something running ' +
-      'inside Microsoft 365 Copilot: you describe what it knows, what it can reach, ' +
-      'and how it should behave. This session builds one from scratch, wires it to ' +
-      'real knowledge and actions, and covers the parts of the manifest that decide ' +
-      'whether it feels sharp or vague in use.',
+      'A declarative agent is about the quickest way to get an idea running ' +
+      'inside Microsoft 365 Copilot. You describe what it knows, what it can ' +
+      'reach and how it should behave, and Copilot does the rest. This session ' +
+      'builds one from scratch, wires it to real knowledge and actions, and then ' +
+      'spends time on the manifest, because that is where an agent stops giving ' +
+      'vague answers and starts giving useful ones.',
     hall: 'c',
     tags: ['Declarative Agents', 'Microsoft 365 Copilot', 'Agents'],
     resourceSlug: 'declarative-agents',
@@ -180,19 +182,18 @@ export const talks: Talk[] = [
   },
   {
     slug: 'mcp',
-    title: '🧠 MCP or not to MCP — that is THE question',
+    title: '🧠 MCP or not to MCP: that is THE question',
     summary:
       'Connecting Copilot Studio agents to real systems with the Model Context Protocol.',
     abstract:
-      'So, the Model Context Protocol (MCP) is everywhere these days, and now that ' +
-      'Copilot Studio jumped on board in March 2025, everyone is wondering: what is ' +
-      'the big deal? And more importantly, what happens to all those connectors we ' +
-      'have been using? We will break it all down for you in this session. We will ' +
-      'dive into what MCP servers actually are, how you can start using them in ' +
-      'Copilot Studio, and why you might want to try them out in other AI tools too. ' +
-      'Fair warning: this is going to be demo-heavy, so get ready to see MCP in ' +
-      'action across a bunch of different scenarios — including both Microsoft’s own ' +
-      'MCP servers, like the Dataverse MCP server, and third-party ones.',
+      'The Model Context Protocol is everywhere these days, and since Copilot ' +
+      'Studio joined in March 2025 the obvious question is what the fuss is ' +
+      'about, and what happens to all those connectors you have been using. This ' +
+      'session answers both. What an MCP server actually is, how to start using ' +
+      'one in Copilot Studio, and why you might want them in your other AI tools ' +
+      'too. Fair warning: it is demo heavy, across a range of scenarios, with ' +
+      "Microsoft's own servers like the Dataverse one and third party servers " +
+      'alongside them.',
     hall: 'd',
     tags: ['MCP', 'Copilot Studio', 'Agents'],
     resourceSlug: 'mcp',
@@ -250,16 +251,15 @@ export const talks: Talk[] = [
     summary:
       'Guidelines for building Power Automate flows that are a breeze to maintain.',
     abstract:
-      'Power Automate enables anyone to automate processes. However, “anyone” often ' +
-      'means flows that grow fast… and become unmanageable even faster. In this ' +
-      'session, we will explore how to design and build Power Automate flows that ' +
-      'are performant, reusable, and easy to maintain by applying proven software ' +
-      'engineering principles to the low-code platform. While Power Automate is ' +
-      'marketed as a low-code tool for citizen developers, many flows end up being ' +
-      'built without scalability or maintainability in mind, leading to fragile ' +
-      'automations, duplicated logic, and performance bottlenecks. Designed with the ' +
-      'right mindset, it becomes an enterprise-grade automation platform. We walk ' +
-      'through real-world examples showing how to refactor what you already have.',
+      'Power Automate lets anyone automate a process. The trouble with "anyone" ' +
+      'is that flows grow fast and become unmanageable faster. The fix is to ' +
+      'borrow the software engineering habits that low-code tends to skip, and ' +
+      'design flows that stay quick and stay readable. Most flows get ' +
+      'built without much thought for what happens at flow number two hundred, ' +
+      'which is how you end up with duplicated logic and automations nobody dares ' +
+      'touch. Built with a bit more care, Power Automate handles serious ' +
+      'workloads without complaining. We walk through real examples and refactor ' +
+      'what you already have.',
     hall: 'e',
     tags: ['Power Automate', 'Power Platform', 'Maintainability'],
     resourceSlug: 'maintainable-flows',
@@ -298,16 +298,16 @@ export const talks: Talk[] = [
     summary:
       'What "maintainable code" means once the code is a canvas app and a handful of flows.',
     abstract:
-      'We love how fast low-code lets us build, but what happens after launch? As ' +
-      'solutions grow, so does complexity. Modules expand, connectors multiply, ' +
-      'and before you know it, small changes start to feel risky.\n\n' +
-      'In this session, we will look at what "maintainable code" really means in a ' +
-      'Power Platform world. Inspired by timeless software engineering principles, ' +
-      'we will translate them into practical habits for low-code: short, modular ' +
-      'apps, simple logic, reusable components, clear interfaces, and the right ' +
-      'amount of automation.\n\n' +
-      'Through quick demos, you will see how to design solutions that stay flexible ' +
-      'and fun to improve. Because maintainability is not just for code anymore.',
+      'Low-code is wonderfully fast to build in. The question is what happens ' +
+      'after launch. Solutions grow, modules multiply, connectors pile up, and at ' +
+      'some point a small change starts to feel risky.\n\n' +
+      'So what does "maintainable code" mean when the code is a canvas app and a ' +
+      'handful of flows? The software engineering ideas behind it are old and ' +
+      'boring and they still work: keep apps short, keep logic ' +
+      'simple, reuse components, draw clear lines between the parts, automate the ' +
+      'bits worth automating.\n\n' +
+      'Quick demos throughout, aimed at solutions you will still enjoy improving ' +
+      'a year from now.',
     hall: 'c',
     tags: ['Power Platform', 'Maintainability', 'Solution Architecture'],
     resourceSlug: 'beyond-shipping',
@@ -329,16 +329,15 @@ export const talks: Talk[] = [
     slug: 'prompt-builder-playbook',
     title: 'Prompt Builder Playbook',
     summary:
-      'Design, test and operationalise prompts that behave the same in apps, flows and agents.',
+      'Writing prompts once so they behave the same in apps, flows and agents.',
     abstract:
-      'With Prompt Builder in AI Builder, you can design, test, and operationalize ' +
-      'prompts that work consistently across apps, flows, and agents. This session ' +
-      'shares real-world lessons on how to take advantage of Prompt Builder ' +
-      'features like output formatting (text, JSON, Word), grounding knowledge, ' +
-      'code interpreter, multi-modal inputs, and even Copilot-assisted authoring. ' +
-      'We will also explore how to bring your own model through Azure AI Foundry, ' +
-      'giving you flexibility and control over how your prompts execute. You will ' +
-      'leave with patterns you can put to work immediately.',
+      'With Prompt Builder in AI Builder you can write a prompt once and have it ' +
+      'behave the same way in an app, a flow and an agent. This session covers ' +
+      'what has actually worked in practice: output formatting for text, JSON and ' +
+      'Word, grounding knowledge, the code interpreter, multi-modal inputs and ' +
+      'Copilot-assisted authoring. It also covers bringing your own model through ' +
+      'Azure AI Foundry, for when you want more say over how a prompt runs. The ' +
+      'patterns are ones you can use the same week.',
     hall: 'e',
     tags: ['AI Builder', 'Prompts', 'Azure AI Foundry'],
     resourceSlug: 'prompt-builder-playbook',
@@ -383,16 +382,14 @@ export const talks: Talk[] = [
     summary:
       'Write the prompt once as a function, then let everyone else just fill in the inputs.',
     abstract:
-      'In this session, Miguel and Daniel will show you how you can use the AI ' +
-      'Builder Prompt Builder to infuse your low code solutions with AI. Nobody ' +
-      'really wants to write long prompts themselves, so why annoy people with ' +
-      'that? The Prompt Builder enables you to write prompt functions, so that end ' +
-      'users only have to fill in the inputs and not the whole prompt. And the good ' +
-      'thing about it is that they are reusable, so you only have to write it ' +
-      'once.\n\n' +
-      'You will learn how to prompt well and how to make prompts reusable, what the ' +
-      'Prompt Builder does for you, and how to use prompts across Power Apps, Power ' +
-      'Automate and Copilot Studio.',
+      'Miguel and Daniel show you how to add AI to your low code solutions with ' +
+      'the AI Builder Prompt Builder. Nobody really wants to write long prompts ' +
+      'themselves, so why annoy people with that? Prompt Builder lets you write ' +
+      'prompt functions, so end users fill in the inputs and nothing else. Write ' +
+      'it once, use it everywhere.\n\n' +
+      'You will learn how to prompt well and how to make prompts reusable, what ' +
+      'the Prompt Builder does for you, and how to use prompts across Power Apps, ' +
+      'Power Automate and Copilot Studio.',
     hall: 'd',
     tags: ['AI Builder', 'Prompts', 'Power Platform'],
     resourceSlug: 'reusable-prompts',
@@ -409,23 +406,18 @@ export const talks: Talk[] = [
     summary:
       'Three practical, day-to-day scenarios where an MCP server beats the process it replaces.',
     abstract:
-      'The adoption of the Model Context Protocol (MCP) standard by Microsoft ' +
-      'heralds an important moment in the generative AI journey, as work is done ' +
-      'to better facilitate agent to agent communication, and unlock the full ' +
-      'capabilities of solutions such as Microsoft Dataverse, Dynamics 365 ' +
-      'Customer Service, and more. With access to just a single (or indeed ' +
-      'multiple) MCP server, complex, multi-turn actions can be accomplished in a ' +
-      'pinch. But are the promises as real and as easy to work with as claimed? ' +
-      'How can a functional user start to integrate these experiences into their ' +
-      'day to day workflows?\n\n' +
-      'In this session, join Joe and Daniel, as they demystify the buzz around MCP ' +
-      'servers, and present 3 practical, day-to-day scenarios where using MCP ' +
-      'servers obliterates any previous process, in terms of speed and efficiency. ' +
-      'You will gain a thorough understanding of how to get going with MCP ' +
-      'servers, and walk away with insights and inspiration on how to use them ' +
-      'yourself. This session is perfect for the MCP curious, who may not be ' +
-      'strong as a developer, but is keen to see how MCP servers can be used in an ' +
-      'easy way.',
+      'Microsoft picking up the Model Context Protocol changed what agents can ' +
+      'reach, and what they can say to each other. Dataverse, Dynamics 365 ' +
+      'Customer Service and a growing list of others are all in range now. ' +
+      'Point an agent at one MCP server, or several, and ' +
+      'multi-turn work that used to take a morning takes a couple of minutes. So ' +
+      'the claim goes, anyway. Is it as real and as easy as advertised, and how ' +
+      'does a functional user get this into their actual workday?\n\n' +
+      'Joe and Daniel put it to the test. Three everyday scenarios, each one held ' +
+      'up against the process it replaces, so you can see where MCP servers save ' +
+      'real time and where they do not. You will leave knowing how to get ' +
+      'started and with a few ideas worth stealing. Aimed at people who are ' +
+      'curious about MCP but would not call themselves developers.',
     hall: 'c',
     tags: ['MCP', 'Copilot', 'Agents'],
     resourceSlug: 'omg-mcp-wtf',
@@ -443,15 +435,14 @@ export const talks: Talk[] = [
       '🧠 Model Context Protocol vs. Connectors: Rethinking Integration in the Power Platform 💡',
     summary: 'Where MCP fits, where connectors still win, and how they work together.',
     abstract:
-      'Model Context Protocol (MCP) quickly became the thing everybody doing AI ' +
-      'talks about, and its adoption rate across different tech providers is rapid. ' +
-      'Microsoft has embraced it as well and is combining it with an old friend of ' +
-      'ours: (custom) connectors. In this session we break down the differences ' +
-      'between MCP and traditional connectors in the Power Platform. Attendees learn ' +
-      'how each works, where they fit best, and how they compare, with practical ' +
-      'demos showing how to get started with MCP and how it can work alongside ' +
-      'connectors — not replace them. It is aimed at solution architects, developers ' +
-      'and IT leaders looking to modernise how they build integrations.',
+      'Model Context Protocol went from unknown to unavoidable in about a year, ' +
+      'and providers across the industry picked it up fast. Microsoft did too, ' +
+      'and paired it with an old friend of ours: (custom) connectors. We break ' +
+      'down the differences between the two in the Power Platform: how each one ' +
+      'works, where each one fits, and how they compare, with demos ' +
+      'showing how to get started with MCP and how it sits next to connectors ' +
+      'rather than replacing them. Aimed at solution architects, developers and ' +
+      'IT leaders who build integrations.',
     hall: 'a',
     tags: ['MCP', 'Custom Connectors', 'Power Platform'],
     resourceSlug: 'mcp-vs-connectors',
@@ -471,29 +462,23 @@ export const talks: Talk[] = [
   {
     slug: 'mcp-one-year-later',
     title:
-      '🧠 MCP in Power Platform: One Year Later — Building Custom MCP Servers with Low Code',
+      '🧠 MCP in Power Platform: One Year Later, Building Custom MCP Servers with Low Code',
     summary:
       'What changed in a year of MCP, and how to build your own server with low code.',
     abstract:
-      'A year ago, we introduced Model Context Protocol (MCP) and how it compares ' +
-      'to connectors in the Power Platform. A lot has changed since then. MCP has ' +
-      'matured from a buzzword into a real building block for agent integrations, ' +
-      'and Microsoft has shipped significant updates to how MCP and connectors work ' +
-      'together and how you can create your own.\n\n' +
-      "In this updated session, Mats and Daniel will show you what's new in 2026: " +
-      'deeper platform support for MCP, the evolving relationship between MCP ' +
-      'servers and custom connectors, and the big one — how to build your own ' +
-      'custom MCP server using low code directly in the Power Platform. No SDKs, no ' +
-      'deployment pipelines, just low-code tooling that makes MCP accessible to ' +
-      'makers and pro devs alike. We will also cover the governance aspects of it ' +
-      'and how Agent 365 fits in the whole story and why you should know about Work ' +
-      'IQ.\n\n' +
-      "Whether you caught last year's session or are starting fresh, you'll walk " +
-      'away with practical demos, honest takes on where MCP fits (and where ' +
-      'connectors still win), and a clear picture of how these two integration ' +
-      'patterns are converging to power the next generation of AI agents. After ' +
-      'this session you will be up to speed where we are with MCP servers and have ' +
-      'the guidance and tools to get started.',
+      'A year ago we introduced Model Context Protocol and compared it to ' +
+      'connectors in the Power Platform. Plenty has changed. MCP went from a word ' +
+      'people repeated to something you can build on, and Microsoft has shipped ' +
+      'real updates to how MCP and connectors work together.\n\n' +
+      "Mats and Daniel cover what is new in 2026: deeper platform support for " +
+      'MCP, how MCP servers and custom connectors now relate to each other, and ' +
+      'the one everybody asks about, which is building your own MCP server with ' +
+      'low code directly in the Power Platform. You do not need an SDK and you do ' +
+      'not need a deployment pipeline. We also get into governance, where Agent ' +
+      '365 fits, and why Work IQ is worth your attention.\n\n' +
+      "You do not need last year's session to follow this one. Expect demos, a " +
+      'straight answer on where MCP fits and where connectors still win, and ' +
+      'enough guidance to start building.',
     hall: 'd',
     tags: ['MCP', 'Custom Connectors', 'Power Platform', 'Low Code', 'Governance'],
     defaultCoSpeakers: ['mnecker'],
@@ -508,17 +493,15 @@ export const talks: Talk[] = [
     summary:
       'A hands-on day building agents in Copilot Studio, from first topic to production.',
     abstract:
-      'In this workshop, you will learn how to build successful agents using ' +
-      'Microsoft Copilot Studio. Loosely based on the Microsoft Agent Academy ' +
-      'content, we will guide you through the fundamentals of agent development and ' +
-      'progress to advanced techniques including multi-agent orchestration, content ' +
-      'moderation, and enterprise integrations.\n\n' +
-      "Whether you're new to AI agents or looking to enhance your skills, this " +
-      'hands-on workshop will equip you with practical knowledge to design, build, ' +
-      'and deploy intelligent agents that solve real-world business challenges. ' +
-      'Through a combination of guided instruction, live demonstrations, and ' +
-      'hands-on labs, you\'ll experience the full agent development lifecycle, from ' +
-      'your first conversation to production-ready solutions.',
+      'A day of building agents in Microsoft Copilot Studio. The content follows ' +
+      'the Microsoft Agent Academy loosely: fundamentals first, then the harder ' +
+      'parts, including multi-agent orchestration, content moderation and hooking ' +
+      'agents up to the systems your organisation runs on.\n\n' +
+      'You do not need prior experience with agents, and you do need a laptop, ' +
+      'because most of the day is labs. Short explanations, a live demo, then you ' +
+      'build it yourself. By the end you will have gone the whole way from a ' +
+      'first conversation to something you would be comfortable putting in front ' +
+      'of colleagues.',
     hall: 'b',
     format: 'workshop',
     tags: ['Copilot Studio', 'Agents'],
@@ -532,15 +515,13 @@ export const talks: Talk[] = [
     summary:
       'A 75-minute hands-on build of an agent, from first topic to Agent Flows and MCP.',
     abstract:
-      'This 75-minute hands-on workshop with Microsoft Copilot Studio guides you ' +
-      'through building agentic solutions with Copilot Studio. You will learn how ' +
-      'to build, integrate, automate, and deploy a fully functional agent using ' +
-      'tools like Agent Flows and MCP. You will walk away with practical skills to ' +
-      'customise agents for real-world business needs.\n\n' +
-      'By the end of the session you will be able to create an agent from scratch ' +
-      'in Copilot Studio, know when and how to bring in Agent Flows, understand ' +
-      'what MCP is and how to connect MCP servers to your agent, and see how to ' +
-      'test and deploy the result.',
+      'Seventy-five minutes, hands on keyboard, one agent built from nothing in ' +
+      'Microsoft Copilot Studio. You will bring in Agent Flows where automation ' +
+      'is the right answer, connect an MCP server so the agent can reach real ' +
+      'systems, and deploy the result.\n\n' +
+      'By the end you will have created an agent from scratch, know when Agent ' +
+      'Flows earn their place, understand what MCP is and how to connect a server ' +
+      'to your agent, and have tested and shipped the thing.',
     hall: 'a',
     format: 'workshop',
     tags: ['Copilot Studio', 'Agents', 'MCP'],
@@ -550,7 +531,7 @@ export const talks: Talk[] = [
         title: 'Product',
         links: [
           { label: 'Sign up for a trial', href: 'https://aka.ms/trycopilotstudio' },
-          { label: 'Dive into documentation', href: 'https://aka.ms/copilotstudiodocs' },
+          { label: 'Copilot Studio documentation', href: 'https://aka.ms/copilotstudiodocs' },
           {
             label: 'Implementation guide',
             href: 'https://aka.ms/CopilotStudioImplementationGuide'
@@ -601,30 +582,24 @@ export const talks: Talk[] = [
     summary:
       'Getting access to Cowork, and the everyday scenarios worth trying first.',
     abstract:
-      'A lot of people have heard of Cowork, but there is still a gap between ' +
-      'hearing about it and actually knowing how to use it. How do you get access? ' +
-      'What does it look like in practice? And what can it realistically help you ' +
-      'with day to day?\n\n' +
-      'This session is here to close that gap. Join us for a practical, ' +
-      'demo-driven showcase where we walk through Cowork from the ground up. You ' +
-      'will see it in action across real scenarios: managing your inbox, staying on ' +
-      'top of meetings, collaborating with your team, and getting things done ' +
-      'faster inside Microsoft 365. We will not just tell you what is possible, we ' +
-      'will show you the reality.\n\n' +
-      'What makes this session a little different is that you will hear from both ' +
-      'the Microsoft side and the partner side. That means you get a balanced view: ' +
-      'the vision and direction behind Cowork, alongside real-world experience of ' +
-      'adopting and using it in practice. Two perspectives, one session.\n\n' +
-      'By the end, you will know exactly how to get access, what to expect when you ' +
-      'first open it, and which use cases are worth exploring straight away. We ' +
-      'will highlight the features that make the biggest difference in everyday ' +
-      'work, demonstrate what those look like live, and give you a clear starting ' +
-      'point to take back with you.\n\n' +
-      'This session is for anyone who works in Microsoft 365 regularly, whether you ' +
-      'are in IT, a power user, or just someone looking to get more out of the ' +
-      'tools you already have. No deep technical background required. If you are ' +
-      'curious about Cowork and want to leave with something concrete, this is the ' +
-      'session for you.',
+      'Plenty of people have heard of Cowork. Far fewer know how to get access, ' +
+      'what it looks like once they are in, or what it can realistically do for ' +
+      'them on a Tuesday afternoon.\n\n' +
+      'This session closes that gap with demos rather than slides. Managing your ' +
+      'inbox, staying on top of meetings, working with your team, getting things ' +
+      'done inside Microsoft 365. Where it works well you will see it work well, ' +
+      'and where it does not we will say so.\n\n' +
+      'You also get two points of view, because one of us works at Microsoft and ' +
+      'the other has been putting Cowork in front of customers. The direction of ' +
+      'the product from one side, the experience of actually adopting it from the ' +
+      'other.\n\n' +
+      'You will leave knowing how to get access, what to expect the first time ' +
+      'you open it, and which handful of scenarios are worth trying straight ' +
+      'away.\n\n' +
+      'If you spend your working day in Microsoft 365, this is for you, whether ' +
+      'that is from IT, as a power user, or as somebody who suspects they are ' +
+      'getting less out of these tools than they could. You do not need a ' +
+      'technical background.',
     hall: 'e',
     tags: ['Copilot Cowork', 'Microsoft 365'],
     /* Same ground as the other Cowork talk, so it hands out the same links. */
@@ -643,18 +618,18 @@ export const talks: Talk[] = [
     summary:
       'A full day putting coding agents to work across admin, pro dev, analytics and agents.',
     abstract:
-      'Together, Dataverse and Work IQ give your AI agents a deep understanding of ' +
-      'how your business operates, grounding Copilot in the real data, processes, ' +
-      'and workflows that live in Dataverse. In this hands-on lab, you will put ' +
-      'coding agents to work across four jobs. For administration, you will ' +
-      'provision environments, security roles, and your Dataverse data model. For ' +
-      'pro development, you will build Dataverse codeful plug-ins and use developer ' +
-      'tooling to extend business logic and manage solution assets. For analytics, ' +
-      'you will query and analyze your business data. And you will build agents in ' +
-      'Copilot Studio that take advantage of Work IQ across your business ' +
-      'applications. Finally, you will see how tuning search, semantic models, and ' +
-      'business skills gives end users better results in M365 Copilot, Copilot ' +
-      'Cowork, or the custom agents they build.',
+      'Dataverse and Work IQ together give an AI agent a working picture of how ' +
+      'your business runs, based on the data and processes already sitting in ' +
+      'Dataverse. This lab puts coding agents to work on four jobs.\n\n' +
+      'On the admin side you will provision environments, security roles and a ' +
+      'Dataverse data model. On the pro dev side you will write codeful plug-ins ' +
+      'and use the developer tooling to extend business logic and manage solution ' +
+      'assets. For analytics you will query and analyse your business data. And ' +
+      'you will build agents in Copilot Studio that use Work IQ across your ' +
+      'business applications.\n\n' +
+      'The last part is the interesting one: tuning search, semantic models and ' +
+      'business skills, then watching the answers get better in M365 Copilot, ' +
+      'Copilot Cowork and whatever agents your users build for themselves.',
     hall: 'c',
     format: 'workshop',
     tags: ['Dataverse', 'Copilot Studio', 'Agents', 'Power Platform'],
@@ -671,14 +646,12 @@ export const talks: Talk[] = [
     title: 'Power Platform CLI Exposed',
     summary: 'Managing and automating the Power Platform from the command line.',
     abstract:
-      'The Power Platform Command Line Interface is an essential tool for developers ' +
-      'and IT professionals who work with the Power Platform. This session ' +
-      'demonstrates how to use the CLI to manage and automate common tasks such as ' +
-      'creating and deploying solutions, managing environments, and managing users ' +
-      'and permissions. It covers the basics of installing and setting up the CLI, ' +
-      'walks through the different command groups that are out there, and discusses ' +
-      'best practices for using the CLI in your organisation — both from an inner ' +
-      'loop and an outer loop perspective.',
+      'If you build on the Power Platform you end up living in the CLI sooner or ' +
+      'later. This session shows what it does: creating and deploying solutions, ' +
+      'managing environments, handling users and permissions. We start with ' +
+      'installing and setting it up, walk the command groups so you know what ' +
+      'exists, and get into using it sensibly in an organisation, both in your ' +
+      'inner loop and in the pipelines that come after.',
     hall: 'b',
     tags: ['Power Platform CLI', 'ALM', 'Power Platform'],
     deliveries: [
@@ -692,14 +665,15 @@ export const talks: Talk[] = [
     title: 'Optimizing Canvas Apps for maintainability, reusability, and performance',
     summary: 'Development standards for Canvas Apps that scale and stay fast.',
     abstract:
-      'A session on enhancing your Canvas Apps by focusing on best-practice ' +
-      'development for better performance, ensuring maintainability and promoting ' +
-      'reusability. Learn how to use effective techniques and tools such as YAML, ' +
-      'canvas and code components, HTML and custom connectors for building and ' +
-      'designing well-performing applications. Cathrine and Daniel showcase examples ' +
-      'from their own experience and the principles behind them, so you gain a ' +
-      'greater understanding of development standards in Power Apps that let you ' +
-      'build for scalability and avoid the common pitfalls and long loading times.',
+      'Canvas Apps get slow for predictable reasons, and they get hard to ' +
+      'maintain for predictable reasons too. Both are avoidable if you set your ' +
+      'development standards early, and we go through the ones that matter: ' +
+      'YAML, canvas and code components, HTML and ' +
+      'custom connectors, and how each one earns its place in an app that has to ' +
+      'stay quick.\n\n' +
+      'Cathrine and Daniel bring examples from their own apps, the ones that went ' +
+      'well and the ones that did not, so you can spot the pitfalls and the long ' +
+      'loading times before you build them in.',
     hall: 'c',
     tags: ['Power Apps', 'Canvas Apps', 'Performance'],
     resourceSlug: 'canvas-apps-optimization',
@@ -800,12 +774,12 @@ export const talks: Talk[] = [
     title: 'Build your own copilot with Copilot Studio',
     summary: 'Getting started fast, from extending Microsoft 365 Copilot to building your own.',
     abstract:
-      'Copilot Studio is a low-code way to extend existing copilots like Microsoft ' +
-      '365 Copilot, or to build your own from scratch. This session shows how to get ' +
-      'started quickly by building one: what Copilot Studio is and how you can use ' +
-      'it, which generative AI features are there to quickly add knowledge, how to ' +
-      'connect your copilot to external systems, and where low code genuinely helps ' +
-      'you develop faster.',
+      'Copilot Studio is a low-code way to extend a copilot you already have, ' +
+      'like Microsoft 365 Copilot, or to build your own from nothing. This ' +
+      'session builds one so you can see how quickly it goes: what Copilot Studio ' +
+      'is and how you can use it, which generative AI features let you add ' +
+      'knowledge in minutes, how to connect a copilot to external systems, and ' +
+      'where low code genuinely saves you time rather than moving the work around.',
     hall: 'd',
     tags: ['Copilot Studio', 'Low Code', 'Microsoft 365'],
     deliveries: [
@@ -822,14 +796,14 @@ export const talks: Talk[] = [
     title: '🚀 Put your APIs in the hands of millions of developers',
     summary: 'Reaching every low-code maker by shipping your API as a connector.',
     abstract:
-      'The Power Platform already ships with more than 1200 connectors, and every ' +
-      'one of them puts an API in front of millions of makers building apps and ' +
+      'The Power Platform already ships more than 1200 connectors, and every one ' +
+      'of them puts an API in front of millions of makers building apps and ' +
       'automations. This session looks at what a connector actually is, why you ' +
-      'would build a custom one for your own service, and how to go from an OpenAPI ' +
-      'definition to something people can pick from a list. It walks through the ' +
-      'build step by step, covers the difference between custom, certified and ' +
-      'independent publisher connectors, and ends with a live build of a first ' +
-      'connector.',
+      'would build one for your own service, and how to get from an OpenAPI ' +
+      'definition to something people can pick from a list. We walk the build ' +
+      'step by step, cover the difference between custom, certified and ' +
+      'independent publisher connectors, and finish by building a first one ' +
+      'live.',
     hall: 'b',
     tags: ['Custom Connectors', 'APIs', 'Power Platform'],
     slides: '/slides/20240301-DevWorld.pdf',
@@ -860,12 +834,13 @@ export const talks: Talk[] = [
     title: 'Extend the Power Platform with Custom Connectors',
     summary: 'Building, designing and publishing your own connectors.',
     abstract:
-      'Custom connectors extend the capabilities of the Power Platform with your own ' +
-      'APIs. This session provides an overview of what custom connectors are, how ' +
-      'they work, and the benefits of using them in your apps and workflows. It ' +
-      'walks through the step-by-step process of building custom connectors and ' +
-      'discusses best practices for designing and publishing them — whether you end ' +
-      'up shipping a custom, certified, or independent publisher connector.',
+      'A custom connector puts your own API into the Power Platform, where makers ' +
+      'can pick it out of a list and use it in an app or a flow without knowing ' +
+      'or caring that it is yours. We cover what custom connectors are ' +
+      'and how they work, then build one step by step, along with designing ' +
+      'and publishing them well, and the practical difference between shipping a ' +
+      'custom connector, a certified one, or going through the independent ' +
+      'publisher programme.',
     hall: 'e',
     tags: ['Custom Connectors', 'Power Platform', 'APIs'],
     resourceSlug: 'custom-connectors',
@@ -913,12 +888,12 @@ export const talks: Talk[] = [
     title: 'Build your custom agent with Microsoft Copilot Studio',
     summary: 'Taking an agent from idea to something people actually use.',
     abstract:
-      'Copilot Studio lets you build your own agent without writing much code at ' +
-      'all. This session walks through building a custom agent end to end: giving it ' +
-      'the knowledge it needs, wiring it up to the systems your organisation already ' +
-      'runs on, adding actions so it can do real work rather than only answer ' +
-      'questions, and then getting it in front of the people who will use it. Expect ' +
-      'demos rather than slides.',
+      'Copilot Studio lets you build an agent without writing much code at all. ' +
+      'This session builds a custom one end to end: giving it the knowledge it ' +
+      'needs, wiring it up to the systems your organisation already runs on, ' +
+      'adding actions so it can do real work rather than only answer questions, ' +
+      'and then getting it in front of the people who will use it. Expect demos ' +
+      'rather than slides.',
     hall: 'a',
     tags: ['Copilot Studio', 'Agents', 'Low Code'],
     deliveries: [
@@ -932,11 +907,11 @@ export const talks: Talk[] = [
     summary: 'Running the Power Platform properly, with the tooling that makes it possible.',
     abstract:
       'Administering the Power Platform is a lot more than clicking through the ' +
-      'admin centre. This session covers the essentials: the Power Platform CLI, the ' +
-      'admin connectors, the Centre of Excellence toolkit, and the tips that make ' +
-      'day-to-day environment, DLP and capacity management manageable rather than ' +
-      'painful. Aimed at admins and makers who have inherited a tenant and want to ' +
-      'get it under control.',
+      'admin centre. The essentials are the Power Platform CLI, ' +
+      'the admin connectors, the Centre of Excellence toolkit, and the tips that ' +
+      'make day-to-day environment, DLP and capacity management manageable rather ' +
+      'than painful. Aimed at admins and makers who have inherited a tenant and ' +
+      'want to get it under control.',
     hall: 'b',
     tags: ['Power Platform CLI', 'Administration', 'Governance'],
     resourceSlug: 'admin-essentials',
@@ -1058,18 +1033,21 @@ export const tagKinds: Record<string, TagKind> = {
   Performance: 'topic'
 }
 
-/** Every tag of one kind that is actually in use, in talk-count order. */
+/**
+ * Every tag of one kind that is actually in use, alphabetically.
+ *
+ * A filter menu is scanned for a word somebody already has in mind, so the
+ * order that helps is the one they can predict. Talk counts shift with every
+ * booking and would reshuffle the menu under them.
+ */
 export function tagsOfKind(kind: TagKind): string[] {
-  const counts = new Map<string, number>()
+  const used = new Set<string>()
   for (const talk of talks) {
     for (const tag of talk.tags) {
-      if (tagKinds[tag] !== kind) continue
-      counts.set(tag, (counts.get(tag) ?? 0) + 1)
+      if (tagKinds[tag] === kind) used.add(tag)
     }
   }
-  return [...counts.entries()]
-    .sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]))
-    .map(([tag]) => tag)
+  return [...used].sort((a, b) => a.localeCompare(b))
 }
 
 const talkByResource = new Map(

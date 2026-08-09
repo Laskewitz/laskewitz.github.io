@@ -1,6 +1,6 @@
 ---
 layout: false
-title: MCP vs. Connectors — session resources
+title: "MCP vs. Connectors: session resources"
 description: Links and contact details from the MCP and connectors session.
 head:
   - - meta

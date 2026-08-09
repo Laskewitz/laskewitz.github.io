@@ -1,6 +1,6 @@
 ---
 layout: false
-title: OMG MCP WTF — session resources
+title: "OMG MCP WTF: session resources"
 description: Links and contact details from the OMG MCP WTF session.
 head:
   - - meta
