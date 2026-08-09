@@ -23,7 +23,14 @@ export interface Post {
  * listed still works — it sorts alphabetically after these, which is the signal
  * to either add it here or rename it.
  */
-export const CATEGORY_ORDER = ['Copilot Cowork', 'Plugins', 'MCP']
+export const CATEGORY_ORDER = [
+  'Power Platform',
+  'Governance',
+  'Code Apps',
+  'Copilot Cowork',
+  'Plugins',
+  'MCP'
+]
 
 export function sortCategories(list: string[]): string[] {
   return [...list].sort((a, b) => {
