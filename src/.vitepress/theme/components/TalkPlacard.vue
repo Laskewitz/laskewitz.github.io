@@ -120,7 +120,7 @@ function resourceHref(delivery: { coSpeakers?: readonly string[] }) {
               class="stage-link"
               :href="event!.website"
               target="_blank"
-              rel="noreferrer"
+              rel="noopener noreferrer"
               >Website ↗</a
             >
           </span>

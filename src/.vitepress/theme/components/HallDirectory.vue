@@ -73,8 +73,8 @@ function toggleYear(year: string) {
       </ul>
 
       <p class="spot-links">
-        <a v-if="next.website" :href="next.website" target="_blank" rel="noreferrer">Website ↗</a>
-        <a v-if="next.tickets" :href="next.tickets" target="_blank" rel="noreferrer">Tickets ↗</a>
+        <a v-if="next.website" :href="next.website" target="_blank" rel="noopener noreferrer">Website ↗</a>
+        <a v-if="next.tickets" :href="next.tickets" target="_blank" rel="noopener noreferrer">Tickets ↗</a>
       </p>
     </section>
 
@@ -117,7 +117,7 @@ function toggleYear(year: string) {
           </span>
 
           <span class="links">
-            <a v-if="event.website" :href="event.website" target="_blank" rel="noreferrer">
+            <a v-if="event.website" :href="event.website" target="_blank" rel="noopener noreferrer">
               Website ↗
             </a>
             <a
@@ -125,7 +125,7 @@ function toggleYear(year: string) {
               class="is-primary"
               :href="event.tickets"
               target="_blank"
-              rel="noreferrer"
+              rel="noopener noreferrer"
               data-hall="d"
             >
               Tickets ↗
@@ -184,10 +184,10 @@ function toggleYear(year: string) {
             </span>
 
             <span class="links">
-              <a v-if="event.slides" :href="event.slides" target="_blank" rel="noreferrer">
+              <a v-if="event.slides" :href="event.slides" target="_blank" rel="noopener noreferrer">
                 Slides ↗
               </a>
-              <a v-if="event.website" :href="event.website" target="_blank" rel="noreferrer">
+              <a v-if="event.website" :href="event.website" target="_blank" rel="noopener noreferrer">
                 Website ↗
               </a>
             </span>

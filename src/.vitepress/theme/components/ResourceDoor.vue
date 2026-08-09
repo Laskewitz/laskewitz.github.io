@@ -52,7 +52,7 @@ const speakers = computed(() => billing(coSpeakerSlugs.value))
 
           <ul class="links">
             <li v-for="link in group.links" :key="link.href">
-              <a :href="link.href" target="_blank" rel="noreferrer">
+              <a :href="link.href" target="_blank" rel="noopener noreferrer">
                 <span class="link-body">
                   <span class="link-label wf-sign">{{ link.label }}</span>
                   <span v-if="link.note" class="link-note">{{ link.note }}</span>
