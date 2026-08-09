@@ -1,7 +1,7 @@
 ---
 layout: page
 title: About
-description: About Daniel Laskewitz — how to reach him, plus bios, a headshot and the speaking record for event organisers and CFP reviewers.
+description: How to reach Daniel Laskewitz, plus bios at three lengths, headshots in four sizes and the full speaking record. Written for event organisers and CFP reviewers.
 ---
 
 <AboutDesk />
