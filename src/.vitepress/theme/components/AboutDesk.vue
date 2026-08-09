@@ -44,7 +44,11 @@ const record = [
   { label: 'Talks', value: String(talks.length), href: '/talks/' }
 ]
 
-const since = firstYear()
+/**
+ * The list now goes back as far as he does, so one number covers both the
+ * career and the record.
+ */
+const speakingSince = firstYear()
 
 /**
  * Which bio was last copied, so the button can confirm it worked. An organiser
@@ -115,7 +119,7 @@ async function copy(label: string, text: string) {
         </div>
         <div>
           <dt class="wf-label">Speaking since</dt>
-          <dd class="wf-sign">{{ since }}</dd>
+          <dd class="wf-sign">{{ speakingSince }}</dd>
         </div>
       </dl>
 
@@ -129,7 +133,7 @@ async function copy(label: string, text: string) {
         <SignRow
           href="/events/"
           label="The speaking record"
-          :note="`Every event since ${since}, plus the dates still ahead.`"
+          :note="`Back to ${speakingSince}, plus the dates still ahead.`"
           hall="a"
         />
       </nav>

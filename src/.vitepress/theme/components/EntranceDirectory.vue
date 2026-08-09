@@ -29,6 +29,10 @@ withDefaults(
 )
 
 const next = computed(() => upcomingEvents()[0])
+
+/* The programme runs from the first year on the list, which is now also the
+   year he started. The tally counts what is listed, not every talk he ever
+   gave, so it says "listed". */
 const years = computed(() => `${firstYear()}—${new Date().getFullYear()}`)
 
 const directory = [
@@ -58,7 +62,7 @@ const directory = [
       <p class="wf-label">Speaking programme · {{ years }}</p>
       <p class="tally wf-sign">
         <span class="tally-figure">{{ eventCount() }}</span>
-        <span class="tally-word">events</span>
+        <span class="tally-word">events listed</span>
       </p>
       <p class="tally-sub wf-sign">
         {{ countryCount() }} countries · {{ talks.length }} talks
