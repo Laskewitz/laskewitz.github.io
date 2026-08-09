@@ -13,7 +13,7 @@
  */
 import { ref } from 'vue'
 import { bios, headshots } from '../../data/bio'
-import { countryCount, eventCount, firstYear } from '../../data/events'
+import { countryCount, eventCount, firstYear, SPEAKING_SINCE } from '../../data/events'
 import { speakers } from '../../data/speakers'
 import { talks } from '../../data/talks'
 import SignRow from './SignRow.vue'
@@ -44,7 +44,12 @@ const record = [
   { label: 'Talks', value: String(talks.length), href: '/talks/' }
 ]
 
-const since = firstYear()
+/**
+ * Two different years, deliberately. The stat is when he started; the note on
+ * the record row is how far back the list goes. Using one number for both
+ * would either understate the career or overstate the listing.
+ */
+const listedFrom = firstYear()
 
 /**
  * Which bio was last copied, so the button can confirm it worked. An organiser
@@ -115,7 +120,7 @@ async function copy(label: string, text: string) {
         </div>
         <div>
           <dt class="wf-label">Speaking since</dt>
-          <dd class="wf-sign">{{ since }}</dd>
+          <dd class="wf-sign">{{ SPEAKING_SINCE }}</dd>
         </div>
       </dl>
 
@@ -129,7 +134,7 @@ async function copy(label: string, text: string) {
         <SignRow
           href="/events/"
           label="The speaking record"
-          :note="`Every event since ${since}, plus the dates still ahead.`"
+          :note="`Every event listed since ${listedFrom}, plus the dates still ahead.`"
           hall="a"
         />
       </nav>

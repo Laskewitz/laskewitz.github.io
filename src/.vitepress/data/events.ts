@@ -1009,6 +1009,15 @@ export function eventCount(): number {
   return events.length
 }
 
+/**
+ * The year he started speaking, which is not the same thing as the first year
+ * in this list. The record here begins in 2021; the stage did not. This is a
+ * fact about the person, so it is stated rather than derived, and anything
+ * describing the *listing* should use firstYear() instead.
+ */
+export const SPEAKING_SINCE = 2015
+
+/** The earliest year this list actually covers. Describes the data, not him. */
 export function firstYear(): number {
   return events.reduce(
     (min, e) => Math.min(min, Number(e.start.slice(0, 4))),

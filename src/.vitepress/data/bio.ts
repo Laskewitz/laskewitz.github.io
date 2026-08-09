@@ -49,7 +49,7 @@ export const bios: Bio[] = [
       'On stage he talks about getting an agent past the demo. Wiring it to real systems ' +
       'with MCP, working out when a plain connector is the better answer, and the part ' +
       'nobody puts in a keynote: making the thing safe to hand to somebody else. He has ' +
-      'been speaking since 2021, often with a co-speaker.'
+      'been speaking since 2015, often with a co-speaker.'
   }
 ]
 
