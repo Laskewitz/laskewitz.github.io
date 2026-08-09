@@ -552,8 +552,6 @@ export const talks: Talk[] = [
     hall: 'a',
     format: 'workshop',
     tags: ['Copilot Studio', 'Agents', 'MCP'],
-    slides:
-      'https://assetsmanagement952e.blob.core.windows.net/assets/WRK532%20Building%20agentic%20solutions%20with%20Copilot%20Studio/WRK532_Presentation_V1.0.pptx',
     resourceSlug: 'agentic-solutions-copilot-studio',
     resources: [
       {
