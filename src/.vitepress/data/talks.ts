@@ -817,6 +817,44 @@ export const talks: Talk[] = [
     ]
   },
   {
+    slug: 'apis-in-the-hands-of-millions',
+    title: 'Put your APIs in the hands of millions of developers',
+    summary: 'Reaching every low-code maker by shipping your API as a connector.',
+    abstract:
+      'The Power Platform already ships with more than 1200 connectors, and every ' +
+      'one of them puts an API in front of millions of makers building apps and ' +
+      'automations. This session looks at what a connector actually is, why you ' +
+      'would build a custom one for your own service, and how to go from an OpenAPI ' +
+      'definition to something people can pick from a list. It walks through the ' +
+      'build step by step, covers the difference between custom, certified and ' +
+      'independent publisher connectors, and ends with a live build of a first ' +
+      'connector.',
+    hall: 'b',
+    tags: ['Custom Connectors', 'APIs', 'Power Platform'],
+    slides: '/slides/20240301-DevWorld.pdf',
+    resourceSlug: 'apis-in-the-hands-of-millions',
+    resources: [
+      {
+        title: 'Get started',
+        links: [
+          { label: 'Developer environment', href: 'https://aka.ms/pp/get-started' },
+          { label: 'Custom connectors documentation', href: 'https://aka.ms/cc/learn' }
+        ]
+      },
+      {
+        title: 'Build and publish',
+        links: [
+          { label: 'Get your connector certified', href: 'https://aka.ms/cc/certification' },
+          { label: 'Connectors GitHub repository', href: 'https://aka.ms/cc/github' },
+          { label: 'Extend an OpenAPI definition', href: 'https://aka.ms/cc/extend-openAPI' },
+          { label: 'Connector coding standards', href: 'https://aka.ms/cc/coding-standards' },
+          { label: 'Power Platform CLI', href: 'https://aka.ms/powerplatformcli' }
+        ]
+      }
+    ],
+    deliveries: [{ eventSlug: 'devworld-2024' }]
+  },
+  {
     slug: 'custom-connectors',
     title: 'Extend the Power Platform with Custom Connectors',
     summary: 'Building, designing and publishing your own connectors.',
