@@ -73,7 +73,7 @@ function resourceHref(delivery: { coSpeakers?: readonly string[] }) {
     <section class="stages wf-gutter">
       <p v-if="!deliveries.length" class="section-heading wf-sign">Past</p>
       <p v-if="!deliveries.length" class="empty">
-        Not on a stage yet — or the record hasn't caught up. Ask me about it.
+        Not on a stage yet, or the record hasn't caught up. Ask me about it.
       </p>
 
       <template v-for="section in stageSections" :key="section.key">

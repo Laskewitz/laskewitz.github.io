@@ -81,8 +81,6 @@ export default defineConfig({
       { icon: 'x', link: 'https://x.com/laskewitz' }
     ],
 
-    search: { provider: 'local' },
-
     footer: {
       message:
         'Personal site. Opinions are mine. <a href="/privacy/">Privacy</a> · <a href="/terms/">Terms</a> · <a href="/feed.xml">RSS</a>',

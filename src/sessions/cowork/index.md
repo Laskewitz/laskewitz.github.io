@@ -1,6 +1,6 @@
 ---
 layout: false
-title: Moved — Copilot Cowork resources
+title: "Moved: Copilot Cowork resources"
 description: These session resources now live at /r/cowork.
 head:
   - - meta

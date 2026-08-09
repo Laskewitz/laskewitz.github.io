@@ -177,7 +177,7 @@ function hallFor(relativePath: string): Hall {
  */
 function trimTitle(title: string): string {
   return title
-    .replace(/\s*[—-]\s*session resources$/i, '')
+    .replace(/\s*[:—-]\s*(session|workshop) resources$/i, '')
     .replace(/\s*\|\s*Daniel Laskewitz$/i, '')
     .trim()
 }

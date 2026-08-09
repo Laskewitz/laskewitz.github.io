@@ -1,6 +1,6 @@
 ---
 layout: false
-title: Beyond Shipping — session resources
+title: "Beyond Shipping: session resources"
 description: Links and contact details from the Beyond Shipping session.
 head:
   - - meta

@@ -1,6 +1,6 @@
 ---
 layout: false
-title: Declarative Agents — session resources
+title: "Declarative Agents: session resources"
 description: Links and contact details from the Building Declarative Agents session.
 head:
   - - meta
