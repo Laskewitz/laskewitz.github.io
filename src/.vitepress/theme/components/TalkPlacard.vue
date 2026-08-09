@@ -3,7 +3,7 @@
 import { computed } from 'vue'
 import { getTalk, formatLabel } from '../../data/talks'
 import { getEvent, isUpcoming, hasStarted } from '../../data/events'
-import { billing } from '../../data/speakers'
+import { coSpeakerNames } from '../../data/speakers'
 import { eventPlace, flag, formatEventDate } from '../../data/format'
 import SignRow from './SignRow.vue'
 
@@ -91,12 +91,7 @@ function resourceHref(delivery: { coSpeakers?: readonly string[] }) {
 
             <span v-if="delivery.coSpeakers?.length" class="with wf-sign">
               <span class="with-word">With</span>
-              <span class="with-name">{{
-                billing(delivery.coSpeakers)
-                  .filter((s) => s.slug !== 'laskewitz')
-                  .map((s) => s.name)
-                  .join(' and ')
-              }}</span>
+              <span class="with-name">{{ coSpeakerNames(delivery.coSpeakers) }}</span>
             </span>
 
             <span class="place">
