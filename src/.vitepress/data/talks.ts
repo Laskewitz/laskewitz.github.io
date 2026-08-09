@@ -535,6 +535,67 @@ export const talks: Talk[] = [
     deliveries: [{ eventSlug: 'scottish-summit-2026' }]
   },
   {
+    slug: 'agentic-solutions-copilot-studio',
+    title: 'Building Agentic Solutions with Copilot Studio',
+    summary:
+      'A 75-minute hands-on build of an agent, from first topic to Agent Flows and MCP.',
+    abstract:
+      'This 75-minute hands-on workshop with Microsoft Copilot Studio guides you ' +
+      'through building agentic solutions with Copilot Studio. You will learn how ' +
+      'to build, integrate, automate, and deploy a fully functional agent using ' +
+      'tools like Agent Flows and MCP. You will walk away with practical skills to ' +
+      'customise agents for real-world business needs.\n\n' +
+      'By the end of the session you will be able to create an agent from scratch ' +
+      'in Copilot Studio, know when and how to bring in Agent Flows, understand ' +
+      'what MCP is and how to connect MCP servers to your agent, and see how to ' +
+      'test and deploy the result.',
+    hall: 'a',
+    format: 'workshop',
+    tags: ['Copilot Studio', 'Agents', 'MCP'],
+    slides:
+      'https://assetsmanagement952e.blob.core.windows.net/assets/WRK532%20Building%20agentic%20solutions%20with%20Copilot%20Studio/WRK532_Presentation_V1.0.pptx',
+    resourceSlug: 'agentic-solutions-copilot-studio',
+    resources: [
+      {
+        title: 'Workshop',
+        links: [
+          {
+            label: 'Workshop repository',
+            href: 'https://github.com/microsoft/aitour26-WRK532-building-agentic-solutions-with-copilot-studio'
+          },
+          {
+            label: 'Session recording',
+            href: 'https://youtu.be/emavMkhFPew'
+          }
+        ]
+      },
+      {
+        title: 'Keep learning',
+        links: [
+          {
+            label: 'AI Tour Copilot Studio resources',
+            href: 'https://adoption.microsoft.com/en-us/microsoft-ai-tour-resources/copilot-studio/'
+          },
+          {
+            label: 'Get started with Copilot Studio',
+            href: 'https://aka.ms/copilotstudio-getstarted'
+          },
+          {
+            label: 'AI Tour 2026 Resource Center',
+            href: 'https://aka.ms/AITour26-Resource-Center'
+          },
+          { label: 'Learn at AI Tour', href: 'https://aka.ms/LearnAtAITour' }
+        ]
+      }
+    ],
+    deliveries: [
+      { eventSlug: 'ai-tour-zurich-2026' },
+      { eventSlug: 'ai-tour-utrecht-2026' },
+      { eventSlug: 'ai-tour-paris-2026' },
+      { eventSlug: 'ai-tour-london-2026' }
+    ]
+  },
+  {
     slug: 'cowork-in-action',
     title:
       'Copilot Cowork in Action: What It Is, How to Get It & What You Can Do With It',
