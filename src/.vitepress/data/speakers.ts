@@ -75,6 +75,7 @@ export const speakers: Record<string, Speaker> = {
     company: 'Microsoft',
     photo: '/images/speakers/aprildunnam-256.jpg',
     links: [
+      { label: 'Website', href: 'https://aprildunnam.com/' },
       { label: 'LinkedIn', href: 'https://linkedin.com/in/aprildunnam' },
       { label: 'GitHub', href: 'https://github.com/aprildunnam' },
       { label: 'YouTube', href: 'https://youtube.com/@aprildunnam' }
