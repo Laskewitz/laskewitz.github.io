@@ -50,8 +50,10 @@ export const speakers: Record<string, Speaker> = {
     company: 'Blis Digital',
     photo: '/images/speakers/appieschot-256.jpg',
     links: [
+      { label: 'Website', href: 'https://www.cloudappie.nl/' },
       { label: 'LinkedIn', href: 'https://www.linkedin.com/in/albertjanschot/' },
-      { label: 'GitHub', href: 'https://github.com/appieschot' }
+      { label: 'GitHub', href: 'https://github.com/appieschot' },
+      { label: 'X', href: 'https://x.com/appieschot' }
     ]
   },
   mnecker: {
