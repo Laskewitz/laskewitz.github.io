@@ -46,6 +46,11 @@ withDefaults(
           v-if="speaker.photo"
           class="portrait"
           :src="speaker.photo"
+          :srcset="
+            speaker.photo2x
+              ? `${speaker.photo} 1x, ${speaker.photo2x} 2x`
+              : undefined
+          "
           :alt="speaker.name"
           width="256"
           height="256"

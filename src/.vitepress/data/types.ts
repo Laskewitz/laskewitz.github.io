@@ -22,6 +22,12 @@ export interface Speaker {
   role?: string
   company?: string
   photo?: string
+  /**
+   * A 2× version of the same crop, when one exists. The plate paints the
+   * portrait at 112px, so a 256px file is already soft on a retina screen and
+   * visibly broken at 3×.
+   */
+  photo2x?: string
   links: SpeakerLink[]
 }
 

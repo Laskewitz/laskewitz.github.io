@@ -12,7 +12,7 @@
  * that opens a mail client is worse than a link that says where it goes.
  */
 import { ref } from 'vue'
-import { bios, headshot } from '../../data/bio'
+import { bios, headshots } from '../../data/bio'
 import { countryCount, eventCount, firstYear } from '../../data/events'
 import { speakers } from '../../data/speakers'
 import { talks } from '../../data/talks'
@@ -25,9 +25,9 @@ const host = speakers.laskewitz
  * an organiser guess which one gets answered, so the desk says it outright.
  */
 const CHANNEL_NOTES: Record<string, string> = {
-  LinkedIn: 'The best way to reach me. Messages are open — say which event and which date.',
-  GitHub: 'Code, samples and the demos from my sessions.',
-  X: 'Shorter thoughts, and where conference chatter tends to happen.',
+  LinkedIn: 'The best way to reach me. Messages are open, so send the event and the date.',
+  GitHub: 'Code and the demos from my sessions.',
+  X: 'Shorter thoughts, and where the conference chatter usually is.',
   YouTube: 'Recorded sessions and walkthroughs.'
 }
 
@@ -74,9 +74,10 @@ async function copy(label: string, text: string) {
     <header class="masthead wf-gutter" data-hall="e">
       <h1 class="title wf-sign">About</h1>
       <p class="standfirst">
-        Principal Cloud Advocate at Microsoft, speaking about agents, low-code
-        and the Power Platform. Booking a speaker, running a CFP, or want a
-        session at your user group? Everything you need is on this page.
+        Principal Cloud Advocate at Microsoft. I work on Copilot Studio,
+        Copilot Cowork, Scout, GitHub Copilot and Microsoft 365 Copilot. If you
+        run an event or a user group, or you have one of my submissions in front
+        of you, everything you would normally email me for is on this page.
       </p>
     </header>
 
@@ -102,10 +103,9 @@ async function copy(label: string, text: string) {
       </h2>
 
       <p class="wf-read prose">
-        Talks are recurring, not one-offs — each one gets given at several
-        events and rewritten in between, so the abstract you read is the current
-        version. Every talk page lists every stage it has been on and who was on
-        it with me.
+        Most of these talks get given more than once, and rewritten in between,
+        so the abstract you are reading is the current one. Each talk page lists
+        the stages it has been on and who was up there with me.
       </p>
 
       <dl class="record">
@@ -123,24 +123,24 @@ async function copy(label: string, text: string) {
         <SignRow
           href="/talks/"
           label="The talks"
-          note="Abstracts, formats and tags for everything currently in rotation."
+          note="Abstracts and formats for everything currently in rotation."
           hall="b"
         />
         <SignRow
           href="/events/"
           label="The speaking record"
-          :note="`Every event since ${since}, and the dates still ahead.`"
+          :note="`Every event since ${since}, plus the dates still ahead.`"
           hall="a"
         />
       </nav>
     </section>
 
     <section class="block wf-gutter" aria-labelledby="press-heading">
-      <h2 id="press-heading" class="block-heading wf-sign">Bio and headshot</h2>
+      <h2 id="press-heading" class="block-heading wf-sign">Bio and headshots</h2>
 
       <p class="wf-read prose">
-        Written to be pasted straight into a programme or a session listing.
-        Pick the length that fits and use it as it is.
+        These are written to be pasted straight into a programme or a session
+        listing. Pick the length that fits and use it as it is.
       </p>
 
       <ul class="bios">
@@ -165,12 +165,19 @@ async function copy(label: string, text: string) {
         </li>
       </ul>
 
+      <p class="wf-read prose asset-note">
+        One photograph in four sizes, the same crop each time. Take the biggest
+        one your programme will take.
+      </p>
+
       <nav class="rows" aria-label="Assets">
         <SignRow
-          :href="headshot.href"
-          label="Headshot"
-          :note="headshot.note"
-          hall="d"
+          v-for="(shot, i) in headshots"
+          :key="shot.href"
+          :href="shot.href"
+          :label="shot.label"
+          :note="shot.note"
+          :hall="i === 0 ? 'd' : undefined"
           external
         />
       </nav>
@@ -231,6 +238,12 @@ async function copy(label: string, text: string) {
 
 .rows {
   border-top: 1px solid var(--wf-ink-rule);
+}
+
+/* Sits directly above the asset rows, so it closes up against them rather
+   than floating at prose distance. */
+.asset-note {
+  margin-bottom: var(--wf-gap-m);
 }
 
 .rows :deep(.sign-row) {

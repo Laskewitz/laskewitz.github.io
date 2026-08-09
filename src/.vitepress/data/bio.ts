@@ -22,39 +22,73 @@ export interface Bio {
 export const bios: Bio[] = [
   {
     label: 'One line',
-    length: '15 words',
-    text: 'Daniel Laskewitz is a Principal Cloud Advocate at Microsoft, working on Copilot Studio and the Power Platform.'
+    length: '20 words',
+    text:
+      'Daniel Laskewitz is a Principal Cloud Advocate at Microsoft. He builds agents with ' +
+      'Copilot Studio, GitHub Copilot and Microsoft 365 Copilot.'
   },
   {
     label: 'Short',
     length: '50 words',
     text:
-      'Daniel Laskewitz is a Principal Cloud Advocate at Microsoft, where he works on ' +
-      'Copilot Studio and the Power Platform. He speaks at conferences and user groups ' +
-      'across Europe and beyond about building agents, connecting them to real systems ' +
-      'with MCP, and getting low-code solutions into production and keeping them there.'
+      'Daniel Laskewitz is a Principal Cloud Advocate at Microsoft. Most of his week goes ' +
+      'into Copilot Studio, Copilot Cowork, Scout, GitHub Copilot and Microsoft 365 ' +
+      'Copilot. The rest of it he spends on stage at conferences and user groups around ' +
+      'Europe, where the demos run live and the broken bits stay in.'
   },
   {
     label: 'Long',
-    length: '100 words',
+    length: '110 words',
     text:
-      'Daniel Laskewitz is a Principal Cloud Advocate at Microsoft, where he works on ' +
-      'Copilot Studio and the Power Platform. He spends his time with the people ' +
-      'actually building on the platform — in sessions, in workshops, and in the ' +
-      'community — and brings what he hears there back to the product teams.\n\n' +
-      'On stage he covers building and shipping agents, the Model Context Protocol and ' +
-      'how it differs from connectors, and the unglamorous side of low-code: making ' +
-      'solutions maintainable, governable and fit to hand to someone else. He has ' +
-      'spoken at conferences and community days across Europe and beyond since 2022, ' +
-      'often alongside a co-speaker.'
+      'Daniel Laskewitz is a Principal Cloud Advocate at Microsoft. Half of his week ' +
+      'goes into Copilot Studio, Copilot Cowork, Scout, GitHub Copilot and ' +
+      'Microsoft 365 Copilot, usually with something unfinished open on screen. The ' +
+      'other half he spends with the people building the same things, in sessions and ' +
+      'workshops and in the community, and what they tell him goes back to the product ' +
+      'teams.\n\n' +
+      'On stage he talks about getting an agent past the demo. Wiring it to real systems ' +
+      'with MCP, working out when a plain connector is the better answer, and the part ' +
+      'nobody puts in a keynote: making the thing safe to hand to somebody else. He has ' +
+      'been speaking since 2021, often with a co-speaker.'
   }
 ]
 
 /**
- * The headshot an organiser can actually use. Named with its dimensions
- * because a programme has a minimum and guessing wastes an email.
+ * The headshot an organiser can actually use.
+ *
+ * One photograph, four sizes. A programme has a minimum and a print deadline,
+ * so the sizes are handed over rather than requested: the small one for a
+ * session listing, the large one for a printed backdrop. Named with their
+ * dimensions because guessing wastes an email.
  */
-export const headshot = {
-  href: '/images/speakers/laskewitz-256.jpg',
-  note: 'JPEG · 256 × 256'
+export interface Headshot {
+  href: string
+  label: string
+  note: string
 }
+
+export const headshots: Headshot[] = [
+  {
+    href: '/images/speakers/laskewitz-2048.jpg',
+    label: 'Print headshot',
+    note: 'JPEG · 2048 × 2048 · 341 KB'
+  },
+  {
+    href: '/images/speakers/laskewitz-1024.jpg',
+    label: 'Large headshot',
+    note: 'JPEG · 1024 × 1024 · 101 KB'
+  },
+  {
+    href: '/images/speakers/laskewitz-512.jpg',
+    label: 'Web headshot',
+    note: 'JPEG · 512 × 512 · 42 KB'
+  },
+  {
+    href: '/images/speakers/laskewitz-256.jpg',
+    label: 'Thumbnail headshot',
+    note: 'JPEG · 256 × 256 · 15 KB'
+  }
+]
+
+/** The one to reach for when only a single file is wanted. */
+export const headshot = headshots[1]

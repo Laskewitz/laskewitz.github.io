@@ -14,6 +14,7 @@ export const speakers: Record<string, Speaker> = {
     role: 'Principal Cloud Advocate',
     company: 'Microsoft',
     photo: '/images/speakers/laskewitz-256.jpg',
+    photo2x: '/images/speakers/laskewitz-512.jpg',
     links: [
       { label: 'Website', href: 'https://laskewitz.io' },
       { label: 'LinkedIn', href: 'https://www.linkedin.com/in/laskewitz' },
