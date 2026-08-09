@@ -133,6 +133,7 @@ export const speakers: Record<string, Speaker> = {
     name: 'Melissa Hale',
     role: 'Power Platform Consultant',
     company: 'Kerv',
+    photo: '/images/speakers/melissahale-256.jpg',
     links: [
       { label: 'LinkedIn', href: 'https://www.linkedin.com/in/melissa-stephanie-hale/' }
     ]
