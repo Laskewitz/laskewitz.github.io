@@ -1,6 +1,6 @@
 ---
 layout: page
-title: 'Agent Academy Live! Workshop'
+title: 'Agent Academy Live!'
 description: A hands-on day building agents in Copilot Studio, from first topic to production.
 ---
 

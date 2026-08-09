@@ -1,7 +1,7 @@
 <script setup lang="ts">
 /** The placard index — one plate per talk in rotation. */
 import { computed, ref } from 'vue'
-import { talks, tagsOfKind } from '../../data/talks'
+import { talks, tagsOfKind, formatLabel } from '../../data/talks'
 import { getEvent } from '../../data/events'
 import FilterBar from './FilterBar.vue'
 import PageBanner from './PageBanner.vue'
@@ -29,13 +29,21 @@ const ordered = computed(() =>
 const products = tagsOfKind('product')
 const topics = tagsOfKind('topic')
 
+/* Only offered when the programme actually holds both kinds of room; a filter
+   that can only ever return everything is noise on the bar. */
+const formats = computed(() => {
+  const used = new Set(talks.map(formatLabel))
+  return used.size > 1 ? ['Session', 'Workshop'].filter((f) => used.has(f)) : []
+})
+
 const query = ref('')
 const picked = ref<string[]>([])
 
-const facets = [
+const facets = computed(() => [
+  { name: 'Format', options: formats.value },
   { name: 'Product', options: products },
   { name: 'Topic', options: topics }
-]
+])
 
 function clear() {
   query.value = ''
@@ -45,7 +53,8 @@ function clear() {
 /**
  * Tags are OR'd within a facet and AND'd across them, so picking two products
  * widens while picking a product and a topic narrows — the behaviour a filter
- * bar is expected to have. Search covers the words a visitor is likely to
+ * bar is expected to have. Format works the same way, matching the word on the
+ * plate rather than a tag. Search covers the words a visitor is likely to
  * remember, including the summary, which the placard itself no longer prints.
  */
 const shown = computed(() => {
@@ -53,12 +62,15 @@ const shown = computed(() => {
   const wanted = (kind: string[]) => picked.value.filter((t) => kind.includes(t))
 
   return ordered.value.filter((talk) => {
+    const wantedFormats = wanted(formats.value)
+    if (wantedFormats.length && !wantedFormats.includes(formatLabel(talk))) return false
+
     for (const facet of [products, topics]) {
       const need = wanted(facet)
       if (need.length && !need.some((t) => talk.tags.includes(t))) return false
     }
     if (!q) return true
-    return [talk.title, talk.summary, talk.abstract, ...talk.tags]
+    return [talk.title, talk.summary, talk.abstract, formatLabel(talk), ...talk.tags]
       .join(' ')
       .toLowerCase()
       .includes(q)
@@ -104,7 +116,9 @@ const shown = computed(() => {
 
         <span class="title-cell">
           <span class="talk-title wf-sign">{{ talk.title }}</span>
-          <span v-if="talk.format === 'workshop'" class="format">Workshop</span>
+          <span class="format" :data-format="talk.format ?? 'session'">{{
+            formatLabel(talk)
+          }}</span>
         </span>
 
         <span class="arrow" aria-hidden="true">→</span>
@@ -184,9 +198,9 @@ const shown = computed(() => {
   hyphens: auto;
 }
 
-/* A workshop runs for hours and is hands-on, so it gets a marker the eye can
-   catch while scanning. A breakout is the norm and stays unmarked rather than
-   every plate carrying a badge that says nothing. */
+/* Every plate says what you are walking into. A session is the norm and stays
+   quiet; a workshop is hours and hands-on, so it carries the brighter ink and
+   is still the thing the eye catches while scanning. */
 .format {
   padding: 2px 8px;
   border: 1px solid var(--wf-ink-rule);
@@ -196,6 +210,11 @@ const shown = computed(() => {
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--wf-optic-dim);
+}
+
+.format[data-format='workshop'] {
+  border-color: var(--wf-optic);
+  color: var(--wf-optic);
 }
 
 .arrow {

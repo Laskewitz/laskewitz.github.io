@@ -514,7 +514,7 @@ export const talks: Talk[] = [
   },
   {
     slug: 'agent-academy-live',
-    title: 'Agent Academy Live! Workshop',
+    title: 'Agent Academy Live!',
     summary:
       'A hands-on day building agents in Copilot Studio, from first topic to production.',
     abstract:
@@ -995,6 +995,14 @@ export function getTalkByResource(resourceSlug: string): Talk | undefined {
 
 export function talkCount(): number {
   return talks.length
+}
+
+/**
+ * The word on the plate. A talk without an explicit format is a session, which
+ * is the common case, so the data stays quiet and the label is still printed.
+ */
+export function formatLabel(talk: Talk): string {
+  return talk.format === 'workshop' ? 'Workshop' : 'Session'
 }
 
 /** Every talk given at a particular event, for the hall directory. */

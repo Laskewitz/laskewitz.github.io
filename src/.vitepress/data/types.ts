@@ -69,11 +69,11 @@ export interface Talk {
   abstract: string
   hall: Hall
   /**
-   * How the room is run. A breakout is the default and stays unmarked; a
-   * workshop is hours rather than minutes and hands-on, so it is called out
-   * wherever the talk appears rather than left for the abstract to reveal.
+   * How the room is run. Every talk carries its format so the plate says what
+   * you are walking into; a workshop is hours and hands-on rather than a
+   * breakout, so it is marked more strongly than a session.
    */
-  format?: 'workshop'
+  format?: 'session' | 'workshop'
   tags: string[]
   slides?: string
   /** Present when the talk has a QR-code resource door at /r/<slug>. */
