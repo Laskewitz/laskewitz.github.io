@@ -100,6 +100,20 @@ function toggleYear(year: string) {
               }}</span>
               {{ eventPlace(event) }}
             </span>
+            <span v-if="talksAtEvent(event.slug).length" class="gave">
+              <span class="gave-label wf-label">
+                {{ talksAtEvent(event.slug).length === 1 ? 'Session' : 'Sessions' }}
+              </span>
+              <ul class="gave-list">
+                <li
+                  v-for="talk in talksAtEvent(event.slug)"
+                  :key="talk.slug"
+                  :data-hall="talk.hall"
+                >
+                  <a :href="`/talks/${talk.slug}`">{{ talk.title }}</a>
+                </li>
+              </ul>
+            </span>
           </span>
 
           <span class="links">

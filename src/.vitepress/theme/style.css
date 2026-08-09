@@ -184,6 +184,9 @@ html:not(.dark) {
 html {
   background: var(--wf-ink);
   scroll-behavior: smooth;
+  /* Short pages and long pages get the same gutter, so the signage doesn't
+     shift sideways when navigating between them. */
+  scrollbar-gutter: stable;
 }
 
 body {
