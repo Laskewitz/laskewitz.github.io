@@ -78,6 +78,7 @@ export const speakers: Record<string, Speaker> = {
       { label: 'Website', href: 'https://aprildunnam.com/' },
       { label: 'LinkedIn', href: 'https://linkedin.com/in/aprildunnam' },
       { label: 'GitHub', href: 'https://github.com/aprildunnam' },
+      { label: 'X', href: 'https://x.com/aprildunnam' },
       { label: 'YouTube', href: 'https://youtube.com/@aprildunnam' }
     ]
   },
