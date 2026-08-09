@@ -1224,6 +1224,14 @@ export function isUpcoming(event: EventRecord, now: Date = new Date()): boolean 
   return last.getTime() >= now.getTime()
 }
 
+/**
+ * True once the event's first day has begun. Handouts are for people in the
+ * room, so nothing should link to them weeks before the doors open.
+ */
+export function hasStarted(event: EventRecord, now: Date = new Date()): boolean {
+  return new Date(`${event.start}T00:00:00`).getTime() <= now.getTime()
+}
+
 export function upcomingEvents(now: Date = new Date()): EventRecord[] {
   return events
     .filter((e) => isUpcoming(e, now))
