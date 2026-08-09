@@ -195,3 +195,16 @@ export function billing(coSpeakerSlugs: readonly string[] = []): Speaker[] {
   const others = resolveSpeakers(coSpeakerSlugs).filter((s) => s.slug !== HOST_SLUG)
   return [speakers[HOST_SLUG], ...others]
 }
+
+/**
+ * Everyone on stage besides the host, written the way it would be said:
+ * "Kent", "Kent and Rohith", "Nathan, Kent and Rohith".
+ */
+export function coSpeakerNames(coSpeakerSlugs: readonly string[] = []): string {
+  const names = billing(coSpeakerSlugs)
+    .filter((s) => s.slug !== HOST_SLUG)
+    .map((s) => s.name)
+
+  if (names.length < 2) return names[0] ?? ''
+  return `${names.slice(0, -1).join(', ')} and ${names[names.length - 1]}`
+}
