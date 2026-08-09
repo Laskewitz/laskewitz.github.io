@@ -459,7 +459,6 @@ export const talks: Talk[] = [
     resourcesFrom: 'mcp',
     defaultCoSpeakers: ['mnecker'],
     deliveries: [
-      { eventSlug: 'espc-2026', coSpeakers: ['mnecker'] },
       { eventSlug: 'ppcc-2026', coSpeakers: ['mnecker'] },
       { eventSlug: 'scottish-summit-2026', coSpeakers: ['mnecker'] },
       { eventSlug: 'eppc-2026', coSpeakers: ['mnecker'] },
