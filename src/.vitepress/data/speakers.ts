@@ -135,7 +135,8 @@ export const speakers: Record<string, Speaker> = {
     company: 'Kerv',
     photo: '/images/speakers/melissahale-256.jpg',
     links: [
-      { label: 'LinkedIn', href: 'https://www.linkedin.com/in/melissa-stephanie-hale/' }
+      { label: 'LinkedIn', href: 'https://www.linkedin.com/in/melissa-stephanie-hale/' },
+      { label: 'GitHub', href: 'https://github.com/Mello245' }
     ]
   },
   nathanhelgren: {
