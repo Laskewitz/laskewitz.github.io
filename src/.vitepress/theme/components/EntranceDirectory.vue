@@ -16,7 +16,6 @@ import {
   countryCount,
   eventCount,
   firstYear,
-  SPEAKING_SINCE,
   upcomingEvents
 } from '../../data/events'
 import { talks } from '../../data/talks'
@@ -31,11 +30,10 @@ withDefaults(
 
 const next = computed(() => upcomingEvents()[0])
 
-/* The programme runs from the year he started, not from the year this list
-   happens to begin. The tally underneath counts what is listed, which is why
-   it says "listed" rather than presenting itself as the whole career. */
-const years = computed(() => `${SPEAKING_SINCE}—${new Date().getFullYear()}`)
-const listedFrom = computed(() => firstYear())
+/* The programme runs from the first year on the list, which is now also the
+   year he started. The tally counts what is listed, not every talk he ever
+   gave, so it says "listed". */
+const years = computed(() => `${firstYear()}—${new Date().getFullYear()}`)
 
 const directory = [
   { href: '/events/', label: 'Events', hall: 'a' as const },
@@ -67,8 +65,7 @@ const directory = [
         <span class="tally-word">events listed</span>
       </p>
       <p class="tally-sub wf-sign">
-        {{ countryCount() }} countries · {{ talks.length }} talks · from
-        {{ listedFrom }}
+        {{ countryCount() }} countries · {{ talks.length }} talks
       </p>
     </header>
 

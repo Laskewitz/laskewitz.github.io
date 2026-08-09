@@ -970,6 +970,242 @@ export const events: EventRecord[] = [
     country: 'ZZ',
     countryName: 'Online',
     website: 'https://www.collabdays.org/2021-benl'
+  },
+
+  // ── 2019 ────────────────────────────────────────────────────────────────────
+  {
+    slug: 'ignite-the-tour-paris-2019',
+    name: 'Microsoft Ignite The Tour',
+    start: '2019-11-13',
+    city: 'Paris',
+    country: 'FR',
+    countryName: 'France'
+  },
+  {
+    slug: 'sogeti-gouvieux-2019',
+    name: 'Sogeti Gouvieux',
+    start: '2019-11-02',
+    city: 'Vianen',
+    country: 'NL',
+    countryName: 'The Netherlands'
+  },
+  {
+    slug: 'power-saturday-2019',
+    name: 'Power Saturday',
+    start: '2019-06-15',
+    city: 'Paris',
+    country: 'FR',
+    countryName: 'France'
+  },
+  {
+    slug: 'd365-saturday-dubai-2019',
+    name: 'D365 Saturday Dubai',
+    start: '2019-04-13',
+    city: 'Dubai',
+    country: 'AE',
+    countryName: 'United Arab Emirates'
+  },
+  {
+    slug: 'sharepoint-saturday-warsaw-2019',
+    name: 'SharePoint Saturday Warsaw',
+    start: '2019-04-06',
+    city: 'Warsaw',
+    country: 'PL',
+    countryName: 'Poland'
+  },
+  {
+    slug: 'dutch-power-apps-flow-user-group-2019',
+    name: 'Dutch Power Apps & Flow User Group',
+    start: '2019-04-02',
+    city: 'Amsterdam',
+    country: 'NL',
+    countryName: 'The Netherlands'
+  },
+  {
+    slug: 'd365-saturday-munich-2019',
+    name: 'D365 Saturday Munich',
+    start: '2019-03-09',
+    city: 'Munich',
+    country: 'DE',
+    countryName: 'Germany'
+  },
+  {
+    slug: 'd365-saturday-london-2019',
+    name: 'Dynamics 365 Saturday London',
+    start: '2019-01-19',
+    city: 'London',
+    country: 'GB-ENG',
+    countryName: 'United Kingdom'
+  },
+
+  // ── 2018 ────────────────────────────────────────────────────────────────────
+  {
+    slug: 'd365-saturday-belgium-2018',
+    name: 'D365 Saturday Belgium',
+    start: '2018-11-17',
+    city: 'Brussels',
+    country: 'BE',
+    countryName: 'Belgium'
+  },
+  {
+    slug: 'sharepoint-saturday-lisbon-2018',
+    name: 'SharePoint Saturday Lisbon',
+    start: '2018-10-13',
+    city: 'Lisbon',
+    country: 'PT',
+    countryName: 'Portugal'
+  },
+  {
+    slug: 'sharepoint-saturday-cambridge-2018',
+    name: 'SharePoint Saturday Cambridge',
+    start: '2018-09-09',
+    city: 'Cambridge',
+    country: 'GB-ENG',
+    countryName: 'United Kingdom'
+  },
+  {
+    slug: 'sharepoint-saturday-stockholm-2018',
+    name: 'SharePoint Saturday Stockholm',
+    start: '2018-09-01',
+    city: 'Stockholm',
+    country: 'SE',
+    countryName: 'Sweden'
+  },
+  {
+    slug: 'dynamic-communities-webinar-2018',
+    name: 'Dynamic Communities Webinar',
+    start: '2018-07-17',
+    online: true,
+    city: 'Online',
+    country: 'ZZ',
+    countryName: 'Online'
+  },
+  {
+    slug: 'sharepoint-saturday-netherlands-2018',
+    name: 'SharePoint Saturday Netherlands',
+    start: '2018-06-30',
+    city: 'Vianen',
+    country: 'NL',
+    countryName: 'The Netherlands'
+  },
+  {
+    slug: 'd365-saturday-amsterdam-2018',
+    name: 'D365 Saturday Amsterdam',
+    start: '2018-02-03',
+    city: 'Amsterdam',
+    country: 'NL',
+    countryName: 'The Netherlands'
+  },
+  {
+    slug: 'sogeti-gouvieux-2018',
+    name: 'Sogeti Gouvieux',
+    start: '2018-01-27',
+    city: 'Noordwijk',
+    country: 'NL',
+    countryName: 'The Netherlands'
+  },
+
+  // ── 2017 ────────────────────────────────────────────────────────────────────
+  {
+    slug: 'collab365-2017',
+    name: 'Collab365',
+    start: '2017-11-03',
+    online: true,
+    city: 'Online',
+    country: 'ZZ',
+    countryName: 'Online'
+  },
+  {
+    slug: 'techdays-nl-2017',
+    name: 'TechDays NL',
+    start: '2017-10-11',
+    city: 'The Hague',
+    country: 'NL',
+    countryName: 'The Netherlands'
+  },
+  {
+    slug: 'sharepoint-saturday-cambridge-2017',
+    name: 'SharePoint Saturday Cambridge',
+    start: '2017-09-09',
+    city: 'Cambridge',
+    country: 'GB-ENG',
+    countryName: 'United Kingdom'
+  },
+  {
+    slug: 'power-bi-world-tour-2017',
+    name: 'Power BI World Tour',
+    start: '2017-08-28',
+    city: 'Copenhagen',
+    country: 'DK',
+    countryName: 'Denmark'
+  },
+  {
+    slug: 'sharepoint-saturday-london-2017',
+    name: 'SharePoint Saturday London',
+    start: '2017-06-24',
+    city: 'London',
+    country: 'GB-ENG',
+    countryName: 'United Kingdom'
+  },
+  {
+    slug: 'sogeti-pizzasessie-2017-03',
+    name: 'Sogeti Office 365 Pizzasessie',
+    start: '2017-03-30',
+    city: 'Vianen',
+    country: 'NL',
+    countryName: 'The Netherlands'
+  },
+
+  // ── 2016 ────────────────────────────────────────────────────────────────────
+  {
+    slug: 'techdays-nl-2016',
+    name: 'TechDays NL',
+    start: '2016-10-04',
+    city: 'Amsterdam',
+    country: 'NL',
+    countryName: 'The Netherlands'
+  },
+  {
+    slug: 'sogeti-pizzasessie-2016-09',
+    name: 'Sogeti Office 365 Pizzasessie',
+    start: '2016-09-14',
+    city: 'Vianen',
+    country: 'NL',
+    countryName: 'The Netherlands'
+  },
+  {
+    slug: 'sogeti-pizzasessie-2016-06',
+    name: 'Sogeti Office 365 Pizzasessie',
+    start: '2016-06-21',
+    city: 'Vianen',
+    country: 'NL',
+    countryName: 'The Netherlands'
+  },
+  {
+    slug: 'sogeti-pizzasessie-2016-04',
+    name: 'Sogeti Office 365 Pizzasessie',
+    start: '2016-04-12',
+    city: 'Vianen',
+    country: 'NL',
+    countryName: 'The Netherlands'
+  },
+  {
+    slug: 'sogeti-pizzasessie-2016-03',
+    name: 'Sogeti Office 365 Pizzasessie',
+    start: '2016-03-09',
+    city: 'Vianen',
+    country: 'NL',
+    countryName: 'The Netherlands'
+  },
+
+  // ── 2015 ────────────────────────────────────────────────────────────────────
+  {
+    slug: 'sogeti-pizzasessie-2015-11',
+    name: 'Sogeti Office 365 Pizzasessie',
+    start: '2015-11-24',
+    city: 'Vianen',
+    country: 'NL',
+    countryName: 'The Netherlands'
   }
 ]
 
@@ -1009,15 +1245,7 @@ export function eventCount(): number {
   return events.length
 }
 
-/**
- * The year he started speaking, which is not the same thing as the first year
- * in this list. The record here begins in 2021; the stage did not. This is a
- * fact about the person, so it is stated rather than derived, and anything
- * describing the *listing* should use firstYear() instead.
- */
-export const SPEAKING_SINCE = 2015
-
-/** The earliest year this list actually covers. Describes the data, not him. */
+/** The first year on the list, which is also the year he started speaking. */
 export function firstYear(): number {
   return events.reduce(
     (min, e) => Math.min(min, Number(e.start.slice(0, 4))),
