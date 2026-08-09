@@ -191,35 +191,44 @@ function titleSize(title: string): number {
 
 /**
  * A title is usually one text run, and stays one so that satori wraps it on
- * word boundaries exactly as before. Only a title carrying an emoji is cut
- * into runs, because each emoji has to become an image to render at all —
- * `Copilot Studio ❤️ MCP` otherwise sets two tofu boxes in 72px type.
+ * word boundaries exactly as before.
+ *
+ * A title carrying an emoji is tokenised instead, because satori lays images
+ * out as flex items: an emoji dropped into a text run renders as nothing, and
+ * an emoji added as a sibling of the whole title takes a line to itself. Words
+ * become their own items so the row wraps between them, which puts the text
+ * alongside the emoji and still returns each new line to the left margin.
  */
 function titleChildren(title: string, size: number): unknown {
   if (!/\p{Extended_Pictographic}/u.test(title)) return title
 
-  const parts = title.split(/(\p{Extended_Pictographic}\uFE0F?)/u).filter(Boolean)
-  return parts.map((part) => {
-    const isEmoji = /^\p{Extended_Pictographic}/u.test(part)
-    const uri = isEmoji ? emojiDataUri(part) : undefined
+  const tokens = title
+    .split(/(\p{Extended_Pictographic}\uFE0F?)|\s+/u)
+    .filter((token) => token && token.trim() !== '')
+
+  return tokens.map((token, index) => {
+    const isEmoji = /^\p{Extended_Pictographic}/u.test(token)
+    const uri = isEmoji ? emojiDataUri(token) : undefined
+    /* satori ignores `gap` here, so the word space is carried by each item.
+       The last one goes without, since a trailing margin is phantom width
+       that can wrap a line which would otherwise have fitted. */
+    const space = index === tokens.length - 1 ? {} : { marginRight: Math.round(size * 0.26) }
     if (!uri) {
       /* Archivo will set this as tofu, which is worth saying out loud rather
-         than shipping a card with two empty boxes in the largest type. */
-      if (isEmoji) console.warn(`[og] no Twemoji artwork for ${part}, card will show tofu`)
+         than shipping a card with an empty box in the largest type. */
+      if (isEmoji) console.warn(`[og] no Twemoji artwork for ${token}, card will show tofu`)
       return {
         type: 'span',
-        props: { style: { display: 'flex' }, children: part }
+        props: { style: { display: 'flex', ...space }, children: token }
       }
     }
     return {
       type: 'img',
       props: {
         src: uri,
-        width: Math.round(size * 0.78),
-        height: Math.round(size * 0.78),
-        /* Flex drops the spaces either side of the run, so the gap the title
-           was written with has to be put back by hand. */
-        style: { margin: '0 0.12em' }
+        width: Math.round(size * 0.82),
+        height: Math.round(size * 0.82),
+        style: space
       }
     }
   })
@@ -227,14 +236,13 @@ function titleChildren(title: string, size: number): unknown {
 
 async function renderCard(card: Card): Promise<Buffer> {
   const { rule, accent } = HALLS[card.hall]
-  const mark = card.emoji ? emojiDataUri(card.emoji) : undefined
 
-  /* The mark is a sign, not punctuation, so it sits on its own line above the
-     title rather than inline where a wrapped title would drag it off centre. */
+  /* The session's emoji opens the title rather than standing above it, so the
+     first words sit alongside it and the mark reads as part of the sign. */
+  const title = card.emoji ? `${card.emoji} ${card.title}` : card.title
+  const size = titleSize(title)
+
   const titleBlock = [
-    ...(mark
-      ? [{ type: 'img', props: { src: mark, width: 72, height: 72, style: { marginBottom: 22 } } }]
-      : []),
     {
       type: 'div',
       props: {
@@ -242,13 +250,13 @@ async function renderCard(card: Card): Promise<Buffer> {
           display: 'flex',
           flexWrap: 'wrap',
           alignItems: 'center',
-          fontSize: titleSize(card.title),
+          fontSize: size,
           fontWeight: 800,
           lineHeight: 1.02,
           letterSpacing: '-0.01em',
           textTransform: 'uppercase'
         },
-        children: titleChildren(card.title, titleSize(card.title))
+        children: titleChildren(title, size)
       }
     }
   ]
