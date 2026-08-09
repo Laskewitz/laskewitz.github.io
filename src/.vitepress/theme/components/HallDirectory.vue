@@ -13,6 +13,21 @@ import PageBanner from './PageBanner.vue'
 const past = computed(() => pastEvents())
 
 /**
+ * A workshop is a different promise than a session — hours and hands-on rather
+ * than a slot — so the directory prints them under their own heading instead of
+ * flattening both into one "Sessions" list.
+ */
+function talkGroupsAtEvent(eventSlug: string) {
+  const given = talksAtEvent(eventSlug)
+  const sessions = given.filter((t) => t.format !== 'workshop')
+  const workshops = given.filter((t) => t.format === 'workshop')
+  return [
+    { label: sessions.length === 1 ? 'Session' : 'Sessions', talks: sessions },
+    { label: workshops.length === 1 ? 'Workshop' : 'Workshops', talks: workshops }
+  ].filter((group) => group.talks.length)
+}
+
+/**
  * The very next date gets its own spotlight, so the rest of the upcoming list
  * stays a list. It's lifted out rather than repeated: seeing the same event
  * twice in a row would read as a mistake.
@@ -101,18 +116,14 @@ function toggleYear(year: string) {
               {{ eventPlace(event) }}
             </span>
             <span v-if="talksAtEvent(event.slug).length" class="gave">
-              <span class="gave-label wf-label">
-                {{ talksAtEvent(event.slug).length === 1 ? 'Session' : 'Sessions' }}
-              </span>
-              <ul class="gave-list">
-                <li
-                  v-for="talk in talksAtEvent(event.slug)"
-                  :key="talk.slug"
-                  :data-hall="talk.hall"
-                >
-                  <a :href="`/talks/${talk.slug}`">{{ talk.title }}</a>
-                </li>
-              </ul>
+              <template v-for="group in talkGroupsAtEvent(event.slug)" :key="group.label">
+                <span class="gave-label wf-label">{{ group.label }}</span>
+                <ul class="gave-list">
+                  <li v-for="talk in group.talks" :key="talk.slug" :data-hall="talk.hall">
+                    <a :href="`/talks/${talk.slug}`">{{ talk.title }}</a>
+                  </li>
+                </ul>
+              </template>
             </span>
           </span>
 
@@ -168,18 +179,14 @@ function toggleYear(year: string) {
                 {{ eventPlace(event) }}
               </span>
               <span v-if="talksAtEvent(event.slug).length" class="gave">
-                <span class="gave-label wf-label">
-                  {{ talksAtEvent(event.slug).length === 1 ? 'Session' : 'Sessions' }}
-                </span>
-                <ul class="gave-list">
-                  <li
-                    v-for="talk in talksAtEvent(event.slug)"
-                    :key="talk.slug"
-                    :data-hall="talk.hall"
-                  >
-                    <a :href="`/talks/${talk.slug}`">{{ talk.title }}</a>
-                  </li>
-                </ul>
+                <template v-for="group in talkGroupsAtEvent(event.slug)" :key="group.label">
+                  <span class="gave-label wf-label">{{ group.label }}</span>
+                  <ul class="gave-list">
+                    <li v-for="talk in group.talks" :key="talk.slug" :data-hall="talk.hall">
+                      <a :href="`/talks/${talk.slug}`">{{ talk.title }}</a>
+                    </li>
+                  </ul>
+                </template>
               </span>
             </span>
 
@@ -363,6 +370,12 @@ function toggleYear(year: string) {
 
 .gave-label {
   display: block;
+}
+
+/* A second heading under the same event needs air, otherwise the workshop label
+   reads as another line of the session list above it. */
+.gave-list + .gave-label {
+  margin-top: var(--wf-gap-xs);
 }
 
 .gave-list {
