@@ -570,21 +570,43 @@ export const talks: Talk[] = [
         ]
       },
       {
+        title: 'Product',
+        links: [
+          { label: 'Sign up for a trial', href: 'https://aka.ms/trycopilotstudio' },
+          { label: 'Dive into documentation', href: 'https://aka.ms/copilotstudiodocs' },
+          {
+            label: 'Implementation guide',
+            href: 'https://aka.ms/CopilotStudioImplementationGuide'
+          },
+          { label: 'Estimate agent usage', href: 'https://aka.ms/mcs-estimator' },
+          {
+            label: 'Copilot Studio Kit',
+            href: 'https://appsource.microsoft.com/en-us/product/saas/microsoftpowercatarch.copilotstudiokit2'
+          }
+        ]
+      },
+      {
         title: 'Keep learning',
         links: [
+          { label: 'Complete the Agent Academy', href: 'https://aka.ms/agent-academy' },
+          { label: 'Copilot Studio Labs', href: 'https://aka.ms/mcslabs' },
+          { label: 'MCP labs for Copilot Studio', href: 'https://aka.ms/mcsmcp/samples' },
           {
-            label: 'AI Tour Copilot Studio resources',
+            label: 'Copilot Studio tutorials',
+            href: 'https://aka.ms/ai-in-action/building-with-mcs'
+          },
+          { label: 'See Copilot Studio in action', href: 'https://aka.ms/copilotstudiodemo' },
+          {
+            label: 'AI Tour resource centre',
             href: 'https://adoption.microsoft.com/en-us/microsoft-ai-tour-resources/copilot-studio/'
-          },
-          {
-            label: 'Get started with Copilot Studio',
-            href: 'https://aka.ms/copilotstudio-getstarted'
-          },
-          {
-            label: 'AI Tour 2026 Resource Center',
-            href: 'https://aka.ms/AITour26-Resource-Center'
-          },
-          { label: 'Learn at AI Tour', href: 'https://aka.ms/LearnAtAITour' }
+          }
+        ]
+      },
+      {
+        title: 'Community',
+        links: [
+          { label: 'Stay up to date', href: 'https://aka.ms/copilotstudioblog' },
+          { label: 'Join the community', href: 'https://aka.ms/copilotstudiocommunity' }
         ]
       }
     ],
