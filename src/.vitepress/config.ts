@@ -1,7 +1,16 @@
 import { defineConfig } from 'vitepress'
 import { DIRECTION_CONTRACT } from './contract'
-import { renderOgCards, transformPageData } from './og'
+import { addJsonLd } from './jsonld'
+import { renderOgCards, transformPageData as addSharingMeta } from './og'
 import { generateFeed, rssDevPlugin } from './rss'
+
+/**
+ * Surfaces that carry `noindex`: the QR-code resource doors and the legacy
+ * redirects. Listing them in the sitemap while asking robots not to index them
+ * sends a crawler two contradictory instructions, so they are filtered out
+ * here as well as disallowed in robots.txt.
+ */
+const UNLISTED = /^\/(r|sessions)\//
 
 export default defineConfig({
   title: 'Daniel Laskewitz',
@@ -13,7 +22,10 @@ export default defineConfig({
   appearance: 'dark',
   lastUpdated: false,
   srcExclude: ['**/README.md'],
-  sitemap: { hostname: 'https://laskewitz.io' },
+  sitemap: {
+    hostname: 'https://laskewitz.io',
+    transformItems: (items) => items.filter((item) => !UNLISTED.test(item.url.startsWith('/') ? item.url : `/${item.url}`))
+  },
 
   /** The feed is written in buildEnd, so the link checker can't see it yet. */
   ignoreDeadLinks: [/^\/feed\.(rss|xml)$/],
@@ -55,7 +67,8 @@ export default defineConfig({
       { text: 'Home', link: '/' },
       { text: 'Events', link: '/events/' },
       { text: 'Talks', link: '/talks/' },
-      { text: 'Blogs', link: '/blog/' }
+      { text: 'Blogs', link: '/blog/' },
+      { text: 'About', link: '/about/' }
     ],
 
     sidebar: false,
@@ -81,7 +94,10 @@ export default defineConfig({
     return code.replace('<head>', `<head>\n${DIRECTION_CONTRACT}`)
   },
 
-  transformPageData,
+  transformPageData(pageData) {
+    addSharingMeta(pageData)
+    addJsonLd(pageData)
+  },
 
   async buildEnd(siteConfig) {
     await generateFeed(siteConfig)

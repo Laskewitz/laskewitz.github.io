@@ -32,16 +32,17 @@ const next = computed(() => upcomingEvents()[0])
 const years = computed(() => `${firstYear()}—${new Date().getFullYear()}`)
 
 const directory = [
-  { href: '/events', label: 'Events', hall: 'a' as const },
+  { href: '/events/', label: 'Events', hall: 'a' as const },
   { href: '/talks/', label: 'Talks', hall: 'b' as const },
-  { href: '/blog/', label: 'Blogs', hall: 'c' as const }
+  { href: '/blog/', label: 'Blogs', hall: 'c' as const },
+  { href: '/about/', label: 'About', hall: 'e' as const }
 ]
 </script>
 
 <template>
   <div class="entrance" :class="`is-${variant}`">
     <!-- BOARD: the venue tells you what is on before it tells you whose it is. -->
-    <a v-if="variant === 'board' && next" class="board" href="/events" data-hall="a">
+    <a v-if="variant === 'board' && next" class="board" href="/events/" data-hall="a">
       <span class="board-label wf-label">Next up</span>
       <span class="board-name wf-sign">{{ next.name }}</span>
       <span class="board-meta">
@@ -74,7 +75,7 @@ const directory = [
       focus="62% 34%"
       priority
     >
-      <p class="banner-name wf-sign">Daniel Laskewitz</p>
+      <h1 class="banner-name wf-sign">Daniel Laskewitz</h1>
       <p class="banner-standfirst">
         Principal Cloud Advocate at Microsoft. Agents, low-code and the Power
         Platform, on stage across Europe and beyond.
@@ -86,7 +87,7 @@ const directory = [
       class="ident wf-gutter"
       :class="{ 'is-lead': variant === 'directory' }"
     >
-      <p class="name">Daniel Laskewitz</p>
+      <h1 class="name">Daniel Laskewitz</h1>
       <p class="standfirst">
         Principal Cloud Advocate at Microsoft. I talk about agents,
         low-code and the Power Platform at conferences across Europe and beyond.
@@ -116,7 +117,7 @@ const directory = [
     <a
       v-if="next && variant !== 'board'"
       class="next"
-      href="/events"
+      href="/events/"
       data-hall="a"
     >
       <span class="next-label wf-label">Next up</span>

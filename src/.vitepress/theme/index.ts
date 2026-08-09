@@ -4,6 +4,7 @@ import DefaultTheme from 'vitepress/theme'
 import './style.css'
 
 import EntranceDirectory from './components/EntranceDirectory.vue'
+import AboutDesk from './components/AboutDesk.vue'
 import HallDirectory from './components/HallDirectory.vue'
 import HallTile from './components/HallTile.vue'
 import NoticeBoard from './components/NoticeBoard.vue'
@@ -23,6 +24,7 @@ export default {
   Layout: VenueLayout,
   enhanceApp({ app }) {
     app.component('EntranceDirectory', EntranceDirectory)
+    app.component('AboutDesk', AboutDesk)
     app.component('HallDirectory', HallDirectory)
     app.component('HallTile', HallTile)
     app.component('NoticeBoard', NoticeBoard)

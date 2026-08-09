@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+
+# The QR-code resource doors and the legacy redirects carry noindex. They are
+# entrances for someone standing in the room, not pages to rank.
+Disallow: /r/
+Disallow: /sessions/
+
+Sitemap: https://laskewitz.io/sitemap.xml
