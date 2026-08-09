@@ -126,15 +126,6 @@ export const talks: Talk[] = [
             note: 'My plugin — steal the structure'
           }
         ]
-      },
-      {
-        title: 'From the session',
-        links: [
-          {
-            label: 'Copilot Cowork deck',
-            href: 'https://github.com/Laskewitz/cowork/blob/main/assets/Copilot%20Cowork.pptx'
-          }
-        ]
       }
     ],
     deliveries: [
