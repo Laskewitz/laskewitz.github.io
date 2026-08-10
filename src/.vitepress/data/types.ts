@@ -69,6 +69,12 @@ export interface ResourceGroup {
 
 export interface Talk {
   slug: string
+  /**
+   * Whether the talk is still on offer. Retired talks stay in the data so the
+   * events they were given at keep their record, but they leave the placard
+   * index — a programme should only advertise what can still be booked.
+   */
+  active: boolean
   title: string
   /** One line, sentence case, used on placards. */
   summary: string
