@@ -85,9 +85,11 @@ function toggleYear(year: string) {
     </PageBanner>
 
     <section v-if="next" class="spotlight wf-gutter" aria-labelledby="next-heading" data-hall="a">
-      <p id="next-heading" class="spot-label wf-label">Next up</p>
+      <h2 id="next-heading" class="spot-heading wf-sign">
+        <span class="wf-sticker">Next up</span>
+      </h2>
 
-      <h2 class="spot-name wf-sign">{{ next.name }}</h2>
+      <p class="spot-name wf-sign">{{ next.name }}</p>
 
       <CoSpeakerBadge class="spot-with" :speakers="coSpeakersAtEvent(next.slug)" />
 
@@ -223,16 +225,26 @@ function toggleYear(year: string) {
 </template>
 
 <style scoped>
+/* The next date is the one thing on this page still ahead, so it is marked
+   rather than shouted: it keeps the hall's stickers and sits on the raised
+   substrate between two hairlines. The full-bleed colour field out-shouted the
+   page's own banner and turned every control on it into reversed type. */
 .spotlight {
   padding-top: var(--wf-gap-l);
   padding-bottom: var(--wf-gap-l);
-  background: var(--hall);
-  color: var(--on-hall);
+  border-top: 1px solid var(--wf-ink-rule);
+  border-bottom: 1px solid var(--wf-ink-rule);
+  background: var(--wf-ink-raised);
+  color: var(--wf-optic);
 }
 
-/* Everything printed on the hall field inherits the paired colour. Weight,
-   not opacity, is what separates the label from the name here. */
-.spot-label,
+/* The same sticker heading the boards below wear, so the two sections read as
+   one system rather than two separate treatments. */
+.spot-heading {
+  margin: 0 0 var(--wf-gap-m);
+  font-size: var(--wf-step-2);
+}
+
 .spot-name,
 .spot-meta,
 .spot-links a {
@@ -240,17 +252,17 @@ function toggleYear(year: string) {
 }
 
 .spot-name {
-  margin: var(--wf-gap-xs) 0 0;
+  margin: 0;
   font-size: var(--wf-step-3);
   line-height: 1.05;
   overflow-wrap: anywhere;
 }
 
-/* Printed on the hall field itself, so the sticker inverts: the field's ink
-   becomes its ground and the field's colour becomes its ink. */
+/* Standing on the substrate now, so the billing is the plain sticker the rest
+   of the site uses: hall field, measured on-hall ink. */
 .spot-with {
-  background: var(--on-hall);
-  color: var(--hall);
+  background: var(--hall);
+  color: var(--on-hall);
 }
 
 .spot-meta {
@@ -281,15 +293,14 @@ function toggleYear(year: string) {
   list-style: none;
 }
 
-/* Inverted against the billing sticker above it: this one stands on the hall
-   field, so it takes the field's ink as its ground. Both pairs are the measured
-   on-hall pair, so the contrast floor holds either way round. */
+/* The same sticker as the billing above it — both stand on the substrate, so
+   both take the hall as field and the measured pair as ink. */
 .spot-talks a {
   display: inline-flex;
   align-items: baseline;
   padding: 0.28em 0.55em;
-  background: var(--on-hall);
-  color: var(--hall);
+  background: var(--hall);
+  color: var(--on-hall);
   font-variation-settings: 'wdth' var(--wf-width-sign);
   font-weight: 700;
   font-size: 0.75rem;
@@ -308,14 +319,14 @@ function toggleYear(year: string) {
   margin: var(--wf-gap-m) 0 0;
 }
 
-/* The same outlined control the boards below use, drawn in the field's ink
-   because it stands on the hall colour rather than on the substrate. */
+/* The same outlined control the boards below use, and now drawn in the same
+   substrate ink, because it no longer stands on a colour field. */
 .spot-links a {
   min-height: var(--wf-tap);
   display: inline-flex;
   align-items: center;
   padding-inline: var(--wf-gap-s);
-  border: 1px solid var(--on-hall);
+  border: 1px solid var(--wf-ink-rule);
   font-variation-settings: 'wdth' 110;
   font-weight: 700;
   font-size: var(--wf-step--1);
@@ -329,8 +340,9 @@ function toggleYear(year: string) {
 
 .spot-links a:hover,
 .spot-links a:focus-visible {
-  background: var(--on-hall);
-  color: var(--hall);
+  background: var(--hall);
+  border-color: var(--hall);
+  color: var(--on-hall);
 }
 
 .board {
