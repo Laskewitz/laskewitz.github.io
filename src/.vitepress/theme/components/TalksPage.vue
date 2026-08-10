@@ -1,7 +1,7 @@
 <script setup lang="ts">
 /** The placard index — one plate per talk in rotation. */
 import { computed, ref } from 'vue'
-import { talks, tagsOfKind, formatLabel } from '../../data/talks'
+import { talks, activeTalks, tagsOfKind, formatLabel } from '../../data/talks'
 import { getEvent } from '../../data/events'
 import FilterBar from './FilterBar.vue'
 import PageBanner from './PageBanner.vue'
@@ -21,7 +21,7 @@ function deliveryDates(slug: string): string[] {
  * which an empty date string would otherwise do.
  */
 const ordered = computed(() =>
-  [...talks].sort(
+  [...activeTalks].sort(
     (a, b) => (deliveryDates(b.slug).at(-1) ?? '').localeCompare(deliveryDates(a.slug).at(-1) ?? '')
   )
 )
@@ -32,7 +32,7 @@ const topics = tagsOfKind('topic')
 /* Only offered when the programme actually holds both kinds of room; a filter
    that can only ever return everything is noise on the bar. */
 const formats = computed(() => {
-  const used = new Set(talks.map(formatLabel))
+  const used = new Set(activeTalks.map(formatLabel))
   return used.size > 1 ? ['Session', 'Workshop'].filter((f) => used.has(f)) : []
 })
 
