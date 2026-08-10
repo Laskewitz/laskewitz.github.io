@@ -2,22 +2,22 @@
 /**
  * LinkRow — the atom of this world.
  *
- * A full-width directional sign: hall-colour tab, cut label, optional note,
+ * A full-width directional sign: track-colour tab, cut label, optional note,
  * terminal arrow. Never shorter than a thumb. Every navigable thing on this
  * site is one of these, which is what makes the QR path fast.
  */
-import type { Hall } from '../../data/types'
+import type { Track } from '../../data/types'
 
 withDefaults(
   defineProps<{
     href: string
     label: string
     note?: string
-    hall?: Hall
+    track?: Track
     /** External links get a diagonal arrow, internal ones a straight arrow. */
     external?: boolean
     /**
-     * A quiet row keeps its tab grey standing still and only lights its hall
+     * A quiet row keeps its tab grey standing still and only lights its track
      * colour on approach. A list where every tab is lit at rest is a paint
      * chart; lighting on hover makes the colour mean "this one".
      */
@@ -32,8 +32,8 @@ withDefaults(
 <template>
   <a
     class="link-row"
-    :class="[`is-${size}`, { 'has-hall': !!hall && !quiet }]"
-    :data-hall="hall"
+    :class="[`is-${size}`, { 'has-track': !!track && !quiet }]"
+    :data-track="track"
     :href="href"
     :target="external ? '_blank' : undefined"
     :rel="external ? 'noopener noreferrer' : undefined"
@@ -51,7 +51,7 @@ withDefaults(
 
 <style scoped>
 .link-row {
-  --row-hall: var(--hall, var(--wf-marker-live));
+  --row-track: var(--track, var(--wf-marker-live));
 
   display: grid;
   /* The field runs the width of the venue; the information does not. On a wide
@@ -74,23 +74,23 @@ withDefaults(
   background: var(--wf-ink-raised);
 }
 
-/* A sign without a lit hall still has a tab: it is the anatomy of the row, so
-   it stays visible as a quiet rule and lights its hall on approach. A row given
-   a hall outright carries that colour standing still; a quiet row keeps the
-   hall in reserve and only lights it under the pointer. */
+/* A sign without a lit track still has a tab: it is the anatomy of the row, so
+   it stays visible as a quiet rule and lights its track on approach. A row given
+   a track outright carries that colour standing still; a quiet row keeps the
+   track in reserve and only lights it under the pointer. */
 .tab {
   align-self: stretch;
   background: var(--wf-marker);
   transition: background var(--wf-motion) var(--wf-ease);
 }
 
-.link-row.has-hall .tab {
-  background: var(--row-hall);
+.link-row.has-track .tab {
+  background: var(--row-track);
 }
 
 .link-row:hover .tab,
 .link-row:focus-visible .tab {
-  background: var(--row-hall);
+  background: var(--row-track);
 }
 
 .body {

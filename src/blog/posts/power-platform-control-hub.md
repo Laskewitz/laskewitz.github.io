@@ -28,7 +28,7 @@ app registration and no MSAL configuration either.
   src="/images/posts/power-platform-control-hub/01-overview.png"
   alt="The Control Hub overview tab, with a metric card per resource type above a table of recently created resources."
   caption="One card per resource type, and whatever showed up in the tenant most recently."
-  hall="a"
+  track="a"
   wide
 />
 
@@ -41,7 +41,7 @@ resource and get told something useful about it.
   src="/images/posts/power-platform-control-hub/02-resources.png"
   alt="The Resources tab showing a sortable, filterable table of every resource across all environments."
   caption="Every resource in the tenant in one sortable table. Every row opens a detail panel."
-  hall="b"
+  track="b"
   wide
 />
 
@@ -65,7 +65,7 @@ someone else's flow stops being a chore.
   src="/images/posts/power-platform-control-hub/03-environments.png"
   alt="The Environments tab, a grid of environment cards showing type badge, managed indicator, region and resource count."
   caption="Type, region, managed state and resource count, before you click into anything."
-  hall="c"
+  track="c"
   wide
 />
 
@@ -81,7 +81,7 @@ Confidential, and shows you what it proposes before anything is saved.
   src="/images/posts/power-platform-control-hub/04-tenant-policies.png"
   alt="The Tenant Policies tab listing DLP policies, billing policies and cross-tenant connection reports."
   caption="DLP policies, billing policies and cross-tenant connection reports, in one tab."
-  hall="d"
+  track="d"
   wide
 />
 
@@ -94,7 +94,7 @@ happen in place.
   src="/images/posts/power-platform-control-hub/07-recommendations.png"
   alt="The Recommendations tab showing advisor recommendations returned by the admin API."
   caption="What the admin API already thinks you should go and fix."
-  hall="e"
+  track="e"
   wide
 />
 

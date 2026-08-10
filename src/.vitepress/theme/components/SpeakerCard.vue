@@ -10,7 +10,7 @@
  * everywhere from one entry — including on a resource page whose ?with= list
  * changes per delivery, without the page being edited.
  */
-import type { Hall, Speaker } from '../../data/types'
+import type { Track, Speaker } from '../../data/types'
 import SocialIcon from './SocialIcon.vue'
 
 /** Initials stand in when a speaker has no portrait, so the rail never gaps. */
@@ -27,7 +27,7 @@ function monogram(name: string): string {
 withDefaults(
   defineProps<{
     speakers: Speaker[]
-    hall?: Hall
+    track?: Track
     /** Contact links belong on resource pages, not on a talk placard. */
     withLinks?: boolean
     heading?: string
@@ -37,7 +37,7 @@ withDefaults(
 </script>
 
 <template>
-  <section class="plates" :data-hall="hall">
+  <section class="plates" :data-track="track">
     <h2 v-if="heading" class="wf-label plates-heading">{{ heading }}</h2>
 
     <div class="rail" :class="{ 'is-shared': speakers.length > 1 }">
@@ -99,7 +99,7 @@ withDefaults(
 /* The shared baseline: two plates sitting on one rule, converging into one
    billed block. */
 .rail.is-shared {
-  border-top: 3px solid var(--hall, var(--wf-optic));
+  border-top: 3px solid var(--track, var(--wf-optic));
 }
 
 .rail.is-shared .plate {
@@ -162,7 +162,7 @@ withDefaults(
   height: var(--portrait);
   object-fit: cover;
   border: 1px solid var(--wf-ink-rule);
-  background: var(--hall, var(--wf-ink-rule));
+  background: var(--track, var(--wf-ink-rule));
 }
 
 .name,

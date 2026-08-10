@@ -89,7 +89,7 @@ everywhere they appear, from a single source, including on the QR-code resource 
   now in `src/public/images/stage/` at 960/1600/2400 widths: `stage-devworld` (DevWorld 2024,
   used on the home banner and the about desk), `stage-ecs-2023` (the events hall),
   `stage-ecs-2024` (the talks index), and `stage-resco` (the blog board). Photography is
-  used only as full-bleed hanging banners behind a hall-colour tint, and never on `/r/`
+  used only as full-bleed hanging banners behind a track-colour tint, and never on `/r/`
   resource pages — Principle 1 outranks it there.
 - No testimonials, ratings, attendance numbers, or speaker-fee information exist. None may
   be invented.

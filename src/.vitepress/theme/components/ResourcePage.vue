@@ -1,6 +1,6 @@
 <script setup lang="ts">
 /**
- * The hall door — the surface an attendee reaches by QR code.
+ * The track door — the surface an attendee reaches by QR code.
  *
  * This is the critical path: a phone at arm's length, in a half-lit room that
  * is emptying, on conference wifi. So it is one saturated field, arrow rows at
@@ -34,7 +34,7 @@ const speakers = computed(() => billing(coSpeakerSlugs.value))
 </script>
 
 <template>
-  <main v-if="talk" class="door" :data-hall="talk.hall">
+  <main v-if="talk" class="door" :data-track="talk.track">
     <header class="masthead">
       <p class="kicker wf-label">Resources</p>
       <h1 class="title wf-sign">{{ talk.title }}</h1>
@@ -63,7 +63,7 @@ const speakers = computed(() => billing(coSpeakerSlugs.value))
         <SpeakerCard
           :heading="speakers.length > 1 ? 'Your speakers' : 'Your speaker'"
           :speakers="speakers"
-          :hall="talk.hall"
+          :track="talk.track"
           with-links
         />
       </section>
@@ -76,13 +76,13 @@ const speakers = computed(() => billing(coSpeakerSlugs.value))
 </template>
 
 <style scoped>
-/* The door is its own world: full-bleed hall colour, everything on it in the
-   contrast-checked on-hall ink. */
+/* The door is its own world: full-bleed track colour, everything on it in the
+   contrast-checked on-track ink. */
 .door {
   min-height: 100vh;
   min-height: 100dvh;
-  background: var(--hall);
-  color: var(--on-hall);
+  background: var(--track);
+  color: var(--on-track);
   padding: max(env(safe-area-inset-top), var(--wf-gap-m)) var(--wf-gutter)
     max(env(safe-area-inset-bottom), var(--wf-gap-l));
 }
@@ -229,8 +229,8 @@ const speakers = computed(() => billing(coSpeakerSlugs.value))
 
 .contact :deep(.links a:hover),
 .contact :deep(.links a:focus-visible) {
-  background: var(--on-hall);
-  color: var(--hall);
+  background: var(--on-track);
+  color: var(--track);
 }
 
 /* The visitor arrived here by scanning a code, so the way out has to name its
@@ -257,8 +257,8 @@ const speakers = computed(() => billing(coSpeakerSlugs.value))
 
 .home a:hover,
 .home a:focus-visible {
-  background: var(--on-hall);
-  color: var(--hall);
+  background: var(--on-track);
+  color: var(--track);
 }
 
 .home-arrow {

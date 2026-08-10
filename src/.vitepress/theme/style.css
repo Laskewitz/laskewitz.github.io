@@ -3,14 +3,14 @@
 
    THESIS      The site is the venue and every page is a sign.
    OWN-WORLD   Matte vinyl colour fields, optic-white cut lettering, oversized
-               directional arrows, hall-letter tiles.
-   RULE        Hall colours are FIELD colours carrying white or black text.
-               Never small hall-coloured text on the dark substrate — #1F4BFF
+               directional arrows, track-letter tiles.
+   RULE        Track colours are FIELD colours carrying white or black text.
+               Never small track-coloured text on the dark substrate — #1F4BFF
                on #0A0A0A is ~3.4:1 and fails. White on #1F4BFF is 5.99:1.
-               Every hall/on-hall pair is measured, not eyeballed:
+               Every track/on-track pair is measured, not eyeballed:
                a 5.99 · b 7.34 · c 5.09 · d 15.83 · e 6.76. The red is #D6203A rather
                than a brighter #FF3D57 because that one only reached 3.47:1.
-               Text on a hall field is never faded with opacity — a faded
+               Text on a track field is never faded with opacity — a faded
                label re-fails the check. Signage separates by scale, not by
                dimming.
    ========================================================================== */
@@ -47,33 +47,33 @@
   --wf-optic: #ffffff;
   --wf-optic-dim: #a3a3a3;
 
-  /* ── Halls: the five semantic colour roles ────────────────────────────── */
-  --wf-hall-a: #1f4bff;
-  --wf-hall-b: #00c2a8;
-  --wf-hall-c: #d6203a;
-  --wf-hall-d: #c8ff00;
-  --wf-hall-e: #ff6b00;
+  /* ── Tracks: the five semantic colour roles ───────────────────────────── */
+  --wf-track-a: #1f4bff;
+  --wf-track-b: #00c2a8;
+  --wf-track-c: #d6203a;
+  --wf-track-d: #c8ff00;
+  --wf-track-e: #ff6b00;
 
   /* ── Markers ──────────────────────────────────────────────────────────────
      Every underline, tab and rule that marks a navigable thing follows one
-     rule: it waits in the rule grey and lights Hall A blue under the pointer.
+     rule: it waits in the rule grey and lights Track A blue under the pointer.
      Standing still the marker is anatomy; live, it is the way out. A row that
-     genuinely belongs to a hall overrides the live colour with its own. */
+     genuinely belongs to a track overrides the live colour with its own. */
   --wf-marker: var(--wf-ink-rule);
-  --wf-marker-live: var(--wf-hall-a);
+  --wf-marker-live: var(--wf-track-a);
 
-  /* Hall A at full saturation is a marker colour, not an ink one: on the dark
+  /* Track A at full saturation is a marker colour, not an ink one: on the dark
      substrate it measures 3.3:1, which passes for a 2px rule and fails for a
      word. Where the live colour has to be read as text it lifts to this tint,
      the same hue at 5:1. */
   --wf-marker-live-ink: #4d74ff;
 
-  /* Text that sits ON each hall field. Contrast-checked, not eyeballed. */
-  --wf-on-hall-a: #ffffff;
-  --wf-on-hall-b: #04231f;
-  --wf-on-hall-c: #ffffff;
-  --wf-on-hall-d: #101400;
-  --wf-on-hall-e: #1a0a00;
+  /* Text that sits ON each track field. Contrast-checked, not eyeballed. */
+  --wf-on-track-a: #ffffff;
+  --wf-on-track-b: #04231f;
+  --wf-on-track-c: #ffffff;
+  --wf-on-track-d: #101400;
+  --wf-on-track-e: #1a0a00;
 
   /* A photograph carries its own lighting and does not invert with the theme.
      A banner is a dark room in both modes, so its scrim and its ink are fixed
@@ -121,26 +121,26 @@
   --wf-ease: cubic-bezier(0.2, 0, 0, 1);
 }
 
-/* ── Hall assignment ─────────────────────────────────────────────────────── */
-[data-hall='a'] {
-  --hall: var(--wf-hall-a);
-  --on-hall: var(--wf-on-hall-a);
+/* ── Track assignment ────────────────────────────────────────────────────── */
+[data-track='a'] {
+  --track: var(--wf-track-a);
+  --on-track: var(--wf-on-track-a);
 }
-[data-hall='b'] {
-  --hall: var(--wf-hall-b);
-  --on-hall: var(--wf-on-hall-b);
+[data-track='b'] {
+  --track: var(--wf-track-b);
+  --on-track: var(--wf-on-track-b);
 }
-[data-hall='c'] {
-  --hall: var(--wf-hall-c);
-  --on-hall: var(--wf-on-hall-c);
+[data-track='c'] {
+  --track: var(--wf-track-c);
+  --on-track: var(--wf-on-track-c);
 }
-[data-hall='d'] {
-  --hall: var(--wf-hall-d);
-  --on-hall: var(--wf-on-hall-d);
+[data-track='d'] {
+  --track: var(--wf-track-d);
+  --on-track: var(--wf-on-track-d);
 }
-[data-hall='e'] {
-  --hall: var(--wf-hall-e);
-  --on-hall: var(--wf-on-hall-e);
+[data-track='e'] {
+  --track: var(--wf-track-e);
+  --on-track: var(--wf-on-track-e);
 }
 
 /* ==========================================================================
@@ -163,7 +163,7 @@
 
   --vp-c-brand-1: #6d8dff;
   --vp-c-brand-2: #8ba4ff;
-  --vp-c-brand-3: var(--wf-hall-a);
+  --vp-c-brand-3: var(--wf-track-a);
   --vp-c-brand-soft: rgba(31, 75, 255, 0.18);
 
   --vp-font-family-base: var(--wf-font);
@@ -176,7 +176,7 @@
 }
 
 /* Light mode is the inverted vinyl: white substrate, black cut lettering,
-   identical halls. It is a real mode, not a tinted afterthought. */
+   identical tracks. It is a real mode, not a tinted afterthought. */
 html:not(.dark) {
   --wf-ink: #f7f7f5;
   --wf-ink-raised: #ffffff;
@@ -191,9 +191,9 @@ html:not(.dark) {
   --vp-c-brand-2: #1a3ee0;
   --vp-c-brand-soft: rgba(31, 75, 255, 0.12);
 
-  /* On paper the flat hall blue already reads at 6:1, so live ink is the
-     hall colour exactly. */
-  --wf-marker-live-ink: var(--wf-hall-a);
+  /* On paper the flat track blue already reads at 6:1, so live ink is the
+     track colour exactly. */
+  --wf-marker-live-ink: var(--wf-track-a);
 }
 
 /* ==========================================================================
@@ -219,13 +219,13 @@ body {
 }
 
 ::selection {
-  background: var(--wf-hall-d);
-  color: var(--wf-on-hall-d);
+  background: var(--wf-track-d);
+  color: var(--wf-on-track-d);
 }
 
 /* Signage does not have a soft focus ring. It has a cut edge. */
 :where(a, button, [tabindex]):focus-visible {
-  outline: 3px solid var(--wf-hall-d);
+  outline: 3px solid var(--wf-track-d);
   outline-offset: 2px;
   border-radius: 0;
 }
@@ -240,16 +240,16 @@ body {
   line-height: 0.92;
 }
 
-/* A sticker: a hall-coloured field applied slightly off true, the same mark the
-   co-speaker billing wears. The hall is the field and the measured on-hall pair
+/* A sticker: a track-coloured field applied slightly off true, the same mark the
+   co-speaker billing wears. The track is the field and the measured on-track pair
    is the ink, so the contrast law holds at heading scale as well as at billing
    scale. The tilt lifts the far end, so it hangs on its own top margin and
    hugs its words rather than spanning the column. */
 .wf-sticker {
   display: inline-block;
   padding: 0.16em 0.34em 0.2em;
-  background: var(--hall, var(--wf-marker-live));
-  color: var(--on-hall, var(--wf-on-hall-a));
+  background: var(--track, var(--wf-marker-live));
+  color: var(--on-track, var(--wf-on-track-a));
   line-height: 1;
   transform: rotate(-1.4deg);
   transform-origin: 0 50%;
@@ -331,8 +331,8 @@ body {
 
 /* The nav marks its destinations in ink, not with a rule: at this size a row
    of underlines competes with the signage below it. White at rest, and the
-   hall of the place you are pointing at or standing in when live — the same
-   five colours the signs downstairs use, in the same order as the halls. */
+   track of the place you are pointing at or standing in when live — the same
+   five colours the signs downstairs use, in the same order as the tracks. */
 .VPNavBarMenuLink {
   color: var(--wf-optic) !important;
   transition: color var(--wf-motion) var(--wf-ease);
@@ -341,35 +341,35 @@ body {
 .VPNavBarMenuLink:hover,
 .VPNavBarMenuLink:focus-visible,
 .VPNavBarMenuLink.active {
-  color: var(--nav-hall, var(--wf-marker-live-ink)) !important;
+  color: var(--nav-track, var(--wf-marker-live-ink)) !important;
 }
 
-/* Home, Events, Talks, Blog, About — one hall each, so the bar is a legend for
+/* Home, Events, Talks, Blog, About — one track each, so the bar is a legend for
    the colours used on the pages it leads to. Counted by type: a hidden
    "Main Navigation" span leads the list, so nth-child would be off by one. */
 .VPNavBarMenu .VPNavBarMenuLink:nth-of-type(1),
 .VPNavScreenMenu .VPNavScreenMenuLink:nth-of-type(1) {
-  --nav-hall: var(--wf-hall-a);
+  --nav-track: var(--wf-track-a);
 }
 
 .VPNavBarMenu .VPNavBarMenuLink:nth-of-type(2),
 .VPNavScreenMenu .VPNavScreenMenuLink:nth-of-type(2) {
-  --nav-hall: var(--wf-hall-e);
+  --nav-track: var(--wf-track-e);
 }
 
 .VPNavBarMenu .VPNavBarMenuLink:nth-of-type(3),
 .VPNavScreenMenu .VPNavScreenMenuLink:nth-of-type(3) {
-  --nav-hall: var(--wf-hall-b);
+  --nav-track: var(--wf-track-b);
 }
 
 .VPNavBarMenu .VPNavBarMenuLink:nth-of-type(4),
 .VPNavScreenMenu .VPNavScreenMenuLink:nth-of-type(4) {
-  --nav-hall: var(--wf-hall-d);
+  --nav-track: var(--wf-track-d);
 }
 
 .VPNavBarMenu .VPNavBarMenuLink:nth-of-type(5),
 .VPNavScreenMenu .VPNavScreenMenuLink:nth-of-type(5) {
-  --nav-hall: var(--wf-hall-c);
+  --nav-track: var(--wf-track-c);
 }
 
 .VPNavScreenMenuLink {
@@ -379,7 +379,7 @@ body {
 
 .VPNavScreenMenuLink:hover,
 .VPNavScreenMenuLink:focus-visible {
-  color: var(--nav-hall, var(--wf-marker-live-ink)) !important;
+  color: var(--nav-track, var(--wf-marker-live-ink)) !important;
 }
 
 /* Full-bleed content. Below 960px the navbar sits in normal flow and already
