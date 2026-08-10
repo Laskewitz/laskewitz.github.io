@@ -217,7 +217,11 @@ function resourceHref(delivery: { coSpeakers?: readonly string[] }) {
   margin-top: var(--wf-gap-xs);
 }
 
+/* Tags sit on the same plate line as the format tile, so they get the same
+   bordered treatment — a touch narrower and lighter so the format still leads. */
 .tag {
+  padding: 2px 8px;
+  border: 1px solid var(--wf-ink-rule);
   font-variation-settings: 'wdth' 105;
   font-weight: 600;
   font-size: var(--wf-step--1);
