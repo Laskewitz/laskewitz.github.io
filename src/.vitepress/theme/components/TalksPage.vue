@@ -1,7 +1,7 @@
 <script setup lang="ts">
 /** The placard index — one plate per talk in rotation. */
 import { computed, ref } from 'vue'
-import { talks, tagsOfKind, formatLabel } from '../../data/talks'
+import { talks, activeTalks, tagsOfKind, formatLabel } from '../../data/talks'
 import { getEvent } from '../../data/events'
 import FilterBar from './FilterBar.vue'
 import PageBanner from './PageBanner.vue'
@@ -21,7 +21,7 @@ function deliveryDates(slug: string): string[] {
  * which an empty date string would otherwise do.
  */
 const ordered = computed(() =>
-  [...talks].sort(
+  [...activeTalks].sort(
     (a, b) => (deliveryDates(b.slug).at(-1) ?? '').localeCompare(deliveryDates(a.slug).at(-1) ?? '')
   )
 )
@@ -32,7 +32,7 @@ const topics = tagsOfKind('topic')
 /* Only offered when the programme actually holds both kinds of room; a filter
    that can only ever return everything is noise on the bar. */
 const formats = computed(() => {
-  const used = new Set(talks.map(formatLabel))
+  const used = new Set(activeTalks.map(formatLabel))
   return used.size > 1 ? ['Session', 'Workshop'].filter((f) => used.has(f)) : []
 })
 
@@ -84,7 +84,7 @@ const shown = computed(() => {
       title="Talks"
       src="stage-ecs-2024"
       alt="Daniel Laskewitz presenting alongside a co-speaker at the European Collaboration Summit 2024."
-      hall="b"
+      track="b"
       focus="58% 24%"
     >
       These aren't one-offs. Each of these gets given again, at different
@@ -110,7 +110,7 @@ const shown = computed(() => {
         :key="talk.slug"
         class="placard"
         :href="`/talks/${talk.slug}`"
-        :data-hall="talk.hall"
+        :data-track="talk.track"
       >
         <span class="band" aria-hidden="true" />
 
@@ -196,7 +196,7 @@ const shown = computed(() => {
   background: var(--wf-ink-raised);
 }
 
-/* Grey standing still, lit in the talk's own hall on approach — the same tab
+/* Grey standing still, lit in the talk's own track on approach — the same tab
    the signs, the desk and the boards carry. A wall of plates each lit at rest
    read as a paint chart rather than a programme. */
 .band {
@@ -207,7 +207,7 @@ const shown = computed(() => {
 
 .placard:hover .band,
 .placard:focus-visible .band {
-  background: var(--hall, var(--wf-marker-live));
+  background: var(--track, var(--wf-marker-live));
 }
 
 .title-cell {

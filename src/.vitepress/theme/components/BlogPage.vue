@@ -1,25 +1,25 @@
 <script setup lang="ts">
 /**
  * The notice board — posts pinned to a wall. This year's stay up; earlier years
- * fold into a year board the way the events hall does, so the top of the page is
+ * fold into a year board the way the events track does, so the top of the page is
  * always what's current rather than an archive that grows forever.
  */
 import { computed, onMounted, ref } from 'vue'
 import { data as posts } from '../posts.data'
-import type { Hall } from '../../data/types'
+import type { Track } from '../../data/types'
 import { sortCategories } from '../../data/posts'
 import FilterBar from './FilterBar.vue'
 import PageBanner from './PageBanner.vue'
 import YearTile from './YearTile.vue'
 import BlogPostRow from './BlogPostRow.vue'
 
-/* The same five-hall rotation the events board runs, so a reader who learned
+/* The same five-track rotation the events board runs, so a reader who learned
    the colours there reads them here. The colour is the row's identity on
    approach, not a claim about the post's subject. */
-const HALL_CYCLE: Hall[] = ['a', 'e', 'b', 'd', 'c']
+const TRACK_CYCLE: Track[] = ['a', 'e', 'b', 'd', 'c']
 
-function hallFor(index: number): Hall {
-  return HALL_CYCLE[index % HALL_CYCLE.length]
+function trackFor(index: number): Track {
+  return TRACK_CYCLE[index % TRACK_CYCLE.length]
 }
 
 const categories = computed(() =>
@@ -101,7 +101,7 @@ function toggleYear(year: string) {
       title="Blog"
       src="stage-resco"
       alt="Daniel Laskewitz on stage at Resco Next 2024 in Vienna."
-      hall="c"
+      track="c"
       focus="45% 7%"
     />
 
@@ -130,12 +130,12 @@ function toggleYear(year: string) {
       <template v-else>
         <ol v-if="current.length" class="notes">
           <li v-for="(post, i) in current" :key="post.url">
-            <BlogPostRow :post="post" :hall="hallFor(i)" />
+            <BlogPostRow :post="post" :track="trackFor(i)" />
           </li>
         </ol>
 
         <section v-if="archiveByYear.length" class="archive" aria-labelledby="archive-heading">
-          <h2 id="archive-heading" class="archive-heading wf-sign" data-hall="d">
+          <h2 id="archive-heading" class="archive-heading wf-sign" data-track="d">
             <span class="wf-sticker">Earlier</span>
           </h2>
 
@@ -157,7 +157,7 @@ function toggleYear(year: string) {
 
             <ol v-show="openYears.has(year)" class="notes">
               <li v-for="(post, i) in list" :key="post.url">
-                <BlogPostRow :post="post" :hall="hallFor(i)" />
+                <BlogPostRow :post="post" :track="trackFor(i)" />
               </li>
             </ol>
           </div>

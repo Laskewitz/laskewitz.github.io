@@ -1,13 +1,13 @@
 <script setup lang="ts">
 /**
- * The hall directory. Upcoming above the rule, past below, both derived from
+ * The track directory. Upcoming above the rule, past below, both derived from
  * the date so an event moves itself.
  */
 import { computed, ref } from 'vue'
 import { pastEvents, upcomingEvents } from '../../data/events'
 import { coSpeakersAtEvent, talksAtEvent } from '../../data/talks'
 import { eventPlace, eventYear, flagSrc, formatEventDate } from '../../data/format'
-import type { Hall } from '../../data/types'
+import type { Track } from '../../data/types'
 import CoSpeakerBadge from './CoSpeakerBadge.vue'
 import YearTile from './YearTile.vue'
 import PageBanner from './PageBanner.vue'
@@ -20,10 +20,10 @@ const past = computed(() => pastEvents())
  * four unrelated things; the colour now belongs to the line you are pointing
  * at. Grey standing still, lit on approach, the same as every other sign.
  */
-const HALL_CYCLE: Hall[] = ['a', 'e', 'b', 'd', 'c']
+const TRACK_CYCLE: Track[] = ['a', 'e', 'b', 'd', 'c']
 
-function hallFor(index: number): Hall {
-  return HALL_CYCLE[index % HALL_CYCLE.length]
+function trackFor(index: number): Track {
+  return TRACK_CYCLE[index % TRACK_CYCLE.length]
 }
 
 /**
@@ -72,22 +72,24 @@ function toggleYear(year: string) {
 </script>
 
 <template>
-  <div class="halls">
+  <div class="tracks">
     <PageBanner
       title="Events"
       src="stage-ecs-2023"
       alt="Daniel Laskewitz speaking from the main stage at the European Collaboration Summit 2023."
-      hall="a"
+      track="a"
       focus="49% 30%"
     >
       Every conference, user group and community day I've spoken at, and the
       ones still ahead.
     </PageBanner>
 
-    <section v-if="next" class="spotlight wf-gutter" aria-labelledby="next-heading" data-hall="a">
-      <p id="next-heading" class="spot-label wf-label">Next up</p>
+    <section v-if="next" class="spotlight wf-gutter" aria-labelledby="next-heading" data-track="a">
+      <h2 id="next-heading" class="spot-heading wf-sign">
+        <span class="wf-sticker">Next up</span>
+      </h2>
 
-      <h2 class="spot-name wf-sign">{{ next.name }}</h2>
+      <p class="spot-name wf-sign">{{ next.name }}</p>
 
       <CoSpeakerBadge class="spot-with" :speakers="coSpeakersAtEvent(next.slug)" />
 
@@ -110,7 +112,7 @@ function toggleYear(year: string) {
     </section>
 
     <section class="board wf-gutter" aria-labelledby="upcoming-heading">
-      <h2 id="upcoming-heading" class="board-heading wf-sign" data-hall="e">
+      <h2 id="upcoming-heading" class="board-heading wf-sign" data-track="e">
         <span class="wf-sticker">Upcoming</span>
       </h2>
 
@@ -123,7 +125,7 @@ function toggleYear(year: string) {
           v-for="(event, i) in upcoming"
           :key="event.slug"
           class="line is-upcoming"
-          :data-hall="hallFor(i)"
+          :data-track="trackFor(i)"
         >
           <span class="date">{{ formatEventDate(event) }}</span>
 
@@ -160,7 +162,7 @@ function toggleYear(year: string) {
     </section>
 
     <section class="board wf-gutter" aria-labelledby="past-heading">
-      <h2 id="past-heading" class="board-heading wf-sign" data-hall="c">
+      <h2 id="past-heading" class="board-heading wf-sign" data-track="c">
         <span class="wf-sticker">Past</span>
       </h2>
 
@@ -183,7 +185,7 @@ function toggleYear(year: string) {
             v-for="(event, i) in list"
             :key="event.slug"
             class="line"
-            :data-hall="hallFor(i)"
+            :data-track="trackFor(i)"
           >
             <span class="date">{{ formatEventDate(event) }}</span>
 
@@ -223,16 +225,26 @@ function toggleYear(year: string) {
 </template>
 
 <style scoped>
+/* The next date is the one thing on this page still ahead, so it is marked
+   rather than shouted: it keeps the track's stickers and sits on the raised
+   substrate between two hairlines. The full-bleed colour field out-shouted the
+   page's own banner and turned every control on it into reversed type. */
 .spotlight {
   padding-top: var(--wf-gap-l);
   padding-bottom: var(--wf-gap-l);
-  background: var(--hall);
-  color: var(--on-hall);
+  border-top: 1px solid var(--wf-ink-rule);
+  border-bottom: 1px solid var(--wf-ink-rule);
+  background: var(--wf-ink-raised);
+  color: var(--wf-optic);
 }
 
-/* Everything printed on the hall field inherits the paired colour. Weight,
-   not opacity, is what separates the label from the name here. */
-.spot-label,
+/* The same sticker heading the boards below wear, so the two sections read as
+   one system rather than two separate treatments. */
+.spot-heading {
+  margin: 0 0 var(--wf-gap-m);
+  font-size: var(--wf-step-2);
+}
+
 .spot-name,
 .spot-meta,
 .spot-links a {
@@ -240,17 +252,17 @@ function toggleYear(year: string) {
 }
 
 .spot-name {
-  margin: var(--wf-gap-xs) 0 0;
+  margin: 0;
   font-size: var(--wf-step-3);
   line-height: 1.05;
   overflow-wrap: anywhere;
 }
 
-/* Printed on the hall field itself, so the sticker inverts: the field's ink
-   becomes its ground and the field's colour becomes its ink. */
+/* Standing on the substrate now, so the billing is the plain sticker the rest
+   of the site uses: track field, measured on-track ink. */
 .spot-with {
-  background: var(--on-hall);
-  color: var(--hall);
+  background: var(--track);
+  color: var(--on-track);
 }
 
 .spot-meta {
@@ -281,15 +293,14 @@ function toggleYear(year: string) {
   list-style: none;
 }
 
-/* Inverted against the billing sticker above it: this one stands on the hall
-   field, so it takes the field's ink as its ground. Both pairs are the measured
-   on-hall pair, so the contrast floor holds either way round. */
+/* The same sticker as the billing above it — both stand on the substrate, so
+   both take the track as field and the measured pair as ink. */
 .spot-talks a {
   display: inline-flex;
   align-items: baseline;
   padding: 0.28em 0.55em;
-  background: var(--on-hall);
-  color: var(--hall);
+  background: var(--track);
+  color: var(--on-track);
   font-variation-settings: 'wdth' var(--wf-width-sign);
   font-weight: 700;
   font-size: 0.75rem;
@@ -308,14 +319,14 @@ function toggleYear(year: string) {
   margin: var(--wf-gap-m) 0 0;
 }
 
-/* The same outlined control the boards below use, drawn in the field's ink
-   because it stands on the hall colour rather than on the substrate. */
+/* The same outlined control the boards below use, and now drawn in the same
+   substrate ink, because it no longer stands on a colour field. */
 .spot-links a {
   min-height: var(--wf-tap);
   display: inline-flex;
   align-items: center;
   padding-inline: var(--wf-gap-s);
-  border: 1px solid var(--on-hall);
+  border: 1px solid var(--wf-ink-rule);
   font-variation-settings: 'wdth' 110;
   font-weight: 700;
   font-size: var(--wf-step--1);
@@ -329,8 +340,9 @@ function toggleYear(year: string) {
 
 .spot-links a:hover,
 .spot-links a:focus-visible {
-  background: var(--on-hall);
-  color: var(--hall);
+  background: var(--track);
+  border-color: var(--track);
+  color: var(--on-track);
 }
 
 .board {
@@ -363,7 +375,7 @@ function toggleYear(year: string) {
    hairline per row just adds noise to a list this long. Separation is carried
    by the space instead. Each line carries a tab in its own gutter, the same
    anatomy the signs elsewhere use — grey standing still so the board stays
-   quiet, lit in the event's hall on approach. */
+   quiet, lit in the event's track on approach. */
 .line {
   position: relative;
   display: grid;
@@ -389,7 +401,7 @@ function toggleYear(year: string) {
    the line should light the same tab a pointer does. */
 .line:hover::before,
 .line:focus-within::before {
-  background: var(--hall, var(--wf-marker-live));
+  background: var(--track, var(--wf-marker-live));
 }
 
 .date {
@@ -500,7 +512,7 @@ function toggleYear(year: string) {
 }
 
 /* No underline: a rule under a title that already sits in a list of titles is
-   noise, and hall-coloured text fails on this substrate. The field lifting
+   noise, and track-coloured text fails on this substrate. The field lifting
    under the words is what the rest of the venue does on approach. */
 .gave-list a:hover,
 .gave-list a:focus-visible {
@@ -531,14 +543,14 @@ function toggleYear(year: string) {
     color var(--wf-motion) var(--wf-ease);
 }
 
-/* Fills in the line's own hall rather than plain white, so the button and the
-   tab at the head of the line light as one thing. The on-hall pair carries the
+/* Fills in the line's own track rather than plain white, so the button and the
+   tab at the head of the line light as one thing. The on-track pair carries the
    text, which is what keeps the contrast measured rather than eyeballed. */
 .links a:hover,
 .links a:focus-visible {
-  background: var(--hall, var(--wf-optic));
-  border-color: var(--hall, var(--wf-optic));
-  color: var(--on-hall, var(--wf-ink));
+  background: var(--track, var(--wf-optic));
+  border-color: var(--track, var(--wf-optic));
+  color: var(--on-track, var(--wf-ink));
 }
 
 .year + .year {

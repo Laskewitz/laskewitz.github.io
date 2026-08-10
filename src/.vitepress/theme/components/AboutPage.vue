@@ -16,20 +16,20 @@ import { bios, headshots } from '../../data/bio'
 import { countryCount, eventCount, firstYear } from '../../data/events'
 import { speakers } from '../../data/speakers'
 import { talkCount } from '../../data/talks'
-import type { Hall } from '../../data/types'
+import type { Track } from '../../data/types'
 import PageBanner from './PageBanner.vue'
 import LinkRow from './LinkRow.vue'
 
 /**
- * Every row in a list carries a hall, not just the first one — a single lit tab
+ * Every row in a list carries a track, not just the first one — a single lit tab
  * above three grey ones reads as an accident. The tabs stay grey standing still
- * and light their hall on approach, so the colour marks the row you are
+ * and light their track on approach, so the colour marks the row you are
  * pointing at rather than painting the whole list.
  */
-const HALL_CYCLE: Hall[] = ['e', 'a', 'b', 'd', 'c']
+const TRACK_CYCLE: Track[] = ['e', 'a', 'b', 'd', 'c']
 
-function hallFor(index: number): Hall {
-  return HALL_CYCLE[index % HALL_CYCLE.length]
+function trackFor(index: number): Track {
+  return TRACK_CYCLE[index % TRACK_CYCLE.length]
 }
 
 const host = speakers.laskewitz
@@ -86,15 +86,15 @@ async function copy(label: string, text: string) {
 
 <template>
   <div class="desk">
-    <!-- The desk leads with a room, like every other hall does — a strip, not a
+    <!-- The desk leads with a room, like every other track does — a strip, not a
          hero, so the first thing an organiser came for stays near the top.
-         Hall E tints it, so the photograph belongs to this page rather than to
+         Track E tints it, so the photograph belongs to this page rather than to
          the home page it is shared with. -->
     <PageBanner
       title="About"
       src="stage-devworld"
       alt="Daniel Laskewitz speaking on stage at DevWorld 2024."
-      hall="e"
+      track="e"
       focus="62% 30%"
     >
       Principal Cloud Advocate at Microsoft. I work on Copilot Studio,
@@ -104,7 +104,7 @@ async function copy(label: string, text: string) {
     </PageBanner>
 
     <section class="block wf-gutter" aria-labelledby="reach-heading">
-      <h2 id="reach-heading" class="block-heading wf-sign" data-hall="a">
+      <h2 id="reach-heading" class="block-heading wf-sign" data-track="a">
         <span class="wf-sticker">Reach me</span>
       </h2>
 
@@ -115,7 +115,7 @@ async function copy(label: string, text: string) {
           :href="channel.href"
           :label="channel.label"
           :note="CHANNEL_NOTES[channel.label]"
-          :hall="hallFor(i)"
+          :track="trackFor(i)"
           quiet
           external
         />
@@ -123,7 +123,7 @@ async function copy(label: string, text: string) {
     </section>
 
     <section class="block wf-gutter" aria-labelledby="programme-heading">
-      <h2 id="programme-heading" class="block-heading wf-sign" data-hall="d">
+      <h2 id="programme-heading" class="block-heading wf-sign" data-track="d">
         <span class="wf-sticker">What I speak about</span>
       </h2>
 
@@ -149,21 +149,21 @@ async function copy(label: string, text: string) {
           href="/talks/"
           label="The talks"
           note="Abstracts and formats for everything currently in rotation."
-          hall="b"
+          track="b"
           quiet
         />
         <LinkRow
           href="/events/"
           label="The speaking record"
           :note="`Back to ${speakingSince}, plus the dates still ahead.`"
-          hall="a"
+          track="a"
           quiet
         />
       </nav>
     </section>
 
     <section class="block wf-gutter" aria-labelledby="press-heading">
-      <h2 id="press-heading" class="block-heading wf-sign" data-hall="b">
+      <h2 id="press-heading" class="block-heading wf-sign" data-track="b">
         <span class="wf-sticker">Bio and headshots</span>
       </h2>
 
@@ -206,7 +206,7 @@ async function copy(label: string, text: string) {
           :href="shot.href"
           :label="shot.label"
           :note="shot.note"
-          :hall="hallFor(i)"
+          :track="trackFor(i)"
           quiet
           external
         />
@@ -238,7 +238,7 @@ async function copy(label: string, text: string) {
   color: var(--vp-c-text-2);
 }
 
-/* The rows carry their own hall tabs, so they no longer need rules between
+/* The rows carry their own track tabs, so they no longer need rules between
    them — the tab is the separator. */
 .rows {
   display: grid;
@@ -352,12 +352,12 @@ async function copy(label: string, text: string) {
   color: var(--wf-ink);
 }
 
-/* Confirmation is a field flip, not a tick that needs decoding. The lime hall
+/* Confirmation is a field flip, not a tick that needs decoding. The lime track
    carries its own checked ink. */
 .copy[data-copied='true'] {
-  background: var(--wf-hall-d);
-  border-color: var(--wf-hall-d);
-  color: var(--wf-on-hall-d);
+  background: var(--wf-track-d);
+  border-color: var(--wf-track-d);
+  color: var(--wf-on-track-d);
 }
 
 .bio-text {

@@ -3,13 +3,13 @@
  * BannerImage — the hanging banner.
  *
  * The only way photography is allowed to appear in this world: full-bleed,
- * behind a hall-colour tint, never as a portrait in a card. A scrim is laid
+ * behind a track-colour tint, never as a portrait in a card. A scrim is laid
  * under the content so cut lettering keeps its contrast over any frame of the
  * photograph — the substrate wins, the picture is the field it sits on.
  *
  * Never used on /r/ doors. The QR path does not wait on a photograph.
  */
-import type { Hall } from '../../data/types'
+import type { Track } from '../../data/types'
 
 withDefaults(
   defineProps<{
@@ -17,7 +17,7 @@ withDefaults(
     src: string
     /** Required. Describes the photograph, not the page. */
     alt: string
-    hall?: Hall
+    track?: Track
     /** How tall the banner stands. */
     height?: 'strip' | 'half' | 'full'
     /**
@@ -43,7 +43,7 @@ withDefaults(
   <section
     class="banner"
     :class="`is-${height}`"
-    :data-hall="hall"
+    :data-track="track"
     :style="{
       '--banner-focus': focus,
       '--banner-focus-narrow': focusNarrow ?? focus
@@ -78,7 +78,7 @@ withDefaults(
 }
 
 .is-strip {
-  /* A band, not a hall: enough to carry a face and the page's name, and no
+  /* A band, not a track: enough to carry a face and the page's name, and no
      more. Capped in rem so a tall desktop doesn't turn it into a hero. */
   min-height: clamp(15rem, 34vh, 23rem);
 }
@@ -119,11 +119,11 @@ withDefaults(
   }
 }
 
-/* The hall colour is laid over the photograph, not next to it — the banner
-   belongs to its hall before it belongs to its subject. */
+/* The track colour is laid over the photograph, not next to it — the banner
+   belongs to its track before it belongs to its subject. */
 .banner-tint {
   z-index: 1;
-  background: var(--hall, var(--wf-hall-a));
+  background: var(--track, var(--wf-track-a));
   mix-blend-mode: color;
   opacity: 0.55;
 }

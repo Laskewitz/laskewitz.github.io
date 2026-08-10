@@ -4,14 +4,14 @@ import { Resvg } from '@resvg/resvg-js'
 import satori from 'satori'
 import type { PageData, SiteConfig } from 'vitepress'
 import { talks } from './data/talks'
-import type { Hall } from './data/types'
+import type { Track } from './data/types'
 
 const HOSTNAME = 'https://laskewitz.io'
 const WIDTH = 1200
 const HEIGHT = 630
 
 /**
- * The card is a dark room, so the substrate is fixed and the hall no longer
+ * The card is a dark room, so the substrate is fixed and the track no longer
  * floods the frame. Sharing surfaces crop, tint and sit these images next to
  * each other; a black field keeps the set looking like one wall of signs
  * rather than five competing colour swatches.
@@ -20,31 +20,32 @@ const SUBSTRATE = '#0a0a0a'
 const OPTIC = '#ffffff'
 
 /**
- * The hall palette, copied from style.css because a PNG cannot read a custom
+ * The track palette, copied from style.css because a PNG cannot read a custom
  * property.
  *
- * `rule` is the field colour at full strength. It was already carrying the
- * solid band above the wordmark, and now carries the kicker's sticker too — a
- * field is not text and has no contrast floor to clear.
- * `ink` is the measured on-hall pair from style.css, used for the words sitting
- * on that field. This is what lets the kicker wear hall colour honestly: the
- * old lifted-accent trick existed only because the kicker was small
- * hall-coloured text on #0A0A0A, which style.css bans outright. On its own
- * field the pair is the one already contrast-checked for the site.
+ * `rule` is the field colour at full strength and `onTrack` is its measured
+ * partner ink, exactly the pairing style.css publishes: a 5.99 · b 7.34 ·
+ * c 5.09 · d 15.83 · e 6.76. The card only ever puts a track colour down as a
+ * field — the solid band above the wordmark, and the kicker sticker — so the
+ * ban on small track-coloured text on #0A0A0A is honoured by construction and
+ * no lifted tint is needed to get track colour onto the card.
  */
-const HALLS: Record<Hall, { rule: string; ink: string }> = {
-  a: { rule: '#1f4bff', ink: '#ffffff' },
-  b: { rule: '#00c2a8', ink: '#04231f' },
-  c: { rule: '#d6203a', ink: '#ffffff' },
-  d: { rule: '#c8ff00', ink: '#101400' },
-  e: { rule: '#ff6b00', ink: '#1a0a00' }
+const TRACKS: Record<Track, { rule: string; onTrack: string }> = {
+  a: { rule: '#1f4bff', onTrack: '#ffffff' },
+  b: { rule: '#00c2a8', onTrack: '#04231f' },
+  c: { rule: '#d6203a', onTrack: '#ffffff' },
+  d: { rule: '#c8ff00', onTrack: '#101400' },
+  e: { rule: '#ff6b00', onTrack: '#1a0a00' }
 }
+
+/** The kicker's cap height, and the sticker padding scaled off it. */
+const KICKER_SIZE = 26
 
 interface Card {
   file: string
   kicker: string
   title: string
-  hall: Hall
+  track: Track
   /** The session's leading emoji, drawn as a mark above the title. */
   emoji?: string
 }
@@ -55,7 +56,7 @@ const cards = new Map<string, Card>()
  * The wordmark, inlined so the renderer never reaches for the network.
  *
  * Only the white lettering is needed now. The card used to flood the frame
- * with the hall colour, so the mark had to flip to dark type on lime and teal;
+ * with the track colour, so the mark had to flip to dark type on lime and teal;
  * on a fixed black substrate there is nothing to flip against.
  */
 const logo = (() => {
@@ -145,6 +146,66 @@ function pageUrl(relativePath: string): string {
   return `${HOSTNAME}/${clean}`
 }
 
+type HeadEntry = [string, Record<string, string> | undefined]
+
+/**
+ * Where a redirect stub is sending the reader, as a source-relative path.
+ *
+ * The old `/sessions/<slug>/` URLs went out on slides and in chat threads, so
+ * those pages survive only to bounce a visitor to `/r/<slug>/`. A stub is
+ * recognised by what it does — a canonical link pointing elsewhere plus the
+ * refresh that performs the move — rather than by its title, because a title
+ * is copy and copy gets rewritten.
+ */
+function redirectTarget(frontmatter: Record<string, unknown>): string | undefined {
+  const head = frontmatter.head as HeadEntry[] | undefined
+  if (!Array.isArray(head)) return undefined
+
+  const canonical = head.find(([tag, attrs]) => tag === 'link' && attrs?.rel === 'canonical')?.[1]
+    ?.href
+  const refreshes = head.some(
+    ([tag, attrs]) => tag === 'meta' && attrs?.['http-equiv']?.toLowerCase() === 'refresh'
+  )
+  if (!canonical || !refreshes) return undefined
+
+  const clean = canonical.replace(HOSTNAME, '').replace(/^\/+|\/+$/g, '')
+  return clean === '' ? 'index.md' : `${clean}/index.md`
+}
+
+const srcDir = path.join(import.meta.dirname ?? __dirname, '..')
+
+/**
+ * The title and description a page writes for itself, read off disk.
+ *
+ * A resource door's title is written by hand — "Copilot Studio: session
+ * resources" is not derivable from the talk's own name — so the destination's
+ * frontmatter is the only honest source for it. `transformPageData` sees one
+ * page at a time and in no guaranteed order, so the destination is read from
+ * the same build inputs the fonts and artwork come from rather than waiting
+ * for its turn.
+ */
+function frontmatterOf(relativePath: string): { title?: string; description?: string } {
+  let raw: string
+  try {
+    raw = readFileSync(path.join(srcDir, relativePath), 'utf8')
+  } catch {
+    return {}
+  }
+
+  const block = /^---\r?\n([\s\S]*?)\r?\n---/.exec(raw)?.[1]
+  if (!block) return {}
+
+  /* Only the two top-level scalars are wanted, so the keys are matched at
+     column zero and nested `head:` entries never come into it. */
+  const read = (key: string) =>
+    new RegExp(`^${key}:[ \\t]*(.+)$`, 'm')
+      .exec(block)?.[1]
+      .trim()
+      .replace(/^(['"])([\s\S]*)\1$/, '$2')
+
+  return { title: read('title'), description: read('description') }
+}
+
 /**
  * The small line above the title. It says which part of the venue you are
  * standing in, so a shared link reads as a sign rather than a page title
@@ -160,11 +221,11 @@ function kickerFor(relativePath: string): string {
 }
 
 /** A talk page and its resource door are the same session, so same colour. */
-function hallFor(relativePath: string): Hall {
+function trackFor(relativePath: string): Track {
   const match = /^(?:talks|r)\/([^/]+)\/index\.md$/.exec(relativePath)
   if (match) {
     const talk = talks.find((t) => t.slug === match[1] || t.resourceSlug === match[1])
-    if (talk) return talk.hall
+    if (talk) return talk.track
   }
   if (relativePath.startsWith('blog/')) return 'c'
   if (relativePath.startsWith('talks/')) return 'b'
@@ -236,7 +297,7 @@ function titleChildren(title: string, size: number): unknown {
 }
 
 async function renderCard(card: Card): Promise<Buffer> {
-  const { rule, ink } = HALLS[card.hall]
+  const { rule, onTrack } = TRACKS[card.track]
 
   /* The session's emoji opens the title rather than standing above it, so the
      first words sit alongside it and the mark reads as part of the sign. */
@@ -279,36 +340,26 @@ async function renderCard(card: Card): Promise<Buffer> {
         },
         children: [
           {
-            /* The sticker, the same mark the section headings and the
-               co-speaker billing wear: a hall-coloured field applied a degree
-               or two off true, hugging its words rather than spanning the
-               card. `alignSelf` is what makes it hug — a column child would
-               otherwise stretch the full width and read as a second band. The
-               tilt turns on its left edge, so the far end lifts and the mark
-               looks applied rather than printed. */
+            /* The kicker is a sticker, the same mark the site slaps on its
+               board headings: a track field carrying its measured ink, tilted
+               off the horizontal. `alignSelf` is what makes it hug its words —
+               satori lays a plain block out full width, which would read as a
+               banner across the card rather than a label stuck to it. The
+               right padding is trimmed because the 0.16em tracking already
+               leaves a gap after the final letter. */
             type: 'div',
             props: {
               style: {
                 display: 'flex',
                 alignSelf: 'flex-start',
-                background: rule,
-                color: ink,
-                /* Trailing letterspacing adds a phantom column of space inside
-                   the field, so the right pad is cut back to keep the inset
-                   looking even on both ends. */
-                padding: '9px 12px 11px 17px',
-                fontSize: 26,
+                padding: `${Math.round(KICKER_SIZE * 0.16)}px ${Math.round(KICKER_SIZE * 0.34) - 4}px ${Math.round(KICKER_SIZE * 0.2)}px ${Math.round(KICKER_SIZE * 0.34)}px`,
+                fontSize: KICKER_SIZE,
                 fontWeight: 800,
                 lineHeight: 1,
                 letterSpacing: '0.16em',
                 textTransform: 'uppercase',
-                /* The heading sticker's angle: on the card the kicker is doing
-                   a heading's job, naming the part of the venue you are
-                   standing in. A rotation's lift grows with width, so "Talk"
-                   sits nearly true while the home card's credential line rises
-                   visibly across the frame — which is what a hand-applied
-                   sticker actually does, and why the angle is fixed rather
-                   than tuned per card. */
+                background: rule,
+                color: onTrack,
                 transform: 'rotate(-1.4deg)',
                 transformOrigin: '0 50%'
               },
@@ -361,22 +412,33 @@ async function renderCard(card: Card): Promise<Buffer> {
  */
 export function transformPageData(pageData: PageData) {
   const { relativePath, frontmatter } = pageData
-  const title = trimTitle(pageData.title || frontmatter.title || 'Daniel Laskewitz')
-  const description = frontmatter.description || ''
+
+  /* A stub is a doorway, not a destination. Everything the card and the
+     unfurl say is resolved from where the reader is being sent, so an old
+     link pasted into Teams previews as the page it lands on rather than
+     announcing that a redirect exists. */
+  const target = redirectTarget(frontmatter)
+  const subject = target ?? relativePath
+  const destination = target ? frontmatterOf(target) : undefined
+
+  const title = trimTitle(
+    destination?.title || pageData.title || frontmatter.title || 'Daniel Laskewitz'
+  )
+  const description = destination?.description || frontmatter.description || ''
   const id = cardId(relativePath)
   const image = `${HOSTNAME}/images/og/${id}.png`
 
   /* An index page would otherwise print its own name twice, once small and
      once large. The name goes in the slot instead. */
-  const kicker = kickerFor(relativePath)
+  const kicker = kickerFor(subject)
   const same = (a: string, b: string) =>
     a.toLowerCase().replace(/s$/, '') === b.toLowerCase().replace(/s$/, '')
   cards.set(id, {
     file: `${id}.png`,
     kicker: same(kicker, title) ? 'Daniel Laskewitz' : kicker,
     title,
-    hall: hallFor(relativePath),
-    emoji: emojiFor(relativePath)
+    track: trackFor(subject),
+    emoji: emojiFor(subject)
   })
 
   frontmatter.head ??= []
@@ -406,7 +468,9 @@ export function transformPageData(pageData: PageData) {
   frontmatter.head.push(
     ['meta', { property: 'og:title', content: title }],
     ['meta', { property: 'og:description', content: description }],
-    ['meta', { property: 'og:url', content: pageUrl(relativePath) }],
+    /* og:url names the thing being shared, so on a stub it follows the
+       canonical to the destination rather than pointing back at the doorway. */
+    ['meta', { property: 'og:url', content: pageUrl(subject) }],
     ['meta', { property: 'og:image', content: image }],
     ['meta', { property: 'og:image:width', content: String(WIDTH) }],
     ['meta', { property: 'og:image:height', content: String(HEIGHT) }],

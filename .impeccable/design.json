@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-08-10T17:18:42.042Z",
+  "generatedAt": "2026-08-10T19:57:39.667Z",
   "title": "Design System: Daniel Laskewitz — Wayfinding",
   "extensions": {
     "colorMeta": {
@@ -18,7 +18,7 @@
           "oklch(83.6% 0.0000 89.88)",
           "oklch(95.0% 0.0000 89.88)"
         ],
-        "purpose": "The default room: page and VitePress background. Inverts to #f7f7f5 in light mode."
+        "purpose": "the default room, page background and VitePress background (`--vp-c-bg`). Dark value is `#0a0a0a`; light mode inverts it to `#f7f7f5`."
       },
       "wf-ink-raised": {
         "role": "neutral",
@@ -34,7 +34,7 @@
           "oklch(83.6% 0.0000 89.88)",
           "oklch(95.0% 0.0000 89.88)"
         ],
-        "purpose": "Hover and raised dark surfaces. Inverts to #ffffff in light mode."
+        "purpose": "hover and raised dark surfaces (`#141414`; light mode `#ffffff`)."
       },
       "wf-ink-rule": {
         "role": "neutral",
@@ -50,7 +50,7 @@
           "oklch(83.6% 0.0000 89.88)",
           "oklch(95.0% 0.0000 89.88)"
         ],
-        "purpose": "Dividers and structural rules, and the resting colour of --wf-marker. Inverts to #d8d8d4."
+        "purpose": "dividers and structural rules (`#2a2a2a`; light mode `#d8d8d4`)."
       },
       "wf-optic": {
         "role": "neutral",
@@ -66,7 +66,7 @@
           "oklch(83.6% 0.0000 89.88)",
           "oklch(95.0% 0.0000 89.88)"
         ],
-        "purpose": "Main sign text and banner lettering. Inverts to #0a0a0a in light mode."
+        "purpose": "main sign text and banner lettering. Dark value is `#ffffff`; light mode inverts it to `#0a0a0a`."
       },
       "wf-optic-dim": {
         "role": "neutral",
@@ -82,11 +82,11 @@
           "oklch(83.6% 0.0000 89.88)",
           "oklch(95.0% 0.0000 89.88)"
         ],
-        "purpose": "Secondary labels on the substrate. Inverts to #5c5c5c in light mode."
+        "purpose": "secondary labels on the substrate (`#a3a3a3`; light mode `#5c5c5c`)."
       },
-      "wf-hall-a": {
+      "wf-track-a": {
         "role": "secondary",
-        "displayName": "Hall A Blue",
+        "displayName": "Track A Blue",
         "canonical": "oklch(52.2% 0.2665 265.49)",
         "tonalRamp": [
           "oklch(15.0% 0.2665 265.49)",
@@ -98,11 +98,11 @@
           "oklch(83.6% 0.2665 265.49)",
           "oklch(95.0% 0.2665 265.49)"
         ],
-        "purpose": "Copilot Studio, the home banner tint, and --wf-marker-live. 5.99:1 on white."
+        "purpose": "`#1f4bff`, with `--wf-on-track-a: #ffffff`. Used for Copilot Studio and the home banner track tint."
       },
-      "wf-hall-b": {
+      "wf-track-b": {
         "role": "secondary",
-        "displayName": "Hall B Mint",
+        "displayName": "Track B Mint",
         "canonical": "oklch(72.9% 0.1336 178.49)",
         "tonalRamp": [
           "oklch(15.0% 0.1336 178.49)",
@@ -114,11 +114,11 @@
           "oklch(83.6% 0.1336 178.49)",
           "oklch(95.0% 0.1336 178.49)"
         ],
-        "purpose": "Copilot Cowork. 7.34:1 with its on-hall ink."
+        "purpose": "`#00c2a8`, with `--wf-on-track-b: #04231f`. Used for Copilot Cowork."
       },
-      "wf-hall-c": {
+      "wf-track-c": {
         "role": "secondary",
-        "displayName": "Hall C Red",
+        "displayName": "Track C Red",
         "canonical": "oklch(56.5% 0.2115 21.26)",
         "tonalRamp": [
           "oklch(15.0% 0.2115 21.26)",
@@ -130,11 +130,11 @@
           "oklch(83.6% 0.2115 21.26)",
           "oklch(95.0% 0.2115 21.26)"
         ],
-        "purpose": "Declarative Agents. 5.09:1 on white, after the Red Correction."
+        "purpose": "`#d6203a`, with `--wf-on-track-c: #ffffff`. Used for Declarative Agents."
       },
-      "wf-hall-d": {
+      "wf-track-d": {
         "role": "secondary",
-        "displayName": "Hall D Lime",
+        "displayName": "Track D Lime",
         "canonical": "oklch(92.8% 0.2304 123.98)",
         "tonalRamp": [
           "oklch(15.0% 0.2304 123.98)",
@@ -146,11 +146,11 @@
           "oklch(83.6% 0.2304 123.98)",
           "oklch(95.0% 0.2304 123.98)"
         ],
-        "purpose": "Selection, focus rings, tickets and high-signal strips. 15.83:1 with its on-hall ink."
+        "purpose": "`#c8ff00`, with `--wf-on-track-d: #101400`. Used for selection, focus, tickets and high-signal strips."
       },
-      "wf-hall-e": {
+      "wf-track-e": {
         "role": "secondary",
-        "displayName": "Hall E Orange",
+        "displayName": "Track E Orange",
         "canonical": "oklch(70.2% 0.2004 45.10)",
         "tonalRamp": [
           "oklch(15.0% 0.2004 45.10)",
@@ -162,11 +162,11 @@
           "oklch(83.6% 0.2004 45.10)",
           "oklch(95.0% 0.2004 45.10)"
         ],
-        "purpose": "Added when the programme outgrew four rooms. 6.76:1 with its on-hall ink."
+        "purpose": "`#ff6b00`, with `--wf-on-track-e: #1a0a00`. Added when the programme outgrew four rooms."
       },
-      "wf-on-hall-a": {
+      "wf-on-track-a": {
         "role": "neutral",
-        "displayName": "On Hall A",
+        "displayName": "On Track A",
         "canonical": "oklch(100.0% 0.0000 89.88)",
         "tonalRamp": [
           "oklch(15.0% 0.0000 89.88)",
@@ -178,11 +178,11 @@
           "oklch(83.6% 0.0000 89.88)",
           "oklch(95.0% 0.0000 89.88)"
         ],
-        "purpose": "Measured ink for text sitting on Hall A blue."
+        "purpose": "The measured ink for text sitting on Track A."
       },
-      "wf-on-hall-b": {
+      "wf-on-track-b": {
         "role": "neutral",
-        "displayName": "On Hall B",
+        "displayName": "On Track B",
         "canonical": "oklch(23.2% 0.0371 183.02)",
         "tonalRamp": [
           "oklch(15.0% 0.0371 183.02)",
@@ -194,11 +194,11 @@
           "oklch(83.6% 0.0371 183.02)",
           "oklch(95.0% 0.0371 183.02)"
         ],
-        "purpose": "Measured ink for text sitting on Hall B mint."
+        "purpose": "The measured ink for text sitting on Track B."
       },
-      "wf-on-hall-c": {
+      "wf-on-track-c": {
         "role": "neutral",
-        "displayName": "On Hall C",
+        "displayName": "On Track C",
         "canonical": "oklch(100.0% 0.0000 89.88)",
         "tonalRamp": [
           "oklch(15.0% 0.0000 89.88)",
@@ -210,11 +210,11 @@
           "oklch(83.6% 0.0000 89.88)",
           "oklch(95.0% 0.0000 89.88)"
         ],
-        "purpose": "Measured ink for text sitting on Hall C red."
+        "purpose": "The measured ink for text sitting on Track C."
       },
-      "wf-on-hall-d": {
+      "wf-on-track-d": {
         "role": "neutral",
-        "displayName": "On Hall D",
+        "displayName": "On Track D",
         "canonical": "oklch(18.1% 0.0422 118.45)",
         "tonalRamp": [
           "oklch(15.0% 0.0422 118.45)",
@@ -226,11 +226,11 @@
           "oklch(83.6% 0.0422 118.45)",
           "oklch(95.0% 0.0422 118.45)"
         ],
-        "purpose": "Measured ink for text sitting on Hall D lime."
+        "purpose": "The measured ink for text sitting on Track D."
       },
-      "wf-on-hall-e": {
+      "wf-on-track-e": {
         "role": "neutral",
-        "displayName": "On Hall E",
+        "displayName": "On Track E",
         "canonical": "oklch(16.6% 0.0383 61.83)",
         "tonalRamp": [
           "oklch(15.0% 0.0383 61.83)",
@@ -242,17 +242,17 @@
           "oklch(83.6% 0.0383 61.83)",
           "oklch(95.0% 0.0383 61.83)"
         ],
-        "purpose": "Measured ink for text sitting on Hall E orange."
+        "purpose": "The measured ink for text sitting on Track E."
       }
     },
     "typographyMeta": {
       "venue": {
         "displayName": "Venue",
-        "purpose": "Huge record and display moments such as event counts. clamp(3.2rem, 0.5rem + 12vw, 11rem) at weight 900."
+        "purpose": "Huge record and display moments such as event counts."
       },
       "sign": {
         "displayName": "Sign",
-        "purpose": "The signage register: uppercase, wide, tight-tracked. Every page title and navigable label. Components often raise it to 900 for page titles."
+        "purpose": "The signage register: uppercase, wide, tight-tracked. Every page title and navigable label."
       },
       "read": {
         "displayName": "Read",
@@ -260,7 +260,7 @@
       },
       "label": {
         "displayName": "Label",
-        "purpose": "Small caps-tracked labels, normally dim optic unless sitting on a hall field."
+        "purpose": "Small caps-tracked labels, dim optic unless sitting on a track field."
       }
     },
     "scale": [
@@ -303,7 +303,7 @@
       {
         "name": "wf-ease",
         "value": "cubic-bezier(0.2, 0, 0, 1)",
-        "purpose": "Cut, hard and directional. Fast out of the gate, settled at the end; nothing overshoots or bounces."
+        "purpose": "Cut, hard and directional; nothing overshoots or bounces."
       },
       {
         "name": "arrow-advance",
@@ -354,63 +354,63 @@
       "refersTo": "link-row",
       "description": "The atom of the world: a full-width directional sign with a colour tab, a cut label, an optional note and a terminal arrow. Never shorter than a thumb.",
       "html": "<a class=\"ds-sign-row\" href=\"#\"><span class=\"ds-sign-row__tab\"></span><span class=\"ds-sign-row__body\"><span class=\"ds-sign-row__label\">Speaking record</span><span class=\"ds-sign-row__note\">Every event, and what is coming up next.</span></span><span class=\"ds-sign-row__arrow\">→</span></a>",
-      "css": ".ds-sign-row { --ds-row-hall: var(--wf-hall-a, #1f4bff); display: grid; grid-template-columns: 6px minmax(0, 68ch) auto; justify-content: start; align-items: center; gap: 0 0.875rem; min-height: var(--wf-tap, 56px); padding: 0.875rem 0; background: var(--wf-ink, #0a0a0a); color: var(--wf-optic, #fff); text-decoration: none; font-family: var(--wf-font, Archivo, ui-sans-serif, system-ui, sans-serif); font-variation-settings: 'wdth' 118; font-weight: 800; text-transform: uppercase; letter-spacing: -0.01em; line-height: 0.92; transition: background var(--wf-motion, 120ms) var(--wf-ease, cubic-bezier(0.2, 0, 0, 1)); } .ds-sign-row__tab { align-self: stretch; background: var(--wf-ink-rule, #2a2a2a); transition: background var(--wf-motion, 120ms) var(--wf-ease, cubic-bezier(0.2, 0, 0, 1)); } .ds-sign-row__body { display: flex; flex-direction: column; gap: 2px; min-width: 0; padding-left: 0.875rem; } .ds-sign-row__label { font-size: 1.4rem; overflow-wrap: anywhere; } .ds-sign-row__note { font-variation-settings: 'wdth' 100; font-weight: 500; text-transform: none; letter-spacing: 0; font-size: 0.82rem; color: var(--wf-optic-dim, #a3a3a3); line-height: 1.4; } .ds-sign-row__arrow { font-size: 2.1rem; line-height: 1; padding-right: 0.5rem; transform: translateX(0); transition: transform var(--wf-motion, 120ms) var(--wf-ease, cubic-bezier(0.2, 0, 0, 1)); } .ds-sign-row:hover, .ds-sign-row:focus-visible { background: var(--wf-ink-raised, #141414); } .ds-sign-row:hover .ds-sign-row__tab, .ds-sign-row:focus-visible .ds-sign-row__tab { background: var(--ds-row-hall); } .ds-sign-row:hover .ds-sign-row__arrow, .ds-sign-row:focus-visible .ds-sign-row__arrow { transform: translateX(4px); } .ds-sign-row:focus-visible { outline: 3px solid var(--wf-hall-d, #c8ff00); outline-offset: 2px; border-radius: 0; }"
+      "css": ".ds-sign-row { --ds-row-track: var(--wf-track-a, #1f4bff); display: grid; grid-template-columns: 6px minmax(0, 68ch) auto; justify-content: start; align-items: center; gap: 0 0.875rem; min-height: var(--wf-tap, 56px); padding: 0.875rem 0; background: var(--wf-ink, #0a0a0a); color: var(--wf-optic, #fff); text-decoration: none; font-family: var(--wf-font, Archivo, ui-sans-serif, system-ui, sans-serif); font-variation-settings: 'wdth' 118; font-weight: 800; text-transform: uppercase; letter-spacing: -0.01em; line-height: 0.92; transition: background var(--wf-motion, 120ms) var(--wf-ease, cubic-bezier(0.2, 0, 0, 1)); } .ds-sign-row__tab { align-self: stretch; background: var(--wf-marker, var(--wf-ink-rule, #2a2a2a)); transition: background var(--wf-motion, 120ms) var(--wf-ease, cubic-bezier(0.2, 0, 0, 1)); } .ds-sign-row__body { display: flex; flex-direction: column; gap: 2px; min-width: 0; padding-left: 0.875rem; } .ds-sign-row__label { font-size: 1.4rem; overflow-wrap: anywhere; } .ds-sign-row__note { font-variation-settings: 'wdth' 100; font-weight: 500; text-transform: none; letter-spacing: 0; font-size: 0.82rem; color: var(--wf-optic-dim, #a3a3a3); line-height: 1.4; } .ds-sign-row__arrow { font-size: 2.1rem; line-height: 1; padding-right: 0.5rem; transform: translateX(0); transition: transform var(--wf-motion, 120ms) var(--wf-ease, cubic-bezier(0.2, 0, 0, 1)); } .ds-sign-row:hover, .ds-sign-row:focus-visible { background: var(--wf-ink-raised, #141414); } .ds-sign-row:hover .ds-sign-row__tab, .ds-sign-row:focus-visible .ds-sign-row__tab { background: var(--ds-row-track); } .ds-sign-row:hover .ds-sign-row__arrow, .ds-sign-row:focus-visible .ds-sign-row__arrow { transform: translateX(4px); } .ds-sign-row:focus-visible { outline: 3px solid var(--wf-track-d, #c8ff00); outline-offset: 2px; border-radius: 0; }"
     },
     {
       "name": "Sign Row — Door",
       "kind": "nav",
       "refersTo": "link-row",
-      "description": "The door variant of a sign row: same anatomy at a larger label register, used where a row is an exit rather than an item. Carries its hall standing still.",
+      "description": "The door variant: same anatomy at a larger label register, used where a row is an exit rather than an item. A row that belongs to a track carries it standing still.",
       "html": "<a class=\"ds-door-row\" href=\"#\"><span class=\"ds-door-row__tab\"></span><span class=\"ds-door-row__body\"><span class=\"ds-door-row__label\">Session resources</span></span><span class=\"ds-door-row__arrow\">↗</span></a>",
-      "css": ".ds-door-row { --ds-row-hall: var(--wf-hall-b, #00c2a8); display: grid; grid-template-columns: 6px minmax(0, 68ch) auto; justify-content: start; align-items: center; gap: 0 0.875rem; min-height: 64px; padding: 0.875rem 0; background: var(--wf-ink, #0a0a0a); color: var(--wf-optic, #fff); text-decoration: none; font-family: var(--wf-font, Archivo, ui-sans-serif, system-ui, sans-serif); font-variation-settings: 'wdth' 118; font-weight: 800; text-transform: uppercase; letter-spacing: -0.01em; line-height: 0.92; transition: background var(--wf-motion, 120ms) var(--wf-ease, cubic-bezier(0.2, 0, 0, 1)); } .ds-door-row__tab { align-self: stretch; background: var(--ds-row-hall); } .ds-door-row__body { min-width: 0; padding-left: 0.875rem; } .ds-door-row__label { font-size: 2.1rem; overflow-wrap: anywhere; } .ds-door-row__arrow { font-size: 2.1rem; line-height: 1; padding-right: 0.5rem; transition: transform var(--wf-motion, 120ms) var(--wf-ease, cubic-bezier(0.2, 0, 0, 1)); } .ds-door-row:hover, .ds-door-row:focus-visible { background: var(--wf-ink-raised, #141414); } .ds-door-row:hover .ds-door-row__arrow, .ds-door-row:focus-visible .ds-door-row__arrow { transform: translateX(4px); } .ds-door-row:focus-visible { outline: 3px solid var(--wf-hall-d, #c8ff00); outline-offset: 2px; border-radius: 0; }"
+      "css": ".ds-door-row { --ds-row-track: var(--wf-track-b, #00c2a8); display: grid; grid-template-columns: 6px minmax(0, 68ch) auto; justify-content: start; align-items: center; gap: 0 0.875rem; min-height: 64px; padding: 0.875rem 0; background: var(--wf-ink, #0a0a0a); color: var(--wf-optic, #fff); text-decoration: none; font-family: var(--wf-font, Archivo, ui-sans-serif, system-ui, sans-serif); font-variation-settings: 'wdth' 118; font-weight: 800; text-transform: uppercase; letter-spacing: -0.01em; line-height: 0.92; transition: background var(--wf-motion, 120ms) var(--wf-ease, cubic-bezier(0.2, 0, 0, 1)); } .ds-door-row__tab { align-self: stretch; background: var(--ds-row-track); } .ds-door-row__body { min-width: 0; padding-left: 0.875rem; } .ds-door-row__label { font-size: 2.1rem; overflow-wrap: anywhere; } .ds-door-row__arrow { font-size: 2.1rem; line-height: 1; padding-right: 0.5rem; transition: transform var(--wf-motion, 120ms) var(--wf-ease, cubic-bezier(0.2, 0, 0, 1)); } .ds-door-row:hover, .ds-door-row:focus-visible { background: var(--wf-ink-raised, #141414); } .ds-door-row:hover .ds-door-row__arrow, .ds-door-row:focus-visible .ds-door-row__arrow { transform: translateX(4px); } .ds-door-row:focus-visible { outline: 3px solid var(--wf-track-d, #c8ff00); outline-offset: 2px; border-radius: 0; }"
     },
     {
-      "name": "Hall Tile — Solid",
+      "name": "Track Tile — Solid",
       "kind": "chip",
       "refersTo": "year-tile-a",
-      "description": "The venue’s smallest identifying mark. A rectangular hall field carrying its measured on-hall ink; used for years in the directory and a talk’s hall on a placard.",
+      "description": "The venue’s smallest identifying mark: a rectangular track field carrying its measured ink. Years in the directory, and a talk’s track on a placard.",
       "html": "<span class=\"ds-tile-solid\">2026</span>",
-      "css": ".ds-tile-solid { display: inline-flex; align-items: center; justify-content: center; min-width: 2.4em; padding: 0.32em 0.6em; background: var(--wf-hall-a, #1f4bff); color: var(--wf-on-hall-a, #fff); font-family: var(--wf-font, Archivo, ui-sans-serif, system-ui, sans-serif); font-variation-settings: 'wdth' 112; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; font-size: 0.82rem; letter-spacing: 0.06em; line-height: 1; white-space: nowrap; border-radius: 0; }"
+      "css": ".ds-tile-solid { display: inline-flex; align-items: center; justify-content: center; min-width: 2.4em; padding: 0.32em 0.6em; background: var(--wf-track-a, #1f4bff); color: var(--wf-on-track-a, #fff); font-family: var(--wf-font, Archivo, ui-sans-serif, system-ui, sans-serif); font-variation-settings: 'wdth' 112; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; font-size: 0.82rem; letter-spacing: 0.06em; line-height: 1; white-space: nowrap; border-radius: 0; }"
     },
     {
-      "name": "Hall Tile — Outline",
+      "name": "Track Tile — Outline",
       "kind": "chip",
       "refersTo": "year-tile-a",
-      "description": "The quiet tile. A 1px hall or rule border with optic text, for when a tile should identify without claiming the surface.",
+      "description": "The quiet tile: a 1px track or rule border with optic text, for when a tile should identify without claiming the surface.",
       "html": "<span class=\"ds-tile-outline\">2019</span>",
-      "css": ".ds-tile-outline { display: inline-flex; align-items: center; justify-content: center; min-width: 2.4em; padding: 0.32em 0.6em; border: 1px solid var(--wf-hall-e, #ff6b00); color: var(--wf-optic, #fff); background: transparent; font-family: var(--wf-font, Archivo, ui-sans-serif, system-ui, sans-serif); font-variation-settings: 'wdth' 112; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; font-size: 0.82rem; letter-spacing: 0.06em; line-height: 1; white-space: nowrap; border-radius: 0; }"
+      "css": ".ds-tile-outline { display: inline-flex; align-items: center; justify-content: center; min-width: 2.4em; padding: 0.32em 0.6em; border: 1px solid var(--wf-track-e, #ff6b00); color: var(--wf-optic, #fff); background: transparent; font-family: var(--wf-font, Archivo, ui-sans-serif, system-ui, sans-serif); font-variation-settings: 'wdth' 112; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; font-size: 0.82rem; letter-spacing: 0.06em; line-height: 1; white-space: nowrap; border-radius: 0; }"
     },
     {
       "name": "Sticker Heading",
       "kind": "custom",
       "refersTo": null,
-      "description": "A hall-coloured field applied slightly off true. Section headings and the sharing card’s kicker wear it; it hugs its words rather than spanning the column.",
+      "description": "A track field applied slightly off true. Board headings and the sharing card’s kicker wear it; it hugs its words rather than spanning the column.",
       "html": "<h2 class=\"ds-sticker-head\"><span class=\"ds-sticker\">Upcoming</span></h2>",
-      "css": ".ds-sticker-head { margin: 0; font-size: 2.1rem; font-family: var(--wf-font, Archivo, ui-sans-serif, system-ui, sans-serif); font-variation-settings: 'wdth' 118; font-weight: 800; text-transform: uppercase; letter-spacing: -0.01em; line-height: 0.92; } .ds-sticker { display: inline-block; padding: 0.16em 0.34em 0.2em; background: var(--wf-hall-e, #ff6b00); color: var(--wf-on-hall-e, #1a0a00); line-height: 1; border-radius: 0; transform: rotate(-1.4deg); transform-origin: 0 50%; }"
+      "css": ".ds-sticker-head { margin: 0; font-size: 2.1rem; font-family: var(--wf-font, Archivo, ui-sans-serif, system-ui, sans-serif); font-variation-settings: 'wdth' 118; font-weight: 800; text-transform: uppercase; letter-spacing: -0.01em; line-height: 0.92; } .ds-sticker { display: inline-block; padding: 0.16em 0.34em 0.2em; background: var(--track, var(--wf-track-e, #ff6b00)); color: var(--on-track, var(--wf-on-track-e, #1a0a00)); line-height: 1; border-radius: 0; transform: rotate(-1.4deg); transform-origin: 0 50%; }"
     },
     {
       "name": "Co-speaker Badge",
       "kind": "custom",
       "refersTo": null,
-      "description": "The billing sticker on a session placard. Same applied-off-true mark as a sticker heading, tilted a shade further and kept above the 11px functional floor because it carries a person’s name.",
+      "description": "The billing sticker on a session placard. The same applied-off-true mark, tilted a shade further, kept above the 11px functional floor because it carries a person’s name.",
       "html": "<span class=\"ds-badge\"><span class=\"ds-badge__word\">with</span><span class=\"ds-badge__name\">April Dunnam</span></span>",
-      "css": ".ds-badge { display: inline-flex; align-items: baseline; gap: 0.42em; padding: 0.28em 0.55em; background: var(--wf-hall-c, #d6203a); color: var(--wf-on-hall-c, #fff); font-family: var(--wf-font, Archivo, ui-sans-serif, system-ui, sans-serif); font-size: 0.75rem; line-height: 1.25; text-transform: uppercase; letter-spacing: 0.07em; border-radius: 0; transform: rotate(-1.8deg); transform-origin: 0 50%; } .ds-badge__word { font-weight: 400; font-variation-settings: 'wdth' 100; } .ds-badge__name { font-weight: 700; }"
+      "css": ".ds-badge { display: inline-flex; align-items: baseline; gap: 0.42em; padding: 0.28em 0.55em; background: var(--track, var(--wf-track-c, #d6203a)); color: var(--on-track, var(--wf-on-track-c, #fff)); font-family: var(--wf-font, Archivo, ui-sans-serif, system-ui, sans-serif); font-size: 0.75rem; line-height: 1.25; text-transform: uppercase; letter-spacing: 0.07em; border-radius: 0; transform: rotate(-1.8deg); transform-origin: 0 50%; } .ds-badge__word { font-weight: 400; font-variation-settings: 'wdth' 100; } .ds-badge__name { font-weight: 700; }"
     },
     {
-      "name": "On-Hall Action",
+      "name": "On-Track Action",
       "kind": "button",
       "refersTo": null,
-      "description": "The action button as it appears on a saturated hall field: a 1px on-hall outline that flips to a filled field on approach. Used for Website and Tickets on the events spotlight.",
-      "html": "<a class=\"ds-btn-onhall\" href=\"#\">Tickets ↗</a>",
-      "css": ".ds-btn-onhall { --ds-hall: var(--wf-hall-d, #c8ff00); --ds-on-hall: var(--wf-on-hall-d, #101400); display: inline-flex; align-items: center; min-height: var(--wf-tap, 56px); padding-inline: 0.875rem; border: 1px solid var(--ds-on-hall); background: var(--ds-hall); color: var(--ds-on-hall); font-family: var(--wf-font, Archivo, ui-sans-serif, system-ui, sans-serif); font-variation-settings: 'wdth' 110; font-weight: 700; font-size: 0.82rem; letter-spacing: 0.06em; text-transform: uppercase; text-decoration: none; border-radius: 0; transition: background var(--wf-motion, 120ms) var(--wf-ease, cubic-bezier(0.2, 0, 0, 1)), color var(--wf-motion, 120ms) var(--wf-ease, cubic-bezier(0.2, 0, 0, 1)); } .ds-btn-onhall:hover, .ds-btn-onhall:focus-visible { background: var(--ds-on-hall); color: var(--ds-hall); } .ds-btn-onhall:focus-visible { outline: 3px solid var(--wf-hall-d, #c8ff00); outline-offset: 2px; border-radius: 0; }"
+      "description": "The action button as it appears on a saturated track field: a 1px on-track outline that flips to a filled field on approach. Website and Tickets on the events spotlight.",
+      "html": "<a class=\"ds-btn-ontrack\" href=\"#\">Tickets ↗</a>",
+      "css": ".ds-btn-ontrack { --ds-track: var(--wf-track-d, #c8ff00); --ds-on-track: var(--wf-on-track-d, #101400); display: inline-flex; align-items: center; min-height: var(--wf-tap, 56px); padding-inline: 0.875rem; border: 1px solid var(--ds-on-track); background: var(--ds-track); color: var(--ds-on-track); font-family: var(--wf-font, Archivo, ui-sans-serif, system-ui, sans-serif); font-variation-settings: 'wdth' 110; font-weight: 700; font-size: 0.82rem; letter-spacing: 0.06em; text-transform: uppercase; text-decoration: none; border-radius: 0; transition: background var(--wf-motion, 120ms) var(--wf-ease, cubic-bezier(0.2, 0, 0, 1)), color var(--wf-motion, 120ms) var(--wf-ease, cubic-bezier(0.2, 0, 0, 1)); } .ds-btn-ontrack:hover, .ds-btn-ontrack:focus-visible { background: var(--ds-on-track); color: var(--ds-track); } .ds-btn-ontrack:focus-visible { outline: 3px solid var(--wf-track-d, #c8ff00); outline-offset: 2px; border-radius: 0; }"
     },
     {
       "name": "Ghost Action",
       "kind": "button",
       "refersTo": null,
-      "description": "The action button on the substrate: a rule-coloured outline that fills with optic white and flips its ink on approach. Confirmation is a field flip to Hall D lime, not a tick that needs decoding.",
+      "description": "The action button on the substrate: a rule-coloured outline that fills with optic white and flips its ink on approach. Confirmation is a field flip to Track D lime, not a tick that needs decoding.",
       "html": "<button class=\"ds-btn-ghost\" type=\"button\">Copy address</button>",
-      "css": ".ds-btn-ghost { display: inline-flex; align-items: center; height: 42px; padding: 0 0.875rem; border: 1px solid var(--wf-ink-rule, #2a2a2a); background: transparent; color: var(--wf-optic, #fff); font-family: var(--wf-font, Archivo, ui-sans-serif, system-ui, sans-serif); font-variation-settings: 'wdth' 110; font-weight: 700; font-size: 0.82rem; letter-spacing: 0.06em; text-transform: uppercase; cursor: pointer; border-radius: 0; transition: background var(--wf-motion, 120ms) var(--wf-ease, cubic-bezier(0.2, 0, 0, 1)), color var(--wf-motion, 120ms) var(--wf-ease, cubic-bezier(0.2, 0, 0, 1)), border-color var(--wf-motion, 120ms) var(--wf-ease, cubic-bezier(0.2, 0, 0, 1)); } .ds-btn-ghost:hover, .ds-btn-ghost:focus-visible { background: var(--wf-optic, #fff); border-color: var(--wf-optic, #fff); color: var(--wf-ink, #0a0a0a); } .ds-btn-ghost[data-copied=\"true\"] { background: var(--wf-hall-d, #c8ff00); border-color: var(--wf-hall-d, #c8ff00); color: var(--wf-on-hall-d, #101400); } .ds-btn-ghost:focus-visible { outline: 3px solid var(--wf-hall-d, #c8ff00); outline-offset: 2px; border-radius: 0; }"
+      "css": ".ds-btn-ghost { display: inline-flex; align-items: center; height: 42px; padding: 0 0.875rem; border: 1px solid var(--wf-ink-rule, #2a2a2a); background: transparent; color: var(--wf-optic, #fff); font-family: var(--wf-font, Archivo, ui-sans-serif, system-ui, sans-serif); font-variation-settings: 'wdth' 110; font-weight: 700; font-size: 0.82rem; letter-spacing: 0.06em; text-transform: uppercase; cursor: pointer; border-radius: 0; transition: background var(--wf-motion, 120ms) var(--wf-ease, cubic-bezier(0.2, 0, 0, 1)), color var(--wf-motion, 120ms) var(--wf-ease, cubic-bezier(0.2, 0, 0, 1)), border-color var(--wf-motion, 120ms) var(--wf-ease, cubic-bezier(0.2, 0, 0, 1)); } .ds-btn-ghost:hover, .ds-btn-ghost:focus-visible { background: var(--wf-optic, #fff); border-color: var(--wf-optic, #fff); color: var(--wf-ink, #0a0a0a); } .ds-btn-ghost[data-copied=\"true\"] { background: var(--wf-track-d, #c8ff00); border-color: var(--wf-track-d, #c8ff00); color: var(--wf-on-track-d, #101400); } .ds-btn-ghost:focus-visible { outline: 3px solid var(--wf-track-d, #c8ff00); outline-offset: 2px; border-radius: 0; }"
     },
     {
       "name": "Search Field",
@@ -424,17 +424,17 @@
       "name": "Nav Link",
       "kind": "nav",
       "refersTo": null,
-      "description": "The bar marks its destinations in ink, not with a rule. White at rest, and the hall of the place it points at when live — so the nav reads as a legend for the colours used downstairs.",
-      "html": "<nav class=\"ds-nav\"><a class=\"ds-nav__link\" style=\"--ds-nav-hall: var(--wf-hall-a, #1f4bff)\" href=\"#\">Home</a><a class=\"ds-nav__link\" style=\"--ds-nav-hall: var(--wf-hall-e, #ff6b00)\" href=\"#\">Events</a><a class=\"ds-nav__link\" style=\"--ds-nav-hall: var(--wf-hall-b, #00c2a8)\" href=\"#\">Talks</a></nav>",
-      "css": ".ds-nav { display: flex; align-items: center; gap: 1.5rem; padding: 0 1.25rem; height: 64px; background: var(--wf-ink, #0a0a0a); border-bottom: 1px solid var(--wf-ink-rule, #2a2a2a); } .ds-nav__link { color: var(--wf-optic, #fff); font-family: var(--wf-font, Archivo, ui-sans-serif, system-ui, sans-serif); font-variation-settings: 'wdth' 112; font-weight: 700; font-size: 0.82rem; letter-spacing: 0.08em; text-transform: uppercase; text-decoration: none; transition: color var(--wf-motion, 120ms) var(--wf-ease, cubic-bezier(0.2, 0, 0, 1)); } .ds-nav__link:hover, .ds-nav__link:focus-visible, .ds-nav__link[aria-current=\"page\"] { color: var(--ds-nav-hall, var(--wf-marker-live-ink, #4d74ff)); } .ds-nav__link:focus-visible { outline: 3px solid var(--wf-hall-d, #c8ff00); outline-offset: 2px; border-radius: 0; }"
+      "description": "The bar marks its destinations in ink, not with a rule. White at rest, and the track of the place it points at when live, so the bar reads as a legend for the colours used downstairs.",
+      "html": "<nav class=\"ds-nav\"><a class=\"ds-nav__link\" style=\"--ds-nav-track: var(--wf-track-a, #1f4bff)\" href=\"#\">Home</a><a class=\"ds-nav__link\" style=\"--ds-nav-track: var(--wf-track-e, #ff6b00)\" href=\"#\">Events</a><a class=\"ds-nav__link\" style=\"--ds-nav-track: var(--wf-track-b, #00c2a8)\" href=\"#\">Talks</a></nav>",
+      "css": ".ds-nav { display: flex; align-items: center; gap: 1.5rem; padding: 0 1.25rem; height: 64px; background: var(--wf-ink, #0a0a0a); border-bottom: 1px solid var(--wf-ink-rule, #2a2a2a); } .ds-nav__link { color: var(--wf-optic, #fff); font-family: var(--wf-font, Archivo, ui-sans-serif, system-ui, sans-serif); font-variation-settings: 'wdth' 112; font-weight: 700; font-size: 0.82rem; letter-spacing: 0.08em; text-transform: uppercase; text-decoration: none; transition: color var(--wf-motion, 120ms) var(--wf-ease, cubic-bezier(0.2, 0, 0, 1)); } .ds-nav__link:hover, .ds-nav__link:focus-visible, .ds-nav__link[aria-current=\"page\"] { color: var(--ds-nav-track, var(--wf-marker-live-ink, #4d74ff)); } .ds-nav__link:focus-visible { outline: 3px solid var(--wf-track-d, #c8ff00); outline-offset: 2px; border-radius: 0; }"
     }
   ],
   "narrative": {
     "northStar": "Wayfinding",
-    "overview": "Wayfinding is built from one thesis: the site is the venue and every page is a sign. It owns the world of conference environmental graphics: matte vinyl colour fields, optic-white cut lettering, oversized directional arrows, hall-letter tiles, and full-bleed hanging-banner photography. The form seed is `8b56bdc1`, candidate 3, and the direction contract is shipped into every page head from `src/.vitepress/contract.ts`.\n\nThe site rejects the usual developer-advocate layout of portrait, bio line, feature cards, gradient hero and timeline. It also rejects an editorial broadsheet. The user is often holding a phone in a dark room after a session, so navigation is not decoration: rows, halls, doors and arrows are the interface. The one recorded staging idea, `converging-pair`, is used only on the session placard via `SpeakerCard`, where two speaker plates on one baseline become one billed session block.",
+    "overview": "Wayfinding is built from one thesis: the site is the venue and every page is a sign. It owns the world of conference environmental graphics: matte vinyl colour fields, optic-white cut lettering, oversized directional arrows, track-letter tiles, and full-bleed hanging-banner photography. The form seed is `8b56bdc1`, candidate 3, and the direction contract is shipped into every page head from `src/.vitepress/contract.ts`.\n\nThe site rejects the usual developer-advocate layout of portrait, bio line, feature cards, gradient hero and timeline. It also rejects an editorial broadsheet. The user is often holding a phone in a dark room after a session, so navigation is not decoration: rows, tracks, doors and arrows are the interface. The one recorded staging idea, `converging-pair`, is used only on the session placard via `SpeakerCard`, where two speaker plates on one baseline become one billed session block.",
     "keyCharacteristics": [
       "Full-bleed near-black substrate with optic lettering: `--wf-ink`, `--wf-optic`, `--wf-ink-rule`.",
-      "Hall colours are fields, not accent text: `--wf-hall-a` through `--wf-hall-e` carry `--wf-on-hall-*` ink.",
+      "Track colours are fields, not accent text: `--wf-track-a` through `--wf-track-e` carry `--wf-on-track-*` ink.",
       "Every navigable thing tries to become a sign row with a terminal arrow.",
       "Reading content gets an explicit exception: prose keeps the venue but leaves the signage register.",
       "Motion is cut, hard and directional; signage does not bounce."
@@ -443,7 +443,7 @@
       {
         "name": "The Contrast Law Rule",
         "section": "colors",
-        "body": "Hall colours are field colours carrying white or black text; never set small hall-coloured text on the substrate. The measured shipping pairs are Hall A `#1F4BFF` on white at 5.99:1, Hall B `#00C2A8` with `#04231F` at 7.34:1, Hall C `#D6203A` on white at 5.09:1, Hall D `#C8FF00` with `#101400` at 15.83:1, and Hall E `#FF6B00` with `#1A0A00` at 6.76:1."
+        "body": "Track colours are field colours carrying white or black text; never set small track-coloured text on the substrate. The measured shipping pairs are Track A `#1F4BFF` on white at 5.99:1, Track B `#00C2A8` with `#04231F` at 7.34:1, Track C `#D6203A` on white at 5.09:1, Track D `#C8FF00` with `#101400` at 15.83:1, and Track E `#FF6B00` with `#1A0A00` at 6.76:1."
       },
       {
         "name": "The Red Correction Rule",
@@ -453,22 +453,22 @@
       {
         "name": "The Marker Rule",
         "section": "colors",
-        "body": "Every underline, tab and rule that marks a navigable thing waits in `--wf-marker` and lights `--wf-marker-live` on hover and focus. Standing still the marker is anatomy, not decoration; live, it is the way out. A row that genuinely belongs to a hall overrides the live colour with that hall’s own. Markers sitting on a saturated hall field are the one exception and stay `currentColor`, because a grey rule on Hall A blue disappears. This rule governs the nav, the sign tabs, prose links, the `clear` controls and every board exit."
+        "body": "Every underline, tab and rule that marks a navigable thing waits in `--wf-marker` and lights `--wf-marker-live` on hover and focus. Standing still the marker is anatomy, not decoration; live, it is the way out. A row that genuinely belongs to a track overrides the live colour with that track's own. Markers sitting on a saturated track field are the one exception and stay `currentColor`, because a grey rule on Track A blue disappears. This rule governs the nav, the sign tabs, prose links, the `clear` controls and every board exit."
       },
       {
         "name": "The Marker Ink Rule",
         "section": "colors",
-        "body": "`--wf-marker-live` is a *marker* colour, not an ink one. Hall A on the dark substrate measures 3.31:1, which passes the 3:1 floor for a 2px rule and fails the 4.5:1 floor for text. Wherever the live colour is a word rather than a rule — the nav’s current and hovered items — it must use `--wf-marker-live-ink` (`#4D74FF`, 4.96:1). Light mode needs no lift: flat Hall A on paper measures 5.99:1."
+        "body": "`--wf-marker-live` is a *marker* colour, not an ink one. Track A on the dark substrate measures 3.31:1, which passes the 3:1 floor for a 2px rule and fails the 4.5:1 floor for text. Wherever the live colour is a word rather than a rule — the nav's current and hovered items — it must use `--wf-marker-live-ink` (`#4D74FF`, 4.96:1). Light mode needs no lift: flat Track A on paper measures 5.99:1."
       },
       {
         "name": "The No Fade On Fields Rule",
         "section": "colors",
-        "body": "Opacity must never be used to dim text sitting on a hall field. `0.85` opacity dropped Hall C to 4.01:1 and Hall A to 4.74:1. Signage separates by scale and weight, never by fade."
+        "body": "Opacity must never be used to dim text sitting on a track field. `0.85` opacity dropped Track C to 4.01:1 and Track A to 4.74:1. Signage separates by scale and weight, never by fade."
       },
       {
         "name": "The Reading Exception Rule",
         "section": "typography",
-        "body": "Blog posts and talk abstracts drop out of the signage register into a real reading measure, currently `--wf-measure: 68ch` and about 623px rendered. They keep the substrate, hall colour and rules, but use sentence case. Caps-at-venue-scale governs wayfinding, not prose."
+        "body": "Blog posts and talk abstracts drop out of the signage register into a real reading measure, currently `--wf-measure: 68ch` and about 623px rendered. They keep the substrate, track colour and rules, but use sentence case. Caps-at-venue-scale governs wayfinding, not prose."
       },
       {
         "name": "The Specificity Trap Rule",
@@ -483,27 +483,27 @@
       {
         "name": "The Door Rule",
         "section": "layout",
-        "body": "`/r/` resource pages are full-viewport hall fields (`background: var(--hall); color: var(--on-hall)`) with safe-area padding and a max-width sheet of 44rem. They must stay minimal because Product Principle 1 is “The QR path is the critical path.”"
+        "body": "`/r/` resource pages are full-viewport track fields (`background: var(--track); color: var(--on-track)`) with safe-area padding and a max-width sheet of 44rem. They must stay minimal because Product Principle 1 is “The QR path is the critical path.”"
       },
       {
         "name": "The No Shadow Vocabulary Rule",
         "section": "elevation",
-        "body": "Do not introduce ambient cards, glows or soft elevation to solve hierarchy. Use a rule (`1px` or `3px`), a hall field, a larger sign register, or a directional arrow."
+        "body": "Do not introduce ambient cards, glows or soft elevation to solve hierarchy. Use a rule (`1px` or `3px`), a track field, a larger sign register, or a directional arrow."
       }
     ],
     "dos": [
-      "Do use `--hall` and `--on-hall` together whenever a hall field carries text.",
+      "Do use `--track` and `--on-track` together whenever a track field carries text.",
       "Do keep navigable objects as full-width rows or doors with arrows and at least `--wf-tap` height.",
-      "Do use `BannerImage` for photography, with hall tint and scrim intact.",
+      "Do use `BannerImage` for photography, with track tint and scrim intact.",
       "Do preserve `@media (prefers-reduced-motion: reduce)` and keep motion to instant state changes or directional arrow slides.",
       "Do keep prose in `.wf-read` / `.VPDoc .vp-doc > div` at `--wf-measure` instead of stretching it across the venue."
     ],
     "donts": [
-      "Don’t use small hall-coloured text on `--wf-ink`; hall colours are fields, not link colours.",
-      "Don’t dim text on hall fields with opacity; the measured failures are known.",
-      "Don’t put photography on `/r/` resource pages, or make a resource page wait on decorative assets.",
-      "Don’t use circular portraits, soft cards, gradients or stock VitePress ornaments inside committed Wayfinding surfaces.",
-      "Don’t apply `padding-top: var(--vp-nav-height)` to `.VPContent` below 960px, and don’t remove it above 960px."
+      "Don't use small track-coloured text on `--wf-ink`; track colours are fields, not link colours.",
+      "Don't dim text on track fields with opacity; the measured failures are known.",
+      "Don't put photography on `/r/` resource pages, or make a resource page wait on decorative assets.",
+      "Don't use circular portraits, soft cards, gradients or stock VitePress ornaments inside committed Wayfinding surfaces.",
+      "Don't apply `padding-top: var(--vp-nav-height)` to `.VPContent` below 960px, and don't remove it above 960px."
     ]
   }
 }

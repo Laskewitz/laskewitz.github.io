@@ -2,21 +2,21 @@
 /** A single talk: the placard, the abstract, and every stage it's been on. */
 import { computed } from 'vue'
 import { getTalk, formatLabel } from '../../data/talks'
-import type { Hall } from '../../data/types'
+import type { Track } from '../../data/types'
 import { getEvent, isUpcoming, hasStarted } from '../../data/events'
 import { eventPlace, flagSrc, formatEventDate } from '../../data/format'
 import CoSpeakerBadge from './CoSpeakerBadge.vue'
 import LinkRow from './LinkRow.vue'
 
-/* The same rotation the events board runs. The placard's own hall is the talk's
+/* The same rotation the events board runs. The placard's own track is the talk's
    identity and stays on the placard; the stage lines below are events, and an
    event is read by its own colour here exactly as it is on /events/. Without
-   this every line lit in the talk's single hall and the board lost the variety
+   this every line lit in the talk's single track and the board lost the variety
    that makes it scannable. */
-const HALL_CYCLE: Hall[] = ['a', 'e', 'b', 'd', 'c']
+const TRACK_CYCLE: Track[] = ['a', 'e', 'b', 'd', 'c']
 
-function hallFor(index: number): Hall {
-  return HALL_CYCLE[index % HALL_CYCLE.length]
+function trackFor(index: number): Track {
+  return TRACK_CYCLE[index % TRACK_CYCLE.length]
 }
 
 const props = defineProps<{ slug: string }>()
@@ -62,7 +62,7 @@ function resourceHref(delivery: { coSpeakers?: readonly string[] }) {
 </script>
 
 <template>
-  <article v-if="talk" class="talk" :data-hall="talk.hall">
+  <article v-if="talk" class="talk" :data-track="talk.track">
     <header class="head wf-gutter">
       <a class="back" href="/talks/">← All talks</a>
 
@@ -83,7 +83,7 @@ function resourceHref(delivery: { coSpeakers?: readonly string[] }) {
     </section>
 
     <section class="stages wf-gutter">
-      <p v-if="!deliveries.length" class="section-heading wf-sign" data-hall="c">
+      <p v-if="!deliveries.length" class="section-heading wf-sign" data-track="c">
         <span class="wf-sticker">Past</span>
       </p>
       <p v-if="!deliveries.length" class="empty">
@@ -91,7 +91,7 @@ function resourceHref(delivery: { coSpeakers?: readonly string[] }) {
       </p>
 
       <template v-for="section in stageSections" :key="section.key">
-        <h2 class="section-heading wf-sign" :data-hall="section.key === 'booked' ? 'e' : 'c'">
+        <h2 class="section-heading wf-sign" :data-track="section.key === 'booked' ? 'e' : 'c'">
           <span class="wf-sticker">{{ section.heading }}</span>
         </h2>
 
@@ -100,7 +100,7 @@ function resourceHref(delivery: { coSpeakers?: readonly string[] }) {
             v-for="({ delivery, event }, i) in section.items"
             :key="event!.slug"
             class="line"
-            :data-hall="hallFor(i)"
+            :data-track="trackFor(i)"
           >
           <span class="date">{{ formatEventDate(event!) }}</span>
 
@@ -162,7 +162,7 @@ function resourceHref(delivery: { coSpeakers?: readonly string[] }) {
       <LinkRow
         :href="talk.slides"
         label="Slides"
-        :hall="talk.hall"
+        :track="talk.track"
         size="door"
         external
       />
@@ -171,7 +171,7 @@ function resourceHref(delivery: { coSpeakers?: readonly string[] }) {
 </template>
 
 <style scoped>
-/* A placard is read at arm's length, not scanned across a hall — so the detail
+/* A placard is read at arm's length, not scanned across a track — so the detail
    column is capped rather than stretched to the full venue width.
    This is a `:deep` selector, so it outranks a bare class. Anything below that
    wants a narrower reading cap has to name its parent to match, or it silently
@@ -187,7 +187,7 @@ function resourceHref(delivery: { coSpeakers?: readonly string[] }) {
 .head {
   padding-top: var(--wf-gap-l);
   padding-bottom: var(--wf-gap-m);
-  border-bottom: 3px solid var(--hall);
+  border-bottom: 3px solid var(--track);
 }
 
 .back {
@@ -307,10 +307,15 @@ function resourceHref(delivery: { coSpeakers?: readonly string[] }) {
   color: var(--vp-c-text-2);
 }
 
+/* Rows need as much air as the columns do. With a zero row gap the tab of one
+   line started where the buttons of the line above stopped, and two events read
+   as one long entry. `start` keeps a short line short instead of stretching it
+   to match the tall one beside it, which is what pushed its buttons adrift. */
 .lines {
   display: grid;
-  gap: 0 var(--wf-gap-l);
-  margin: 0 0 var(--wf-gap-m);
+  align-items: start;
+  gap: var(--wf-gap-m) var(--wf-gap-l);
+  margin: 0;
   padding: 0;
   list-style: none;
 }
@@ -327,7 +332,7 @@ function resourceHref(delivery: { coSpeakers?: readonly string[] }) {
 /* Matches the events directory: no hairline per row, the space does the
    separating. Inside a column the line stacks — date, stage, then the actions —
    rather than holding a date column there is no longer room for. Each line
-   carries the venue's tab: grey standing still, lit in the talk's hall on
+   carries the venue's tab: grey standing still, lit in the talk's track on
    approach. */
 .line {
   position: relative;
@@ -335,7 +340,7 @@ function resourceHref(delivery: { coSpeakers?: readonly string[] }) {
   flex-direction: column;
   align-items: flex-start;
   gap: var(--wf-gap-xs);
-  padding: calc(var(--wf-gap-s) * 0.9) 0;
+  padding: var(--wf-gap-xs) 0;
   padding-left: calc(6px + var(--wf-gap-s));
 }
 
@@ -343,8 +348,8 @@ function resourceHref(delivery: { coSpeakers?: readonly string[] }) {
   content: '';
   position: absolute;
   left: 0;
-  top: calc(var(--wf-gap-s) * 0.9);
-  bottom: calc(var(--wf-gap-s) * 0.9);
+  top: var(--wf-gap-xs);
+  bottom: var(--wf-gap-xs);
   width: 6px;
   background: var(--wf-marker);
   transition: background var(--wf-motion) var(--wf-ease);
@@ -352,10 +357,13 @@ function resourceHref(delivery: { coSpeakers?: readonly string[] }) {
 
 .line:hover::before,
 .line:focus-within::before {
-  background: var(--hall, var(--wf-marker-live));
+  background: var(--track, var(--wf-marker-live));
 }
 
+/* The date is a kicker for the name under it, so it sits closer to the name
+   than the name's own block sits to anything else. */
 .date {
+  margin-bottom: calc(var(--wf-gap-xs) * -0.4);
   font-weight: 700;
   font-size: var(--wf-step--1);
   letter-spacing: 0.04em;
@@ -367,7 +375,7 @@ function resourceHref(delivery: { coSpeakers?: readonly string[] }) {
 .stage-body {
   display: flex;
   flex-direction: column;
-  gap: 3px;
+  gap: var(--wf-gap-hair);
   min-width: 0;
 }
 
@@ -384,11 +392,15 @@ function resourceHref(delivery: { coSpeakers?: readonly string[] }) {
   color: var(--wf-optic-dim);
 }
 
+/* The buttons are a different kind of thing than the lines of type above them,
+   so they get more air than the text block gives itself — otherwise the row of
+   controls reads as one more line of the stage's detail. */
 .stage-links {
   display: flex;
   flex-wrap: wrap;
   gap: var(--wf-gap-xs);
   justify-content: flex-start;
+  margin-top: calc(var(--wf-gap-s) - var(--wf-gap-xs));
 }
 
 .stage-link {
@@ -410,15 +422,15 @@ function resourceHref(delivery: { coSpeakers?: readonly string[] }) {
     color var(--wf-motion) var(--wf-ease);
 }
 
-/* One control, one treatment. Tickets used to arrive as a filled hall field and
-   Resources as a hall-edged one, which put three different buttons on a row
-   where the words already say which is which. They all fill the talk's hall on
+/* One control, one treatment. Tickets used to arrive as a filled track field and
+   Resources as a track-edged one, which put three different buttons on a row
+   where the words already say which is which. They all fill the talk's track on
    approach now, the same as the boards on the entrance and the events page. */
 .stage-link:hover,
 .stage-link:focus-visible {
-  border-color: var(--hall, var(--wf-optic));
-  background: var(--hall, var(--wf-optic));
-  color: var(--on-hall, var(--wf-ink));
+  border-color: var(--track, var(--wf-optic));
+  background: var(--track, var(--wf-optic));
+  color: var(--on-track, var(--wf-ink));
 }
 
 .doors {
@@ -426,8 +438,8 @@ function resourceHref(delivery: { coSpeakers?: readonly string[] }) {
 }
 
 @media (max-width: 820px) {
-  .stage-link {
-    margin-top: var(--wf-gap-hair);
+  .stage-links {
+    margin-top: var(--wf-gap-xs);
   }
 }
 </style>
