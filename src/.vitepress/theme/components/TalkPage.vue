@@ -322,7 +322,14 @@ function resourceHref(delivery: { coSpeakers?: readonly string[] }) {
 
 /* Two columns from tablet up, the same arrangement the rest of the venue uses.
    A delivery is a date, a stage and two buttons — it does not need the full
-   width, and one column left this list twice as long as it had to be. */
+   width, and one column left this list twice as long as it had to be.
+   Unlike the prose above it, the board is scanned rather than read, so it runs
+   the full gutter width instead of stopping at the 68rem reading cap — which is
+   what left a wide dead patch beside the last two columns on a big screen. */
+.talk .stages > .lines {
+  max-width: none;
+}
+
 @media (min-width: 768px) {
   .lines {
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -342,6 +349,32 @@ function resourceHref(delivery: { coSpeakers?: readonly string[] }) {
   gap: var(--wf-gap-xs);
   padding: var(--wf-gap-xs) 0;
   padding-left: calc(6px + var(--wf-gap-s));
+}
+
+/* Wide enough for two roomy columns, and a stacked line then wastes the space
+   beside the text while making every entry four rows tall. The actions move to
+   the end of the line and sit against the date and stage, which is the shape
+   the board already had before it was split into columns. */
+@media (min-width: 1100px) {
+  .line {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: center;
+    column-gap: var(--wf-gap-m);
+  }
+
+  .date,
+  .stage-body {
+    grid-column: 1;
+  }
+
+  .stage-links {
+    grid-column: 2;
+    grid-row: 1 / span 2;
+    flex-wrap: nowrap;
+    justify-content: flex-end;
+    margin-top: 0;
+  }
 }
 
 .line::before {
