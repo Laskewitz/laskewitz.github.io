@@ -39,7 +39,7 @@ export interface EventRecord {
   /** ISO date, last day. Omitted for single-day events. */
   end?: string
   city: string
-  /** ISO 3166-1 alpha-2, or a UK nation code handled by the flag override map. */
+  /** ISO 3166-1 alpha-2, `GB-ENG`/`GB-SCT`/`GB-WLS`, or `ZZ` for online. */
   country: string
   countryName: string
   website?: string

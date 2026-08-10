@@ -42,13 +42,8 @@ const speakers = computed(() => billing(coSpeakerSlugs.value))
 
     <div class="sheet">
       <div class="groups">
-        <section
-          v-for="group in groups"
-          :key="group.title"
-          class="group"
-          :aria-label="group.title"
-        >
-          <p class="group-title wf-label">{{ group.title }}</p>
+        <section v-for="group in groups" :key="group.title" class="group">
+          <h2 class="group-title wf-label">{{ group.title }}</h2>
 
           <ul class="links">
             <li v-for="link in group.links" :key="link.href">
@@ -64,7 +59,7 @@ const speakers = computed(() => billing(coSpeakerSlugs.value))
         </section>
       </div>
 
-      <section class="contact" aria-label="Contact">
+      <section class="contact">
         <SpeakerPlate
           :heading="speakers.length > 1 ? 'Your speakers' : 'Your speaker'"
           :speakers="speakers"
@@ -74,7 +69,7 @@ const speakers = computed(() => billing(coSpeakerSlugs.value))
       </section>
 
       <p class="home">
-        <a href="/"><span class="home-arrow" aria-hidden="true">←</span> Back to website</a>
+        <a href="/">More from Daniel <span class="home-arrow" aria-hidden="true">→</span></a>
       </p>
     </div>
   </main>

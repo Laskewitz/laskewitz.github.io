@@ -38,7 +38,7 @@ withDefaults(
 
 <template>
   <section class="plates" :data-hall="hall">
-    <p v-if="heading" class="wf-label plates-heading">{{ heading }}</p>
+    <h2 v-if="heading" class="wf-label plates-heading">{{ heading }}</h2>
 
     <div class="rail" :class="{ 'is-shared': speakers.length > 1 }">
       <article v-for="speaker in speakers" :key="speaker.slug" class="plate">

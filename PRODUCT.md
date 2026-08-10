@@ -37,10 +37,14 @@ everywhere they appear, from a single source, including on the QR-code resource 
 
 ## Operating Context
 
-- Roughly 90 events since 2022, across ~25 countries, most of them multi-day conferences.
+- 126 events since 2015, across 25 countries, most of them multi-day conferences. These
+  figures are a snapshot: they are derived at render time from `src/.vitepress/data/events.ts`,
+  which is the source of truth. Read them from there rather than quoting this line.
 - Talks are given repeatedly at different events, often with different co-presenters.
-- On-stage QR codes point to a resources page; today those live as ad-hoc GitHub/MkDocs
-  pages that get edited per delivery when the co-speaker changes.
+- On-stage QR codes point to a resources page. These used to be ad-hoc GitHub/MkDocs pages
+  edited per delivery whenever the co-speaker changed; they now ship as `/r/<slug>` doors
+  from the talk data, with co-speakers resolved from a `?with=` parameter so one QR code
+  serves every delivery.
 - Slide decks are published as PDFs and behind `aka.ms` short links.
 - Attendees hit resource pages on conference wifi or cellular, on a phone, in poor light,
   with seconds of attention.
@@ -73,16 +77,18 @@ everywhere they appear, from a single source, including on the QR-code resource 
 
 ## Evidence on Hand
 
-- Full event history (~90 entries with dates, cities, countries, websites, ticket links) in
-  `docs/events.md`.
-- Ten published slide decks in `docs/slides/` plus `aka.ms` slide short links.
-- Two live resource pages: Microsoft Copilot Studio, Copilot Cowork.
+- Full event history (126 entries with dates, cities, countries, websites, ticket links) in
+  `src/.vitepress/data/events.ts`, alongside the talk, speaker and bio modules. Upcoming
+  versus past is derived from the date at render time, never maintained by hand.
+- Nine published slide decks in `src/public/slides/` plus `aka.ms` slide short links.
+- Sixteen live resource pages under `src/r/`, one per talk that ships a QR code.
 - Projects: `learn-for-cowork` Cowork plugin, Power Platform Connectors VS Code extension,
   Independent Publisher Connectors programme.
 - Social presence: GitHub, LinkedIn, Twitter/X, YouTube, Power Platform Weekly.
 - Speaking photography supplied from Daniel's own archive. Four stage/room photographs are
-  now in `src/public/images/stage/` at 960/1600/2400 widths: `stage-paris` (AI Tour Paris,
-  used on the home banner), `hall-paris`, `stage-berlin`, `room-adriatics`. Photography is
+  now in `src/public/images/stage/` at 960/1600/2400 widths: `stage-devworld` (DevWorld 2024,
+  used on the home banner and the about desk), `stage-ecs-2023` (the events hall),
+  `stage-ecs-2024` (the talks index), and `stage-resco` (the blog board). Photography is
   used only as full-bleed hanging banners behind a hall-colour tint, and never on `/r/`
   resource pages — Principle 1 outranks it there.
 - No testimonials, ratings, attendance numbers, or speaker-fee information exist. None may

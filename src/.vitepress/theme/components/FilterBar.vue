@@ -268,6 +268,13 @@ onUnmounted(() => {
   text-transform: uppercase;
   text-decoration: underline;
   text-underline-offset: 3px;
+  text-decoration-color: var(--wf-marker);
+  transition: text-decoration-color var(--wf-motion) var(--wf-ease);
   cursor: pointer;
+}
+
+.clear:hover,
+.clear:focus-visible {
+  text-decoration-color: var(--wf-marker-live);
 }
 </style>

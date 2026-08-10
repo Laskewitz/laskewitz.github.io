@@ -15,7 +15,7 @@ import { ref } from 'vue'
 import { bios, headshots } from '../../data/bio'
 import { countryCount, eventCount, firstYear } from '../../data/events'
 import { speakers } from '../../data/speakers'
-import { talks } from '../../data/talks'
+import { talkCount } from '../../data/talks'
 import PageBanner from './PageBanner.vue'
 import SignRow from './SignRow.vue'
 
@@ -42,7 +42,7 @@ const channels = CHANNEL_ORDER.map((label) =>
 const record = [
   { label: 'Events', value: String(eventCount()), href: '/events/' },
   { label: 'Countries', value: String(countryCount()), href: '/events/' },
-  { label: 'Talks', value: String(talks.length), href: '/talks/' }
+  { label: 'Talks', value: String(talkCount()), href: '/talks/' }
 ]
 
 /**

@@ -168,17 +168,13 @@ export const speakers: Record<string, Speaker> = {
 
 export const HOST_SLUG = 'laskewitz'
 
-export function getSpeaker(slug: string): Speaker | undefined {
-  return speakers[slug]
-}
-
 /**
  * Resolve slugs to speakers, dropping anything unknown.
  *
  * A mistyped QR parameter must never leave an attendee staring at an error, so
  * unrecognised slugs are silently skipped.
  */
-export function resolveSpeakers(slugs: readonly string[]): Speaker[] {
+function resolveSpeakers(slugs: readonly string[]): Speaker[] {
   const seen = new Set<string>()
   const resolved: Speaker[] = []
 
