@@ -19,7 +19,7 @@ import {
   upcomingEvents
 } from '../../data/events'
 import { coSpeakersAtEvent, talkCount, talksAtEvent } from '../../data/talks'
-import type { Hall } from '../../data/types'
+import type { Track } from '../../data/types'
 import { eventPlace, flagSrc, formatEventDate } from '../../data/format'
 import { data as posts } from '../posts.data'
 import CoSpeakerBadge from './CoSpeakerBadge.vue'
@@ -31,14 +31,14 @@ const soon = computed(() => upcomingEvents().slice(0, 3))
 
 /**
  * The board's lines carry the same tab the events page gives them: grey
- * standing still, lit in the line's hall on approach. Blue sits this one out
+ * standing still, lit in the line's track on approach. Blue sits this one out
  * here, the same as the directory below — the nav above already spends it on
  * the page you are standing on.
  */
-const HALL_CYCLE: Hall[] = ['e', 'b', 'd', 'c']
+const TRACK_CYCLE: Track[] = ['e', 'b', 'd', 'c']
 
-function hallFor(index: number): Hall {
-  return HALL_CYCLE[index % HALL_CYCLE.length]
+function trackFor(index: number): Track {
+  return TRACK_CYCLE[index % TRACK_CYCLE.length]
 }
 
 /**
@@ -63,30 +63,30 @@ const latestPost = computed(() => posts[0])
 /**
  * A sign that only says where it goes wastes the walk. Each row carries the
  * fact that would otherwise cost a click, drawn live from the same data the
- * hall behind it renders — so the directory is the record, not a menu.
+ * track behind it renders — so the directory is the record, not a menu.
  *
- * Each row keeps a hall in reserve and lights it only on approach, so the
+ * Each row keeps a track in reserve and lights it only on approach, so the
  * colour marks the sign you are pointing at instead of painting the board.
- * Hall A blue is left out here: it is the venue's live-marker ink and the
+ * Track A blue is left out here: it is the venue's live-marker ink and the
  * navigation above already spends it, so the directory uses the other four.
  */
 const directory = computed<
-  { href: string; label: string; note: string; hall: Hall }[]
+  { href: string; label: string; note: string; track: Track }[]
 >(() => [
   {
-    hall: 'e',
+    track: 'e',
     href: '/events/',
     label: 'Events',
     note: `Every stage since ${firstYear()}, and the dates still ahead.`
   },
   {
-    hall: 'b',
+    track: 'b',
     href: '/talks/',
     label: 'Talks',
     note: `${talkCount()} in rotation, on agents, low-code and the Power Platform.`
   },
   {
-    hall: 'd',
+    track: 'd',
     href: '/blog/',
     label: 'Blog',
     note: latestPost.value
@@ -94,7 +94,7 @@ const directory = computed<
       : 'Notes on Copilot Studio, agents and the Power Platform.'
   },
   {
-    hall: 'c',
+    track: 'c',
     href: '/about/',
     label: 'About',
     note: 'Bios, headshots and the fastest way to reach me.'
@@ -107,7 +107,7 @@ const directory = computed<
     <BannerImage
       src="stage-devworld"
       alt="Daniel Laskewitz speaking on stage at DevWorld 2024."
-      hall="a"
+      track="a"
       height="half"
       focus="62% 34%"
       focus-narrow="72% 50%"
@@ -133,12 +133,12 @@ const directory = computed<
          place, then the two things a visitor actually wants. Someone who learns
          to read it here can read it there. -->
     <section class="board wf-gutter" aria-labelledby="board-heading">
-      <h2 id="board-heading" class="section-heading wf-sign" data-hall="e">
+      <h2 id="board-heading" class="section-heading wf-sign" data-track="e">
         <span class="wf-sticker">Where I'll be</span>
       </h2>
 
       <ol class="lines">
-        <li v-for="(e, i) in soon" :key="e.slug" class="line" :data-hall="hallFor(i)">
+        <li v-for="(e, i) in soon" :key="e.slug" class="line" :data-track="trackFor(i)">
           <span class="date">{{ formatEventDate(e) }}</span>
           <span class="name-cell">
             <span class="name wf-sign">{{ e.name }}</span>
@@ -191,7 +191,7 @@ const directory = computed<
     </section>
 
     <nav class="directory wf-gutter" aria-labelledby="directory-heading">
-      <h2 id="directory-heading" class="section-heading wf-sign" data-hall="b">
+      <h2 id="directory-heading" class="section-heading wf-sign" data-track="b">
         <span class="wf-sticker">Explore</span>
       </h2>
       <div class="rows">
@@ -201,7 +201,7 @@ const directory = computed<
           :href="item.href"
           :label="item.label"
           :note="item.note"
-          :hall="item.hall"
+          :track="item.track"
           quiet
         />
       </div>
@@ -277,7 +277,7 @@ const directory = computed<
 /* No rules between the dates. Three entries do not need ruling into a table —
    the date column already aligns them and the space does the separating. Each
    line carries the same tab the events page gives it: grey standing still, lit
-   in the line's hall on approach. */
+   in the line's track on approach. */
 .line {
   position: relative;
   display: grid;
@@ -303,7 +303,7 @@ const directory = computed<
    line lights the same tab a pointer does. */
 .line:hover::before,
 .line:focus-within::before {
-  background: var(--hall, var(--wf-marker-live));
+  background: var(--track, var(--wf-marker-live));
 }
 
 .date {
@@ -419,7 +419,7 @@ const directory = computed<
 
 /* The same button the events page uses, so a visitor who learns it here reads
    it there: one outlined control per action, filling on approach. Tickets is
-   not singled out in a hall colour — the line's own tab is what marks it. */
+   not singled out in a track colour — the line's own tab is what marks it. */
 .links a {
   display: inline-flex;
   align-items: center;
@@ -437,14 +437,14 @@ const directory = computed<
     color var(--wf-motion) var(--wf-ease);
 }
 
-/* Fills in the line's own hall rather than plain white, so the button and the
-   tab at the head of the line light as one thing. The on-hall pair carries the
+/* Fills in the line's own track rather than plain white, so the button and the
+   tab at the head of the line light as one thing. The on-track pair carries the
    text, which is what keeps the contrast measured rather than eyeballed. */
 .links a:hover,
 .links a:focus-visible {
-  background: var(--hall, var(--wf-optic));
-  border-color: var(--hall, var(--wf-optic));
-  color: var(--on-hall, var(--wf-ink));
+  background: var(--track, var(--wf-optic));
+  border-color: var(--track, var(--wf-optic));
+  color: var(--on-track, var(--wf-ink));
 }
 
 .board-all {
@@ -473,7 +473,7 @@ const directory = computed<
 }
 
 /* Brightens to optic white rather than lighting blue: the blue underline was
-   the one mark on this board that pointed at a hall the link does not lead to. */
+   the one mark on this board that pointed at a track the link does not lead to. */
 .board-all:hover,
 .board-all:focus-visible {
   border-bottom-color: var(--wf-optic);

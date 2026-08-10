@@ -1,27 +1,27 @@
 <script setup lang="ts">
 /**
- * PageBanner — the sign over a hall entrance.
+ * PageBanner — the sign over a track entrance.
  *
  * The listing pages (events, talks, blogs) each lead with a band of
  * photography carrying the page's name cut across it, the way the home page
- * carries mine. Short on purpose: it names the hall and gets out of the way,
+ * carries mine. Short on purpose: it names the track and gets out of the way,
  * so the first row of content is still near the top of the screen.
  */
 import BannerImage from './BannerImage.vue'
-import type { Hall } from '../../data/types'
+import type { Track } from '../../data/types'
 
 defineProps<{
   title: string
   src: string
   alt: string
-  hall: Hall
+  track: Track
   /** Passed through to BannerImage — every photograph frames the face differently. */
   focus?: string
 }>()
 </script>
 
 <template>
-  <BannerImage :src="src" :alt="alt" :hall="hall" :focus="focus" height="strip" priority>
+  <BannerImage :src="src" :alt="alt" :track="track" :focus="focus" height="strip" priority>
     <h1 class="banner-title wf-sign">{{ title }}</h1>
     <p v-if="$slots.default" class="banner-standfirst"><slot /></p>
   </BannerImage>

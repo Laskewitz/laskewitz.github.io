@@ -1,12 +1,12 @@
 <script setup lang="ts">
 /**
- * YearTile — a hall-letter tile. The venue's smallest identifying mark.
- * Used for years in the directory and for a talk's hall on a placard.
+ * YearTile — a track-letter tile. The venue's smallest identifying mark.
+ * Used for years in the directory and for a talk's track on a placard.
  */
-import type { Hall } from '../../data/types'
+import type { Track } from '../../data/types'
 
 defineProps<{
-  hall?: Hall
+  track?: Track
   text: string
   /** Outline tiles are quiet; solid tiles claim the surface. */
   variant?: 'solid' | 'outline'
@@ -15,16 +15,16 @@ defineProps<{
 
 <template>
   <span
-    class="hall-tile wf-sign"
+    class="track-tile wf-sign"
     :class="variant === 'outline' ? 'is-outline' : 'is-solid'"
-    :data-hall="hall"
+    :data-track="track"
   >
     {{ text }}
   </span>
 </template>
 
 <style scoped>
-.hall-tile {
+.track-tile {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -37,12 +37,12 @@ defineProps<{
 }
 
 .is-solid {
-  background: var(--hall, var(--wf-optic));
-  color: var(--on-hall, var(--wf-ink));
+  background: var(--track, var(--wf-optic));
+  color: var(--on-track, var(--wf-ink));
 }
 
 .is-outline {
-  border: 1px solid var(--hall, var(--wf-ink-rule));
+  border: 1px solid var(--track, var(--wf-ink-rule));
   color: var(--wf-optic);
 }
 </style>

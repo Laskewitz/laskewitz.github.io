@@ -4,7 +4,7 @@ import type { ResourceGroup, Talk } from './types'
  * The talks.
  *
  * A talk is a recurring object, not a one-off: it is given many times, at
- * different events, sometimes with different people. Each talk holds a hall
+ * different events, sometimes with different people. Each talk holds a track
  * colour and keeps it everywhere — placard, delivery line, and the full-bleed
  * door of its resource page.
  *
@@ -22,7 +22,7 @@ export const talks: Talk[] = [
       'topics first, then the orchestration that decides what happens when, the ' +
       'knowledge it answers from, custom reasoning models, and actions so it can ' +
       'do something rather than only talk. Mostly demos.',
-    hall: 'a',
+    track: 'a',
     tags: ['Copilot Studio', 'Agents', 'Power Platform'],
     resourceSlug: 'copilot-studio',
     defaultCoSpeakers: ['appieschot'],
@@ -62,7 +62,7 @@ export const talks: Talk[] = [
       'on your behalf, what plugins and skills look like in practice, and whether ' +
       'this is real or still mostly polished demos. Bring your skepticism. It is a ' +
       'fair starting point.',
-    hall: 'b',
+    track: 'b',
     tags: ['Copilot Cowork', 'Microsoft 365', 'MCP'],
     resourceSlug: 'cowork',
     resources: [
@@ -148,7 +148,7 @@ export const talks: Talk[] = [
       'builds one from scratch, wires it to real knowledge and actions, and then ' +
       'spends time on the manifest, because that is where an agent stops giving ' +
       'vague answers and starts giving useful ones.',
-    hall: 'c',
+    track: 'c',
     tags: ['Declarative Agents', 'Microsoft 365 Copilot', 'Agents'],
     resourceSlug: 'declarative-agents',
     slides: '/slides/20250416-AIAgentsHack-BuildingDeclarativeAgents.pdf',
@@ -194,7 +194,7 @@ export const talks: Talk[] = [
       'too. Fair warning: it is demo heavy, across a range of scenarios, with ' +
       "Microsoft's own servers like the Dataverse one and third party servers " +
       'alongside them.',
-    hall: 'd',
+    track: 'd',
     tags: ['MCP', 'Copilot Studio', 'Agents'],
     resourceSlug: 'mcp',
     /* Usually given with Mats; ?with=aprildunnam re-bills it without an edit. */
@@ -260,7 +260,7 @@ export const talks: Talk[] = [
       'touch. Built with a bit more care, Power Automate handles serious ' +
       'workloads without complaining. We walk through real examples and refactor ' +
       'what you already have.',
-    hall: 'e',
+    track: 'e',
     tags: ['Power Automate', 'Power Platform', 'Maintainability'],
     resourceSlug: 'maintainable-flows',
     defaultCoSpeakers: ['agniusbartninkas'],
@@ -308,7 +308,7 @@ export const talks: Talk[] = [
       'bits worth automating.\n\n' +
       'Quick demos throughout, aimed at solutions you will still enjoy improving ' +
       'a year from now.',
-    hall: 'c',
+    track: 'c',
     tags: ['Power Platform', 'Maintainability', 'Solution Architecture'],
     resourceSlug: 'beyond-shipping',
     defaultCoSpeakers: ['appieschot'],
@@ -338,7 +338,7 @@ export const talks: Talk[] = [
       'Copilot-assisted authoring. It also covers bringing your own model through ' +
       'Azure AI Foundry, for when you want more say over how a prompt runs. The ' +
       'patterns are ones you can use the same week.',
-    hall: 'e',
+    track: 'e',
     tags: ['AI Builder', 'Prompts', 'Azure AI Foundry'],
     resourceSlug: 'prompt-builder-playbook',
     defaultCoSpeakers: ['aprildunnam'],
@@ -390,7 +390,7 @@ export const talks: Talk[] = [
       'You will learn how to prompt well and how to make prompts reusable, what ' +
       'the Prompt Builder does for you, and how to use prompts across Power Apps, ' +
       'Power Automate and Copilot Studio.',
-    hall: 'd',
+    track: 'd',
     tags: ['AI Builder', 'Prompts', 'Power Platform'],
     resourceSlug: 'reusable-prompts',
     /* Same ground as the Prompt Builder Playbook, so it hands out the same links. */
@@ -418,7 +418,7 @@ export const talks: Talk[] = [
       'real time and where they do not. You will leave knowing how to get ' +
       'started and with a few ideas worth stealing. Aimed at people who are ' +
       'curious about MCP but would not call themselves developers.',
-    hall: 'c',
+    track: 'c',
     tags: ['MCP', 'Copilot', 'Agents'],
     resourceSlug: 'omg-mcp-wtf',
     /* Same ground as "MCP or not to MCP", so it hands out the same links. */
@@ -443,7 +443,7 @@ export const talks: Talk[] = [
       'showing how to get started with MCP and how it sits next to connectors ' +
       'rather than replacing them. Aimed at solution architects, developers and ' +
       'IT leaders who build integrations.',
-    hall: 'a',
+    track: 'a',
     tags: ['MCP', 'Custom Connectors', 'Power Platform'],
     resourceSlug: 'mcp-vs-connectors',
     /* Same ground as "MCP or not to MCP", so it hands out the same links. */
@@ -479,7 +479,7 @@ export const talks: Talk[] = [
       "You do not need last year's session to follow this one. Expect demos, a " +
       'straight answer on where MCP fits and where connectors still win, and ' +
       'enough guidance to start building.',
-    hall: 'd',
+    track: 'd',
     tags: ['MCP', 'Custom Connectors', 'Power Platform', 'Low Code', 'Governance'],
     defaultCoSpeakers: ['mnecker'],
     deliveries: [
@@ -502,7 +502,7 @@ export const talks: Talk[] = [
       'build it yourself. By the end you will have gone the whole way from a ' +
       'first conversation to something you would be comfortable putting in front ' +
       'of colleagues.',
-    hall: 'b',
+    track: 'b',
     format: 'workshop',
     tags: ['Copilot Studio', 'Agents'],
     deliveries: [
@@ -522,7 +522,7 @@ export const talks: Talk[] = [
       'By the end you will have created an agent from scratch, know when Agent ' +
       'Flows earn their place, understand what MCP is and how to connect a server ' +
       'to your agent, and have tested and shipped the thing.',
-    hall: 'a',
+    track: 'a',
     format: 'workshop',
     tags: ['Copilot Studio', 'Agents', 'MCP'],
     resourceSlug: 'agentic-solutions-copilot-studio',
@@ -600,7 +600,7 @@ export const talks: Talk[] = [
       'that is from IT, as a power user, or as somebody who suspects they are ' +
       'getting less out of these tools than they could. You do not need a ' +
       'technical background.',
-    hall: 'e',
+    track: 'e',
     tags: ['Copilot Cowork', 'Microsoft 365'],
     /* Same ground as the other Cowork talk, so it hands out the same links. */
     resourceSlug: 'cowork-in-action',
@@ -630,7 +630,7 @@ export const talks: Talk[] = [
       'The last part is the interesting one: tuning search, semantic models and ' +
       'business skills, then watching the answers get better in M365 Copilot, ' +
       'Copilot Cowork and whatever agents your users build for themselves.',
-    hall: 'c',
+    track: 'c',
     format: 'workshop',
     tags: ['Dataverse', 'Copilot Studio', 'Agents', 'Power Platform'],
     defaultCoSpeakers: ['nathanhelgren', 'kentweare', 'rohithchetla'],
@@ -652,7 +652,7 @@ export const talks: Talk[] = [
       'installing and setting it up, walk the command groups so you know what ' +
       'exists, and get into using it sensibly in an organisation, both in your ' +
       'inner loop and in the pipelines that come after.',
-    hall: 'b',
+    track: 'b',
     tags: ['Power Platform CLI', 'ALM', 'Power Platform'],
     deliveries: [
       { eventSlug: 'festive-tech-calendar-2023' },
@@ -674,7 +674,7 @@ export const talks: Talk[] = [
       'Cathrine and Daniel bring examples from their own apps, the ones that went ' +
       'well and the ones that did not, so you can spot the pitfalls and the long ' +
       'loading times before you build them in.',
-    hall: 'c',
+    track: 'c',
     tags: ['Power Apps', 'Canvas Apps', 'Performance'],
     resourceSlug: 'canvas-apps-optimization',
     defaultCoSpeakers: ['cathrinebruvold'],
@@ -780,7 +780,7 @@ export const talks: Talk[] = [
       'is and how you can use it, which generative AI features let you add ' +
       'knowledge in minutes, how to connect a copilot to external systems, and ' +
       'where low code genuinely saves you time rather than moving the work around.',
-    hall: 'd',
+    track: 'd',
     tags: ['Copilot Studio', 'Low Code', 'Microsoft 365'],
     deliveries: [
       { eventSlug: 'future-tech-2025' },
@@ -804,7 +804,7 @@ export const talks: Talk[] = [
       'step by step, cover the difference between custom, certified and ' +
       'independent publisher connectors, and finish by building a first one ' +
       'live.',
-    hall: 'b',
+    track: 'b',
     tags: ['Custom Connectors', 'APIs', 'Power Platform'],
     slides: '/slides/20240301-DevWorld.pdf',
     resourceSlug: 'apis-in-the-hands-of-millions',
@@ -841,7 +841,7 @@ export const talks: Talk[] = [
       'and publishing them well, and the practical difference between shipping a ' +
       'custom connector, a certified one, or going through the independent ' +
       'publisher programme.',
-    hall: 'e',
+    track: 'e',
     tags: ['Custom Connectors', 'Power Platform', 'APIs'],
     resourceSlug: 'custom-connectors',
     resources: [
@@ -894,7 +894,7 @@ export const talks: Talk[] = [
       'adding actions so it can do real work rather than only answer questions, ' +
       'and then getting it in front of the people who will use it. Expect demos ' +
       'rather than slides.',
-    hall: 'a',
+    track: 'a',
     tags: ['Copilot Studio', 'Agents', 'Low Code'],
     deliveries: [
       { eventSlug: 'devworld-2025' },
@@ -912,7 +912,7 @@ export const talks: Talk[] = [
       'make day-to-day environment, DLP and capacity management manageable rather ' +
       'than painful. Aimed at admins and makers who have inherited a tenant and ' +
       'want to get it under control.',
-    hall: 'b',
+    track: 'b',
     tags: ['Power Platform CLI', 'Administration', 'Governance'],
     resourceSlug: 'admin-essentials',
     defaultCoSpeakers: ['carlcookson'],
@@ -1081,7 +1081,7 @@ export function formatLabel(talk: Talk): string {
   return talk.format === 'workshop' ? 'Workshop' : 'Session'
 }
 
-/** Every talk given at a particular event, for the hall directory. */
+/** Every talk given at a particular event, for the track directory. */
 export function talksAtEvent(eventSlug: string): Talk[] {
   return talks.filter((t) => t.deliveries.some((d) => d.eventSlug === eventSlug))
 }

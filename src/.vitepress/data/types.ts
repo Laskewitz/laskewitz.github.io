@@ -1,15 +1,15 @@
 /**
  * Wayfinding — the type layer.
  *
- * Halls are the semantic colour roles of the world. A talk is assigned a hall
+ * Tracks are the semantic colour roles of the world. A talk is assigned a track
  * and keeps it everywhere it appears: placard, delivery line, and the full-bleed
  * door of its resource page.
  *
- * A hall is a room, not a talk. There are five, and once the programme grows
- * past five sessions rooms are reused — exactly as a real venue reuses them.
- * Every hall colour is contrast-checked against its on-hall ink in style.css.
+ * A track is a room, not a talk. There are five, and once the programme grows
+ * past five sessions the rooms are reused — exactly as a real venue reuses them.
+ * Every track colour is contrast-checked against its on-track ink in style.css.
  */
-export type Hall = 'a' | 'b' | 'c' | 'd' | 'e'
+export type Track = 'a' | 'b' | 'c' | 'd' | 'e'
 
 export interface SpeakerLink {
   label: string
@@ -73,7 +73,7 @@ export interface Talk {
   /** One line, sentence case, used on placards. */
   summary: string
   abstract: string
-  hall: Hall
+  track: Track
   /**
    * How the room is run. Every talk carries its format so the plate says what
    * you are walking into; a workshop is hours and hands-on rather than a
