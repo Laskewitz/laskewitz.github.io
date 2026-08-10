@@ -299,7 +299,7 @@ export const talks: Talk[] = [
   },
   {
     slug: 'beyond-shipping',
-    active: true,
+    active: false,
     title: 'Beyond Shipping: How to Keep Your Low-Code Solutions Healthy',
     summary:
       'What "maintainable code" means once the code is a canvas app and a handful of flows.',
@@ -333,7 +333,7 @@ export const talks: Talk[] = [
   },
   {
     slug: 'prompt-builder-playbook',
-    active: true,
+    active: false,
     title: 'Prompt Builder Playbook',
     summary:
       'Writing prompts once so they behave the same in apps, flows and agents.',
@@ -385,7 +385,7 @@ export const talks: Talk[] = [
   },
   {
     slug: 'reusable-prompts',
-    active: true,
+    active: false,
     title: 'The art of building reusable prompts with AI Builder',
     summary:
       'Write the prompt once as a function, then let everyone else just fill in the inputs.',
@@ -523,7 +523,7 @@ export const talks: Talk[] = [
   },
   {
     slug: 'agentic-solutions-copilot-studio',
-    active: true,
+    active: false,
     title: 'Building Agentic Solutions with Copilot Studio',
     summary:
       'A 75-minute hands-on build of an agent, from first topic to Agent Flows and MCP.',
@@ -678,7 +678,7 @@ export const talks: Talk[] = [
   },
   {
     slug: 'canvas-apps-optimization',
-    active: true,
+    active: false,
     title: 'Optimizing Canvas Apps for maintainability, reusability, and performance',
     summary: 'Development standards for Canvas Apps that scale and stay fast.',
     abstract:
@@ -1099,6 +1099,19 @@ export function getTalkByResource(resourceSlug: string): Talk | undefined {
 
 export function talkCount(): number {
   return activeTalks.length
+}
+
+/**
+ * The rotation split by format. A session and a workshop are different asks of
+ * an organiser — an hour on a stage against a day in a room — so the sign at
+ * the entrance counts them separately rather than hiding both behind one total.
+ */
+export function sessionCount(): number {
+  return activeTalks.filter((t) => t.format !== 'workshop').length
+}
+
+export function workshopCount(): number {
+  return activeTalks.filter((t) => t.format === 'workshop').length
 }
 
 /**
