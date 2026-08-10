@@ -55,8 +55,11 @@ export default defineConfig({
       }
     ],
     ['meta', { name: 'theme-color', content: '#0a0a0a' }],
+    ['meta', { name: 'author', content: 'Daniel Laskewitz' }],
     ['meta', { property: 'og:site_name', content: 'Daniel Laskewitz' }],
-    ['meta', { name: 'twitter:site', content: '@laskewitz' }]
+    ['meta', { property: 'og:locale', content: 'en_GB' }],
+    ['meta', { name: 'twitter:site', content: '@laskewitz' }],
+    ['meta', { name: 'twitter:creator', content: '@laskewitz' }]
   ],
 
   themeConfig: {

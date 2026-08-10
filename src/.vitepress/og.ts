@@ -146,6 +146,66 @@ function pageUrl(relativePath: string): string {
   return `${HOSTNAME}/${clean}`
 }
 
+type HeadEntry = [string, Record<string, string> | undefined]
+
+/**
+ * Where a redirect stub is sending the reader, as a source-relative path.
+ *
+ * The old `/sessions/<slug>/` URLs went out on slides and in chat threads, so
+ * those pages survive only to bounce a visitor to `/r/<slug>/`. A stub is
+ * recognised by what it does — a canonical link pointing elsewhere plus the
+ * refresh that performs the move — rather than by its title, because a title
+ * is copy and copy gets rewritten.
+ */
+function redirectTarget(frontmatter: Record<string, unknown>): string | undefined {
+  const head = frontmatter.head as HeadEntry[] | undefined
+  if (!Array.isArray(head)) return undefined
+
+  const canonical = head.find(([tag, attrs]) => tag === 'link' && attrs?.rel === 'canonical')?.[1]
+    ?.href
+  const refreshes = head.some(
+    ([tag, attrs]) => tag === 'meta' && attrs?.['http-equiv']?.toLowerCase() === 'refresh'
+  )
+  if (!canonical || !refreshes) return undefined
+
+  const clean = canonical.replace(HOSTNAME, '').replace(/^\/+|\/+$/g, '')
+  return clean === '' ? 'index.md' : `${clean}/index.md`
+}
+
+const srcDir = path.join(import.meta.dirname ?? __dirname, '..')
+
+/**
+ * The title and description a page writes for itself, read off disk.
+ *
+ * A resource door's title is written by hand — "Copilot Studio: session
+ * resources" is not derivable from the talk's own name — so the destination's
+ * frontmatter is the only honest source for it. `transformPageData` sees one
+ * page at a time and in no guaranteed order, so the destination is read from
+ * the same build inputs the fonts and artwork come from rather than waiting
+ * for its turn.
+ */
+function frontmatterOf(relativePath: string): { title?: string; description?: string } {
+  let raw: string
+  try {
+    raw = readFileSync(path.join(srcDir, relativePath), 'utf8')
+  } catch {
+    return {}
+  }
+
+  const block = /^---\r?\n([\s\S]*?)\r?\n---/.exec(raw)?.[1]
+  if (!block) return {}
+
+  /* Only the two top-level scalars are wanted, so the keys are matched at
+     column zero and nested `head:` entries never come into it. */
+  const read = (key: string) =>
+    new RegExp(`^${key}:[ \\t]*(.+)$`, 'm')
+      .exec(block)?.[1]
+      .trim()
+      .replace(/^(['"])([\s\S]*)\1$/, '$2')
+
+  return { title: read('title'), description: read('description') }
+}
+
 /**
  * The small line above the title. It says which part of the venue you are
  * standing in, so a shared link reads as a sign rather than a page title
@@ -352,25 +412,51 @@ async function renderCard(card: Card): Promise<Buffer> {
  */
 export function transformPageData(pageData: PageData) {
   const { relativePath, frontmatter } = pageData
-  const title = trimTitle(pageData.title || frontmatter.title || 'Daniel Laskewitz')
-  const description = frontmatter.description || ''
+
+  /* A stub is a doorway, not a destination. Everything the card and the
+     unfurl say is resolved from where the reader is being sent, so an old
+     link pasted into Teams previews as the page it lands on rather than
+     announcing that a redirect exists. */
+  const target = redirectTarget(frontmatter)
+  const subject = target ?? relativePath
+  const destination = target ? frontmatterOf(target) : undefined
+
+  const title = trimTitle(
+    destination?.title || pageData.title || frontmatter.title || 'Daniel Laskewitz'
+  )
+  const description = destination?.description || frontmatter.description || ''
   const id = cardId(relativePath)
   const image = `${HOSTNAME}/images/og/${id}.png`
 
   /* An index page would otherwise print its own name twice, once small and
      once large. The name goes in the slot instead. */
-  const kicker = kickerFor(relativePath)
+  const kicker = kickerFor(subject)
   const same = (a: string, b: string) =>
     a.toLowerCase().replace(/s$/, '') === b.toLowerCase().replace(/s$/, '')
   cards.set(id, {
     file: `${id}.png`,
     kicker: same(kicker, title) ? 'Daniel Laskewitz' : kicker,
     title,
-    track: trackFor(relativePath),
-    emoji: emojiFor(relativePath)
+    track: trackFor(subject),
+    emoji: emojiFor(subject)
   })
 
   frontmatter.head ??= []
+
+  /* One address per page. Without this a crawler treats every way of reaching
+     a page — trailing slash or not, `?utm_source=`, an inbound link that kept
+     `index.html` — as its own document and splits the page's standing between
+     them. The legacy redirects under /sessions/ already point their canonical
+     at the /r/ door they forward to, so they are left alone rather than given
+     a second, contradictory one. */
+  const declaresCanonical = frontmatter.head.some(
+    (tag: unknown[]) =>
+      tag[0] === 'link' && (tag[1] as Record<string, string>)?.rel === 'canonical'
+  )
+  if (!declaresCanonical) {
+    frontmatter.head.push(['link', { rel: 'canonical', href: pageUrl(relativePath) }])
+  }
+
   const isPost = relativePath.startsWith('blog/posts/')
   frontmatter.head.push(['meta', { property: 'og:type', content: isPost ? 'article' : 'website' }])
   if (isPost && frontmatter.date) {
@@ -382,7 +468,9 @@ export function transformPageData(pageData: PageData) {
   frontmatter.head.push(
     ['meta', { property: 'og:title', content: title }],
     ['meta', { property: 'og:description', content: description }],
-    ['meta', { property: 'og:url', content: pageUrl(relativePath) }],
+    /* og:url names the thing being shared, so on a stub it follows the
+       canonical to the destination rather than pointing back at the doorway. */
+    ['meta', { property: 'og:url', content: pageUrl(subject) }],
     ['meta', { property: 'og:image', content: image }],
     ['meta', { property: 'og:image:width', content: String(WIDTH) }],
     ['meta', { property: 'og:image:height', content: String(HEIGHT) }],

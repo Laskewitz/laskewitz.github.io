@@ -1101,6 +1101,12 @@ export function talkCount(): number {
   return activeTalks.length
 }
 
+/** How the rotation splits between sessions and workshops, for the boards. */
+export function talkCountByFormat(): { sessions: number; workshops: number } {
+  const workshops = activeTalks.filter((t) => t.format === 'workshop').length
+  return { sessions: activeTalks.length - workshops, workshops }
+}
+
 /**
  * The word on the plate. A talk without an explicit format is a session, which
  * is the common case, so the data stays quiet and the label is still printed.
