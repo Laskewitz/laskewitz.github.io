@@ -70,6 +70,7 @@ function resourceHref(delivery: { coSpeakers?: readonly string[] }) {
         <span class="format" :data-format="talk.format ?? 'session'">{{
           formatLabel(talk)
         }}</span>
+        <span v-if="!talk.active" class="retired">Inactive</span>
         <span v-for="tag in talk.tags" :key="tag" class="tag">{{ tag }}</span>
       </div>
 
@@ -241,6 +242,19 @@ function resourceHref(delivery: { coSpeakers?: readonly string[] }) {
 .format[data-format='workshop'] {
   border-color: var(--wf-optic);
   color: var(--wf-optic);
+}
+
+/* A retired talk still keeps its page and its stages, so the plate says so
+   plainly rather than letting the abstract read as an open offer. */
+.retired {
+  padding: 2px 8px;
+  border: 1px dashed var(--wf-ink-rule);
+  font-variation-settings: 'wdth' 112;
+  font-weight: 700;
+  font-size: var(--wf-step--1);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--wf-optic-dim);
 }
 
 .title {

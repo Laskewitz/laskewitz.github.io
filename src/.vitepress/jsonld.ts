@@ -14,7 +14,7 @@ import { bios } from './data/bio'
 import { getEvent, upcomingEvents } from './data/events'
 import { eventPlace } from './data/format'
 import { speakers } from './data/speakers'
-import { talks } from './data/talks'
+import { activeTalks, talks } from './data/talks'
 import type { EventRecord, Talk } from './data/types'
 
 const HOSTNAME = 'https://laskewitz.io'
@@ -252,7 +252,9 @@ function graphFor(pageData: PageData): object[] | null {
       {
         '@type': 'ItemList',
         name: 'Talks by Daniel Laskewitz',
-        itemListElement: talks.map((talk, i) => ({
+        /* The list mirrors the visible index, so a retired talk is not advertised
+           as bookable while keeping its own page. */
+        itemListElement: activeTalks.map((talk, i) => ({
           '@type': 'ListItem',
           position: i + 1,
           name: plainTitle(talk.title),
