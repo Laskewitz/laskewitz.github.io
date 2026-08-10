@@ -8,4 +8,4 @@ head:
       content: noindex
 ---
 
-<ResourceDoor slug="copilot-studio" />
+<ResourcePage slug="copilot-studio" />

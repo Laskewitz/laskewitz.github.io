@@ -4,4 +4,4 @@ title: 'Building Maintainable Power Automate Flows'
 description: Guidelines for building Power Automate flows that are a breeze to maintain.
 ---
 
-<TalkPlacard slug="maintainable-flows" />
+<TalkPage slug="maintainable-flows" />

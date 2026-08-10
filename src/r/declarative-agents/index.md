@@ -8,4 +8,4 @@ head:
       content: noindex
 ---
 
-<ResourceDoor slug="declarative-agents" />
+<ResourcePage slug="declarative-agents" />

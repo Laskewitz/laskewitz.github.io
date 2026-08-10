@@ -8,8 +8,8 @@
 import { computed } from 'vue'
 import { useData } from 'vitepress'
 import DefaultTheme from 'vitepress/theme'
-import PostMasthead from './PostMasthead.vue'
-import PostSignoff from './PostSignoff.vue'
+import BlogPostHeader from './BlogPostHeader.vue'
+import BlogPostFooter from './BlogPostFooter.vue'
 
 const { frontmatter } = useData()
 
@@ -19,11 +19,11 @@ const isPost = computed(() => frontmatter.value.pageClass === 'wf-post')
 <template>
   <DefaultTheme.Layout>
     <template #doc-before>
-      <PostMasthead v-if="isPost" />
+      <BlogPostHeader v-if="isPost" />
     </template>
 
     <template #doc-after>
-      <PostSignoff v-if="isPost" />
+      <BlogPostFooter v-if="isPost" />
     </template>
   </DefaultTheme.Layout>
 </template>

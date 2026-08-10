@@ -1,6 +1,6 @@
 <script setup lang="ts">
 /**
- * HallTile — a hall-letter tile. The venue's smallest identifying mark.
+ * YearTile — a hall-letter tile. The venue's smallest identifying mark.
  * Used for years in the directory and for a talk's hall on a placard.
  */
 import type { Hall } from '../../data/types'

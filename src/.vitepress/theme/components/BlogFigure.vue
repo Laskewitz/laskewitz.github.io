@@ -1,6 +1,6 @@
 <script setup lang="ts">
 /**
- * PostFigure — a screenshot inside a post.
+ * BlogFigure — a screenshot inside a post.
  *
  * Not photography, so it is deliberately not a BannerImage: no hall tint, no
  * scrim, no full bleed. It is a plated exhibit, framed by a 1px rule with a

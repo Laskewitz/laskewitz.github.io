@@ -1,6 +1,6 @@
 <script setup lang="ts">
 /**
- * SocialGlyph — the pictogram for a speaker contact link.
+ * SocialIcon — the pictogram for a speaker contact link.
  *
  * Wayfinding runs on pictograms, so a contact row reads faster as marks than as
  * five uppercase words. The label still travels with the link as its accessible

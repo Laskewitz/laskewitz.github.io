@@ -50,7 +50,7 @@ export const talks: Talk[] = [
   },
   {
     slug: 'cowork',
-    title: 'Copilot Cowork: Work Together with AI, Get Things Done',
+    title: '🤖 Copilot Cowork: Work Together with AI, Get Things Done',
     summary: 'Extending Copilot Cowork with plugins that do long, multi-step work.',
     abstract:
       'Copilot has been promising to change how you work. Cowork is where it ' +
@@ -1084,4 +1084,20 @@ export function formatLabel(talk: Talk): string {
 /** Every talk given at a particular event, for the hall directory. */
 export function talksAtEvent(eventSlug: string): Talk[] {
   return talks.filter((t) => t.deliveries.some((d) => d.eventSlug === eventSlug))
+}
+
+/**
+ * Everyone who shared a stage at a particular event, across every talk given
+ * there. The boards bill co-speakers the same way the placard does, so a
+ * shared session is visible from the entrance rather than only from the talk.
+ */
+export function coSpeakersAtEvent(eventSlug: string): string[] {
+  const slugs = new Set<string>()
+  for (const talk of talks) {
+    for (const delivery of talk.deliveries) {
+      if (delivery.eventSlug !== eventSlug) continue
+      for (const speaker of delivery.coSpeakers ?? []) slugs.add(speaker)
+    }
+  }
+  return [...slugs]
 }

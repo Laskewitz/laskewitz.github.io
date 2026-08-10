@@ -16,8 +16,21 @@ import { bios, headshots } from '../../data/bio'
 import { countryCount, eventCount, firstYear } from '../../data/events'
 import { speakers } from '../../data/speakers'
 import { talkCount } from '../../data/talks'
+import type { Hall } from '../../data/types'
 import PageBanner from './PageBanner.vue'
-import SignRow from './SignRow.vue'
+import LinkRow from './LinkRow.vue'
+
+/**
+ * Every row in a list carries a hall, not just the first one — a single lit tab
+ * above three grey ones reads as an accident. The tabs stay grey standing still
+ * and light their hall on approach, so the colour marks the row you are
+ * pointing at rather than painting the whole list.
+ */
+const HALL_CYCLE: Hall[] = ['e', 'a', 'b', 'd', 'c']
+
+function hallFor(index: number): Hall {
+  return HALL_CYCLE[index % HALL_CYCLE.length]
+}
 
 const host = speakers.laskewitz
 
@@ -91,24 +104,27 @@ async function copy(label: string, text: string) {
     </PageBanner>
 
     <section class="block wf-gutter" aria-labelledby="reach-heading">
-      <h2 id="reach-heading" class="block-heading wf-sign">Reach me</h2>
+      <h2 id="reach-heading" class="block-heading wf-sign" data-hall="a">
+        <span class="wf-sticker">Reach me</span>
+      </h2>
 
       <nav class="rows" aria-label="Contact channels">
-        <SignRow
+        <LinkRow
           v-for="(channel, i) in channels"
           :key="channel.href"
           :href="channel.href"
           :label="channel.label"
           :note="CHANNEL_NOTES[channel.label]"
-          :hall="i === 0 ? 'e' : undefined"
+          :hall="hallFor(i)"
+          quiet
           external
         />
       </nav>
     </section>
 
     <section class="block wf-gutter" aria-labelledby="programme-heading">
-      <h2 id="programme-heading" class="block-heading wf-sign">
-        What I speak about
+      <h2 id="programme-heading" class="block-heading wf-sign" data-hall="d">
+        <span class="wf-sticker">What I speak about</span>
       </h2>
 
       <p class="wf-read prose">
@@ -129,23 +145,27 @@ async function copy(label: string, text: string) {
       </dl>
 
       <nav class="rows" aria-label="Programme">
-        <SignRow
+        <LinkRow
           href="/talks/"
           label="The talks"
           note="Abstracts and formats for everything currently in rotation."
           hall="b"
+          quiet
         />
-        <SignRow
+        <LinkRow
           href="/events/"
           label="The speaking record"
           :note="`Back to ${speakingSince}, plus the dates still ahead.`"
           hall="a"
+          quiet
         />
       </nav>
     </section>
 
     <section class="block wf-gutter" aria-labelledby="press-heading">
-      <h2 id="press-heading" class="block-heading wf-sign">Bio and headshots</h2>
+      <h2 id="press-heading" class="block-heading wf-sign" data-hall="b">
+        <span class="wf-sticker">Bio and headshots</span>
+      </h2>
 
       <p class="wf-read prose">
         These are written to be pasted straight into a programme or a session
@@ -180,13 +200,14 @@ async function copy(label: string, text: string) {
       </p>
 
       <nav class="rows" aria-label="Assets">
-        <SignRow
+        <LinkRow
           v-for="(shot, i) in headshots"
           :key="shot.href"
           :href="shot.href"
           :label="shot.label"
           :note="shot.note"
-          :hall="i === 0 ? 'd' : undefined"
+          :hall="hallFor(i)"
+          quiet
           external
         />
       </nav>
@@ -217,18 +238,34 @@ async function copy(label: string, text: string) {
   color: var(--vp-c-text-2);
 }
 
+/* The rows carry their own hall tabs, so they no longer need rules between
+   them — the tab is the separator. */
 .rows {
-  border-top: 1px solid var(--wf-ink-rule);
+  display: grid;
+  gap: 0 var(--wf-gap-l);
+  margin-top: var(--wf-gap-xs);
+}
+
+/* Inside a column the sign owns its own width, so the arrow terminates the
+   column instead of hanging a thousand pixels from the word it belongs to.
+   The same arrangement the entrance directory uses. */
+.rows :deep(.link-row) {
+  grid-template-columns: 6px minmax(0, 1fr) auto;
+  justify-content: stretch;
+}
+
+/* Two columns from tablet up, so the lists fill the venue rather than running
+   down one side of it. */
+@media (min-width: 768px) {
+  .rows {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
 }
 
 /* Sits directly above the asset rows, so it closes up against them rather
    than floating at prose distance. */
 .asset-note {
   margin-bottom: var(--wf-gap-m);
-}
-
-.rows :deep(.sign-row) {
-  border-bottom: 1px solid var(--wf-ink-rule);
 }
 
 /* ── The record ────────────────────────────────────────────────────────── */

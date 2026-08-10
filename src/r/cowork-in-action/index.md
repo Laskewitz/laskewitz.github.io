@@ -8,4 +8,4 @@ head:
       content: noindex
 ---
 
-<ResourceDoor slug="cowork-in-action" />
+<ResourcePage slug="cowork-in-action" />

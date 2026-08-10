@@ -8,4 +8,4 @@ head:
       content: noindex
 ---
 
-<ResourceDoor slug="reusable-prompts" />
+<ResourcePage slug="reusable-prompts" />

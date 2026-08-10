@@ -8,4 +8,4 @@ head:
       content: noindex
 ---
 
-<ResourceDoor slug="beyond-shipping" />
+<ResourcePage slug="beyond-shipping" />

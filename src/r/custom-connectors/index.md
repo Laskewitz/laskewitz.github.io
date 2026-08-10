@@ -8,4 +8,4 @@ head:
       content: noindex
 ---
 
-<ResourceDoor slug="custom-connectors" />
+<ResourcePage slug="custom-connectors" />

@@ -240,6 +240,21 @@ body {
   line-height: 0.92;
 }
 
+/* A sticker: a hall-coloured field applied slightly off true, the same mark the
+   co-speaker billing wears. The hall is the field and the measured on-hall pair
+   is the ink, so the contrast law holds at heading scale as well as at billing
+   scale. The tilt lifts the far end, so it hangs on its own top margin and
+   hugs its words rather than spanning the column. */
+.wf-sticker {
+  display: inline-block;
+  padding: 0.16em 0.34em 0.2em;
+  background: var(--hall, var(--wf-marker-live));
+  color: var(--on-hall, var(--wf-on-hall-a));
+  line-height: 1;
+  transform: rotate(-1.4deg);
+  transform-origin: 0 50%;
+}
+
 .wf-label {
   font-variation-settings: 'wdth' 112;
   font-weight: 700;
@@ -315,8 +330,9 @@ body {
 }
 
 /* The nav marks its destinations in ink, not with a rule: at this size a row
-   of underlines competes with the signage below it. White at rest, Hall A blue
-   for the page you are pointing at or standing in. */
+   of underlines competes with the signage below it. White at rest, and the
+   hall of the place you are pointing at or standing in when live — the same
+   five colours the signs downstairs use, in the same order as the halls. */
 .VPNavBarMenuLink {
   color: var(--wf-optic) !important;
   transition: color var(--wf-motion) var(--wf-ease);
@@ -325,7 +341,35 @@ body {
 .VPNavBarMenuLink:hover,
 .VPNavBarMenuLink:focus-visible,
 .VPNavBarMenuLink.active {
-  color: var(--wf-marker-live-ink) !important;
+  color: var(--nav-hall, var(--wf-marker-live-ink)) !important;
+}
+
+/* Home, Events, Talks, Blog, About — one hall each, so the bar is a legend for
+   the colours used on the pages it leads to. Counted by type: a hidden
+   "Main Navigation" span leads the list, so nth-child would be off by one. */
+.VPNavBarMenu .VPNavBarMenuLink:nth-of-type(1),
+.VPNavScreenMenu .VPNavScreenMenuLink:nth-of-type(1) {
+  --nav-hall: var(--wf-hall-a);
+}
+
+.VPNavBarMenu .VPNavBarMenuLink:nth-of-type(2),
+.VPNavScreenMenu .VPNavScreenMenuLink:nth-of-type(2) {
+  --nav-hall: var(--wf-hall-e);
+}
+
+.VPNavBarMenu .VPNavBarMenuLink:nth-of-type(3),
+.VPNavScreenMenu .VPNavScreenMenuLink:nth-of-type(3) {
+  --nav-hall: var(--wf-hall-b);
+}
+
+.VPNavBarMenu .VPNavBarMenuLink:nth-of-type(4),
+.VPNavScreenMenu .VPNavScreenMenuLink:nth-of-type(4) {
+  --nav-hall: var(--wf-hall-d);
+}
+
+.VPNavBarMenu .VPNavBarMenuLink:nth-of-type(5),
+.VPNavScreenMenu .VPNavScreenMenuLink:nth-of-type(5) {
+  --nav-hall: var(--wf-hall-c);
 }
 
 .VPNavScreenMenuLink {
@@ -335,7 +379,7 @@ body {
 
 .VPNavScreenMenuLink:hover,
 .VPNavScreenMenuLink:focus-visible {
-  color: var(--wf-marker-live-ink) !important;
+  color: var(--nav-hall, var(--wf-marker-live-ink)) !important;
 }
 
 /* Full-bleed content. Below 960px the navbar sits in normal flow and already
@@ -526,7 +570,7 @@ body {
 
 .vp-doc a:hover,
 .vp-doc a:focus-visible {
-  text-decoration-color: var(--wf-marker-live);
+  text-decoration-color: var(--wf-optic);
 }
 
 /* ── Flags ────────────────────────────────────────────────────────────────

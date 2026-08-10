@@ -8,4 +8,4 @@ head:
       content: noindex
 ---
 
-<ResourceDoor slug="canvas-apps-optimization" />
+<ResourcePage slug="canvas-apps-optimization" />
