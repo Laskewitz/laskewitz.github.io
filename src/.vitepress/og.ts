@@ -23,20 +23,21 @@ const OPTIC = '#ffffff'
  * The hall palette, copied from style.css because a PNG cannot read a custom
  * property.
  *
- * `rule` is the field colour at full strength, used only for the solid band
- * above the wordmark — a bar is not text and carries no contrast floor.
- * `accent` is the same hall lifted until it clears the substrate, because
- * style.css bans small hall-coloured text on #0A0A0A and it means it: the blue
- * lands at 3.31:1 and the red at 3.89:1 against black. Lifting a and c is what
- * lets the kicker carry hall colour at all. Measured on #0A0A0A:
- * a 7.82 · b 8.75 · c 7.22 · d 16.74 · e 6.93.
+ * `rule` is the field colour at full strength. It was already carrying the
+ * solid band above the wordmark, and now carries the kicker's sticker too — a
+ * field is not text and has no contrast floor to clear.
+ * `ink` is the measured on-hall pair from style.css, used for the words sitting
+ * on that field. This is what lets the kicker wear hall colour honestly: the
+ * old lifted-accent trick existed only because the kicker was small
+ * hall-coloured text on #0A0A0A, which style.css bans outright. On its own
+ * field the pair is the one already contrast-checked for the site.
  */
-const HALLS: Record<Hall, { rule: string; accent: string }> = {
-  a: { rule: '#1f4bff', accent: '#7aa0ff' },
-  b: { rule: '#00c2a8', accent: '#00c2a8' },
-  c: { rule: '#d6203a', accent: '#ff6b7f' },
-  d: { rule: '#c8ff00', accent: '#c8ff00' },
-  e: { rule: '#ff6b00', accent: '#ff6b00' }
+const HALLS: Record<Hall, { rule: string; ink: string }> = {
+  a: { rule: '#1f4bff', ink: '#ffffff' },
+  b: { rule: '#00c2a8', ink: '#04231f' },
+  c: { rule: '#d6203a', ink: '#ffffff' },
+  d: { rule: '#c8ff00', ink: '#101400' },
+  e: { rule: '#ff6b00', ink: '#1a0a00' }
 }
 
 interface Card {
@@ -235,7 +236,7 @@ function titleChildren(title: string, size: number): unknown {
 }
 
 async function renderCard(card: Card): Promise<Buffer> {
-  const { rule, accent } = HALLS[card.hall]
+  const { rule, ink } = HALLS[card.hall]
 
   /* The session's emoji opens the title rather than standing above it, so the
      first words sit alongside it and the mark reads as part of the sign. */
@@ -278,14 +279,38 @@ async function renderCard(card: Card): Promise<Buffer> {
         },
         children: [
           {
+            /* The sticker, the same mark the section headings and the
+               co-speaker billing wear: a hall-coloured field applied a degree
+               or two off true, hugging its words rather than spanning the
+               card. `alignSelf` is what makes it hug — a column child would
+               otherwise stretch the full width and read as a second band. The
+               tilt turns on its left edge, so the far end lifts and the mark
+               looks applied rather than printed. */
             type: 'div',
             props: {
               style: {
+                display: 'flex',
+                alignSelf: 'flex-start',
+                background: rule,
+                color: ink,
+                /* Trailing letterspacing adds a phantom column of space inside
+                   the field, so the right pad is cut back to keep the inset
+                   looking even on both ends. */
+                padding: '9px 12px 11px 17px',
                 fontSize: 26,
                 fontWeight: 800,
+                lineHeight: 1,
                 letterSpacing: '0.16em',
                 textTransform: 'uppercase',
-                color: accent
+                /* The heading sticker's angle: on the card the kicker is doing
+                   a heading's job, naming the part of the venue you are
+                   standing in. A rotation's lift grows with width, so "Talk"
+                   sits nearly true while the home card's credential line rises
+                   visibly across the frame — which is what a hand-applied
+                   sticker actually does, and why the angle is fixed rather
+                   than tuned per card. */
+                transform: 'rotate(-1.4deg)',
+                transformOrigin: '0 50%'
               },
               children: card.kicker
             }
