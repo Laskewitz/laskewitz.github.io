@@ -307,10 +307,15 @@ function resourceHref(delivery: { coSpeakers?: readonly string[] }) {
   color: var(--vp-c-text-2);
 }
 
+/* Rows need as much air as the columns do. With a zero row gap the tab of one
+   line started where the buttons of the line above stopped, and two events read
+   as one long entry. `start` keeps a short line short instead of stretching it
+   to match the tall one beside it, which is what pushed its buttons adrift. */
 .lines {
   display: grid;
-  gap: 0 var(--wf-gap-l);
-  margin: 0 0 var(--wf-gap-m);
+  align-items: start;
+  gap: var(--wf-gap-m) var(--wf-gap-l);
+  margin: 0;
   padding: 0;
   list-style: none;
 }
@@ -335,7 +340,7 @@ function resourceHref(delivery: { coSpeakers?: readonly string[] }) {
   flex-direction: column;
   align-items: flex-start;
   gap: var(--wf-gap-xs);
-  padding: calc(var(--wf-gap-s) * 0.9) 0;
+  padding: var(--wf-gap-xs) 0;
   padding-left: calc(6px + var(--wf-gap-s));
 }
 
@@ -343,8 +348,8 @@ function resourceHref(delivery: { coSpeakers?: readonly string[] }) {
   content: '';
   position: absolute;
   left: 0;
-  top: calc(var(--wf-gap-s) * 0.9);
-  bottom: calc(var(--wf-gap-s) * 0.9);
+  top: var(--wf-gap-xs);
+  bottom: var(--wf-gap-xs);
   width: 6px;
   background: var(--wf-marker);
   transition: background var(--wf-motion) var(--wf-ease);
@@ -355,7 +360,10 @@ function resourceHref(delivery: { coSpeakers?: readonly string[] }) {
   background: var(--track, var(--wf-marker-live));
 }
 
+/* The date is a kicker for the name under it, so it sits closer to the name
+   than the name's own block sits to anything else. */
 .date {
+  margin-bottom: calc(var(--wf-gap-xs) * -0.4);
   font-weight: 700;
   font-size: var(--wf-step--1);
   letter-spacing: 0.04em;
@@ -367,7 +375,7 @@ function resourceHref(delivery: { coSpeakers?: readonly string[] }) {
 .stage-body {
   display: flex;
   flex-direction: column;
-  gap: 3px;
+  gap: var(--wf-gap-hair);
   min-width: 0;
 }
 
@@ -384,11 +392,15 @@ function resourceHref(delivery: { coSpeakers?: readonly string[] }) {
   color: var(--wf-optic-dim);
 }
 
+/* The buttons are a different kind of thing than the lines of type above them,
+   so they get more air than the text block gives itself — otherwise the row of
+   controls reads as one more line of the stage's detail. */
 .stage-links {
   display: flex;
   flex-wrap: wrap;
   gap: var(--wf-gap-xs);
   justify-content: flex-start;
+  margin-top: calc(var(--wf-gap-s) - var(--wf-gap-xs));
 }
 
 .stage-link {
@@ -426,8 +438,8 @@ function resourceHref(delivery: { coSpeakers?: readonly string[] }) {
 }
 
 @media (max-width: 820px) {
-  .stage-link {
-    margin-top: var(--wf-gap-hair);
+  .stage-links {
+    margin-top: var(--wf-gap-xs);
   }
 }
 </style>
