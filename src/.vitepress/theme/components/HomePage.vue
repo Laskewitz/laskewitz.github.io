@@ -18,7 +18,7 @@ import {
   firstYear,
   upcomingEvents
 } from '../../data/events'
-import { coSpeakersAtEvent, talkCount, talksAtEvent } from '../../data/talks'
+import { coSpeakersAtEvent, talkCountByFormat, talksAtEvent } from '../../data/talks'
 import type { Track } from '../../data/types'
 import { eventPlace, flagSrc, formatEventDate } from '../../data/format'
 import { data as posts } from '../posts.data'
@@ -61,6 +61,18 @@ function talkGroupsAtEvent(eventSlug: string) {
 const latestPost = computed(() => posts[0])
 
 /**
+ * The rotation reads as its two halves, because a sign that only counts talks
+ * hides the difference between an hour on stage and a day at a bench.
+ */
+const talkRotation = (() => {
+  const { sessions, workshops } = talkCountByFormat()
+  const plural = (n: number, word: string) => `${n} ${word}${n === 1 ? '' : 's'}`
+  if (!workshops) return plural(sessions, 'session')
+  if (!sessions) return plural(workshops, 'workshop')
+  return `${plural(sessions, 'session')} and ${plural(workshops, 'workshop')}`
+})()
+
+/**
  * A sign that only says where it goes wastes the walk. Each row carries the
  * fact that would otherwise cost a click, drawn live from the same data the
  * track behind it renders — so the directory is the record, not a menu.
@@ -83,7 +95,7 @@ const directory = computed<
     track: 'b',
     href: '/talks/',
     label: 'Talks',
-    note: `${talkCount()} in rotation, on agents, low-code and the Power Platform.`
+    note: `${talkRotation} in rotation, on agents, low-code and the Power Platform.`
   },
   {
     track: 'd',
