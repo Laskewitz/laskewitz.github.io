@@ -355,6 +355,21 @@ export function transformPageData(pageData: PageData) {
   })
 
   frontmatter.head ??= []
+
+  /* One address per page. Without this a crawler treats every way of reaching
+     a page — trailing slash or not, `?utm_source=`, an inbound link that kept
+     `index.html` — as its own document and splits the page's standing between
+     them. The legacy redirects under /sessions/ already point their canonical
+     at the /r/ door they forward to, so they are left alone rather than given
+     a second, contradictory one. */
+  const declaresCanonical = frontmatter.head.some(
+    (tag: unknown[]) =>
+      tag[0] === 'link' && (tag[1] as Record<string, string>)?.rel === 'canonical'
+  )
+  if (!declaresCanonical) {
+    frontmatter.head.push(['link', { rel: 'canonical', href: pageUrl(relativePath) }])
+  }
+
   const isPost = relativePath.startsWith('blog/posts/')
   frontmatter.head.push(['meta', { property: 'og:type', content: isPost ? 'article' : 'website' }])
   if (isPost && frontmatter.date) {
