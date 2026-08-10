@@ -48,7 +48,12 @@ withDefaults(
   --row-hall: var(--hall, var(--wf-optic));
 
   display: grid;
-  grid-template-columns: 6px 1fr auto;
+  /* The field runs the width of the venue; the information does not. On a wide
+     screen a 1fr body track threw the arrow against the far wall, a thousand
+     pixels from the word it belongs to. The sign now reads as one column and
+     the arrow terminates it. */
+  grid-template-columns: 6px minmax(0, var(--wf-measure)) auto;
+  justify-content: start;
   align-items: center;
   gap: 0 var(--wf-gap-s);
   min-height: var(--wf-tap);
@@ -63,17 +68,22 @@ withDefaults(
   background: var(--wf-ink-raised);
 }
 
+/* A sign without a hall still has a tab: it is the anatomy of the row, so it
+   stays visible as a quiet rule and lights up on approach. Only a row that
+   genuinely belongs to a hall carries that hall's colour standing still. */
 .tab {
   align-self: stretch;
-  background: var(--row-hall);
-  opacity: 0;
-  transition: opacity var(--wf-motion) var(--wf-ease);
+  background: var(--wf-ink-rule);
+  transition: background var(--wf-motion) var(--wf-ease);
 }
 
-.sign-row.has-hall .tab,
+.sign-row.has-hall .tab {
+  background: var(--row-hall);
+}
+
 .sign-row:hover .tab,
 .sign-row:focus-visible .tab {
-  opacity: 1;
+  background: var(--row-hall);
 }
 
 .body {
