@@ -70,7 +70,8 @@ browsers download rather than display, so site links point at `/feed.xml` while
 `/feed.rss` stays put for anyone already subscribed.
 
 Open Graph cards are generated per page at build time by `og.ts` using Satori, so no
-card is ever hand-made or stale.
+card is ever hand-made or stale. Satori won't synthesise emoji, so each one is drawn as
+Twemoji artwork read off disk from `@twemoji/svg`.
 
 ## Adding things
 
@@ -96,3 +97,11 @@ in the frontmatter.
 page. Read those before changing how anything looks. The short version: the site is the
 venue and every page is a sign. Colour is structural — five "halls" that a talk keeps
 everywhere it appears — and hall colour is never used as small text on the substrate.
+
+## Credits
+
+Emoji artwork from [Twemoji](https://github.com/jdecked/twemoji), copyright 2020 Twitter,
+Inc and other contributors, licensed under [CC-BY 4.0](https://creativecommons.org/licenses/by/4.0/).
+The graphics are used unmodified. The same notice appears on the site's
+[terms page](https://laskewitz.io/terms/), which is where the licence expects readers to
+find it.
