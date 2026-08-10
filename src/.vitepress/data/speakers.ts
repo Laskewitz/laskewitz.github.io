@@ -199,11 +199,17 @@ export function billing(coSpeakerSlugs: readonly string[] = []): Speaker[] {
 /**
  * Everyone on stage besides the host, written the way it would be said:
  * "Kent", "Kent and Rohith", "Nathan, Kent and Rohith".
+ *
+ * Sorted by first name. The source order is whatever the delivery happened to
+ * be entered in, which reads as a running order nobody agreed to; alphabetical
+ * is the one order that bills no one above anyone else. `localeCompare` so
+ * accented first names sort where a reader expects rather than after Z.
  */
 export function coSpeakerNames(coSpeakerSlugs: readonly string[] = []): string {
   const names = billing(coSpeakerSlugs)
     .filter((s) => s.slug !== HOST_SLUG)
     .map((s) => s.name)
+    .sort((a, b) => a.localeCompare(b))
 
   if (names.length < 2) return names[0] ?? ''
   return `${names.slice(0, -1).join(', ')} and ${names[names.length - 1]}`
