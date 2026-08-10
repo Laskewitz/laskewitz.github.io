@@ -94,9 +94,10 @@
 
   --wf-gutter: clamp(1.25rem, 4vw, 4rem);
 
-  /* 2 × --wf-gap-m padding + 48px of signed-off content + the 1px rule. The
-     entrance subtracts this so the homepage lands on exactly one screen. */
-  --wf-footer-h: 97px;
+  /* 2 × --wf-gap-m padding + 49px of signed-off content + the 1px rule. The
+     entrance subtracts this so the homepage lands on exactly one screen;
+     measured against the rendered strip, so it is a number, not a guess. */
+  --wf-footer-h: 98px;
   --wf-measure: 68ch;
 
   /* Minimum tap target. A sign row is never smaller than a thumb. */
