@@ -299,7 +299,7 @@ export const talks: Talk[] = [
   },
   {
     slug: 'beyond-shipping',
-    active: true,
+    active: false,
     title: 'Beyond Shipping: How to Keep Your Low-Code Solutions Healthy',
     summary:
       'What "maintainable code" means once the code is a canvas app and a handful of flows.',
@@ -523,7 +523,7 @@ export const talks: Talk[] = [
   },
   {
     slug: 'agentic-solutions-copilot-studio',
-    active: true,
+    active: false,
     title: 'Building Agentic Solutions with Copilot Studio',
     summary:
       'A 75-minute hands-on build of an agent, from first topic to Agent Flows and MCP.',
@@ -678,7 +678,7 @@ export const talks: Talk[] = [
   },
   {
     slug: 'canvas-apps-optimization',
-    active: true,
+    active: false,
     title: 'Optimizing Canvas Apps for maintainability, reusability, and performance',
     summary: 'Development standards for Canvas Apps that scale and stay fast.',
     abstract:
