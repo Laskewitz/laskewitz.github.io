@@ -89,6 +89,3 @@ export const headshots: Headshot[] = [
     note: 'JPEG · 256 × 256 · 15 KB'
   }
 ]
-
-/** The one to reach for when only a single file is wanted. */
-export const headshot = headshots[1]

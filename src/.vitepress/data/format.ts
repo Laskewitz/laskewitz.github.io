@@ -72,13 +72,3 @@ export function eventYear(event: EventRecord): string {
   return event.start.slice(0, 4)
 }
 
-/** Days until an event starts. Negative once it has begun. */
-export function daysUntil(event: EventRecord, now: Date = new Date()): number {
-  const start = new Date(`${event.start}T00:00:00`).getTime()
-  const today = new Date(
-    now.getFullYear(),
-    now.getMonth(),
-    now.getDate()
-  ).getTime()
-  return Math.round((start - today) / 86_400_000)
-}

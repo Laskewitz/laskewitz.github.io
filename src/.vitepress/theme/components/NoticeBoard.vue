@@ -88,7 +88,7 @@ function toggleYear(year: string) {
 <template>
   <div class="board">
     <PageBanner
-      title="Blogs"
+      title="Blog"
       src="stage-resco"
       alt="Daniel Laskewitz on stage at Resco Next 2024 in Vienna."
       hall="c"
@@ -113,8 +113,8 @@ function toggleYear(year: string) {
       </p>
 
       <p v-else-if="!shown.length" class="empty">
-        Nothing filed under that yet.
-        <button type="button" class="clear" @click="clear">Show everything</button>
+        Nothing matches that.
+        <button type="button" class="clear" @click="clear">Clear the filters</button>
       </p>
 
       <template v-else>

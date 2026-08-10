@@ -31,7 +31,7 @@ const categories = computed(() => sortCategories(frontmatter.value.categories ??
     <header class="masthead">
       <a class="back" href="/blog/">
         <span class="back-arrow" aria-hidden="true">←</span>
-        Blogs
+        Blog
       </a>
 
       <h1 class="title wf-sign">{{ frontmatter.title }}</h1>

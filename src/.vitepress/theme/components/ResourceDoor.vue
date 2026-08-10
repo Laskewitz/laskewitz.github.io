@@ -69,7 +69,7 @@ const speakers = computed(() => billing(coSpeakerSlugs.value))
       </section>
 
       <p class="home">
-        <a href="/"><span class="home-arrow" aria-hidden="true">←</span> Back to website</a>
+        <a href="/">More from Daniel <span class="home-arrow" aria-hidden="true">→</span></a>
       </p>
     </div>
   </main>

@@ -1009,7 +1009,7 @@ const talkBySlug = new Map(talks.map((t) => [t.slug, t]))
  */
 export type TagKind = 'product' | 'topic'
 
-export const tagKinds: Record<string, TagKind> = {
+const tagKinds: Record<string, TagKind> = {
   'Copilot Cowork': 'product',
   'Copilot Studio': 'product',
   'Microsoft 365': 'product',

@@ -67,7 +67,7 @@ export default defineConfig({
       { text: 'Home', link: '/' },
       { text: 'Events', link: '/events/' },
       { text: 'Talks', link: '/talks/' },
-      { text: 'Blogs', link: '/blog/' },
+      { text: 'Blog', link: '/blog/' },
       { text: 'About', link: '/about/' }
     ],
 
