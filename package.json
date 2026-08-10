@@ -6,7 +6,7 @@
   "type": "module",
   "scripts": {
     "dev": "vitepress dev src",
-    "build": "vitepress build src",
+    "flags": "node scripts/sync-flags.mjs",    "build": "vitepress build src",
     "preview": "vitepress preview src"
   },
   "devDependencies": {

@@ -4,7 +4,7 @@ import { computed } from 'vue'
 import { getTalk, formatLabel } from '../../data/talks'
 import { getEvent, isUpcoming, hasStarted } from '../../data/events'
 import { coSpeakerNames } from '../../data/speakers'
-import { eventPlace, flag, formatEventDate } from '../../data/format'
+import { eventPlace, flagSrc, formatEventDate } from '../../data/format'
 import SignRow from './SignRow.vue'
 
 const props = defineProps<{ slug: string }>()
@@ -95,9 +95,7 @@ function resourceHref(delivery: { coSpeakers?: readonly string[] }) {
             </span>
 
             <span class="place">
-              <span v-if="flag(event!.country)" aria-hidden="true">{{
-                flag(event!.country)
-              }}</span>
+              <img v-if="flagSrc(event!.country)" class="flag" :src="flagSrc(event!.country)" alt="" width="18" height="18" loading="lazy" decoding="async" />
               {{ eventPlace(event!) }}
             </span>
           </span>

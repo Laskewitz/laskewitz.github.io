@@ -19,7 +19,7 @@ import {
   upcomingEvents
 } from '../../data/events'
 import { talks } from '../../data/talks'
-import { eventPlace, flag, formatEventDate } from '../../data/format'
+import { eventPlace, flagSrc, formatEventDate } from '../../data/format'
 import SignRow from './SignRow.vue'
 import BannerImage from './BannerImage.vue'
 
@@ -51,7 +51,7 @@ const directory = [
       <span class="board-name wf-sign">{{ next.name }}</span>
       <span class="board-meta">
         {{ formatEventDate(next) }}
-        <span v-if="flag(next.country)" aria-hidden="true">{{ flag(next.country) }}</span>
+        <img v-if="flagSrc(next.country)" class="flag" :src="flagSrc(next.country)" alt="" width="18" height="18" loading="lazy" decoding="async" />
         {{ eventPlace(next) }}
       </span>
       <span class="board-arrow" aria-hidden="true">→</span>
@@ -129,7 +129,7 @@ const directory = [
         <span class="next-name wf-sign">{{ next.name }}</span>
         <span class="next-meta">
           {{ formatEventDate(next) }}
-          <span v-if="flag(next.country)" aria-hidden="true">{{ flag(next.country) }}</span>
+          <img v-if="flagSrc(next.country)" class="flag" :src="flagSrc(next.country)" alt="" width="18" height="18" loading="lazy" decoding="async" />
           {{ eventPlace(next) }}
         </span>
       </span>

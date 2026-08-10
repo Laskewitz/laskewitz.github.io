@@ -446,3 +446,18 @@ body {
   text-decoration-thickness: 1px;
   text-underline-offset: 3px;
 }
+
+/* ── Flags ────────────────────────────────────────────────────────────────
+   Flag emoji are the one glyph a platform is free to refuse: Windows prints
+   the bare country letters, and the systems that do draw a flag each draw a
+   different one. The register ships the artwork instead, sized to the line it
+   sits on so it reads as punctuation rather than as an image. */
+.flag {
+  display: inline-block;
+  width: 1.15em;
+  height: 1.15em;
+  margin-right: 0.2em;
+  /* The artwork sits inset in a square canvas, so it is nudged down to sit on
+     the same optical line as the text beside it. */
+  vertical-align: -0.28em;
+}

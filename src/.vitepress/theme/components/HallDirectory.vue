@@ -6,7 +6,7 @@
 import { computed, ref } from 'vue'
 import { pastEvents, upcomingEvents } from '../../data/events'
 import { talksAtEvent } from '../../data/talks'
-import { eventPlace, eventYear, flag, formatEventDate } from '../../data/format'
+import { eventPlace, eventYear, flagSrc, formatEventDate } from '../../data/format'
 import HallTile from './HallTile.vue'
 import PageBanner from './PageBanner.vue'
 
@@ -77,7 +77,7 @@ function toggleYear(year: string) {
 
       <p class="spot-meta">
         {{ formatEventDate(next) }}
-        <span v-if="flag(next.country)" aria-hidden="true">{{ flag(next.country) }}</span>
+        <img v-if="flagSrc(next.country)" class="flag" :src="flagSrc(next.country)" alt="" width="18" height="18" loading="lazy" decoding="async" />
         {{ eventPlace(next) }}
       </p>
 
@@ -110,9 +110,7 @@ function toggleYear(year: string) {
           <span class="name-cell">
             <span class="name wf-sign">{{ event.name }}</span>
             <span class="place">
-              <span v-if="flag(event.country)" class="flag" aria-hidden="true">{{
-                flag(event.country)
-              }}</span>
+              <img v-if="flagSrc(event.country)" class="flag" :src="flagSrc(event.country)" alt="" width="18" height="18" loading="lazy" decoding="async" />
               {{ eventPlace(event) }}
             </span>
             <span v-if="talksAtEvent(event.slug).length" class="gave">
@@ -173,9 +171,7 @@ function toggleYear(year: string) {
             <span class="name-cell">
               <span class="name wf-sign">{{ event.name }}</span>
               <span class="place">
-                <span v-if="flag(event.country)" class="flag" aria-hidden="true">{{
-                  flag(event.country)
-                }}</span>
+                <img v-if="flagSrc(event.country)" class="flag" :src="flagSrc(event.country)" alt="" width="18" height="18" loading="lazy" decoding="async" />
                 {{ eventPlace(event) }}
               </span>
               <span v-if="talksAtEvent(event.slug).length" class="gave">
@@ -351,10 +347,6 @@ function toggleYear(year: string) {
   font-variation-settings: 'wdth' 100;
   font-size: var(--wf-step--1);
   color: var(--vp-c-text-2);
-}
-
-.flag {
-  margin-right: 0.35em;
 }
 
 /* Four sessions run as one comma-separated sentence read as a wall of text at

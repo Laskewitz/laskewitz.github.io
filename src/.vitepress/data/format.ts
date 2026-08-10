@@ -1,23 +1,18 @@
 import type { EventRecord } from './types'
+import { FLAG_CODES } from './flags'
 
 /**
- * Flags from ISO codes. The UK nations have no ISO alpha-2 flag emoji, so they
- * use their subdivision sequences; anything without a real flag returns nothing
- * rather than a placeholder box.
+ * Flags as artwork, not as text.
+ *
+ * Flag emoji are the one glyph a platform can refuse: Windows renders the bare
+ * country letters, and every renderer that does draw a flag draws its own. The
+ * SVGs in `public/images/flags` come from Twemoji via `npm run flags`, so the
+ * board reads the same on every machine. A country with no artwork — `ZZ` for
+ * online — returns nothing rather than a broken image.
  */
-const FLAG_OVERRIDES: Record<string, string> = {
-  'GB-SCT': '🏴󠁧󠁢󠁳󠁣󠁴󠁿',
-  'GB-WLS': '🏴󠁧󠁢󠁷󠁬󠁳󠁿',
-  'GB-ENG': '🏴󠁧󠁢󠁥󠁮󠁧󠁿',
-  ZZ: ''
-}
-
-export function flag(country: string): string {
-  if (country in FLAG_OVERRIDES) return FLAG_OVERRIDES[country]
-  if (!/^[A-Z]{2}$/.test(country)) return ''
-  return String.fromCodePoint(
-    ...[...country].map((c) => 0x1f1e6 + c.charCodeAt(0) - 65)
-  )
+export function flagSrc(country: string): string {
+  if (!FLAG_CODES.has(country)) return ''
+  return `/images/flags/${country.toLowerCase()}.svg`
 }
 
 const MONTHS = [
