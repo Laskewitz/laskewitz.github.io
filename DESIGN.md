@@ -56,20 +56,20 @@ spacing:
   measure: "68ch"
   tap: "56px"
 components:
-  sign-row:
+  link-row:
     backgroundColor: "{colors.wf-ink}"
     textColor: "{colors.wf-optic}"
     typography: "{typography.sign}"
     rounded: "{rounded.square}"
     padding: "0.875rem 0"
     height: "56px"
-  hall-tile-a:
+  year-tile-a:
     backgroundColor: "{colors.wf-hall-a}"
     textColor: "{colors.wf-on-hall-a}"
     typography: "{typography.label}"
     rounded: "{rounded.square}"
     padding: "0.32em 0.6em"
-  resource-door-a:
+  resource-page-a:
     backgroundColor: "{colors.wf-hall-a}"
     textColor: "{colors.wf-on-hall-a}"
     typography: "{typography.sign}"
@@ -85,7 +85,7 @@ components:
 
 Wayfinding is built from one thesis: the site is the venue and every page is a sign. It owns the world of conference environmental graphics: matte vinyl colour fields, optic-white cut lettering, oversized directional arrows, hall-letter tiles, and full-bleed hanging-banner photography. The form seed is `8b56bdc1`, candidate 3, and the direction contract is shipped into every page head from `src/.vitepress/contract.ts`.
 
-The site rejects the usual developer-advocate layout of portrait, bio line, feature cards, gradient hero and timeline. It also rejects an editorial broadsheet. The user is often holding a phone in a dark room after a session, so navigation is not decoration: rows, halls, doors and arrows are the interface. The one recorded staging idea, `converging-pair`, is used only on the session placard via `SpeakerPlate`, where two speaker plates on one baseline become one billed session block.
+The site rejects the usual developer-advocate layout of portrait, bio line, feature cards, gradient hero and timeline. It also rejects an editorial broadsheet. The user is often holding a phone in a dark room after a session, so navigation is not decoration: rows, halls, doors and arrows are the interface. The one recorded staging idea, `converging-pair`, is used only on the session placard via `SpeakerCard`, where two speaker plates on one baseline become one billed session block.
 
 **Key Characteristics:**
 - Full-bleed near-black substrate with optic lettering: `--wf-ink`, `--wf-optic`, `--wf-ink-rule`.
@@ -174,29 +174,29 @@ Rules are literal: `1px solid var(--wf-ink-rule)` for ordinary dividers, `2px so
 
 ## Components
 
-### SignRow
-`SignRow.vue` is the atom of the world: a full-width directional sign with a colour tab, a cut label, an optional note and a terminal arrow. Props are `href`, `label`, `note`, `hall`, `external`, and `size: 'default' | 'door'`. Internal links use `→`; external links use `↗`. Rows are never shorter than `--wf-tap` and the door variant raises the label to `--wf-step-2`. The field spans the full width, but the information does not: the label and note sit in a `minmax(0, var(--wf-measure))` track so the arrow terminates the sentence rather than the viewport. Every row shows its tab: `--wf-marker` when the row belongs to no hall, the hall colour when it does, and `--row-hall` on hover and focus, which resolves to `--wf-marker-live` for a hall-less row. A parent may override the `minmax(0, var(--wf-measure))` track with `1fr` when it lays rows into columns, so the arrow terminates the column instead of the measure.
+### LinkRow
+`LinkRow.vue` is the atom of the world: a full-width directional sign with a colour tab, a cut label, an optional note and a terminal arrow. Props are `href`, `label`, `note`, `hall`, `external`, and `size: 'default' | 'door'`. Internal links use `→`; external links use `↗`. Rows are never shorter than `--wf-tap` and the door variant raises the label to `--wf-step-2`. The field spans the full width, but the information does not: the label and note sit in a `minmax(0, var(--wf-measure))` track so the arrow terminates the sentence rather than the viewport. Every row shows its tab: `--wf-marker` when the row belongs to no hall, the hall colour when it does, and `--row-hall` on hover and focus, which resolves to `--wf-marker-live` for a hall-less row. A parent may override the `minmax(0, var(--wf-measure))` track with `1fr` when it lays rows into columns, so the arrow terminates the column instead of the measure.
 
-### HallTile
-`HallTile.vue` is the smallest venue identifier. It takes `hall`, `text`, and `variant: 'solid' | 'outline'`. Solid tiles use `background: var(--hall)` and `color: var(--on-hall)`. Outline tiles use a `1px` hall/rule border and optic text.
+### YearTile
+`YearTile.vue` is the smallest venue identifier. It takes `hall`, `text`, and `variant: 'solid' | 'outline'`. Solid tiles use `background: var(--hall)` and `color: var(--on-hall)`. Outline tiles use a `1px` hall/rule border and optic text.
 
 ### BannerImage
 `BannerImage.vue` is the only sanctioned photography component. It is full-bleed, uses `/images/stage/<src>-960/1600/2400.jpg`, and accepts `src`, required `alt`, `hall`, `height: 'strip' | 'half' | 'full'`, `focus`, `focusNarrow`, and `priority`. `focusNarrow` is the crop anchor below `48rem` and defaults to `focus`, so only a panorama needs to name it: a phone crops a wide frame to a fraction of its width, and the anchor that frames a subject on a desktop can push them onto the edge. The home banner is 2.7:1 and shows its full width on a desktop but only a third of it on a phone, so it anchors `62% 34%` wide and `72% 50%` narrow. Anchors are carried as custom properties on the banner rather than inline on the image, so the media query can win. The image, tint and scrim are absolutely positioned so the photo's intrinsic aspect ratio cannot dictate banner height. The hall tint uses `mix-blend-mode: color` and `opacity: 0.55`; the gradient scrim (`var(--wf-ink)` through `rgba(10,10,10,0.5)`) guarantees the contrast floor. Measured white-on-backdrop contrast over the home banner is 17.2:1 desktop and 16.4:1 mobile. Never use a circular portrait in a card.
 
-### EntranceDirectory
-`EntranceDirectory.vue` is the home entrance and takes no props: a hanging `BannerImage` leads, the board of booked dates follows, then the directory. The banner carries the name, a standfirst and the record line (`eventCount` / `countryCount` / `firstYear`), printed on the room rather than left for the visitor to count. The board renders the next three events in the same grammar `HallDirectory` uses on `/events/` — a 9rem date column, the name and place, then Website and a Hall D Tickets button — so a visitor who learns to read it here can read it there; it carries no rules between rows, because three entries are aligned by the date column and separated by space, and only a hundred-row board earns ruling. It closes with an `All events` exit on the standard marker. The directory sits under an **Explore** heading and lays its four signs two-up above `768px`, one-up below, each row's arrow terminating its own column. No row carries a hall colour: the board directly above the signs already is events, so colouring the Events row pointed at something the visitor had just scrolled past. **The entrance deliberately does not hold one screen.** Holding the fold forces a choice of three from: an immersive photograph, the record, a real next-event block, and four signs — at 1440x900 the four rows alone take 300px of the 734px between nav and footer. The board is the argument the site exists to make, so it takes the room and the page scrolls.
+### HomePage
+`HomePage.vue` is the home entrance and takes no props: a hanging `BannerImage` leads, the board of booked dates follows, then the directory. The banner carries the name, a standfirst and the record line (`eventCount` / `countryCount` / `firstYear`), printed on the room rather than left for the visitor to count. The board renders the next three events in the same grammar `EventsPage` uses on `/events/` — a 9rem date column, the name and place, then Website and a Hall D Tickets button — so a visitor who learns to read it here can read it there; it carries no rules between rows, because three entries are aligned by the date column and separated by space, and only a hundred-row board earns ruling. It closes with an `All events` exit on the standard marker. The directory sits under an **Explore** heading and lays its four signs two-up above `768px`, one-up below, each row's arrow terminating its own column. No row carries a hall colour: the board directly above the signs already is events, so colouring the Events row pointed at something the visitor had just scrolled past. **The entrance deliberately does not hold one screen.** Holding the fold forces a choice of three from: an immersive photograph, the record, a real next-event block, and four signs — at 1440x900 the four rows alone take 300px of the 734px between nav and footer. The board is the argument the site exists to make, so it takes the room and the page scrolls.
 
-### ResourceDoor
-`ResourceDoor.vue` is the QR path at `/r/<slug>`. It is a saturated hall field with contrast-checked `--on-hall` text, 64px minimum resource links, `SpeakerPlate` contact billing, and no VitePress chrome. Co-speakers come from `?with=<slug>,<slug>` after mount and fall back to the talk's default billing, so the same QR code serves multiple deliveries.
+### ResourcePage
+`ResourcePage.vue` is the QR path at `/r/<slug>`. It is a saturated hall field with contrast-checked `--on-hall` text, 64px minimum resource links, `SpeakerCard` contact billing, and no VitePress chrome. Co-speakers come from `?with=<slug>,<slug>` after mount and fall back to the talk's default billing, so the same QR code serves multiple deliveries.
 
 ### VitePress Shell
 The shell is the default VitePress theme extended, then suppressed. `src/.vitepress/config.ts` keeps the nav to `Events`, `Talks` and `Writing`, disables sidebar, outline and aside, sets `appearance: 'dark'`, and injects the `DIRECTION_CONTRACT` into `<head>`. The nav typography is uppercased Archivo (`font-variation-settings: 'wdth' 112`, 700, `letter-spacing: 0.08em`) and the navbar sits on `--wf-ink` with a `1px` `--wf-ink-rule` bottom border.
 
-### SpeakerPlate
-`SpeakerPlate.vue` is the one place the `converging-pair` staging is literal: two speakers on a shared `3px` hall-colour baseline. `withLinks` is only for resource pages; talk placards show billing without contact links.
+### SpeakerCard
+`SpeakerCard.vue` is the one place the `converging-pair` staging is literal: two speakers on a shared `3px` hall-colour baseline. `withLinks` is only for resource pages; talk placards show billing without contact links.
 
-### HallDirectory, PlacardIndex, TalkPlacard, NoticeBoard, RedirectNotice
-`HallDirectory.vue` turns events into upcoming and past boards, with date-derived movement and year toggles. `PlacardIndex.vue` shows one room placard per talk. `TalkPlacard.vue` owns the detailed talk placard, the reading abstract, delivery lines and resource doors. `NoticeBoard.vue` pins blog posts as wall notes before opening into prose. `RedirectNotice.vue` is the moved sign for legacy session URLs.
+### EventsPage, TalksPage, TalkPage, BlogPage, RedirectNotice
+`EventsPage.vue` turns events into upcoming and past boards, with date-derived movement and year toggles. `TalksPage.vue` shows one room placard per talk. `TalkPage.vue` owns the detailed talk placard, the reading abstract, delivery lines and resource doors. `BlogPage.vue` pins blog posts as wall notes before opening into prose. `RedirectNotice.vue` is the moved sign for legacy session URLs.
 
 ## Do's and Don'ts
 

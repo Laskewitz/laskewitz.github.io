@@ -6,11 +6,21 @@
  */
 import { computed, onMounted, ref } from 'vue'
 import { data as posts } from '../posts.data'
+import type { Hall } from '../../data/types'
 import { sortCategories } from '../../data/posts'
 import FilterBar from './FilterBar.vue'
 import PageBanner from './PageBanner.vue'
-import HallTile from './HallTile.vue'
-import NoticeNote from './NoticeNote.vue'
+import YearTile from './YearTile.vue'
+import BlogPostRow from './BlogPostRow.vue'
+
+/* The same five-hall rotation the events board runs, so a reader who learned
+   the colours there reads them here. The colour is the row's identity on
+   approach, not a claim about the post's subject. */
+const HALL_CYCLE: Hall[] = ['a', 'e', 'b', 'd', 'c']
+
+function hallFor(index: number): Hall {
+  return HALL_CYCLE[index % HALL_CYCLE.length]
+}
 
 const categories = computed(() =>
   sortCategories([...new Set(posts.flatMap((p) => p.categories))])
@@ -119,8 +129,8 @@ function toggleYear(year: string) {
 
       <template v-else>
         <ol v-if="current.length" class="notes">
-          <li v-for="post in current" :key="post.url">
-            <NoticeNote :post="post" />
+          <li v-for="(post, i) in current" :key="post.url">
+            <BlogPostRow :post="post" :hall="hallFor(i)" />
           </li>
         </ol>
 
@@ -134,7 +144,7 @@ function toggleYear(year: string) {
               :aria-expanded="openYears.has(year)"
               @click="toggleYear(year)"
             >
-              <HallTile :text="year" variant="outline" />
+              <YearTile :text="year" variant="outline" />
               <span class="year-count">
                 {{ list.length }} {{ list.length === 1 ? 'post' : 'posts' }}
               </span>
@@ -144,8 +154,8 @@ function toggleYear(year: string) {
             </button>
 
             <ol v-show="openYears.has(year)" class="notes">
-              <li v-for="post in list" :key="post.url">
-                <NoticeNote :post="post" />
+              <li v-for="(post, i) in list" :key="post.url">
+                <BlogPostRow :post="post" :hall="hallFor(i)" />
               </li>
             </ol>
           </div>
@@ -180,12 +190,8 @@ function toggleYear(year: string) {
 
 .clear:hover,
 .clear:focus-visible {
-  text-decoration-color: var(--wf-marker-live);
-}
-
-.clear:hover,
-.clear:focus-visible {
   color: var(--wf-optic);
+  text-decoration-color: var(--wf-optic);
 }
 
 .empty {

@@ -1,6 +1,6 @@
 <script setup lang="ts">
 /**
- * SignRow — the atom of this world.
+ * LinkRow — the atom of this world.
  *
  * A full-width directional sign: hall-colour tab, cut label, optional note,
  * terminal arrow. Never shorter than a thumb. Every navigable thing on this
@@ -16,6 +16,12 @@ withDefaults(
     hall?: Hall
     /** External links get a diagonal arrow, internal ones a straight arrow. */
     external?: boolean
+    /**
+     * A quiet row keeps its tab grey standing still and only lights its hall
+     * colour on approach. A list where every tab is lit at rest is a paint
+     * chart; lighting on hover makes the colour mean "this one".
+     */
+    quiet?: boolean
     /** Doors are the oversized rows used on resource pages. */
     size?: 'default' | 'door'
   }>(),
@@ -25,8 +31,8 @@ withDefaults(
 
 <template>
   <a
-    class="sign-row"
-    :class="[`is-${size}`, { 'has-hall': !!hall }]"
+    class="link-row"
+    :class="[`is-${size}`, { 'has-hall': !!hall && !quiet }]"
     :data-hall="hall"
     :href="href"
     :target="external ? '_blank' : undefined"
@@ -44,7 +50,7 @@ withDefaults(
 </template>
 
 <style scoped>
-.sign-row {
+.link-row {
   --row-hall: var(--hall, var(--wf-marker-live));
 
   display: grid;
@@ -63,27 +69,27 @@ withDefaults(
   transition: background var(--wf-motion) var(--wf-ease);
 }
 
-.sign-row:hover,
-.sign-row:focus-visible {
+.link-row:hover,
+.link-row:focus-visible {
   background: var(--wf-ink-raised);
 }
 
-/* A sign without a hall still has a tab: it is the anatomy of the row, so it
-   stays visible as a quiet rule and lights Hall A blue on approach. Only a row
-   that genuinely belongs to a hall carries that hall's colour standing still,
-   and that hall overrides the blue when live. */
+/* A sign without a lit hall still has a tab: it is the anatomy of the row, so
+   it stays visible as a quiet rule and lights its hall on approach. A row given
+   a hall outright carries that colour standing still; a quiet row keeps the
+   hall in reserve and only lights it under the pointer. */
 .tab {
   align-self: stretch;
   background: var(--wf-marker);
   transition: background var(--wf-motion) var(--wf-ease);
 }
 
-.sign-row.has-hall .tab {
+.link-row.has-hall .tab {
   background: var(--row-hall);
 }
 
-.sign-row:hover .tab,
-.sign-row:focus-visible .tab {
+.link-row:hover .tab,
+.link-row:focus-visible .tab {
   background: var(--row-hall);
 }
 
@@ -125,8 +131,8 @@ withDefaults(
   transition: transform var(--wf-motion) var(--wf-ease);
 }
 
-.sign-row:hover .arrow,
-.sign-row:focus-visible .arrow {
+.link-row:hover .arrow,
+.link-row:focus-visible .arrow {
   transform: translateX(4px);
 }
 </style>

@@ -8,4 +8,4 @@ head:
       content: noindex
 ---
 
-<ResourceDoor slug="admin-essentials" />
+<ResourcePage slug="admin-essentials" />

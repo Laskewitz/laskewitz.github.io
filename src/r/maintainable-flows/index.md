@@ -8,4 +8,4 @@ head:
       content: noindex
 ---
 
-<ResourceDoor slug="maintainable-flows" />
+<ResourcePage slug="maintainable-flows" />

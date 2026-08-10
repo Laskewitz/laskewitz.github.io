@@ -14,7 +14,7 @@
 import { computed, onMounted, ref } from 'vue'
 import { getTalkByResource, talkResources } from '../../data/talks'
 import { billing } from '../../data/speakers'
-import SpeakerPlate from './SpeakerPlate.vue'
+import SpeakerCard from './SpeakerCard.vue'
 
 const props = defineProps<{ slug: string }>()
 
@@ -60,7 +60,7 @@ const speakers = computed(() => billing(coSpeakerSlugs.value))
       </div>
 
       <section class="contact">
-        <SpeakerPlate
+        <SpeakerCard
           :heading="speakers.length > 1 ? 'Your speakers' : 'Your speaker'"
           :speakers="speakers"
           :hall="talk.hall"

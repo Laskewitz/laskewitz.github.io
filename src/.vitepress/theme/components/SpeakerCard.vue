@@ -1,6 +1,6 @@
 <script setup lang="ts">
 /**
- * SpeakerPlate — the converging-pair billing.
+ * SpeakerCard — the converging-pair billing.
  *
  * Two speaker plates on one baseline that read as a single session block. This
  * is the one place the converging-pair staging is literally true: a shared
@@ -11,7 +11,7 @@
  * changes per delivery, without the page being edited.
  */
 import type { Hall, Speaker } from '../../data/types'
-import SocialGlyph from './SocialGlyph.vue'
+import SocialIcon from './SocialIcon.vue'
 
 /** Initials stand in when a speaker has no portrait, so the rail never gaps. */
 function monogram(name: string): string {
@@ -76,7 +76,7 @@ withDefaults(
               :aria-label="`${speaker.name} on ${link.label}`"
               :title="link.label"
             >
-              <SocialGlyph :label="link.label" />
+              <SocialIcon :label="link.label" />
             </a>
           </li>
         </ul>

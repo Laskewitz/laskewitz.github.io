@@ -18,14 +18,44 @@ import {
   firstYear,
   upcomingEvents
 } from '../../data/events'
-import { talkCount } from '../../data/talks'
+import { coSpeakersAtEvent, talkCount, talksAtEvent } from '../../data/talks'
+import type { Hall } from '../../data/types'
 import { eventPlace, flagSrc, formatEventDate } from '../../data/format'
 import { data as posts } from '../posts.data'
-import SignRow from './SignRow.vue'
+import CoSpeakerBadge from './CoSpeakerBadge.vue'
+import LinkRow from './LinkRow.vue'
 import BannerImage from './BannerImage.vue'
 
 /** Three is the most that still reads as a board rather than a list. */
 const soon = computed(() => upcomingEvents().slice(0, 3))
+
+/**
+ * The board's lines carry the same tab the events page gives them: grey
+ * standing still, lit in the line's hall on approach. Blue sits this one out
+ * here, the same as the directory below — the nav above already spends it on
+ * the page you are standing on.
+ */
+const HALL_CYCLE: Hall[] = ['e', 'b', 'd', 'c']
+
+function hallFor(index: number): Hall {
+  return HALL_CYCLE[index % HALL_CYCLE.length]
+}
+
+/**
+ * A workshop is a different promise than a session — hours and hands-on rather
+ * than a slot — so the board prints them under their own heading instead of
+ * flattening both into one list. The same grouping the events page uses, so a
+ * visitor who learns to read the board here can read it there.
+ */
+function talkGroupsAtEvent(eventSlug: string) {
+  const given = talksAtEvent(eventSlug)
+  const sessions = given.filter((t) => t.format !== 'workshop')
+  const workshops = given.filter((t) => t.format === 'workshop')
+  return [
+    { label: sessions.length === 1 ? 'Session' : 'Sessions', talks: sessions },
+    { label: workshops.length === 1 ? 'Workshop' : 'Workshops', talks: workshops }
+  ].filter((group) => group.talks.length)
+}
 
 /** Newest first out of the loader, so the board's headline is posts[0]. */
 const latestPost = computed(() => posts[0])
@@ -35,22 +65,28 @@ const latestPost = computed(() => posts[0])
  * fact that would otherwise cost a click, drawn live from the same data the
  * hall behind it renders — so the directory is the record, not a menu.
  *
- * No row carries a hall colour. Events used to, to mark the primary
- * destination, but the board directly above these signs already is events —
- * the colour was pointing at something you had just scrolled past.
+ * Each row keeps a hall in reserve and lights it only on approach, so the
+ * colour marks the sign you are pointing at instead of painting the board.
+ * Hall A blue is left out here: it is the venue's live-marker ink and the
+ * navigation above already spends it, so the directory uses the other four.
  */
-const directory = computed(() => [
+const directory = computed<
+  { href: string; label: string; note: string; hall: Hall }[]
+>(() => [
   {
+    hall: 'e',
     href: '/events/',
     label: 'Events',
     note: `Every stage since ${firstYear()}, and the dates still ahead.`
   },
   {
+    hall: 'b',
     href: '/talks/',
     label: 'Talks',
     note: `${talkCount()} in rotation, on agents, low-code and the Power Platform.`
   },
   {
+    hall: 'd',
     href: '/blog/',
     label: 'Blog',
     note: latestPost.value
@@ -58,6 +94,7 @@ const directory = computed(() => [
       : 'Notes on Copilot Studio, agents and the Power Platform.'
   },
   {
+    hall: 'c',
     href: '/about/',
     label: 'About',
     note: 'Bios, headshots and the fastest way to reach me.'
@@ -99,10 +136,11 @@ const directory = computed(() => [
       <h2 id="board-heading" class="section-heading wf-sign">Where I'll be</h2>
 
       <ol class="lines">
-        <li v-for="e in soon" :key="e.slug" class="line">
+        <li v-for="(e, i) in soon" :key="e.slug" class="line" :data-hall="hallFor(i)">
           <span class="date">{{ formatEventDate(e) }}</span>
           <span class="name-cell">
             <span class="name wf-sign">{{ e.name }}</span>
+            <CoSpeakerBadge :speakers="coSpeakersAtEvent(e.slug)" />
             <span class="place">
               <img
                 v-if="flagSrc(e.country)"
@@ -117,6 +155,17 @@ const directory = computed(() => [
               {{ eventPlace(e) }}
             </span>
           </span>
+
+          <span v-if="talksAtEvent(e.slug).length" class="gave">
+            <template v-for="group in talkGroupsAtEvent(e.slug)" :key="group.label">
+              <span class="gave-label wf-label">{{ group.label }}</span>
+              <ul class="gave-list">
+                <li v-for="talk in group.talks" :key="talk.slug">
+                  <a :href="`/talks/${talk.slug}`">{{ talk.title }}</a>
+                </li>
+              </ul>
+            </template>
+          </span>
           <span class="links">
             <a
               v-if="e.website"
@@ -127,11 +176,9 @@ const directory = computed(() => [
             >
             <a
               v-if="e.tickets"
-              class="is-primary"
               :href="e.tickets"
               target="_blank"
               rel="noopener noreferrer"
-              data-hall="d"
               >Tickets ↗</a
             >
           </span>
@@ -144,12 +191,14 @@ const directory = computed(() => [
     <nav class="directory wf-gutter" aria-labelledby="directory-heading">
       <h2 id="directory-heading" class="section-heading wf-sign">Explore</h2>
       <div class="rows">
-        <SignRow
+        <LinkRow
           v-for="item in directory"
           :key="item.href"
           :href="item.href"
           :label="item.label"
           :note="item.note"
+          :hall="item.hall"
+          quiet
         />
       </div>
     </nav>
@@ -222,14 +271,35 @@ const directory = computed(() => [
 }
 
 /* No rules between the dates. Three entries do not need ruling into a table —
-   the date column already aligns them and the space does the separating. The
-   full board on /events/ earns its rules because it runs to a hundred rows. */
+   the date column already aligns them and the space does the separating. Each
+   line carries the same tab the events page gives it: grey standing still, lit
+   in the line's hall on approach. */
 .line {
+  position: relative;
   display: grid;
   grid-template-columns: 9rem 1fr auto;
   gap: var(--wf-gap-m);
   align-items: baseline;
   padding-block: var(--wf-gap-m);
+  padding-left: calc(6px + var(--wf-gap-s));
+}
+
+.line::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: var(--wf-gap-m);
+  bottom: var(--wf-gap-m);
+  width: 6px;
+  background: var(--wf-marker);
+  transition: background var(--wf-motion) var(--wf-ease);
+}
+
+/* Focus-within as well as hover, so a keyboard reaching the buttons inside the
+   line lights the same tab a pointer does. */
+.line:hover::before,
+.line:focus-within::before {
+  background: var(--hall, var(--wf-marker-live));
 }
 
 .date {
@@ -239,6 +309,30 @@ const directory = computed(() => [
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--wf-optic-dim);
+}
+
+/* The sessions are the widest thing a line carries, so they get the line
+   instead of the name's column: placed on a second row that runs from the
+   name to the far edge, they use the width the buttons leave behind rather
+   than wrapping early against a wall of empty board. */
+.date {
+  grid-column: 1;
+  grid-row: 1;
+}
+
+.name-cell {
+  grid-column: 2;
+  grid-row: 1;
+}
+
+.links {
+  grid-column: 3;
+  grid-row: 1;
+}
+
+.gave {
+  grid-column: 2 / -1;
+  grid-row: 2;
 }
 
 .name-cell {
@@ -259,11 +353,69 @@ const directory = computed(() => [
   color: var(--wf-optic-dim);
 }
 
+/* Sessions stacked under their own heading, the same as the events page. The
+   colour belongs to the line's tab, not to each session: one event is one
+   thing, however much happened there. */
+.gave {
+  display: block;
+  margin-top: var(--wf-gap-xs);
+  font-variation-settings: 'wdth' 100;
+  font-size: var(--wf-step--1);
+  color: var(--wf-optic-dim);
+}
+
+.gave-label {
+  display: block;
+}
+
+/* A second heading under the same event needs air, otherwise the workshop
+   label reads as another line of the session list above it. */
+.gave-list + .gave-label {
+  margin-top: var(--wf-gap-xs);
+}
+
+.gave-list {
+  margin: 0.35rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* A title that wraps on a phone should still read as one item, so the two
+   lines sit closer to each other than to the next session. */
+.gave-list li {
+  line-height: 1.35;
+}
+
+.gave-list li + li {
+  margin-top: 0.6rem;
+}
+
+/* A session title is a link on a board read one-handed, so its hit area is
+   padded out to a thumb; the negative margins hold the line where it was. */
+.gave-list a {
+  display: inline-block;
+  padding-block: 0.3rem;
+  margin-block: -0.3rem;
+  padding-inline: 0.35rem;
+  margin-inline: -0.35rem;
+  color: var(--wf-optic);
+  text-decoration: none;
+  transition: background var(--wf-motion) var(--wf-ease);
+}
+
+.gave-list a:hover,
+.gave-list a:focus-visible {
+  background: var(--wf-ink-raised);
+}
+
 .links {
   display: flex;
   gap: var(--wf-gap-s);
 }
 
+/* The same button the events page uses, so a visitor who learns it here reads
+   it there: one outlined control per action, filling on approach. Tickets is
+   not singled out in a hall colour — the line's own tab is what marks it. */
 .links a {
   display: inline-flex;
   align-items: center;
@@ -274,22 +426,21 @@ const directory = computed(() => [
   text-transform: uppercase;
   color: var(--wf-optic);
   text-decoration: none;
-  border: 1px solid var(--wf-marker);
+  border: 1px solid var(--wf-ink-rule);
   padding: 0 0.9em;
   white-space: nowrap;
-  transition: border-color var(--wf-motion) var(--wf-ease);
+  transition: background var(--wf-motion) var(--wf-ease),
+    color var(--wf-motion) var(--wf-ease);
 }
 
+/* Fills in the line's own hall rather than plain white, so the button and the
+   tab at the head of the line light as one thing. The on-hall pair carries the
+   text, which is what keeps the contrast measured rather than eyeballed. */
 .links a:hover,
 .links a:focus-visible {
-  border-color: var(--wf-marker-live);
-}
-
-/* One booking action per line, in the hall reserved for it. */
-.links a.is-primary {
-  background: var(--hall);
-  color: var(--on-hall);
-  border-color: var(--hall);
+  background: var(--hall, var(--wf-optic));
+  border-color: var(--hall, var(--wf-optic));
+  color: var(--on-hall, var(--wf-ink));
 }
 
 .board-all {
@@ -317,9 +468,11 @@ const directory = computed(() => [
   inset: -0.9rem 0;
 }
 
+/* Brightens to optic white rather than lighting blue: the blue underline was
+   the one mark on this board that pointed at a hall the link does not lead to. */
 .board-all:hover,
 .board-all:focus-visible {
-  border-bottom-color: var(--wf-marker-live);
+  border-bottom-color: var(--wf-optic);
 }
 
 /* ── DIRECTORY ─────────────────────────────────────────────────────────── */
@@ -337,7 +490,7 @@ const directory = computed(() => [
 
 /* Inside a column the sign owns its own width, so the arrow terminates the
    column instead of hanging a thousand pixels from the word it belongs to. */
-.rows :deep(.sign-row) {
+.rows :deep(.link-row) {
   grid-template-columns: 6px minmax(0, 1fr) auto;
   justify-content: stretch;
 }
@@ -354,6 +507,16 @@ const directory = computed(() => [
   .line {
     grid-template-columns: 1fr;
     gap: var(--wf-gap-xs);
+  }
+
+  /* One column on a phone: the explicit placement above has nothing left to
+     align to, so every part goes back to reading in source order. */
+  .date,
+  .name-cell,
+  .links,
+  .gave {
+    grid-column: 1;
+    grid-row: auto;
   }
 
   .links {

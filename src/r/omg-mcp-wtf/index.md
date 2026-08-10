@@ -8,4 +8,4 @@ head:
       content: noindex
 ---
 
-<ResourceDoor slug="omg-mcp-wtf" />
+<ResourcePage slug="omg-mcp-wtf" />

@@ -155,10 +155,11 @@ const shown = computed(() => {
 
 .clear:hover,
 .clear:focus-visible {
-  text-decoration-color: var(--wf-marker-live);
+  text-decoration-color: var(--wf-optic);
 }
 
 .empty {
+  grid-column: 1 / -1;
   padding: var(--wf-gap-xl) 0;
   color: var(--wf-optic-dim);
   font-size: var(--wf-step-0);
@@ -166,13 +167,22 @@ const shown = computed(() => {
 
 .grid {
   display: grid;
-  gap: 0;
+  gap: 0 var(--wf-gap-l);
   padding-bottom: var(--wf-gap-xl);
+}
+
+/* Two columns from tablet up, the same arrangement the directory and the desk
+   use. A plate is a title and an arrow, not a paragraph, so a single column on
+   a wide screen left half the room empty and made the list twice as long. */
+@media (min-width: 768px) {
+  .grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
 }
 
 .placard {
   display: grid;
-  grid-template-columns: 8px 1fr auto;
+  grid-template-columns: 6px minmax(0, 1fr) auto;
   align-items: start;
   gap: var(--wf-gap-m);
   padding: var(--wf-gap-m) 0;
@@ -186,9 +196,18 @@ const shown = computed(() => {
   background: var(--wf-ink-raised);
 }
 
+/* Grey standing still, lit in the talk's own hall on approach — the same tab
+   the signs, the desk and the boards carry. A wall of plates each lit at rest
+   read as a paint chart rather than a programme. */
 .band {
   align-self: stretch;
-  background: var(--hall);
+  background: var(--wf-marker);
+  transition: background var(--wf-motion) var(--wf-ease);
+}
+
+.placard:hover .band,
+.placard:focus-visible .band {
+  background: var(--hall, var(--wf-marker-live));
 }
 
 .title-cell {
@@ -198,9 +217,14 @@ const shown = computed(() => {
   min-width: 0;
 }
 
+/* Two columns halve the room a title has, so the plate steps down one size:
+   at the larger step a long title hyphenated across three lines and read as
+   a paragraph rather than as a sign. The extra leading is for the same
+   reason — sign leading is set for one or two lines, not four. */
 .talk-title {
   min-width: 0;
-  font-size: var(--wf-step-2);
+  font-size: var(--wf-step-1);
+  line-height: 1.05;
   overflow-wrap: break-word;
   hyphens: auto;
 }
@@ -226,7 +250,7 @@ const shown = computed(() => {
 
 .arrow {
   align-self: center;
-  font-size: var(--wf-step-3);
+  font-size: var(--wf-step-2);
   line-height: 1;
   padding-right: var(--wf-gap-xs);
   transition: transform var(--wf-motion) var(--wf-ease);
@@ -243,7 +267,7 @@ const shown = computed(() => {
   }
 
   .arrow {
-    font-size: var(--wf-step-2);
+    font-size: var(--wf-step-1);
   }
 }
 </style>

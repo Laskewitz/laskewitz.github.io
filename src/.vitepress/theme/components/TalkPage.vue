@@ -2,10 +2,22 @@
 /** A single talk: the placard, the abstract, and every stage it's been on. */
 import { computed } from 'vue'
 import { getTalk, formatLabel } from '../../data/talks'
+import type { Hall } from '../../data/types'
 import { getEvent, isUpcoming, hasStarted } from '../../data/events'
-import { coSpeakerNames } from '../../data/speakers'
 import { eventPlace, flagSrc, formatEventDate } from '../../data/format'
-import SignRow from './SignRow.vue'
+import CoSpeakerBadge from './CoSpeakerBadge.vue'
+import LinkRow from './LinkRow.vue'
+
+/* The same rotation the events board runs. The placard's own hall is the talk's
+   identity and stays on the placard; the stage lines below are events, and an
+   event is read by its own colour here exactly as it is on /events/. Without
+   this every line lit in the talk's single hall and the board lost the variety
+   that makes it scannable. */
+const HALL_CYCLE: Hall[] = ['a', 'e', 'b', 'd', 'c']
+
+function hallFor(index: number): Hall {
+  return HALL_CYCLE[index % HALL_CYCLE.length]
+}
 
 const props = defineProps<{ slug: string }>()
 
@@ -83,16 +95,21 @@ function resourceHref(delivery: { coSpeakers?: readonly string[] }) {
         </h2>
 
         <ol class="lines">
-          <li v-for="{ delivery, event } in section.items" :key="event!.slug" class="line">
+          <li
+            v-for="({ delivery, event }, i) in section.items"
+            :key="event!.slug"
+            class="line"
+            :data-hall="hallFor(i)"
+          >
           <span class="date">{{ formatEventDate(event!) }}</span>
 
           <span class="stage-body">
             <span class="event-name wf-sign">{{ event!.name }}</span>
 
-            <span v-if="delivery.coSpeakers?.length" class="with wf-sign">
-              <span class="with-word">With</span>
-              <span class="with-name">{{ coSpeakerNames(delivery.coSpeakers) }}</span>
-            </span>
+            <CoSpeakerBadge
+              v-if="delivery.coSpeakers?.length"
+              :speakers="delivery.coSpeakers"
+            />
 
             <span class="place">
               <img v-if="flagSrc(event!.country)" class="flag" :src="flagSrc(event!.country)" alt="" width="18" height="18" loading="lazy" decoding="async" />
@@ -103,7 +120,7 @@ function resourceHref(delivery: { coSpeakers?: readonly string[] }) {
           <span class="stage-links">
             <a
               v-if="talk.resourceSlug && hasStarted(event!)"
-              class="stage-link is-resources"
+              class="stage-link"
               :href="resourceHref(delivery)"
               >Resources</a
             >
@@ -128,7 +145,7 @@ function resourceHref(delivery: { coSpeakers?: readonly string[] }) {
 
             <a
               v-if="event!.tickets && isUpcoming(event!)"
-              class="stage-link is-tickets"
+              class="stage-link"
               :href="event!.tickets"
               target="_blank"
               rel="noopener noreferrer"
@@ -141,7 +158,7 @@ function resourceHref(delivery: { coSpeakers?: readonly string[] }) {
     </section>
 
     <nav v-if="talk.slides" class="doors wf-gutter">
-      <SignRow
+      <LinkRow
         :href="talk.slides"
         label="Slides"
         :hall="talk.hall"
@@ -301,19 +318,51 @@ function resourceHref(delivery: { coSpeakers?: readonly string[] }) {
 }
 
 .lines {
-  margin: 0;
+  display: grid;
+  gap: 0 var(--wf-gap-l);
+  margin: 0 0 var(--wf-gap-m);
   padding: 0;
   list-style: none;
 }
 
-/* Matches the events directory: no hairline per row, the date column and the
-   space do the separating. */
+/* Two columns from tablet up, the same arrangement the rest of the venue uses.
+   A delivery is a date, a stage and two buttons — it does not need the full
+   width, and one column left this list twice as long as it had to be. */
+@media (min-width: 768px) {
+  .lines {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* Matches the events directory: no hairline per row, the space does the
+   separating. Inside a column the line stacks — date, stage, then the actions —
+   rather than holding a date column there is no longer room for. Each line
+   carries the venue's tab: grey standing still, lit in the talk's hall on
+   approach. */
 .line {
-  display: grid;
-  grid-template-columns: 13rem 1fr auto;
-  align-items: baseline;
-  gap: var(--wf-gap-xs) var(--wf-gap-m);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--wf-gap-xs);
   padding: calc(var(--wf-gap-s) * 0.9) 0;
+  padding-left: calc(6px + var(--wf-gap-s));
+}
+
+.line::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: calc(var(--wf-gap-s) * 0.9);
+  bottom: calc(var(--wf-gap-s) * 0.9);
+  width: 6px;
+  background: var(--wf-marker);
+  transition: background var(--wf-motion) var(--wf-ease);
+}
+
+.line:hover::before,
+.line:focus-within::before {
+  background: var(--hall, var(--wf-marker-live));
 }
 
 .date {
@@ -345,39 +394,6 @@ function resourceHref(delivery: { coSpeakers?: readonly string[] }) {
   color: var(--wf-optic-dim);
 }
 
-/* Shared billing reads as a late-addition sticker slapped onto the placard —
-   small, hall-coloured, and applied a degree or two off true. It always sits on
-   its own line between the event and the city so it lands in the same place on
-   every row; hanging it beside the title made it jump around as names wrapped.
-   Ink stays the measured on-hall pair; opacity would break the contrast law.
-   It carries a co-speaker's name, so it stays above the 11px functional floor
-   and keeps real inset rather than shrinking to fit the rotation. */
-.with {
-  display: inline-flex;
-  align-self: flex-start;
-  align-items: baseline;
-  gap: 0.42em;
-  margin: 0.3em 0 0.15em;
-  padding: 0.28em 0.55em;
-  background: var(--hall);
-  color: var(--on-hall);
-  font-size: 0.75rem;
-  line-height: 1.25;
-  text-transform: uppercase;
-  letter-spacing: 0.07em;
-  transform: rotate(-1.8deg);
-  transform-origin: 0 50%;
-}
-
-.with-word {
-  font-weight: 400;
-  font-variation-settings: 'wdth' 100;
-}
-
-.with-name {
-  font-weight: 700;
-}
-
 .stage-links {
   display: flex;
   flex-wrap: wrap;
@@ -391,7 +407,7 @@ function resourceHref(delivery: { coSpeakers?: readonly string[] }) {
   min-height: 44px;
   padding: 0 var(--wf-gap-s);
   border: 1px solid var(--wf-ink-rule);
-  color: var(--wf-optic-dim);
+  color: var(--wf-optic);
   font-variation-settings: 'wdth' 110;
   font-weight: 700;
   font-size: var(--wf-step--1);
@@ -399,31 +415,20 @@ function resourceHref(delivery: { coSpeakers?: readonly string[] }) {
   text-transform: uppercase;
   text-decoration: none;
   white-space: nowrap;
+  transition: background var(--wf-motion) var(--wf-ease),
+    border-color var(--wf-motion) var(--wf-ease),
+    color var(--wf-motion) var(--wf-ease);
 }
 
-/* The handout is what an attendee came back for, so it outranks the venue link. */
-.stage-link.is-resources {
-  border-color: var(--hall);
-  color: var(--wf-optic);
-}
-
-/* A seat you can still buy is the only action left on an upcoming outing. */
-.stage-link.is-tickets {
-  border-color: var(--hall);
-  background: var(--hall);
-  color: var(--on-hall);
-}
-
+/* One control, one treatment. Tickets used to arrive as a filled hall field and
+   Resources as a hall-edged one, which put three different buttons on a row
+   where the words already say which is which. They all fill the talk's hall on
+   approach now, the same as the boards on the entrance and the events page. */
 .stage-link:hover,
 .stage-link:focus-visible {
-  background: var(--wf-optic);
-  color: var(--wf-ink);
-}
-
-.stage-link.is-resources:hover,
-.stage-link.is-resources:focus-visible {
-  background: var(--hall);
-  color: var(--on-hall);
+  border-color: var(--hall, var(--wf-optic));
+  background: var(--hall, var(--wf-optic));
+  color: var(--on-hall, var(--wf-ink));
 }
 
 .doors {
@@ -431,12 +436,7 @@ function resourceHref(delivery: { coSpeakers?: readonly string[] }) {
 }
 
 @media (max-width: 820px) {
-  .line {
-    grid-template-columns: 1fr;
-  }
-
   .stage-link {
-    justify-self: start;
     margin-top: var(--wf-gap-hair);
   }
 }

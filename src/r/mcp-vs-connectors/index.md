@@ -8,4 +8,4 @@ head:
       content: noindex
 ---
 
-<ResourceDoor slug="mcp-vs-connectors" />
+<ResourcePage slug="mcp-vs-connectors" />

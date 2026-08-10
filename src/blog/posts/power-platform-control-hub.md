@@ -24,7 +24,7 @@ you open the page. There is no solution to import, no Dataverse tables to popula
 no nightly sync to babysit. Authentication comes from the Power Apps host, so there's no
 app registration and no MSAL configuration either.
 
-<PostFigure
+<BlogFigure
   src="/images/posts/power-platform-control-hub/01-overview.png"
   alt="The Control Hub overview tab, with a metric card per resource type above a table of recently created resources."
   caption="One card per resource type, and whatever showed up in the tenant most recently."
@@ -37,7 +37,7 @@ app registration and no MSAL configuration either.
 Listing resources is the part everyone expects. I wanted the part after that: click a
 resource and get told something useful about it.
 
-<PostFigure
+<BlogFigure
   src="/images/posts/power-platform-control-hub/02-resources.png"
   alt="The Resources tab showing a sortable, filterable table of every resource across all environments."
   caption="Every resource in the tenant in one sortable table. Every row opens a detail panel."
@@ -61,7 +61,7 @@ their True and False branches side by side and loops and scopes as collapsible
 containers. Once you can read a flow's shape without opening the designer, reviewing
 someone else's flow stops being a chore.
 
-<PostFigure
+<BlogFigure
   src="/images/posts/power-platform-control-hub/03-environments.png"
   alt="The Environments tab, a grid of environment cards showing type badge, managed indicator, region and resource count."
   caption="Type, region, managed state and resource count, before you click into anything."
@@ -77,7 +77,7 @@ flow, open a detail page per policy. There's an Apply Best Practices action that
 checks a policy against a set of advisory rules, HTTP to Blocked, SharePoint to
 Confidential, and shows you what it proposes before anything is saved.
 
-<PostFigure
+<BlogFigure
   src="/images/posts/power-platform-control-hub/04-tenant-policies.png"
   alt="The Tenant Policies tab listing DLP policies, billing policies and cross-tenant connection reports."
   caption="DLP policies, billing policies and cross-tenant connection reports, in one tab."
@@ -90,7 +90,7 @@ enabled, disabled, made managed, backed up, and moved in and out of groups from 
 Actions menu. Quarantining an app, disabling a flow or adding yourself as an owner all
 happen in place.
 
-<PostFigure
+<BlogFigure
   src="/images/posts/power-platform-control-hub/07-recommendations.png"
   alt="The Recommendations tab showing advisor recommendations returned by the admin API."
   caption="What the admin API already thinks you should go and fix."

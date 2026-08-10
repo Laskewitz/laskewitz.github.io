@@ -8,4 +8,4 @@ head:
       content: noindex
 ---
 
-<ResourceDoor slug="prompt-builder-playbook" />
+<ResourcePage slug="prompt-builder-playbook" />

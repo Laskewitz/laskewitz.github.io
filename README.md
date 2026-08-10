@@ -52,8 +52,8 @@ appear reads from it. A talk that covers the same ground as another can point at
 
 | Path | Purpose |
 | --- | --- |
-| `src/talks/<slug>/` | One page per talk, rendering `<TalkPlacard>` |
-| `src/r/<slug>/` | The QR-code resource door for a talk, rendering `<ResourceDoor>` |
+| `src/talks/<slug>/` | One page per talk, rendering `<TalkPage>` |
+| `src/r/<slug>/` | The QR-code resource door for a talk, rendering `<ResourcePage>` |
 | `src/blog/posts/` | Blog posts as markdown |
 | `src/events/`, `src/index.md` | The events board and the entrance |
 | `src/public/` | Fonts, images, slides — served as-is |
@@ -76,8 +76,8 @@ Twemoji artwork read off disk from `@twemoji/svg`.
 ## Adding things
 
 **A talk:** add an entry to `talks.ts`, then create `src/talks/<slug>/index.md` with a
-`<TalkPlacard slug="..." />`. If it hands out links, set `resourceSlug` and add
-`src/r/<slug>/index.md` with a `<ResourceDoor slug="..." />`. Mark it
+`<TalkPage slug="..." />`. If it hands out links, set `resourceSlug` and add
+`src/r/<slug>/index.md` with a `<ResourcePage slug="..." />`. Mark it
 `format: 'workshop'` if it's a workshop; sessions are the default.
 
 **A delivery:** add `{ eventSlug, coSpeakers }` to the talk's `deliveries`, and the event

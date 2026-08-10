@@ -273,8 +273,10 @@ onUnmounted(() => {
   cursor: pointer;
 }
 
+/* Brightens to optic white rather than lighting blue, the same as every other
+   control in the venue. */
 .clear:hover,
 .clear:focus-visible {
-  text-decoration-color: var(--wf-marker-live);
+  text-decoration-color: var(--wf-optic);
 }
 </style>

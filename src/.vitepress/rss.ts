@@ -10,13 +10,13 @@ const HOSTNAME = 'https://laskewitz.io'
  *
  * `createContentLoader`'s `render` gives us the markdown output, so a component
  * a post uses is still an unrendered custom element by the time it reaches the
- * feed. A reader can't run Vue, so `<PostFigure … />` would land in someone's
+ * feed. A reader can't run Vue, so `<BlogFigure … />` would land in someone's
  * inbox as literal markup. Figures are the only component that appears inside
  * post prose; anything else added later needs a case here too.
  */
 function componentsToHtml(html: string): string {
   return html.replace(
-    /<PostFigure\b([\s\S]*?)\/>/g,
+    /<BlogFigure\b([\s\S]*?)\/>/g,
     (_match, attrs: string) => {
       const attr = (name: string) =>
         attrs.match(new RegExp(`${name}="([^"]*)"`))?.[1] ?? ''

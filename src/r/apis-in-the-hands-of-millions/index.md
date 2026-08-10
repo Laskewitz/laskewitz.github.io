@@ -8,4 +8,4 @@ head:
       content: noindex
 ---
 
-<ResourceDoor slug="apis-in-the-hands-of-millions" />
+<ResourcePage slug="apis-in-the-hands-of-millions" />
