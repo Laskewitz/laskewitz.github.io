@@ -49,8 +49,8 @@ onMounted(() => {
   min-height: 72px;
   margin-top: var(--wf-gap-s);
   padding: var(--wf-gap-s) 0;
-  border-top: 3px solid var(--wf-hall-d);
-  border-bottom: 3px solid var(--wf-hall-d);
+  border-top: 3px solid var(--wf-track-d);
+  border-bottom: 3px solid var(--wf-track-d);
   color: inherit;
   text-decoration: none;
 }

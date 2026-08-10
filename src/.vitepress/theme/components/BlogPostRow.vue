@@ -3,17 +3,17 @@
  * One post pinned to the notice board. Used by both the current list and the
  * year archive, and it reads the way an event line does: the date holds its own
  * column so a scanning eye runs down one edge, and the tab in the gutter is grey
- * standing still, lit in the row's hall on approach.
+ * standing still, lit in the row's track on approach.
  */
 import type { Post } from '../../data/posts'
-import type { Hall } from '../../data/types'
+import type { Track } from '../../data/types'
 import { formatPostDate } from '../../data/format'
 
-defineProps<{ post: Post; hall?: Hall }>()
+defineProps<{ post: Post; track?: Track }>()
 </script>
 
 <template>
-  <a class="note" :href="post.url" :data-hall="hall">
+  <a class="note" :href="post.url" :data-track="track">
     <time class="date" :datetime="post.date">{{ formatPostDate(post.date) }}</time>
     <span class="note-title wf-sign">{{ post.title }}</span>
     <span class="arrow" aria-hidden="true">→</span>
@@ -50,7 +50,7 @@ defineProps<{ post: Post; hall?: Hall }>()
 
 .note:hover::before,
 .note:focus-visible::before {
-  background: var(--hall, var(--wf-marker-live));
+  background: var(--track, var(--wf-marker-live));
 }
 
 .date {

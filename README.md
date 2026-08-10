@@ -95,8 +95,8 @@ in the frontmatter.
 `DESIGN.md` and `PRODUCT.md` hold the design system and the product definition, and
 `src/.vitepress/contract.ts` carries the direction contract that ships inside every built
 page. Read those before changing how anything looks. The short version: the site is the
-venue and every page is a sign. Colour is structural — five "halls" that a talk keeps
-everywhere it appears — and hall colour is never used as small text on the substrate.
+venue and every page is a sign. Colour is structural — five "tracks" that a talk keeps
+everywhere it appears — and track colour is never used as small text on the substrate.
 
 ## Credits
 

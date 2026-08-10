@@ -4,14 +4,14 @@ import { Resvg } from '@resvg/resvg-js'
 import satori from 'satori'
 import type { PageData, SiteConfig } from 'vitepress'
 import { talks } from './data/talks'
-import type { Hall } from './data/types'
+import type { Track } from './data/types'
 
 const HOSTNAME = 'https://laskewitz.io'
 const WIDTH = 1200
 const HEIGHT = 630
 
 /**
- * The card is a dark room, so the substrate is fixed and the hall no longer
+ * The card is a dark room, so the substrate is fixed and the track no longer
  * floods the frame. Sharing surfaces crop, tint and sit these images next to
  * each other; a black field keeps the set looking like one wall of signs
  * rather than five competing colour swatches.
@@ -20,22 +20,22 @@ const SUBSTRATE = '#0a0a0a'
 const OPTIC = '#ffffff'
 
 /**
- * The hall palette, copied from style.css because a PNG cannot read a custom
+ * The track palette, copied from style.css because a PNG cannot read a custom
  * property.
  *
- * `rule` is the field colour at full strength and `onHall` is its measured
+ * `rule` is the field colour at full strength and `onTrack` is its measured
  * partner ink, exactly the pairing style.css publishes: a 5.99 · b 7.34 ·
- * c 5.09 · d 15.83 · e 6.76. The card only ever puts a hall colour down as a
+ * c 5.09 · d 15.83 · e 6.76. The card only ever puts a track colour down as a
  * field — the solid band above the wordmark, and the kicker sticker — so the
- * ban on small hall-coloured text on #0A0A0A is honoured by construction and
- * no lifted tint is needed to get hall colour onto the card.
+ * ban on small track-coloured text on #0A0A0A is honoured by construction and
+ * no lifted tint is needed to get track colour onto the card.
  */
-const HALLS: Record<Hall, { rule: string; onHall: string }> = {
-  a: { rule: '#1f4bff', onHall: '#ffffff' },
-  b: { rule: '#00c2a8', onHall: '#04231f' },
-  c: { rule: '#d6203a', onHall: '#ffffff' },
-  d: { rule: '#c8ff00', onHall: '#101400' },
-  e: { rule: '#ff6b00', onHall: '#1a0a00' }
+const TRACKS: Record<Track, { rule: string; onTrack: string }> = {
+  a: { rule: '#1f4bff', onTrack: '#ffffff' },
+  b: { rule: '#00c2a8', onTrack: '#04231f' },
+  c: { rule: '#d6203a', onTrack: '#ffffff' },
+  d: { rule: '#c8ff00', onTrack: '#101400' },
+  e: { rule: '#ff6b00', onTrack: '#1a0a00' }
 }
 
 /** The kicker's cap height, and the sticker padding scaled off it. */
@@ -45,7 +45,7 @@ interface Card {
   file: string
   kicker: string
   title: string
-  hall: Hall
+  track: Track
   /** The session's leading emoji, drawn as a mark above the title. */
   emoji?: string
 }
@@ -56,7 +56,7 @@ const cards = new Map<string, Card>()
  * The wordmark, inlined so the renderer never reaches for the network.
  *
  * Only the white lettering is needed now. The card used to flood the frame
- * with the hall colour, so the mark had to flip to dark type on lime and teal;
+ * with the track colour, so the mark had to flip to dark type on lime and teal;
  * on a fixed black substrate there is nothing to flip against.
  */
 const logo = (() => {
@@ -161,11 +161,11 @@ function kickerFor(relativePath: string): string {
 }
 
 /** A talk page and its resource door are the same session, so same colour. */
-function hallFor(relativePath: string): Hall {
+function trackFor(relativePath: string): Track {
   const match = /^(?:talks|r)\/([^/]+)\/index\.md$/.exec(relativePath)
   if (match) {
     const talk = talks.find((t) => t.slug === match[1] || t.resourceSlug === match[1])
-    if (talk) return talk.hall
+    if (talk) return talk.track
   }
   if (relativePath.startsWith('blog/')) return 'c'
   if (relativePath.startsWith('talks/')) return 'b'
@@ -237,7 +237,7 @@ function titleChildren(title: string, size: number): unknown {
 }
 
 async function renderCard(card: Card): Promise<Buffer> {
-  const { rule, onHall } = HALLS[card.hall]
+  const { rule, onTrack } = TRACKS[card.track]
 
   /* The session's emoji opens the title rather than standing above it, so the
      first words sit alongside it and the mark reads as part of the sign. */
@@ -281,7 +281,7 @@ async function renderCard(card: Card): Promise<Buffer> {
         children: [
           {
             /* The kicker is a sticker, the same mark the site slaps on its
-               board headings: a hall field carrying its measured ink, tilted
+               board headings: a track field carrying its measured ink, tilted
                off the horizontal. `alignSelf` is what makes it hug its words —
                satori lays a plain block out full width, which would read as a
                banner across the card rather than a label stuck to it. The
@@ -299,7 +299,7 @@ async function renderCard(card: Card): Promise<Buffer> {
                 letterSpacing: '0.16em',
                 textTransform: 'uppercase',
                 background: rule,
-                color: onHall,
+                color: onTrack,
                 transform: 'rotate(-1.4deg)',
                 transformOrigin: '0 50%'
               },
@@ -366,7 +366,7 @@ export function transformPageData(pageData: PageData) {
     file: `${id}.png`,
     kicker: same(kicker, title) ? 'Daniel Laskewitz' : kicker,
     title,
-    hall: hallFor(relativePath),
+    track: trackFor(relativePath),
     emoji: emojiFor(relativePath)
   })
 

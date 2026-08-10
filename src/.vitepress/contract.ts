@@ -15,7 +15,7 @@ export const DIRECTION_CONTRACT = `<!--
 
   OWN-WORLD    Conference environmental graphics: matte vinyl colour fields,
                optic-white cut lettering, oversized directional arrows,
-               hall-letter tiles, full-bleed hanging-banner photography.
+               track-letter tiles, full-bleed hanging-banner photography.
                Recognisable with every word of content removed.
 
   STORY        The attendee sees one arrow-led row and taps it. The organiser
@@ -24,14 +24,14 @@ export const DIRECTION_CONTRACT = `<!--
 
   FIRST VIEW   Full-bleed near-black. LASKEWITZ cut in optic white at venue
                scale. Beneath it the directory as full-width signage rows, each
-               with a hall-colour tab, a real count and a terminal arrow. Along
+               with a track-colour tab, a real count and a terminal arrow. Along
                the bottom edge an illuminated NEXT strip in the next event's
-               hall colour.
+               track colour.
 
   FORM         Staging: converging-pair, used only where literally true — the
                session placard, where two speaker plates on one baseline merge
                into a single billed block.
 
-  RULE         Hall colours are field colours carrying white or black text.
-               Never small hall-coloured text on the substrate.
+  RULE         Track colours are field colours carrying white or black text.
+               Never small track-coloured text on the substrate.
 -->`
