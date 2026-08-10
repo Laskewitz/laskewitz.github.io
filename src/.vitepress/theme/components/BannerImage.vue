@@ -26,6 +26,12 @@ withDefaults(
      * frame — so the subject is named per image rather than assumed.
      */
     focus?: string
+    /**
+     * The same anchor for a phone, where a wide frame is cropped to a third of
+     * its width and the desktop anchor can leave the subject on the edge.
+     * Defaults to `focus`, so only panoramas need to name it.
+     */
+    focusNarrow?: string
     /** Banners above the fold load eagerly; everything else waits. */
     priority?: boolean
   }>(),
@@ -34,13 +40,20 @@ withDefaults(
 </script>
 
 <template>
-  <section class="banner" :class="`is-${height}`" :data-hall="hall">
+  <section
+    class="banner"
+    :class="`is-${height}`"
+    :data-hall="hall"
+    :style="{
+      '--banner-focus': focus,
+      '--banner-focus-narrow': focusNarrow ?? focus
+    }"
+  >
     <img
       class="banner-img"
       :src="`/images/stage/${src}-1600.jpg`"
       :srcset="`/images/stage/${src}-960.jpg 960w, /images/stage/${src}-1600.jpg 1600w, /images/stage/${src}-2400.jpg 2400w`"
       sizes="100vw"
-      :style="{ objectPosition: focus }"
       :alt="alt"
       :loading="priority ? 'eager' : 'lazy'"
       :fetchpriority="priority ? 'high' : undefined"
@@ -92,7 +105,18 @@ withDefaults(
 
 .banner-img {
   object-fit: cover;
+  object-position: var(--banner-focus);
   z-index: 0;
+}
+
+/* A phone crops a wide frame to a fraction of its width, so the anchor that
+   frames the subject on a desktop can push them off the edge. The narrow
+   anchor is carried as a variable on the banner rather than inline on the
+   image, so this rule can win. */
+@media (max-width: 47.999rem) {
+  .banner-img {
+    object-position: var(--banner-focus-narrow);
+  }
 }
 
 /* The hall colour is laid over the photograph, not next to it — the banner

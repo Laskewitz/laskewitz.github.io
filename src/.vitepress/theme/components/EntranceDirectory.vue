@@ -73,6 +73,7 @@ const directory = computed(() => [
       hall="a"
       height="half"
       focus="62% 34%"
+      focus-narrow="72% 50%"
       priority
     >
       <h1 class="banner-name wf-sign">Daniel Laskewitz</h1>
