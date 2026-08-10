@@ -112,7 +112,6 @@ function toggleYear(year: string) {
     <section class="board wf-gutter" aria-labelledby="upcoming-heading">
       <h2 id="upcoming-heading" class="board-heading wf-sign" data-hall="e">
         <span class="wf-sticker">Upcoming</span>
-        <span class="count">{{ upcoming.length }}</span>
       </h2>
 
       <p v-if="!upcoming.length" class="empty">
@@ -163,7 +162,6 @@ function toggleYear(year: string) {
     <section class="board wf-gutter" aria-labelledby="past-heading">
       <h2 id="past-heading" class="board-heading wf-sign" data-hall="c">
         <span class="wf-sticker">Past</span>
-        <span class="count">{{ past.length }}</span>
       </h2>
 
       <div v-for="[year, list] in pastByYear" :key="year" class="year">
@@ -345,19 +343,8 @@ function toggleYear(year: string) {
 }
 
 .board-heading {
-  display: flex;
-  align-items: baseline;
-  gap: var(--wf-gap-s);
   margin: 0 0 var(--wf-gap-m);
   font-size: var(--wf-step-2);
-}
-
-.count {
-  font-variation-settings: 'wdth' 100;
-  font-weight: 600;
-  font-size: var(--wf-step--1);
-  letter-spacing: 0.08em;
-  color: var(--wf-optic-dim);
 }
 
 .empty {

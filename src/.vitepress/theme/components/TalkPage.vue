@@ -93,7 +93,6 @@ function resourceHref(delivery: { coSpeakers?: readonly string[] }) {
       <template v-for="section in stageSections" :key="section.key">
         <h2 class="section-heading wf-sign" :data-hall="section.key === 'booked' ? 'e' : 'c'">
           <span class="wf-sticker">{{ section.heading }}</span>
-          <span class="count">{{ section.items.length }}</span>
         </h2>
 
         <ol class="lines">
@@ -293,9 +292,6 @@ function resourceHref(delivery: { coSpeakers?: readonly string[] }) {
 }
 
 .section-heading {
-  display: flex;
-  align-items: baseline;
-  gap: var(--wf-gap-s);
   margin: 0 0 var(--wf-gap-m);
   font-size: var(--wf-step-2);
 }
@@ -303,14 +299,6 @@ function resourceHref(delivery: { coSpeakers?: readonly string[] }) {
 /* A second board under the first needs room to read as its own board. */
 .lines + .section-heading {
   margin-top: var(--wf-gap-xl);
-}
-
-.count {
-  font-variation-settings: 'wdth' 100;
-  font-weight: 600;
-  font-size: var(--wf-step--1);
-  letter-spacing: 0.08em;
-  color: var(--wf-optic-dim);
 }
 
 .stages > .empty {
