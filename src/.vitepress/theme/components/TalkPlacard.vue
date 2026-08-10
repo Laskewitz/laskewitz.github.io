@@ -154,7 +154,10 @@ function resourceHref(delivery: { coSpeakers?: readonly string[] }) {
 
 <style scoped>
 /* A placard is read at arm's length, not scanned across a hall — so the detail
-   column is capped rather than stretched to the full venue width. */
+   column is capped rather than stretched to the full venue width.
+   This is a `:deep` selector, so it outranks a bare class. Anything below that
+   wants a narrower reading cap has to name its parent to match, or it silently
+   inherits the full 68rem. */
 .talk :deep(.wf-gutter) > *,
 .head > *,
 .abstract > *,
@@ -241,7 +244,7 @@ function resourceHref(delivery: { coSpeakers?: readonly string[] }) {
   }
 }
 
-.summary {
+.head > .summary {
   max-width: 54ch;
   margin: var(--wf-gap-s) 0 0;
   font-variation-settings: 'wdth' 100;
@@ -255,7 +258,12 @@ function resourceHref(delivery: { coSpeakers?: readonly string[] }) {
   padding-bottom: var(--wf-gap-l);
 }
 
-.prose {
+/* The abstract is prose, not signage, so it keeps the reading measure. The
+   section cap above opens every block to 68rem through a `:deep` selector, so
+   this has to match its specificity or the paragraphs run past 100 characters
+   a line on a wide screen. */
+.abstract > .prose {
+  max-width: var(--wf-measure);
   margin: var(--wf-gap-s) 0 0;
   color: var(--vp-c-text-1);
 }
@@ -286,7 +294,7 @@ function resourceHref(delivery: { coSpeakers?: readonly string[] }) {
   color: var(--wf-optic-dim);
 }
 
-.empty {
+.stages > .empty {
   max-width: 46ch;
   font-variation-settings: 'wdth' 100;
   color: var(--vp-c-text-2);
@@ -341,23 +349,24 @@ function resourceHref(delivery: { coSpeakers?: readonly string[] }) {
    small, hall-coloured, and applied a degree or two off true. It always sits on
    its own line between the event and the city so it lands in the same place on
    every row; hanging it beside the title made it jump around as names wrapped.
-   Ink stays the measured on-hall pair; opacity would break the contrast law. */
+   Ink stays the measured on-hall pair; opacity would break the contrast law.
+   It carries a co-speaker's name, so it stays above the 11px functional floor
+   and keeps real inset rather than shrinking to fit the rotation. */
 .with {
   display: inline-flex;
   align-self: flex-start;
   align-items: baseline;
   gap: 0.42em;
   margin: 0.3em 0 0.15em;
-  padding: 0.18em 0.5em;
+  padding: 0.28em 0.55em;
   background: var(--hall);
   color: var(--on-hall);
-  font-size: 0.68rem;
+  font-size: 0.75rem;
   line-height: 1.25;
   text-transform: uppercase;
   letter-spacing: 0.07em;
   transform: rotate(-1.8deg);
   transform-origin: 0 50%;
-  box-shadow: 1px 2px 0 rgb(0 0 0 / 0.28);
 }
 
 .with-word {

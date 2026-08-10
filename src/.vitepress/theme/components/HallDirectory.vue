@@ -242,10 +242,15 @@ function toggleYear(year: string) {
 }
 
 .spot-talks li + li {
-  margin-top: 2px;
+  margin-top: 0.35rem;
 }
 
+/* Same thumb treatment as the record's session links: padded hit area, negative
+   margin so the departure board's line spacing does not shift. */
 .spot-talks a {
+  display: inline-block;
+  padding-block: 0.3rem;
+  margin-block: -0.3rem;
   text-decoration: underline;
   text-underline-offset: 3px;
 }
@@ -385,10 +390,16 @@ function toggleYear(year: string) {
 }
 
 .gave-list li + li {
-  margin-top: 0.45rem;
+  margin-top: 0.6rem;
 }
 
+/* A session title is a link on a board read one-handed, so its hit area is
+   padded out to a thumb; the negative margin holds the line where it was, and
+   the gap above is what keeps two stacked targets from meeting. */
 .gave-list a {
+  display: inline-block;
+  padding-block: 0.3rem;
+  margin-block: -0.3rem;
   color: var(--wf-optic);
   text-decoration: none;
 }

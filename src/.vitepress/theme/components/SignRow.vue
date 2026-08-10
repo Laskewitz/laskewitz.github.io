@@ -93,7 +93,10 @@ withDefaults(
   font-size: var(--wf-step-2);
 }
 
+/* The row runs the width of the venue; the note under it is a sentence, so it
+   stops at the reading measure instead of stretching to the far wall. */
 .note {
+  max-width: var(--wf-measure);
   font-variation-settings: 'wdth' 100;
   font-weight: 500;
   text-transform: none;
