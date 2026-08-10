@@ -2,8 +2,14 @@
 /**
  * The entrance directory. First viewport of the venue.
  *
- * A hanging banner leads — a real room, the name cut across it — then the
- * illuminated NEXT strip, then the halls. One arrival, top to bottom.
+ * A hanging banner leads — a real room, the name cut across it, the record
+ * printed on it — then the board of dates already booked, then the directory.
+ * One arrival, top to bottom.
+ *
+ * The entrance deliberately does not hold one screen. Holding the fold meant
+ * choosing three of: an immersive photograph, the record, a real next-event
+ * block, and four signs. The board is the argument this site exists to make,
+ * so it gets the room and the page scrolls.
  */
 import { computed } from 'vue'
 import {
@@ -15,22 +21,11 @@ import {
 import { talkCount } from '../../data/talks'
 import { eventPlace, flagSrc, formatEventDate } from '../../data/format'
 import { data as posts } from '../posts.data'
-import type { Hall } from '../../data/types'
 import SignRow from './SignRow.vue'
 import BannerImage from './BannerImage.vue'
 
-const next = computed(() => upcomingEvents()[0])
-
-/**
- * The strip is the event, not the hall behind it. Sending it to /events/ made
- * it a duplicate of the EVENTS row directly beneath it — two adjacent controls,
- * one destination. It goes to the event's own site now, so the strip means
- * "this one" and the row means "all of them".
- */
-const nextHref = computed(
-  () => next.value?.website ?? next.value?.tickets ?? '/events/'
-)
-const nextExternal = computed(() => nextHref.value.startsWith('http'))
+/** Three is the most that still reads as a board rather than a list. */
+const soon = computed(() => upcomingEvents().slice(0, 3))
 
 /** Newest first out of the loader, so the board's headline is posts[0]. */
 const latestPost = computed(() => posts[0])
@@ -40,18 +35,14 @@ const latestPost = computed(() => posts[0])
  * fact that would otherwise cost a click, drawn live from the same data the
  * hall behind it renders — so the directory is the record, not a menu.
  *
- * Only Events carries a hall colour. Hall colours are named for subjects in
- * DESIGN.md, so four different ones down this list said nothing and looked
- * like a code to crack. Blue here is the same blue as the strip above it: one
- * system, "the next event" and "every event", said in one colour.
+ * No row carries a hall colour. Events used to, to mark the primary
+ * destination, but the board directly above these signs already is events —
+ * the colour was pointing at something you had just scrolled past.
  */
-const directory = computed<
-  { href: string; label: string; hall?: Hall; note: string }[]
->(() => [
+const directory = computed(() => [
   {
     href: '/events/',
     label: 'Events',
-    hall: 'a' as const,
     note: `Every stage since ${firstYear()}, and the dates still ahead.`
   },
   {
@@ -100,65 +91,77 @@ const directory = computed<
       </p>
     </BannerImage>
 
-    <!-- The illuminated strip sits between the banner and the directory: it
-         breaks the page where the photograph ends and the signage begins, and
-         puts the one time-sensitive thing above the halls. It leads to the
-         event itself; the EVENTS row below leads to the record. -->
-    <a
-      v-if="next"
-      class="next"
-      :href="nextHref"
-      :target="nextExternal ? '_blank' : undefined"
-      :rel="nextExternal ? 'noopener noreferrer' : undefined"
-      data-hall="a"
-    >
-      <span class="next-label wf-label">Next up</span>
-      <span class="next-body">
-        <span class="next-name wf-sign">{{ next.name }}</span>
-        <span class="next-meta">
-          {{ formatEventDate(next) }}
-          <img v-if="flagSrc(next.country)" class="flag" :src="flagSrc(next.country)" alt="" width="20" height="20" loading="lazy" decoding="async" />
-          {{ eventPlace(next) }}
-        </span>
-      </span>
-      <span class="next-arrow" aria-hidden="true">{{ nextExternal ? '↗' : '→' }}</span>
-    </a>
+    <!-- The board speaks the events page's own grammar: date column, name and
+         place, then the two things a visitor actually wants. Someone who learns
+         to read it here can read it there. -->
+    <section class="board wf-gutter" aria-labelledby="board-heading">
+      <h2 id="board-heading" class="section-heading wf-sign">Where I'll be</h2>
 
-    <nav class="directory wf-gutter" aria-label="Main directory">
-      <SignRow
-        v-for="item in directory"
-        :key="item.href"
-        :href="item.href"
-        :label="item.label"
-        :note="item.note"
-        :hall="item.hall"
-      />
+      <ol class="lines">
+        <li v-for="e in soon" :key="e.slug" class="line">
+          <span class="date">{{ formatEventDate(e) }}</span>
+          <span class="name-cell">
+            <span class="name wf-sign">{{ e.name }}</span>
+            <span class="place">
+              <img
+                v-if="flagSrc(e.country)"
+                class="flag"
+                :src="flagSrc(e.country)"
+                alt=""
+                width="18"
+                height="18"
+                loading="lazy"
+                decoding="async"
+              />
+              {{ eventPlace(e) }}
+            </span>
+          </span>
+          <span class="links">
+            <a
+              v-if="e.website"
+              :href="e.website"
+              target="_blank"
+              rel="noopener noreferrer"
+              >Website ↗</a
+            >
+            <a
+              v-if="e.tickets"
+              class="is-primary"
+              :href="e.tickets"
+              target="_blank"
+              rel="noopener noreferrer"
+              data-hall="d"
+              >Tickets ↗</a
+            >
+          </span>
+        </li>
+      </ol>
+
+      <a class="board-all" href="/events/">All events →</a>
+    </section>
+
+    <nav class="directory wf-gutter" aria-labelledby="directory-heading">
+      <h2 id="directory-heading" class="section-heading wf-sign">Explore</h2>
+      <div class="rows">
+        <SignRow
+          v-for="item in directory"
+          :key="item.href"
+          :href="item.href"
+          :label="item.label"
+          :note="item.note"
+        />
+      </div>
     </nav>
   </div>
 </template>
 
 <style scoped>
-/* One screen, footer included: the entrance is the whole arrival, so it claims
-   the viewport minus the nav above it and the signed-off strip below. */
 .entrance {
   display: flex;
   flex-direction: column;
-  min-height: calc(100vh - var(--vp-nav-height) - var(--wf-footer-h));
-  min-height: calc(100dvh - var(--vp-nav-height) - var(--wf-footer-h));
 }
 
 /* ── BANNER ────────────────────────────────────────────────────────────── */
-
-/* On a tall screen the photograph takes the slack; on a short or laptop screen
-   it yields, so the four signs and the next date stay above the fold instead
-   of the arrival pushing itself off its own screen. The floor is what the
-   room still reads at once the signs and their notes have taken their room on
-   an 800px-tall laptop. */
-.entrance :deep(.banner) {
-  flex: 1 1 auto;
-  min-height: min(52vh, 14rem);
-  min-height: min(52dvh, 14rem);
-}
 
 .banner-name {
   margin: 0;
@@ -200,115 +203,160 @@ const directory = computed<
   color: var(--wf-photo-optic);
 }
 
-/* The signs sit on the floor of the entrance. The tail below them was slack
-   rather than cadence, and the room above wants it more than the footer does. */
-.directory {
-  margin-top: auto;
-  padding-bottom: var(--wf-gap-m);
+.section-heading {
+  margin: 0 0 var(--wf-gap-m);
+  font-size: var(--wf-step-2);
 }
 
-/* The notes are for the organiser reading on a desktop. On a phone the four
-   bare signs and the next date have to hold one screen, and a second line on
-   every row is what would break it. */
-@media (max-width: 767px) {
-  .directory :deep(.note) {
-    display: none;
-  }
+/* ── BOARD ─────────────────────────────────────────────────────────────── */
+
+.board {
+  padding-block: var(--wf-gap-l);
 }
 
-/* ── The illuminated strip along the bottom edge ───────────────────────── */
+.lines {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
 
-.next {
+/* No rules between the dates. Three entries do not need ruling into a table —
+   the date column already aligns them and the space does the separating. The
+   full board on /events/ earns its rules because it runs to a hundred rows. */
+.line {
   display: grid;
-  grid-template-columns: auto 1fr auto;
-  align-items: center;
+  grid-template-columns: 9rem 1fr auto;
   gap: var(--wf-gap-m);
-  padding: var(--wf-gap-m) var(--wf-gutter);
-  background: var(--hall);
-  color: var(--on-hall);
-  text-decoration: none;
-  min-height: var(--wf-tap);
+  align-items: baseline;
+  padding-block: var(--wf-gap-m);
 }
 
-/* Text on a hall field is never faded — a dimmed label re-fails the contrast
-   check the hall pairs were chosen to pass. */
-.next-label {
-  color: inherit;
-  white-space: nowrap;
+.date {
+  font-variation-settings: 'wdth' 112;
+  font-weight: 700;
+  font-size: var(--wf-step--1);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--wf-optic-dim);
 }
 
-.next-body {
+.name-cell {
   display: flex;
   flex-direction: column;
-  gap: 2px;
+  gap: 3px;
   min-width: 0;
 }
 
-/* The dated fact outranks the standing bio line above it. Both sat at
-   --wf-step-1, which left the one thing that changes reading no louder than
-   the one thing that never does. */
-.next-name {
-  font-size: var(--wf-step-2);
-  line-height: 1.05;
+.name {
+  font-size: var(--wf-step-1);
   overflow-wrap: anywhere;
 }
 
-.next-meta {
+.place {
   font-variation-settings: 'wdth' 100;
-  font-size: var(--wf-step-0);
-  line-height: 1.4;
+  font-size: var(--wf-step--1);
+  color: var(--wf-optic-dim);
 }
 
-/* At the strip's old size the flag was a 15px smudge from desk distance. It
-   is a country, so it is read, not decorated with. */
-.next-meta .flag {
-  width: 1.3em;
-  height: 1.3em;
-  vertical-align: -0.32em;
+.links {
+  display: flex;
+  gap: var(--wf-gap-s);
 }
 
-.next-arrow {
-  font-size: var(--wf-step-2);
-  line-height: 1;
-  transition: transform var(--wf-motion) var(--wf-ease);
+.links a {
+  display: inline-flex;
+  align-items: center;
+  min-height: var(--wf-tap);
+  font-weight: 700;
+  font-size: var(--wf-step--1);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--wf-optic);
+  text-decoration: none;
+  border: 1px solid var(--wf-marker);
+  padding: 0 0.9em;
+  white-space: nowrap;
+  transition: border-color var(--wf-motion) var(--wf-ease);
 }
 
-.next:hover .next-arrow,
-.next:focus-visible .next-arrow {
-  transform: translateX(4px);
+.links a:hover,
+.links a:focus-visible {
+  border-color: var(--wf-marker-live);
 }
 
-/* A short screen is still one arrival. Rather than let the entrance push its
-   own footer off the bottom, the venue closes up: the room keeps its floor,
-   and the air around the signs is what gives way. Scoped to the entrance, so
-   halls and doors elsewhere keep their full spacing. */
-@media (max-height: 860px) {
-  .entrance :deep(.banner-body) {
-    padding-top: var(--wf-gap-s);
-    padding-bottom: var(--wf-gap-s);
+/* One booking action per line, in the hall reserved for it. */
+.links a.is-primary {
+  background: var(--hall);
+  color: var(--on-hall);
+  border-color: var(--hall);
+}
+
+.board-all {
+  display: inline-block;
+  position: relative;
+  margin-top: var(--wf-gap-m);
+  font-variation-settings: 'wdth' 112;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: var(--wf-step--1);
+  color: var(--wf-optic);
+  text-decoration: none;
+  border-bottom: 2px solid var(--wf-marker);
+  padding-bottom: 2px;
+  transition: border-color var(--wf-motion) var(--wf-ease);
+}
+
+/* The word is 28px tall and the thumb needs 56. Padding would drag the rule
+   away from the letters it belongs to, so the hit area grows behind it
+   instead and the marker stays where it was drawn. */
+.board-all::before {
+  content: '';
+  position: absolute;
+  inset: -0.9rem 0;
+}
+
+.board-all:hover,
+.board-all:focus-visible {
+  border-bottom-color: var(--wf-marker-live);
+}
+
+/* ── DIRECTORY ─────────────────────────────────────────────────────────── */
+
+.directory {
+  padding-top: var(--wf-gap-m);
+  padding-bottom: var(--wf-gap-l);
+  border-top: 1px solid var(--wf-ink-rule);
+}
+
+.rows {
+  display: grid;
+  gap: 0 var(--wf-gap-l);
+}
+
+/* Inside a column the sign owns its own width, so the arrow terminates the
+   column instead of hanging a thousand pixels from the word it belongs to. */
+.rows :deep(.sign-row) {
+  grid-template-columns: 6px minmax(0, 1fr) auto;
+  justify-content: stretch;
+}
+
+@media (min-width: 768px) {
+  .rows {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
-
-  .next {
-    padding-block: var(--wf-gap-s);
-  }
-
-  .directory {
-    padding-bottom: var(--wf-gap-s);
-  }
-
-  .directory :deep(.sign-row) {
-    padding-block: 0.6rem;
-  }
 }
 
+/* On a phone the date leads its own line rather than holding a 9rem column
+   that no longer has anything to align to. */
 @media (max-width: 640px) {
-  .next {
-    grid-template-columns: 1fr auto;
-    gap: var(--wf-gap-xs) var(--wf-gap-s);
+  .line {
+    grid-template-columns: 1fr;
+    gap: var(--wf-gap-xs);
   }
 
-  .next-label {
-    grid-column: 1 / -1;
+  .links {
+    margin-top: var(--wf-gap-xs);
   }
 }
 </style>

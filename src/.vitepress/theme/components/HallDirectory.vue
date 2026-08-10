@@ -408,6 +408,7 @@ function toggleYear(year: string) {
 .gave-list a:focus-visible {
   text-decoration: underline;
   text-underline-offset: 3px;
+  text-decoration-color: var(--wf-marker-live);
 }
 
 .links {

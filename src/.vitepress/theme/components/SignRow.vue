@@ -45,7 +45,7 @@ withDefaults(
 
 <style scoped>
 .sign-row {
-  --row-hall: var(--hall, var(--wf-optic));
+  --row-hall: var(--hall, var(--wf-marker-live));
 
   display: grid;
   /* The field runs the width of the venue; the information does not. On a wide
@@ -69,11 +69,12 @@ withDefaults(
 }
 
 /* A sign without a hall still has a tab: it is the anatomy of the row, so it
-   stays visible as a quiet rule and lights up on approach. Only a row that
-   genuinely belongs to a hall carries that hall's colour standing still. */
+   stays visible as a quiet rule and lights Hall A blue on approach. Only a row
+   that genuinely belongs to a hall carries that hall's colour standing still,
+   and that hall overrides the blue when live. */
 .tab {
   align-self: stretch;
-  background: var(--wf-ink-rule);
+  background: var(--wf-marker);
   transition: background var(--wf-motion) var(--wf-ease);
 }
 

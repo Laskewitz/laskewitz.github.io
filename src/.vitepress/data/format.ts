@@ -52,10 +52,10 @@ export function formatEventDate(event: EventRecord): string {
 
   const e = parts(event.end)
   if (s.y !== e.y) {
-    return `${s.d} ${MONTHS[s.m]} ${s.y} — ${e.d} ${MONTHS[e.m]} ${e.y}`
+    return `${s.d} ${MONTHS[s.m]} ${s.y} - ${e.d} ${MONTHS[e.m]} ${e.y}`
   }
-  if (s.m !== e.m) return `${s.d} ${MONTHS[s.m]} — ${e.d} ${MONTHS[e.m]} ${s.y}`
-  return `${s.d}—${e.d} ${MONTHS[s.m]} ${s.y}`
+  if (s.m !== e.m) return `${s.d} ${MONTHS[s.m]} - ${e.d} ${MONTHS[e.m]} ${s.y}`
+  return `${s.d}-${e.d} ${MONTHS[s.m]} ${s.y}`
 }
 
 export function formatPostDate(iso: string): string {
