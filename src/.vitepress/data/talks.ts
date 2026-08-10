@@ -252,7 +252,7 @@ export const talks: Talk[] = [
   {
     slug: 'maintainable-flows',
     active: true,
-    title: 'Building Maintainable Power Automate Flows: From Chaos to Clarity',
+    title: '👷 Building Maintainable Power Automate Flows: From Chaos to Clarity',
     summary:
       'Guidelines for building Power Automate flows that are a breeze to maintain.',
     abstract:
@@ -501,7 +501,7 @@ export const talks: Talk[] = [
   {
     slug: 'agent-academy-live',
     active: true,
-    title: 'Agent Academy Live!',
+    title: '🤖 Agent Academy Live!',
     summary:
       'A hands-on day building agents in Copilot Studio, from first topic to production.',
     abstract:
@@ -925,7 +925,7 @@ export const talks: Talk[] = [
   {
     slug: 'admin-essentials',
     active: true,
-    title: 'Power Platform Admin Essentials: CLI, Tools & Tips',
+    title: '🛠️ Power Platform Admin Essentials: CLI, Tools & Tips',
     summary: 'Running the Power Platform properly, with the tooling that makes it possible.',
     abstract:
       'Administering the Power Platform is a lot more than clicking through the ' +
