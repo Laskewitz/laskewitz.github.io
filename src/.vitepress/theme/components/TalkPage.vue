@@ -83,14 +83,16 @@ function resourceHref(delivery: { coSpeakers?: readonly string[] }) {
     </section>
 
     <section class="stages wf-gutter">
-      <p v-if="!deliveries.length" class="section-heading wf-sign">Past</p>
+      <p v-if="!deliveries.length" class="section-heading wf-sign" data-hall="c">
+        <span class="wf-sticker">Past</span>
+      </p>
       <p v-if="!deliveries.length" class="empty">
         Not on a stage yet, or the record hasn't caught up. Ask me about it.
       </p>
 
       <template v-for="section in stageSections" :key="section.key">
-        <h2 class="section-heading wf-sign">
-          {{ section.heading }}
+        <h2 class="section-heading wf-sign" :data-hall="section.key === 'booked' ? 'e' : 'c'">
+          <span class="wf-sticker">{{ section.heading }}</span>
           <span class="count">{{ section.items.length }}</span>
         </h2>
 

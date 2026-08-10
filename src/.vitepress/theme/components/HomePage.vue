@@ -133,7 +133,9 @@ const directory = computed<
          place, then the two things a visitor actually wants. Someone who learns
          to read it here can read it there. -->
     <section class="board wf-gutter" aria-labelledby="board-heading">
-      <h2 id="board-heading" class="section-heading wf-sign">Where I'll be</h2>
+      <h2 id="board-heading" class="section-heading wf-sign" data-hall="e">
+        <span class="wf-sticker">Where I'll be</span>
+      </h2>
 
       <ol class="lines">
         <li v-for="(e, i) in soon" :key="e.slug" class="line" :data-hall="hallFor(i)">
@@ -189,7 +191,9 @@ const directory = computed<
     </section>
 
     <nav class="directory wf-gutter" aria-labelledby="directory-heading">
-      <h2 id="directory-heading" class="section-heading wf-sign">Explore</h2>
+      <h2 id="directory-heading" class="section-heading wf-sign" data-hall="b">
+        <span class="wf-sticker">Explore</span>
+      </h2>
       <div class="rows">
         <LinkRow
           v-for="item in directory"

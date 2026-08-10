@@ -104,7 +104,9 @@ async function copy(label: string, text: string) {
     </PageBanner>
 
     <section class="block wf-gutter" aria-labelledby="reach-heading">
-      <h2 id="reach-heading" class="block-heading wf-sign">Reach me</h2>
+      <h2 id="reach-heading" class="block-heading wf-sign" data-hall="a">
+        <span class="wf-sticker">Reach me</span>
+      </h2>
 
       <nav class="rows" aria-label="Contact channels">
         <LinkRow
@@ -121,8 +123,8 @@ async function copy(label: string, text: string) {
     </section>
 
     <section class="block wf-gutter" aria-labelledby="programme-heading">
-      <h2 id="programme-heading" class="block-heading wf-sign">
-        What I speak about
+      <h2 id="programme-heading" class="block-heading wf-sign" data-hall="d">
+        <span class="wf-sticker">What I speak about</span>
       </h2>
 
       <p class="wf-read prose">
@@ -161,7 +163,9 @@ async function copy(label: string, text: string) {
     </section>
 
     <section class="block wf-gutter" aria-labelledby="press-heading">
-      <h2 id="press-heading" class="block-heading wf-sign">Bio and headshots</h2>
+      <h2 id="press-heading" class="block-heading wf-sign" data-hall="b">
+        <span class="wf-sticker">Bio and headshots</span>
+      </h2>
 
       <p class="wf-read prose">
         These are written to be pasted straight into a programme or a session

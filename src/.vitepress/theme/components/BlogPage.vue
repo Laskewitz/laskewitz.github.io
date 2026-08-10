@@ -135,7 +135,9 @@ function toggleYear(year: string) {
         </ol>
 
         <section v-if="archiveByYear.length" class="archive" aria-labelledby="archive-heading">
-          <h2 id="archive-heading" class="archive-heading wf-sign">Earlier</h2>
+          <h2 id="archive-heading" class="archive-heading wf-sign" data-hall="d">
+            <span class="wf-sticker">Earlier</span>
+          </h2>
 
           <div v-for="[year, list] in archiveByYear" :key="year" class="year">
             <button

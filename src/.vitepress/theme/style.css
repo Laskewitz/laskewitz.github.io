@@ -240,6 +240,21 @@ body {
   line-height: 0.92;
 }
 
+/* A sticker: a hall-coloured field applied slightly off true, the same mark the
+   co-speaker billing wears. The hall is the field and the measured on-hall pair
+   is the ink, so the contrast law holds at heading scale as well as at billing
+   scale. The tilt lifts the far end, so it hangs on its own top margin and
+   hugs its words rather than spanning the column. */
+.wf-sticker {
+  display: inline-block;
+  padding: 0.16em 0.34em 0.2em;
+  background: var(--hall, var(--wf-marker-live));
+  color: var(--on-hall, var(--wf-on-hall-a));
+  line-height: 1;
+  transform: rotate(-1.4deg);
+  transform-origin: 0 50%;
+}
+
 .wf-label {
   font-variation-settings: 'wdth' 112;
   font-weight: 700;

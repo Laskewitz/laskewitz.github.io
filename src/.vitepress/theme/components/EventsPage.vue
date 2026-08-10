@@ -110,8 +110,8 @@ function toggleYear(year: string) {
     </section>
 
     <section class="board wf-gutter" aria-labelledby="upcoming-heading">
-      <h2 id="upcoming-heading" class="board-heading wf-sign">
-        Upcoming
+      <h2 id="upcoming-heading" class="board-heading wf-sign" data-hall="e">
+        <span class="wf-sticker">Upcoming</span>
         <span class="count">{{ upcoming.length }}</span>
       </h2>
 
@@ -161,8 +161,8 @@ function toggleYear(year: string) {
     </section>
 
     <section class="board wf-gutter" aria-labelledby="past-heading">
-      <h2 id="past-heading" class="board-heading wf-sign">
-        Past
+      <h2 id="past-heading" class="board-heading wf-sign" data-hall="c">
+        <span class="wf-sticker">Past</span>
         <span class="count">{{ past.length }}</span>
       </h2>
 
