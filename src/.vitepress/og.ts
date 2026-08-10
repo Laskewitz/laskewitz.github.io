@@ -23,21 +23,23 @@ const OPTIC = '#ffffff'
  * The hall palette, copied from style.css because a PNG cannot read a custom
  * property.
  *
- * `rule` is the field colour at full strength, used only for the solid band
- * above the wordmark — a bar is not text and carries no contrast floor.
- * `accent` is the same hall lifted until it clears the substrate, because
- * style.css bans small hall-coloured text on #0A0A0A and it means it: the blue
- * lands at 3.31:1 and the red at 3.89:1 against black. Lifting a and c is what
- * lets the kicker carry hall colour at all. Measured on #0A0A0A:
- * a 7.82 · b 8.75 · c 7.22 · d 16.74 · e 6.93.
+ * `rule` is the field colour at full strength and `onHall` is its measured
+ * partner ink, exactly the pairing style.css publishes: a 5.99 · b 7.34 ·
+ * c 5.09 · d 15.83 · e 6.76. The card only ever puts a hall colour down as a
+ * field — the solid band above the wordmark, and the kicker sticker — so the
+ * ban on small hall-coloured text on #0A0A0A is honoured by construction and
+ * no lifted tint is needed to get hall colour onto the card.
  */
-const HALLS: Record<Hall, { rule: string; accent: string }> = {
-  a: { rule: '#1f4bff', accent: '#7aa0ff' },
-  b: { rule: '#00c2a8', accent: '#00c2a8' },
-  c: { rule: '#d6203a', accent: '#ff6b7f' },
-  d: { rule: '#c8ff00', accent: '#c8ff00' },
-  e: { rule: '#ff6b00', accent: '#ff6b00' }
+const HALLS: Record<Hall, { rule: string; onHall: string }> = {
+  a: { rule: '#1f4bff', onHall: '#ffffff' },
+  b: { rule: '#00c2a8', onHall: '#04231f' },
+  c: { rule: '#d6203a', onHall: '#ffffff' },
+  d: { rule: '#c8ff00', onHall: '#101400' },
+  e: { rule: '#ff6b00', onHall: '#1a0a00' }
 }
+
+/** The kicker's cap height, and the sticker padding scaled off it. */
+const KICKER_SIZE = 26
 
 interface Card {
   file: string
@@ -235,7 +237,7 @@ function titleChildren(title: string, size: number): unknown {
 }
 
 async function renderCard(card: Card): Promise<Buffer> {
-  const { rule, accent } = HALLS[card.hall]
+  const { rule, onHall } = HALLS[card.hall]
 
   /* The session's emoji opens the title rather than standing above it, so the
      first words sit alongside it and the mark reads as part of the sign. */
@@ -278,14 +280,28 @@ async function renderCard(card: Card): Promise<Buffer> {
         },
         children: [
           {
+            /* The kicker is a sticker, the same mark the site slaps on its
+               board headings: a hall field carrying its measured ink, tilted
+               off the horizontal. `alignSelf` is what makes it hug its words —
+               satori lays a plain block out full width, which would read as a
+               banner across the card rather than a label stuck to it. The
+               right padding is trimmed because the 0.16em tracking already
+               leaves a gap after the final letter. */
             type: 'div',
             props: {
               style: {
-                fontSize: 26,
+                display: 'flex',
+                alignSelf: 'flex-start',
+                padding: `${Math.round(KICKER_SIZE * 0.16)}px ${Math.round(KICKER_SIZE * 0.34) - 4}px ${Math.round(KICKER_SIZE * 0.2)}px ${Math.round(KICKER_SIZE * 0.34)}px`,
+                fontSize: KICKER_SIZE,
                 fontWeight: 800,
+                lineHeight: 1,
                 letterSpacing: '0.16em',
                 textTransform: 'uppercase',
-                color: accent
+                background: rule,
+                color: onHall,
+                transform: 'rotate(-1.4deg)',
+                transformOrigin: '0 50%'
               },
               children: card.kicker
             }
