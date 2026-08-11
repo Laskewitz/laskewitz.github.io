@@ -72,7 +72,7 @@ function toggleYear(year: string) {
 </script>
 
 <template>
-  <div class="tracks">
+  <main class="tracks">
     <PageBanner
       title="Events"
       src="stage-ecs-2023"
@@ -89,7 +89,7 @@ function toggleYear(year: string) {
         <span class="wf-sticker">Next up</span>
       </h2>
 
-      <p class="spot-name wf-sign">{{ next.name }}</p>
+      <h3 class="spot-name wf-sign">{{ next.name }}</h3>
 
       <CoSpeakerBadge class="spot-with" :speakers="coSpeakersAtEvent(next.slug)" />
 
@@ -127,36 +127,38 @@ function toggleYear(year: string) {
           class="line is-upcoming"
           :data-track="trackFor(i)"
         >
-          <span class="date">{{ formatEventDate(event) }}</span>
+          <article class="event-record" :aria-labelledby="`event-${event.slug}`">
+            <time class="date" :datetime="event.start">{{ formatEventDate(event) }}</time>
 
-          <span class="name-cell">
-            <span class="name wf-sign">{{ event.name }}</span>
-            <CoSpeakerBadge :speakers="coSpeakersAtEvent(event.slug)" />
-            <span class="place">
-              <img v-if="flagSrc(event.country)" class="flag" :src="flagSrc(event.country)" alt="" width="18" height="18" loading="lazy" decoding="async" />
-              {{ eventPlace(event) }}
-            </span>
-          </span>
+            <div class="name-cell">
+              <h3 :id="`event-${event.slug}`" class="name wf-sign">{{ event.name }}</h3>
+              <CoSpeakerBadge :speakers="coSpeakersAtEvent(event.slug)" />
+              <p class="place">
+                <img v-if="flagSrc(event.country)" class="flag" :src="flagSrc(event.country)" alt="" width="18" height="18" loading="lazy" decoding="async" />
+                {{ eventPlace(event) }}
+              </p>
+            </div>
 
-          <span v-if="talksAtEvent(event.slug).length" class="gave">
-            <template v-for="group in talkGroupsAtEvent(event.slug)" :key="group.label">
-              <span class="gave-label wf-label">{{ group.label }}</span>
-              <ul class="gave-list">
-                <li v-for="talk in group.talks" :key="talk.slug">
-                  <a :href="`/talks/${talk.slug}`">{{ talk.title }}</a>
-                </li>
-              </ul>
-            </template>
-          </span>
+            <div v-if="talksAtEvent(event.slug).length" class="gave">
+              <section v-for="group in talkGroupsAtEvent(event.slug)" :key="group.label" class="talk-group">
+                <h4 class="gave-label wf-label">{{ group.label }}</h4>
+                <ul class="gave-list">
+                  <li v-for="talk in group.talks" :key="talk.slug">
+                    <a :href="`/talks/${talk.slug}`">{{ talk.title }}</a>
+                  </li>
+                </ul>
+              </section>
+            </div>
 
-          <span class="links">
-            <a v-if="event.website" :href="event.website" target="_blank" rel="noopener noreferrer">
-              Website ↗
-            </a>
-            <a v-if="event.tickets" :href="event.tickets" target="_blank" rel="noopener noreferrer">
-              Tickets ↗
-            </a>
-          </span>
+            <nav class="links" :aria-label="`Links for ${event.name}`">
+              <a v-if="event.website" :href="event.website" target="_blank" rel="noopener noreferrer">
+                Website ↗
+              </a>
+              <a v-if="event.tickets" :href="event.tickets" target="_blank" rel="noopener noreferrer">
+                Tickets ↗
+              </a>
+            </nav>
+          </article>
         </li>
       </ol>
     </section>
@@ -187,41 +189,43 @@ function toggleYear(year: string) {
             class="line"
             :data-track="trackFor(i)"
           >
-            <span class="date">{{ formatEventDate(event) }}</span>
+            <article class="event-record" :aria-labelledby="`event-${event.slug}`">
+              <time class="date" :datetime="event.start">{{ formatEventDate(event) }}</time>
 
-            <span class="name-cell">
-              <span class="name wf-sign">{{ event.name }}</span>
-              <CoSpeakerBadge :speakers="coSpeakersAtEvent(event.slug)" />
-              <span class="place">
-                <img v-if="flagSrc(event.country)" class="flag" :src="flagSrc(event.country)" alt="" width="18" height="18" loading="lazy" decoding="async" />
-                {{ eventPlace(event) }}
-              </span>
-            </span>
+              <div class="name-cell">
+                <h3 :id="`event-${event.slug}`" class="name wf-sign">{{ event.name }}</h3>
+                <CoSpeakerBadge :speakers="coSpeakersAtEvent(event.slug)" />
+                <p class="place">
+                  <img v-if="flagSrc(event.country)" class="flag" :src="flagSrc(event.country)" alt="" width="18" height="18" loading="lazy" decoding="async" />
+                  {{ eventPlace(event) }}
+                </p>
+              </div>
 
-            <span v-if="talksAtEvent(event.slug).length" class="gave">
-              <template v-for="group in talkGroupsAtEvent(event.slug)" :key="group.label">
-                <span class="gave-label wf-label">{{ group.label }}</span>
-                <ul class="gave-list">
-                  <li v-for="talk in group.talks" :key="talk.slug">
-                    <a :href="`/talks/${talk.slug}`">{{ talk.title }}</a>
-                  </li>
-                </ul>
-              </template>
-            </span>
+              <div v-if="talksAtEvent(event.slug).length" class="gave">
+                <section v-for="group in talkGroupsAtEvent(event.slug)" :key="group.label" class="talk-group">
+                  <h4 class="gave-label wf-label">{{ group.label }}</h4>
+                  <ul class="gave-list">
+                    <li v-for="talk in group.talks" :key="talk.slug">
+                      <a :href="`/talks/${talk.slug}`">{{ talk.title }}</a>
+                    </li>
+                  </ul>
+                </section>
+              </div>
 
-            <span class="links">
-              <a v-if="event.slides" :href="event.slides" target="_blank" rel="noopener noreferrer">
-                Slides ↗
-              </a>
-              <a v-if="event.website" :href="event.website" target="_blank" rel="noopener noreferrer">
-                Website ↗
-              </a>
-            </span>
+              <nav class="links" :aria-label="`Links for ${event.name}`">
+                <a v-if="event.slides" :href="event.slides" target="_blank" rel="noopener noreferrer">
+                  Slides ↗
+                </a>
+                <a v-if="event.website" :href="event.website" target="_blank" rel="noopener noreferrer">
+                  Website ↗
+                </a>
+              </nav>
+            </article>
           </li>
         </ol>
       </div>
     </section>
-  </div>
+  </main>
 </template>
 
 <style scoped>
@@ -378,12 +382,15 @@ function toggleYear(year: string) {
    quiet, lit in the event's track on approach. */
 .line {
   position: relative;
+  padding: calc(var(--wf-gap-s) * 0.9) 0;
+  padding-left: calc(6px + var(--wf-gap-s));
+}
+
+.event-record {
   display: grid;
   grid-template-columns: 13rem 1fr auto;
   align-items: baseline;
   gap: var(--wf-gap-s) var(--wf-gap-m);
-  padding: calc(var(--wf-gap-s) * 0.9) 0;
-  padding-left: calc(6px + var(--wf-gap-s));
 }
 
 .line::before {
@@ -449,11 +456,13 @@ function toggleYear(year: string) {
 }
 
 .name {
+  margin: 0;
   font-size: var(--wf-step-1);
   overflow-wrap: anywhere;
 }
 
 .place {
+  margin: 0;
   font-variation-settings: 'wdth' 100;
   font-size: var(--wf-step--1);
   color: var(--vp-c-text-2);
@@ -473,11 +482,12 @@ function toggleYear(year: string) {
 
 .gave-label {
   display: block;
+  margin: 0;
 }
 
 /* A second heading under the same event needs air, otherwise the workshop label
    reads as another line of the session list above it. */
-.gave-list + .gave-label {
+.talk-group + .talk-group {
   margin-top: var(--wf-gap-xs);
 }
 
@@ -587,7 +597,7 @@ function toggleYear(year: string) {
 }
 
 @media (max-width: 820px) {
-  .line {
+  .event-record {
     grid-template-columns: 1fr;
     gap: var(--wf-gap-xs);
   }
