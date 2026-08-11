@@ -120,26 +120,37 @@ function toggleYear(year: string) {
         Nothing else on the board yet. New dates land here as they're confirmed.
       </p>
 
-      <ol v-else class="lines">
-        <li
-          v-for="(event, i) in upcoming"
-          :key="event.slug"
-          class="line is-upcoming"
-          :data-track="trackFor(i)"
-        >
-          <article class="event-record" :aria-labelledby="`event-${event.slug}`">
-            <time class="date" :datetime="event.start">{{ formatEventDate(event) }}</time>
+      <table v-else class="lines">
+        <caption class="visually-hidden">Upcoming events</caption>
+        <thead class="visually-hidden">
+          <tr>
+            <th scope="col">Date</th>
+            <th scope="col">Event</th>
+            <th scope="col">Sessions</th>
+            <th scope="col">Links</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr
+            v-for="(event, i) in upcoming"
+            :key="event.slug"
+            class="line is-upcoming"
+            :data-track="trackFor(i)"
+          >
+            <td class="date-cell">
+              <time class="date" :datetime="event.start">{{ formatEventDate(event) }}</time>
+            </td>
 
-            <div class="name-cell">
-              <h3 :id="`event-${event.slug}`" class="name wf-sign">{{ event.name }}</h3>
+            <td class="name-cell">
+              <h3 class="name wf-sign">{{ event.name }}</h3>
               <CoSpeakerBadge :speakers="coSpeakersAtEvent(event.slug)" />
               <p class="place">
                 <img v-if="flagSrc(event.country)" class="flag" :src="flagSrc(event.country)" alt="" width="18" height="18" loading="lazy" decoding="async" />
                 {{ eventPlace(event) }}
               </p>
-            </div>
+            </td>
 
-            <div v-if="talksAtEvent(event.slug).length" class="gave">
+            <td class="gave">
               <section v-for="group in talkGroupsAtEvent(event.slug)" :key="group.label" class="talk-group">
                 <h4 class="gave-label wf-label">{{ group.label }}</h4>
                 <ul class="gave-list">
@@ -148,19 +159,21 @@ function toggleYear(year: string) {
                   </li>
                 </ul>
               </section>
-            </div>
+            </td>
 
-            <nav class="links" :aria-label="`Links for ${event.name}`">
-              <a v-if="event.website" :href="event.website" target="_blank" rel="noopener noreferrer">
-                Website ↗
-              </a>
-              <a v-if="event.tickets" :href="event.tickets" target="_blank" rel="noopener noreferrer">
-                Tickets ↗
-              </a>
-            </nav>
-          </article>
-        </li>
-      </ol>
+            <td class="links-cell">
+              <nav class="links" :aria-label="`Links for ${event.name}`">
+                <a v-if="event.website" :href="event.website" target="_blank" rel="noopener noreferrer">
+                  Website ↗
+                </a>
+                <a v-if="event.tickets" :href="event.tickets" target="_blank" rel="noopener noreferrer">
+                  Tickets ↗
+                </a>
+              </nav>
+            </td>
+          </tr>
+        </tbody>
+      </table>
     </section>
 
     <section class="board wf-gutter" aria-labelledby="past-heading">
@@ -182,26 +195,37 @@ function toggleYear(year: string) {
           </span>
         </button>
 
-        <ol v-show="openYears.has(year)" class="lines">
-          <li
-            v-for="(event, i) in list"
-            :key="event.slug"
-            class="line"
-            :data-track="trackFor(i)"
-          >
-            <article class="event-record" :aria-labelledby="`event-${event.slug}`">
-              <time class="date" :datetime="event.start">{{ formatEventDate(event) }}</time>
+        <table v-show="openYears.has(year)" class="lines">
+          <caption class="visually-hidden">{{ year }} events</caption>
+          <thead class="visually-hidden">
+            <tr>
+              <th scope="col">Date</th>
+              <th scope="col">Event</th>
+              <th scope="col">Sessions</th>
+              <th scope="col">Links</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr
+              v-for="(event, i) in list"
+              :key="event.slug"
+              class="line"
+              :data-track="trackFor(i)"
+            >
+              <td class="date-cell">
+                <time class="date" :datetime="event.start">{{ formatEventDate(event) }}</time>
+              </td>
 
-              <div class="name-cell">
-                <h3 :id="`event-${event.slug}`" class="name wf-sign">{{ event.name }}</h3>
+              <td class="name-cell">
+                <h3 class="name wf-sign">{{ event.name }}</h3>
                 <CoSpeakerBadge :speakers="coSpeakersAtEvent(event.slug)" />
                 <p class="place">
                   <img v-if="flagSrc(event.country)" class="flag" :src="flagSrc(event.country)" alt="" width="18" height="18" loading="lazy" decoding="async" />
                   {{ eventPlace(event) }}
                 </p>
-              </div>
+              </td>
 
-              <div v-if="talksAtEvent(event.slug).length" class="gave">
+              <td class="gave">
                 <section v-for="group in talkGroupsAtEvent(event.slug)" :key="group.label" class="talk-group">
                   <h4 class="gave-label wf-label">{{ group.label }}</h4>
                   <ul class="gave-list">
@@ -210,19 +234,21 @@ function toggleYear(year: string) {
                     </li>
                   </ul>
                 </section>
-              </div>
+              </td>
 
-              <nav class="links" :aria-label="`Links for ${event.name}`">
-                <a v-if="event.slides" :href="event.slides" target="_blank" rel="noopener noreferrer">
-                  Slides ↗
-                </a>
-                <a v-if="event.website" :href="event.website" target="_blank" rel="noopener noreferrer">
-                  Website ↗
-                </a>
-              </nav>
-            </article>
-          </li>
-        </ol>
+              <td class="links-cell">
+                <nav class="links" :aria-label="`Links for ${event.name}`">
+                  <a v-if="event.slides" :href="event.slides" target="_blank" rel="noopener noreferrer">
+                    Slides ↗
+                  </a>
+                  <a v-if="event.website" :href="event.website" target="_blank" rel="noopener noreferrer">
+                    Website ↗
+                  </a>
+                </nav>
+              </td>
+            </tr>
+          </tbody>
+        </table>
       </div>
     </section>
   </main>
@@ -370,9 +396,16 @@ function toggleYear(year: string) {
 }
 
 .lines {
+  display: block;
+  width: 100%;
   margin: 0;
   padding: 0;
-  list-style: none;
+  border: 0;
+  border-collapse: collapse;
+}
+
+.lines tbody {
+  display: block;
 }
 
 /* No rules between rows: the date column already starts every line, so a
@@ -382,15 +415,17 @@ function toggleYear(year: string) {
    quiet, lit in the event's track on approach. */
 .line {
   position: relative;
-  padding: calc(var(--wf-gap-s) * 0.9) 0;
-  padding-left: calc(6px + var(--wf-gap-s));
-}
-
-.event-record {
   display: grid;
   grid-template-columns: 13rem 1fr auto;
   align-items: baseline;
   gap: var(--wf-gap-s) var(--wf-gap-m);
+  padding: calc(var(--wf-gap-s) * 0.9) 0;
+  padding-left: calc(6px + var(--wf-gap-s));
+}
+
+.line > td {
+  padding: 0;
+  border: 0;
 }
 
 .line::before {
@@ -428,7 +463,7 @@ function toggleYear(year: string) {
    instead of the name's column: placed on a second row that runs from the
    name to the far edge, they use the width the buttons leave behind rather
    than wrapping early against a wall of empty board. */
-.date {
+.date-cell {
   grid-column: 1;
   grid-row: 1;
 }
@@ -438,7 +473,7 @@ function toggleYear(year: string) {
   grid-row: 1;
 }
 
-.links {
+.links-cell {
   grid-column: 3;
   grid-row: 1;
 }
@@ -597,16 +632,16 @@ function toggleYear(year: string) {
 }
 
 @media (max-width: 820px) {
-  .event-record {
+  .line {
     grid-template-columns: 1fr;
     gap: var(--wf-gap-xs);
   }
 
   /* One column on a phone: the explicit placement above has nothing left to
      align to, so every part goes back to reading in source order. */
-  .date,
+  .date-cell,
   .name-cell,
-  .links,
+  .links-cell,
   .gave {
     grid-column: 1;
     grid-row: auto;
