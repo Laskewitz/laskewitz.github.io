@@ -141,7 +141,7 @@ const categories = computed(() => sortCategories(frontmatter.value.categories ??
 .cat {
   display: inline-flex;
   align-items: center;
-  min-height: 2rem;
+  min-height: 44px;
   padding: 0 0.7em;
   border: 1px solid var(--wf-ink-rule);
   color: var(--wf-optic-dim);
