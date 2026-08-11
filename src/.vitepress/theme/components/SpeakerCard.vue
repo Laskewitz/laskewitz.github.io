@@ -206,8 +206,8 @@ withDefaults(
 .links a {
   display: grid;
   place-items: center;
-  width: 38px;
-  height: 38px;
+  width: 44px;
+  height: 44px;
   border: 1px solid var(--wf-ink-rule);
   color: var(--wf-optic);
   text-decoration: none;

@@ -136,7 +136,7 @@ onUnmounted(() => {
   flex: 1 1 14rem;
   min-width: 0;
   max-width: 24rem;
-  height: 42px;
+  height: 44px;
   padding: 0 var(--wf-gap-s);
   border: 1px solid var(--wf-ink-rule);
   border-radius: 0;
@@ -163,7 +163,7 @@ onUnmounted(() => {
   display: inline-flex;
   align-items: center;
   gap: 0.5em;
-  height: 42px;
+  height: 44px;
   padding: 0 var(--wf-gap-s);
   border: 1px solid var(--wf-ink-rule);
   background: transparent;
@@ -223,6 +223,9 @@ onUnmounted(() => {
 }
 
 .chip {
+  min-height: 44px;
+  display: flex;
+  align-items: center;
   padding: 0.6em var(--wf-gap-s);
   border: 0;
   background: transparent;
