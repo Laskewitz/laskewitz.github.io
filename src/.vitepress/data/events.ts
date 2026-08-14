@@ -281,6 +281,26 @@ export const events: EventRecord[] = [
     website: 'https://ignite.microsoft.com/en-US/home'
   },
   {
+    slug: 'fly-with-copilot-singapore-2025',
+    name: 'Fly With Copilot',
+    start: '2025-11-09',
+    city: 'Singapore',
+    country: 'SG',
+    countryName: 'Singapore',
+    website: 'https://globalai.community/events/fly-with-copilot',
+    tickets: 'https://globalai.community/events/fly-with-copilot'
+  },
+  {
+    slug: 'fly-with-copilot-bangkok-2025',
+    name: 'Fly With Copilot',
+    start: '2025-11-07',
+    city: 'Bangkok',
+    country: 'TH',
+    countryName: 'Thailand',
+    website: 'https://globalai.community/events/fly-with-copilot',
+    tickets: 'https://globalai.community/events/fly-with-copilot'
+  },
+  {
     slug: 'ai-tour-frankfurt-2025',
     name: 'AI Tour Frankfurt',
     start: '2025-11-06',
