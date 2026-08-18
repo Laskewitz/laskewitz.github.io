@@ -68,7 +68,7 @@ export const events: EventRecord[] = [
     start: '2026-10-19',
     city: 'Istanbul',
     country: 'TR',
-    countryName: 'Türkiye',
+    countryName: 'Turkey',
     website: 'https://globalai.community/events/fly-with-copilot',
     tickets: 'https://globalai.community/events/fly-with-copilot'
   },
