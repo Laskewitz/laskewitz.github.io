@@ -32,6 +32,26 @@ export const events: EventRecord[] = [
       'https://register.ignite.microsoft.com/flow/microsoft/ignite27/welcome/page/welcome'
   },
   {
+    slug: 'fly-with-copilot-singapore-2026',
+    name: 'Fly With Copilot',
+    start: '2026-11-09',
+    city: 'Singapore',
+    country: 'SG',
+    countryName: 'Singapore',
+    website: 'https://globalai.community/events/fly-with-copilot',
+    tickets: 'https://globalai.community/events/fly-with-copilot'
+  },
+  {
+    slug: 'fly-with-copilot-bangkok-2026',
+    name: 'Fly With Copilot',
+    start: '2026-11-07',
+    city: 'Bangkok',
+    country: 'TH',
+    countryName: 'Thailand',
+    website: 'https://globalai.community/events/fly-with-copilot',
+    tickets: 'https://globalai.community/events/fly-with-copilot'
+  },
+  {
     slug: 'ppcc-2026',
     name: 'Power Platform Community Conference',
     start: '2026-10-27',
@@ -41,6 +61,26 @@ export const events: EventRecord[] = [
     countryName: 'United States',
     website: 'https://powerplatformconf.com/',
     tickets: 'https://powerplatformconf.com/register'
+  },
+  {
+    slug: 'fly-with-copilot-istanbul-2026',
+    name: 'Fly With Copilot',
+    start: '2026-10-19',
+    city: 'Istanbul',
+    country: 'TR',
+    countryName: 'Türkiye',
+    website: 'https://globalai.community/events/fly-with-copilot',
+    tickets: 'https://globalai.community/events/fly-with-copilot'
+  },
+  {
+    slug: 'fly-with-copilot-milan-2026',
+    name: 'Fly With Copilot',
+    start: '2026-10-12',
+    city: 'Milan',
+    country: 'IT',
+    countryName: 'Italy',
+    website: 'https://globalai.community/events/fly-with-copilot',
+    tickets: 'https://globalai.community/events/fly-with-copilot'
   },
   {
     slug: 'scottish-summit-2026',
@@ -279,26 +319,6 @@ export const events: EventRecord[] = [
     country: 'US',
     countryName: 'United States',
     website: 'https://ignite.microsoft.com/en-US/home'
-  },
-  {
-    slug: 'fly-with-copilot-singapore-2026',
-    name: 'Fly With Copilot',
-    start: '2026-11-09',
-    city: 'Singapore',
-    country: 'SG',
-    countryName: 'Singapore',
-    website: 'https://globalai.community/events/fly-with-copilot',
-    tickets: 'https://globalai.community/events/fly-with-copilot'
-  },
-  {
-    slug: 'fly-with-copilot-bangkok-2026',
-    name: 'Fly With Copilot',
-    start: '2026-11-07',
-    city: 'Bangkok',
-    country: 'TH',
-    countryName: 'Thailand',
-    website: 'https://globalai.community/events/fly-with-copilot',
-    tickets: 'https://globalai.community/events/fly-with-copilot'
   },
   {
     slug: 'ai-tour-frankfurt-2025',
