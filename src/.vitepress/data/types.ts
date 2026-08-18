@@ -41,6 +41,11 @@ export interface EventRecord {
   city: string
   /** ISO 3166-1 alpha-2, `GB-ENG`/`GB-SCT`/`GB-WLS`, or `ZZ` for online. */
   country: string
+  /**
+   * The country's English name, so the list reads in one language however the
+   * country spells itself. Cities keep their local spelling; only the country
+   * is anglicised.
+   */
   countryName: string
   website?: string
   tickets?: string
