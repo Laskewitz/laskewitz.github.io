@@ -119,7 +119,17 @@ function toVevent(event: EventRecord, stamp: string): string[] {
     `DTEND;VALUE=DATE:${dayAfter(event.end ?? event.start)}`,
     `SUMMARY:${escapeText(summary(event))}`,
     `LOCATION:${escapeText(eventPlace(event))}`,
-    'TRANSP:TRANSPARENT'
+    'SEQUENCE:0',
+    'STATUS:CONFIRMED',
+    'CLASS:PUBLIC',
+    'TRANSP:TRANSPARENT',
+    /**
+     * Outlook reads its own dialect first: without these it treats an all-day
+     * event as a busy block starting at midnight, which is neither true nor
+     * what a subscriber wants a speaking calendar to do to their free/busy.
+     */
+    'X-MICROSOFT-CDO-ALLDAYEVENT:TRUE',
+    'X-MICROSOFT-CDO-BUSYSTATUS:FREE'
   ]
   if (event.website) lines.push(`URL:${event.website}`)
   lines.push('END:VEVENT')
@@ -143,7 +153,15 @@ export function buildCalendar(now: Date = new Date()): string {
     'VERSION:2.0',
     `PRODID:${PRODID}`,
     'CALSCALE:GREGORIAN',
-    'METHOD:PUBLISH',
+    /**
+     * No `METHOD`. Declaring one turns the file into a scheduling message
+     * rather than a calendar, and RFC 5546 then demands an `ORGANIZER` on
+     * every event. Outlook enforces that where Google and Apple shrug it off,
+     * so a `METHOD:PUBLISH` here is what makes Outlook refuse the feed with
+     * "couldn't load one or more events". A subscription URL is not an
+     * invitation, so the property has no business being here in the first
+     * place.
+     */
     'X-WR-CALNAME:Daniel Laskewitz — Speaking',
     'X-WR-CALDESC:Every event Daniel Laskewitz is speaking at\\, past and upcoming.',
     'X-WR-TIMEZONE:Europe/Amsterdam',
