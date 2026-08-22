@@ -3,10 +3,7 @@ import path from 'node:path'
 import type { SiteConfig } from 'vitepress'
 import { events } from './data/events'
 import { eventPlace } from './data/format'
-import { talksAtEvent } from './data/talks'
 import type { EventRecord } from './data/types'
-
-const HOSTNAME = 'https://laskewitz.io'
 
 /** The calendar's own identity, so a subscribed client can tell two feeds apart. */
 const PRODID = '-//Daniel Laskewitz//Speaking calendar//EN'
@@ -70,22 +67,47 @@ function timestamp(now: Date): string {
 }
 
 /**
- * What the entry says once it's sitting in someone's week: where it is, what
- * I'm giving there, and where to read more. The talk titles matter most — the
- * event name alone doesn't say whether a day is a stage or a seat.
+ * The line a month view actually shows.
+ *
+ * A one-off event needs nothing but its name. A recurring one does: the year
+ * separates its editions, and for a travelling series the city separates two
+ * stops in the same year — four rows reading "Fly With Copilot" are four
+ * identical rows, and the city is buried in LOCATION where a grid view never
+ * draws it. A series that runs several times a year in one place needs one
+ * more thing still, so those are numbered in the order they happened. Every
+ * qualifier is earned rather than always printed, so a name that only ever
+ * happens once stays clean.
  */
-function description(event: EventRecord): string {
-  const lines: string[] = []
-  const given = talksAtEvent(event.slug)
+function summary(event: EventRecord): string {
+  const place = event.online ? 'Online' : event.city
+  const year = event.start.slice(0, 4)
+  const namesakes = events.filter(
+    (other) => other.slug !== event.slug && other.name === event.name
+  )
+  const travels = namesakes.some(
+    (other) => (other.online ? 'Online' : other.city) !== place
+  )
 
-  for (const talk of given) {
-    lines.push(`${talk.format === 'workshop' ? 'Workshop' : 'Session'}: ${talk.title}`)
-  }
-  if (given.length) lines.push('')
-  if (event.website) lines.push(event.website)
-  lines.push(`${HOSTNAME}/events/`)
+  /** Same name, same place, same year: only an ordinal tells these apart. */
+  const edition = events
+    .filter(
+      (other) =>
+        other.name === event.name &&
+        (other.online ? 'Online' : other.city) === place &&
+        other.start.slice(0, 4) === year
+    )
+    .sort((a, b) => a.start.localeCompare(b.start))
+  const ordinal = edition.findIndex((other) => other.slug === event.slug) + 1
 
-  return lines.join('\n')
+  const qualifiers = [
+    ...(travels ? [place] : []),
+    ...(edition.length > 1 ? [`#${ordinal}`] : []),
+    ...(namesakes.length ? [year] : [])
+  ]
+
+  return qualifiers.length
+    ? `Daniel @ ${event.name} (${qualifiers.join(' ')})`
+    : `Daniel @ ${event.name}`
 }
 
 function toVevent(event: EventRecord, stamp: string): string[] {
@@ -95,9 +117,8 @@ function toVevent(event: EventRecord, stamp: string): string[] {
     `DTSTAMP:${stamp}`,
     `DTSTART;VALUE=DATE:${dateValue(event.start)}`,
     `DTEND;VALUE=DATE:${dayAfter(event.end ?? event.start)}`,
-    `SUMMARY:${escapeText(`Daniel @ ${event.name}`)}`,
+    `SUMMARY:${escapeText(summary(event))}`,
     `LOCATION:${escapeText(eventPlace(event))}`,
-    `DESCRIPTION:${escapeText(description(event))}`,
     'TRANSP:TRANSPARENT'
   ]
   if (event.website) lines.push(`URL:${event.website}`)
