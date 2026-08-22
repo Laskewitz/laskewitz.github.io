@@ -22,7 +22,7 @@ export const events: EventRecord[] = [
   {
     slug: 'ignite-2026',
     name: 'Microsoft Ignite',
-    start: '2026-11-17',
+    start: '2026-11-16',
     end: '2026-11-20',
     city: 'San Francisco',
     country: 'US',
@@ -54,8 +54,8 @@ export const events: EventRecord[] = [
   {
     slug: 'ppcc-2026',
     name: 'Power Platform Community Conference',
-    start: '2026-10-27',
-    end: '2026-10-29',
+    start: '2026-10-25',
+    end: '2026-10-30',
     city: 'Las Vegas',
     country: 'US',
     countryName: 'United States',
