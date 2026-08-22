@@ -88,6 +88,35 @@ function description(event: EventRecord): string {
   return lines.join('\n')
 }
 
+/**
+ * The line a month view actually shows.
+ *
+ * A one-off event needs nothing but its name. A recurring one does: the year
+ * separates its editions, and for a travelling series the city separates two
+ * stops in the same year — four rows reading "Fly With Copilot" are four
+ * identical rows, and the city is buried in LOCATION where a grid view never
+ * draws it. Both qualifiers are earned rather than always printed, so a name
+ * that only ever happens once stays clean.
+ */
+function summary(event: EventRecord): string {
+  const place = event.online ? 'Online' : event.city
+  const namesakes = events.filter(
+    (other) => other.slug !== event.slug && other.name === event.name
+  )
+  const travels = namesakes.some(
+    (other) => (other.online ? 'Online' : other.city) !== place
+  )
+
+  const qualifiers = [
+    ...(travels ? [place] : []),
+    ...(namesakes.length ? [event.start.slice(0, 4)] : [])
+  ]
+
+  return qualifiers.length
+    ? `Daniel @ ${event.name} (${qualifiers.join(', ')})`
+    : `Daniel @ ${event.name}`
+}
+
 function toVevent(event: EventRecord, stamp: string): string[] {
   const lines = [
     'BEGIN:VEVENT',
@@ -95,7 +124,7 @@ function toVevent(event: EventRecord, stamp: string): string[] {
     `DTSTAMP:${stamp}`,
     `DTSTART;VALUE=DATE:${dateValue(event.start)}`,
     `DTEND;VALUE=DATE:${dayAfter(event.end ?? event.start)}`,
-    `SUMMARY:${escapeText(`Daniel @ ${event.name}`)}`,
+    `SUMMARY:${escapeText(summary(event))}`,
     `LOCATION:${escapeText(eventPlace(event))}`,
     `DESCRIPTION:${escapeText(description(event))}`,
     'TRANSP:TRANSPARENT'
