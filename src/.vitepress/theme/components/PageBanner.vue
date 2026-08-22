@@ -17,11 +17,21 @@ defineProps<{
   track: Track
   /** Passed through to BannerImage — every photograph frames the face differently. */
   focus?: string
+  /** The same anchor for a phone, where the crop turns horizontal. */
+  focusNarrow?: string
 }>()
 </script>
 
 <template>
-  <BannerImage :src="src" :alt="alt" :track="track" :focus="focus" height="strip" priority>
+  <BannerImage
+    :src="src"
+    :alt="alt"
+    :track="track"
+    :focus="focus"
+    :focus-narrow="focusNarrow"
+    height="strip"
+    priority
+  >
     <h1 class="banner-title wf-sign">{{ title }}</h1>
     <p v-if="$slots.default" class="banner-standfirst"><slot /></p>
   </BannerImage>

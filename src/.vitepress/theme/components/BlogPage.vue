@@ -102,7 +102,8 @@ function toggleYear(year: string) {
       src="stage-eppc-2026"
       alt="Daniel Laskewitz mid-sentence on stage at the European Power Platform Conference 2026, hands open, a slide of Microsoft 365 icons behind him."
       track="c"
-      focus="53% 3%"
+      focus="53% 8%"
+      focus-narrow="100% 50%"
     />
 
     <FilterBar

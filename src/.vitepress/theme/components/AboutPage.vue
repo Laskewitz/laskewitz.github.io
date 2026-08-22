@@ -95,7 +95,8 @@ async function copy(label: string, text: string) {
       src="stage-eppc-2026-lectern"
       alt="Daniel Laskewitz speaking from the lectern at the European Power Platform Conference 2026."
       track="e"
-      focus="65% 6%"
+      focus="65% 5%"
+      focus-narrow="100% 50%"
     >
       Principal Cloud Advocate at Microsoft. I work on Copilot Studio,
       Copilot Cowork, Scout, GitHub Copilot and Microsoft 365 Copilot. If you
