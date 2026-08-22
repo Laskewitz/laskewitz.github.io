@@ -1,5 +1,6 @@
 import { defineConfig } from 'vitepress'
 import { DIRECTION_CONTRACT } from './contract'
+import { generateCalendar, icsDevPlugin } from './ics'
 import { addJsonLd } from './jsonld'
 import { renderOgCards, transformPageData as addSharingMeta } from './og'
 import { generateFeed, rssDevPlugin } from './rss'
@@ -31,7 +32,7 @@ export default defineConfig({
   ignoreDeadLinks: [/^\/feed\.(rss|xml)$/],
 
   /** ...and the dev server serves it from memory, so the link works there too. */
-  vite: { plugins: [rssDevPlugin()] },
+  vite: { plugins: [rssDevPlugin(), icsDevPlugin()] },
 
   head: [
     ['link', { rel: 'icon', href: '/images/icon.png' }],
@@ -102,6 +103,7 @@ export default defineConfig({
 
   async buildEnd(siteConfig) {
     await generateFeed(siteConfig)
+    generateCalendar(siteConfig)
     await renderOgCards(siteConfig)
   }
 })
