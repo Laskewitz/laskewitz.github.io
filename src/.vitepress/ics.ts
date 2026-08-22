@@ -95,11 +95,14 @@ function description(event: EventRecord): string {
  * separates its editions, and for a travelling series the city separates two
  * stops in the same year — four rows reading "Fly With Copilot" are four
  * identical rows, and the city is buried in LOCATION where a grid view never
- * draws it. Both qualifiers are earned rather than always printed, so a name
- * that only ever happens once stays clean.
+ * draws it. A series that runs several times a year in one place needs one
+ * more thing still, so those are numbered in the order they happened. Every
+ * qualifier is earned rather than always printed, so a name that only ever
+ * happens once stays clean.
  */
 function summary(event: EventRecord): string {
   const place = event.online ? 'Online' : event.city
+  const year = event.start.slice(0, 4)
   const namesakes = events.filter(
     (other) => other.slug !== event.slug && other.name === event.name
   )
@@ -107,9 +110,21 @@ function summary(event: EventRecord): string {
     (other) => (other.online ? 'Online' : other.city) !== place
   )
 
+  /** Same name, same place, same year: only an ordinal tells these apart. */
+  const edition = events
+    .filter(
+      (other) =>
+        other.name === event.name &&
+        (other.online ? 'Online' : other.city) === place &&
+        other.start.slice(0, 4) === year
+    )
+    .sort((a, b) => a.start.localeCompare(b.start))
+  const ordinal = edition.findIndex((other) => other.slug === event.slug) + 1
+
   const qualifiers = [
     ...(travels ? [place] : []),
-    ...(namesakes.length ? [event.start.slice(0, 4)] : [])
+    ...(edition.length > 1 ? [`#${ordinal}`] : []),
+    ...(namesakes.length ? [year] : [])
   ]
 
   return qualifiers.length
