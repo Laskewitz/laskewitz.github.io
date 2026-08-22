@@ -95,7 +95,7 @@ function toVevent(event: EventRecord, stamp: string): string[] {
     `DTSTAMP:${stamp}`,
     `DTSTART;VALUE=DATE:${dateValue(event.start)}`,
     `DTEND;VALUE=DATE:${dayAfter(event.end ?? event.start)}`,
-    `SUMMARY:${escapeText(event.name)}`,
+    `SUMMARY:${escapeText(`Daniel @ ${event.name}`)}`,
     `LOCATION:${escapeText(eventPlace(event))}`,
     `DESCRIPTION:${escapeText(description(event))}`,
     'TRANSP:TRANSPARENT'
