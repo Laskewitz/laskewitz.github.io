@@ -113,7 +113,7 @@ function summary(event: EventRecord): string {
   ]
 
   return qualifiers.length
-    ? `Daniel @ ${event.name} (${qualifiers.join(', ')})`
+    ? `Daniel @ ${event.name} (${qualifiers.join(' ')})`
     : `Daniel @ ${event.name}`
 }
 
